@@ -1,4 +1,4 @@
-import { createPool } from 'mysql12/promise'
+import { createPool } from 'mysql/promise'
 
 export const pool = createPool({
     host: '127.0.0.1',
