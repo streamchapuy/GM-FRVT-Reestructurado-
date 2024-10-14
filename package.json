@@ -6,7 +6,10 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "dev": "nodemon backend_conection/index.js"
+
     "test": "ng test"
+
   },
   "private": true,
   "dependencies": {
