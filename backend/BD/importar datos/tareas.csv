@@ -1,0 +1,112 @@
+id;descripcion;id-existencia;id-tareaxactivo
+1;Relevar marca;1;1
+2;Relevar material;1;1
+3;Relevar tama¤o de gabinete;1;1
+4;Relevar Marca de Maquina Primaria y Alternador;1;1
+5;Relevar Tipo de Piso;1;1
+6;Relevar Material de Paredes;1;1
+7;Relevar modelo;1;1
+8;Numero de Hojas;1;1
+9;Relevar Tama¤o;1;1
+10;Cerradura Si/No;1;1
+11;Mochila Empotrada/Exterior;1;1
+12;Canaletas Si/No;1;1
+13;Bajadas Si/No;1;1
+14;Acceso desde el Interior Si/No;1;1
+15;Relevar Tipo. Abril/Corredizo/Levadizo/Otro;1;1
+16;Relevar Dimensiones;1;1
+17;Relevar Tipo de Techo;1;1
+18;Relevar Material de Piso;1;1
+19;Tipo. Caracol/Marinera/Convencional;1;1
+20;Relevar Material de Techo;1;1
+21;Relevar potencia;1;1
+22;Relevar potencia/TamaÏo;1;1
+23;Con Vidrio/Sin Vidrio/Tipo;1;1
+24;Tipo de Vidrio;1;1
+25;Relevar Tipo;1;1
+26;De columna/Empotrado;1;1
+27;Montaje: Pared / Techo / Movil;1;1
+28;Relevar tipo de accionamiento;1;1
+29;Electrico/Gas - Tipo de Gas;1;1
+30;Cantidad de Bajadas;1;1
+31;Relevar Cantidad y Potencia;1;1
+32;Relevar Potencia y Caracteristicas Electricas Principales;1;1
+33;Relevar Tipo/Material;1;1
+34;Tipo de Tapa. Ciega/Rejilla/Otra;1;1
+35;Abiertas/Cerradas;1;1
+36;Relevar cantidad de lamparas por equipo;1;1
+37;Frio - Calor - Frio/Calor;1;1
+38;Corrediza/De abrir;1;1
+39;Relevar tipo de canilla;1;1
+40;Relevar cantidad y material de palas;1;1
+41;Tipo de Puerta;1;1
+42;Relevar Tipo de Accionamiento;1;1
+43;Bajadas Internas/Externas;1;1
+44;Baranda Si/No;1;1
+45;Relevar Capacidad;1;1
+46;Tiene Iluminacion sobre Estructura;1;1
+47;Marca/Modelo/Tipo de Cerradura;1;1
+48;Agua Fria/Caliente;1;1
+49;Relevar tipo y marca de controlador;1;1
+50;Puerta Manual / Automatica;1;1
+51;Tiro Balanceado Si/No;1;1
+52;Material de Bajadas;1;1
+53;Marca/Modelo/Tipo de Bisagras;1;1
+54;Relevar cualquier otro dato que considere relevante para el mantenimiento;1;1
+55;Tomar Fotografia;1;1
+56;Al finalizar la actividad deje el ÿarea limpia, ordenada y segura;1;1
+57;Se¤alice el ÿarea de Trabajo. Desconecte la energ­a electrica - Verificar NO exisitencia de tension electrica;1;2
+58;Se¤alice el ÿarea de Trabajo;1;2
+59;Control de louver;1;2
+60;Verificar correcto estado de cableado electrico, tomacorriente y conexiones electricas;1;2
+61;Verifique correcto funcionamiento de valvulas;1;2
+62;Verificar correcta y firme fijacion a pared o estructura;1;2
+63;Verificar correcta y firme fijacion de baranda a pared o estructura;1;2
+64;Utilice los Elementos de Protecci½n Personal para trabajos en altura;1;2
+65;Verificar estado general;1;2
+66;ATENCION: ESTA MISMA OT SERA UTILIZADA PARA LAS 4 ACTIVIDADES MENSUALES;1;2
+67;Verificacion de  funcionamiento de la totalidad de las lamparas.;1;2
+68;Verificar correcta y firme fijacion a pared o estructura de ambas unidades;1;2
+69;Verificar NO  de perdidas;1;2
+70;Verifique y lubrique bisagras y/o correderas;1;2
+71;Verifique y lubrique bisagras y/o correderas y/o enrolladores;1;2
+72;Verificar esrado de carga. Lectura de manimetro de presion y fecha de vencimiento;1;2
+73;Verique el buen estado general;1;2
+74;Verificacion de estados de zocalos y/o portalamparas;1;2
+75;Verificar existencia y correcto montaje de protecciones mecanicas;1;2
+76;Verifique y lubrique cerraduras.;1;2
+77;Verifique firme montaje de componentes.;1;2
+78;Verificar correcto estado de cableado electrico, tomacorriente y conexiones electricas.;1;2
+79;Verificar correcta sujeccion de coberturas, canaletas, cumbreras, cenefas y otros.;1;2
+80;Verificar correcta y firme fijacion a pared o estructura.;1;2
+81;Verificar NO  existencia de perdidas.;1;2
+82;Realice limpieza, ordenamiento y/o emprolijamiento del ÿarea.;1;2
+83;Limpieza de luminaria y lampara.;1;2
+84;Verificar carga de gas y NO  de fugas.;1;2
+85;Realice verificacion de correcto funcionamiento.;1;2
+86;Verifique correcta sujeccion de vidrios.;1;2
+87;Verificar  y correcto montaje de las proteccion contra choque electrico;1;2
+88;Verificar correcto estado de cableado electrico.;1;2
+89;Verifique limpieza de caneletas. Debe encontrarse libre de obstucciones y apta para la correcta descarga de agua.;1;2
+90;Actividad 1 de 4 Mensual. Indique Fecha:;1;2
+91;Verificar correcto montaje y sujecci½n.;1;2
+92;Realice limpieza de filtros.;1;2
+93;Realizar limpieza del equipo.;1;2
+94;Verificar correcto funcionamiento de puertas y cerraduras;1;2
+95;Verificar NO  de perdidas de liquidos y/o gas.;1;2
+96;Realizar limpieza externa del equipo.;1;2
+97;Verifique sujeccion y estanqueidad de bajadas de descarga de canaletas.;1;2
+98;Realice limpieza interna y externa de los equipos.;1;2
+99;Actividad 2 de 4 Mensual. Indique Fecha:;1;2
+100;Verifique correcto funcionamiento del equipo luego de finalizada la actividad.;1;2
+101;Realice limpieza completa de ambas unidades.;1;2
+102;Realice verificacion de correcto funcionamiento.;1;2
+103;Verificar correcto ajuste de conexiones electricas.Verificar NO  de se¤ales de sobrecalentamiento de los componentes. ;1;2
+104;Verifique que las descargas de canaletas permitan flujo libre y se encuentren conectadas correctamente en extremos y uniones.;1;2
+105;Actividad 3 de 4 Mensual. Indique Fecha:;1;2
+106;Conecte nuevamente a la red electrica y realice una prueba de correcto funcionamiento.;1;2
+107;Realizar limpieza del equipo. No utilice elementos humedos ni liquidos. Para retirar polvos, utilice un equipo de aspiracion.;1;2
+108;ðððEN CASO DE DETECTAR ANOMALIAS CONTACTAR AL SERVICIO TECNICO AUTORIZADO. SI ESTAS ANOMALIAS SON CRITICAS, DETENGA EL USO DEL EQUIPO!!!;1;2
+109;Actividad 4 de 4 Mensual. Indique Fecha:;1;2
+110;Complete la documentacion de mantenimiento;1;2
+111;Al finalizar la actividad deje el ÿarea limpia, ordenada y segura;1;2
