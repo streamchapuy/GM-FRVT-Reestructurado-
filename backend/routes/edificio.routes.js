@@ -3,8 +3,8 @@ import { createEdificio, editEdificio, getEdificio } from "../controllers/edific
 
 const router = Router()
 
-router.get('/edificios', getEdificio)
-router.post('/edificios', createEdificio)
-router.put('/edificios', editEdificio)
+router.get('API/edificios', getEdificio)
+router.post('API/edificios', createEdificio)
+router.put('API/edificios', editEdificio)
 
 export default router

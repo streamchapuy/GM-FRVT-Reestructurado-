@@ -1,6 +1,6 @@
 import bcript from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import base_conexion from '../db';
+import { pool } from '../db.js';
 
 
 export const  logeoUser = async (req, res) => {

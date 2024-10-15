@@ -3,8 +3,8 @@ import { createTarea, editTarea, getTarea } from "../controllers/tarea.controlle
 
 const router = Router()
 
-router.get('/tarea', getTarea)
-router.post('/tarea', createTarea)
-router.put('/tarea', editTarea)
+router.get('API/tarea', getTarea)
+router.post('API/tarea', createTarea)
+router.put('API/tarea', editTarea)
 
 export default router

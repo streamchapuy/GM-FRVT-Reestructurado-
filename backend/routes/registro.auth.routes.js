@@ -1,5 +1,5 @@
 import express from 'express';
-import { registerUser } from '../controllers/registro.auth.controller';
+import { registerUser } from '../controllers/registro.auth.controller.js';
 
 const router = express.Router();
 

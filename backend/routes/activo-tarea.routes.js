@@ -3,8 +3,8 @@ import { createActivoTarea, editActivoTarea, getActivoTarea } from "../controlle
 
 const router = Router()
 
-router.get('/activo-tarea', getActivoTarea)
-router.post('/activo-tarea', createActivoTarea)
-router.put('/activo-tarea', editActivoTarea)
+router.get('API/activo-tarea', getActivoTarea)
+router.post('API/activo-tarea', createActivoTarea)
+router.put('API/activo-tarea', editActivoTarea)
 
 export default router

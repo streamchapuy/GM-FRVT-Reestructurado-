@@ -83,6 +83,23 @@ CREATE TABLE operario (
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
 );
 
+-- tabla: admin
+CREATE TABLE admin (
+    id_admin INT PRIMARY KEY,
+    nombre VARCHAR(100),
+    id_existencia INT,
+    FOREIGN KEY(id_existencia) REFERENCES existencia(id_existencia)
+    
+
+)
+--tabla usuarios 
+CREATE TABLE usuarios (
+    id_operario  INT,
+    id_admini INT,
+    FOREIGN KEY(id_operario) REFERENCES operario(id_operario),
+    FOREIGN KEY(id_admin) REFERENCES admin(id_admin)
+)
+
 -- Tabla: Orden de Trabajo
 CREATE TABLE orden_trabajo (
     id_edificio INT,
