@@ -1,10 +1,10 @@
-import express from "express";
+import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
 import loginRoutes from './routes/login_auth.routes.js';
 import registroRoutes from './routes/registro.auth.routes.js';
-import authenticateToken from "../middleware/authmiddleware.js";
+import authenticateToken from "./middleware/authmiddleware.js";
 
 import activotareaRoutes from './routes/activo-tarea.routes.js';
 import activoRoutes from './routes/activo.routes.js';
