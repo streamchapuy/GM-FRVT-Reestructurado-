@@ -1,4 +1,4 @@
-import { pool } from '../ot.js'
+import { pool } from '../db.js'
 
 export const getEdificio = async (req, res)=> async (req, res)=> {
     const [rows] = await pool.query('SELECT * FROM edificio')

@@ -1,15 +1,14 @@
 {
   "name": "gm-frvt",
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "dev": "nodemon backend_conection/index.js"
-
+    "dev": "nodemon ./backend_conection/index.js",
     "test": "ng test"
-
   },
   "private": true,
   "dependencies": {
@@ -21,6 +20,10 @@
     "@angular/platform-browser": "^17.3.0",
     "@angular/platform-browser-dynamic": "^17.3.0",
     "@angular/router": "^17.3.0",
+    "express": "^4.21.1",
+    "gm-frvt": "file:",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.11.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
