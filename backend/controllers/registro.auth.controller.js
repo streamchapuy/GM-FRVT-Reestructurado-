@@ -7,7 +7,7 @@ export const registerUser = async (req, res) => {
     try {       
         const hashedPassword = await bcrypt.hash(password, 10);       
         
-        const query = 'INSERT INTO users (username, password) VALUES (?, ?)';
+        const query = 'INSERT INTO operario (username, password) VALUES (?, ?)';
         base_conexion.query(query, [username, hashedPassword], (error, result) => {
             if (error) {
                 console.error('Error al registrar el usuario: ' + error);
