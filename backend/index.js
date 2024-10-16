@@ -20,8 +20,8 @@ import ubicacionRoutes from './routes/ubicacion.routes.js';
 
 
 
-const app = express();
 dotenv.config();
+const app = express();
 
 const corsOptions = {
     origin: 'http://localhost:4200',
@@ -29,6 +29,7 @@ const corsOptions = {
     credentials: true,
     optionsSuccessStatus: 204,
 }
+
 
 app.use(cors(corsOptions));
 app.use(express.json())

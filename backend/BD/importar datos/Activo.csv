@@ -1,4 +1,4 @@
-id;nombre;abreviacion;id-existencia
+id_activo;nombre;abreviacion;id_existencia
 1;Iluminacion;ILUM - ;1
 2;Aire Acondicionado;AACO - ;1
 3;Radiador Calefaccion;RCAL - ;1
@@ -26,7 +26,7 @@ id;nombre;abreviacion;id-existencia
 25;Tanques de Agua;TNQE - ;1
 26;Rejillas & Desagues;DESA - ;1
 27;Emergencia Alarma;EMER - ;1
-28;Espacio Fðisico;ESFI - ;1
+28;Espacio Fï¿½isico;ESFI - ;1
 29;Ducha;DCHA - ;1
 30;Cocheras;CHRA - ;1
 31;Escalera;ESLR - ;1

@@ -7,8 +7,8 @@ export const  logeoUser = async (req, res) => {
     const { username, password } = req.body;
 
     try {
-        const query = 'SELECT * FROM users WHERE username = ?';
-        base_conexion.query(query, [username], async (error, results) => {
+        const query = 'SELECT * FROM operario WHERE username = ?';
+        pool.query(query, [username], async (error, results) => {
             if (error) {
                 console.error('Error al buscar el usuario: ' + error);
                 return res.status(500).json({ message: 'Error al buscar el usuario' });
@@ -19,12 +19,12 @@ export const  logeoUser = async (req, res) => {
             }
             const user = results[0];
 
-            const isMatch = await bcrypt.compare(password, user.password);
+            const isMatch = await bcrypt.compare(password, operario.password);
             if (!isMatch) {
                 return res.status(401).json({ message: 'Credenciales inválidas' });
             }
 
-            const token = jwt.sign({ userId: user.id }, SECRET_KEY, { expiresIn: '1h' });
+            const token = jwt.sign({ operario_id: operario.operario_id }, SECRET_KEY, { expiresIn: '1h' });
             res.json({ token });
 
             res.json({ message: 'Inicio de sesión exitoso', token });
