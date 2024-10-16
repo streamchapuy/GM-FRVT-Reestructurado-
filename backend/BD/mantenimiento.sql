@@ -46,19 +46,21 @@ CREATE TABLE activo (
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
 );
 
+-- Tabla: Tarea por Activo
+CREATE TABLE tareaxactivo (
+    id_tareaxactivo INT PRIMARY KEY,
+    descripcion VARCHAR(255)
+);
+
 -- Tabla: Tarea
 CREATE TABLE tarea (
     id_tarea INT PRIMARY KEY,
     descripcion VARCHAR(255),
     id_existencia INT,
-    id_tareaxactico INT,
-    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
-);
-
--- Tabla: Tarea por Activo
-CREATE TABLE tareaxactivo (
-    id_tareaxactico INT PRIMARY KEY,
-    descripcion VARCHAR(255)
+    id_tareaxactivo INT,
+    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia),
+    FOREIGN KEY(id_tareaxactivo) REFERENCES tareaxactivo(id_tareaxactivo)
+    
 );
 
 -- Tabla: Activo-Tarea
@@ -91,14 +93,15 @@ CREATE TABLE admin (
     FOREIGN KEY(id_existencia) REFERENCES existencia(id_existencia)
     
 
-)
---tabla usuarios 
+);
+
+-- tabla usuarios 
 CREATE TABLE usuarios (
     id_operario  INT,
-    id_admini INT,
+    id_admin INT,
     FOREIGN KEY(id_operario) REFERENCES operario(id_operario),
     FOREIGN KEY(id_admin) REFERENCES admin(id_admin)
-)
+);
 
 -- Tabla: Orden de Trabajo
 CREATE TABLE orden_trabajo (
