@@ -3,8 +3,8 @@ import { createPiso, editPiso, getPiso } from "../controllers/piso.controller.js
 
 const router = Router()
 
-router.get('/piso', getPiso)
-router.post('/piso', createPiso)
-router.put('/piso', editPiso)
+router.get('API/piso', getPiso)
+router.post('API/piso', createPiso)
+router.put('API/piso', editPiso)
 
 export default router

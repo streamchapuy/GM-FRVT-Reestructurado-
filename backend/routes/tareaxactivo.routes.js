@@ -3,8 +3,8 @@ import { createTareaXActivo, editTareaXActivo, getTareaXActivo } from "../contro
 
 const router = Router()
 
-router.get('/tareaxactivo', getTareaXActivo)
-router.post('/tareaxactivo ', createTareaXActivo)
-router.put('/tareaxactivo', editTareaXActivo)
+router.get('API/tareaxactivo', getTareaXActivo)
+router.post('API/tareaxactivo ', createTareaXActivo)
+router.put('API/tareaxactivo', editTareaXActivo)
 
 export default router

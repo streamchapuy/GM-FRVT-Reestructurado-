@@ -1,10 +1,11 @@
 import { Router } from "express"
-import { createEdificio, editEdificio, getEdificio } from "../controllers/edificio.controller.js"
+import { createEdificio, editEdificio, getEdificio, getEdificios } from "../controllers/edificio.controller.js"
 
 const router = Router()
 
-router.get('/edificios', getEdificio)
-router.post('/edificios', createEdificio)
-router.put('/edificios', editEdificio)
+router.get('API/edificios', getEdificios)
+router.get('API/edificios', getEdificio)
+router.post('API/edificios', createEdificio)
+router.put('API/edificios', editEdificio)
 
 export default router

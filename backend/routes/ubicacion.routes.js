@@ -3,8 +3,8 @@ import { createUbicacion, editUbicacion, getUbicacion } from "../controllers/ubi
 
 const router = Router()
 
-router.get('/ubicacion', getUbicacion)
-router.post('/ubicacion', createUbicacion)
-router.put('/ubicacion', editUbicacion)
+router.get('API/ubicacion', getUbicacion)
+router.post('API/ubicacion', createUbicacion)
+router.put('API/ubicacion', editUbicacion)
 
 export default router
