@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
 import {pool} from '../db.js';
 
@@ -5,6 +6,7 @@ export const registerUser = async (req, res) => {
     const { username, password } = req.body;
 
     try {       
+  
         const hashedPassword = await bcrypt.hash(password, 10);       
         
         const query = 'INSERT INTO operario (username, password) VALUES (?, ?)';
@@ -18,6 +20,6 @@ export const registerUser = async (req, res) => {
         });
     } catch (error) {
         console.error('Error en el proceso de registro: ' + error);
-        res.status(500).json({ message: 'Error en el proceso de registro' }); 
+        res.status(500).json({ message: 'Error en el proceso de registro' });
     }
 }
