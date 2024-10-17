@@ -6,9 +6,9 @@ export const getTareaXActivo = async (req, res)=> {
 }
 
 export const createTareaXActivo = async (req, res)=> {
-    const {id, descripcion} = req.body
+    const {id_tareaxactico, descripcion} = req.body
     const [rows] = await pool.query('INSERT INTO tareaxactivo (id_tareaxactico, descripcion) VALUES (?, ?)',
-        [id, descripcion])
+        [id_tareaxactico, descripcion])
     res.send({rows})
 }
 

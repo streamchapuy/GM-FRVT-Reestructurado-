@@ -6,9 +6,9 @@ export const getOT = (req, res)=> async (req, res)=> {
 }
 
 export const createOT = async (req, res)=> {
-    const {operario, edificio, piso, sector, activo, ubicacion, cantidad} = req.body
+    const {id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad} = req.body
     const [rows] = await pool.query('INSERT INTO orden_trabajo (id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad) VALUES (?, ?, ?, ?, ?, ?, ?)',
-        [operario, edificio, piso, sector, activo, ubicacion, cantidad])
+        [id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad])
     res.send({rows})
 }
 

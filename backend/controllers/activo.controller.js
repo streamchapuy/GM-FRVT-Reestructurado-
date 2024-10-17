@@ -5,9 +5,9 @@ export const getActivo = async (req, res)=> {
     res.json(rows)
 }
 export const createActivo = async (req, res)=> {
-    const {id, nombre, abreviacion , existencia} = req.body
+    const {id_activo, nombre, abreviacion, id_existencia} = req.body
     const [rows] = await pool.query('INSERT INTO activo (id_activo, nombre, abreviacion, id_existencia) VALUES (?, ?, ?, ?)',
-        [id, nombre, abreviacion , existencia])
+        [id_activo, nombre, abreviacion, id_existencia])
     res.send({rows})
 }
 

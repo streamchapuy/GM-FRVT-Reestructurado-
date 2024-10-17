@@ -6,9 +6,9 @@ export const getPiso = async (req, res)=> {
 }
 
 export const createPiso = async (req, res)=> {
-    const {id, nombre, existencia} = req.body
+    const {id_piso, nombre, id_existencia} = req.body
     const [rows] = await pool.query('INSERT INTO piso (id_piso, nombre, id_existencia) VALUES (?, ?, ?)',
-        [id, nombre, existencia])
+        [id_piso, nombre, id_existencia])
     res.send({rows})
 }
 
