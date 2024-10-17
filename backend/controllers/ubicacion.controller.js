@@ -6,9 +6,9 @@ export const getUbicacion = async (req, res)=> {
 }
 
 export const createUbicacion = async (req, res)=> {
-    const {id, nombre, existencia} = req.body
+    const {id_ubicacion, nombre, id_existencia} = req.body
     const [rows] = await pool.query('INSERT INTO ubicacion (id_ubicacion, nombre, id_existencia) VALUES ( ?, ?, ?)',
-        [id, nombre, existencia])
+        [id_ubicacion, nombre, id_existencia])
     res.send({rows})
 }
 

@@ -35,20 +35,20 @@ app.use(express.json())
 
 app.use(loginRoutes)
 app.use(registroRoutes)
-app.use(authenticateToken)
+// app.use(authenticateToken)
 
 
-app.use(indexRoutes)
-app.use(otRoutes)
-app.use(edificioRoutes)
-app.use(sectorRoutes)
-app.use(ubicacionRoutes)
-app.use(pisoRoutes)
-app.use(activoRoutes)
-app.use(tareaRoutes)
-app.use(activotareaRoutes)
-app.use(tareaxactivoRoutes)
-app.use(existenciaRoutes)
+app.use('/API', indexRoutes)
+app.use('/API', otRoutes)
+app.use('/API', edificioRoutes)
+app.use('/API', sectorRoutes)
+app.use('/API', ubicacionRoutes)
+app.use('/API', pisoRoutes)
+app.use('/API', activoRoutes)
+app.use('/API', tareaRoutes)
+app.use('/API', activotareaRoutes)
+app.use('/API', tareaxactivoRoutes)
+app.use('/API', existenciaRoutes)
 
 
 

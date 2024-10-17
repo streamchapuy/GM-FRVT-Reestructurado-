@@ -5,9 +5,9 @@ export const getSector = (req, res)=> async (req, res)=> {
     res.json(rows)
 }
 export const createSector = async (req, res)=> {
-    const {id, nombre, existencia} = req.body
+    const {id_sector, nombre, id_existencia} = req.body
     const [rows] = await pool.query('INSERT INTO sector (id_sector, nombre, id_existencia) VALUES ( ?, ?, ?)',
-        [id, nombre, existencia])
+        [id_sector, nombre, id_existencia])
     res.send({rows})
 }
 
