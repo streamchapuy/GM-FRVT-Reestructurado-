@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { createTareaXActivo, deleteTareaXActivo, editTareaXActivo, getTareaXActivo, getTareaXActivos } from "../controllers/tareaxactivo.controller.js";
+import { createTareaXActivo, deleteTareaXActivo, editTareaXActivo, getTareasXActivos, getTareaXActivo } from "../controllers/tareaxactivo.controller.js";
 
 const router = Router()
 
-router.get('/tareaxactivos', getTareaXActivos)
+router.get('/tareaxactivos', getTareasXActivos)
 router.get('/tareaxactivo/:id_tareaxactivo', getTareaXActivo)
 router.post('/tareaxactivo ', createTareaXActivo)
 router.patch('/tareaxactivo/:id_tareaxactivo', editTareaXActivo)
