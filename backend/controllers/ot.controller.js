@@ -32,10 +32,10 @@ export const getOT = async (req, res) => {
 
 export const createOT = async (req, res) => {
     try {
-        const { id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad } = req.body;
+        const { id_tag, id_usuarios } = req.body;
         const [rows] = await pool.query(
-            'INSERT INTO orden_trabajo (id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            [id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad]
+            'INSERT INTO orden_trabajo (id_tag, id_usuarios) VALUES (?, ?)',
+            [id_tag, id_usuarios]
         );
         res.send({ rows });
     } catch (error) {
@@ -49,11 +49,11 @@ export const createOT = async (req, res) => {
 export const editOT = async (req, res) => {
     try {
         const { id_ot } = req.params;
-        const { id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad } = req.body;
+        const { id_tag, id_usuarios } = req.body;
 
         const [result] = await pool.query(
-            'UPDATE orden_trabajo SET id_operario = IFNULL(?, id_operario), id_edificio = IFNULL(?, id_edificio), id_piso = IFNULL(?, id_piso), id_sector = IFNULL(?, id_sector), id_activo = IFNULL(?, id_activo), id_ubicacion = IFNULL(?, id_ubicacion), id_cantidad = IFNULL(?, id_cantidad) WHERE id_ot = ?',
-            [id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad, id_ot]
+            'UPDATE orden_trabajo SET id_tag = IFNULL(?, id_tag), id_usuarios = IFNULL(?, id_usuarios) WHERE id_ot = ?',
+            [id_tag, id_usuarios, id_ot]
         );
 
         if (result.affectedRows === 0) return res.status(404).json({
