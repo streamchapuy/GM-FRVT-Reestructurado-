@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { createTareaXActivo, editTareaXActivo, getTareaXActivo } from "../controllers/tareaxactivo.controller.js";
+import { createTareaXActivo, deleteTareaXActivo, editTareaXActivo, getTareaXActivo, getTareaXActivos } from "../controllers/tareaxactivo.controller.js";
 
 const router = Router()
 
-router.get('API/tareaxactivo', getTareaXActivo)
-router.post('API/tareaxactivo ', createTareaXActivo)
-router.put('API/tareaxactivo', editTareaXActivo)
+router.get('/tareaxactivos', getTareaXActivos)
+router.get('/tareaxactivo/:id_tareaxactivo', getTareaXActivo)
+router.post('/tareaxactivo ', createTareaXActivo)
+router.patch('/tareaxactivo/:id_tareaxactivo', editTareaXActivo)
+router.delete('/tareaxactivo/:id_tareaxactivo', deleteTareaXActivo)
 
 export default router
