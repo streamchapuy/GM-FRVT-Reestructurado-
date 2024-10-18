@@ -13,8 +13,8 @@ export const getSectores = async (req, res) => {
 };
 
 export const getSector = async (req, res) => {
+    const { id_sector } = req.params;
     try {
-        const { id_sector } = req.params;
         const [rows] = await pool.query('SELECT * FROM sector WHERE id_sector = ?', [id_sector]);
 
         if (rows.length <= 0) return res.status(404).json({
@@ -31,8 +31,8 @@ export const getSector = async (req, res) => {
 };
 
 export const createSector = async (req, res) => {
+    const { id_sector, nombre, id_existencia } = req.body;
     try {
-        const { id_sector, nombre, id_existencia } = req.body;
         const [rows] = await pool.query(
             'INSERT INTO sector (id_sector, nombre, id_existencia) VALUES (?, ?, ?)',
             [id_sector, nombre, id_existencia]
@@ -47,10 +47,9 @@ export const createSector = async (req, res) => {
 };
 
 export const editSector = async (req, res) => {
+    const { id_sector } = req.params;
+    const { nombre, id_existencia } = req.body;
     try {
-        const { id_sector } = req.params;
-        const { nombre, id_existencia } = req.body;
-
         const [result] = await pool.query(
             'UPDATE sector SET nombre = IFNULL(?, nombre), id_existencia = IFNULL(?, id_existencia) WHERE id_sector = ?',
             [nombre, id_existencia, id_sector]
@@ -72,8 +71,8 @@ export const editSector = async (req, res) => {
 };
 
 export const deleteSector = async (req, res) => {
+    const { id_sector } = req.params;
     try {
-        const { id_sector } = req.params;
         const [rows] = await pool.query('DELETE FROM sector WHERE id_sector = ?', [id_sector]);
 
         if (rows.affectedRows <= 0) return res.status(404).json({

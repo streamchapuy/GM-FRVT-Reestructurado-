@@ -13,8 +13,8 @@ export const getUsuarios = async (req, res) => {
 };
 
 export const getUsuario = async (req, res) => {
+    const { id_usuarios } = req.params;
     try {
-        const { id_usuarios } = req.params;
         const [rows] = await pool.query('SELECT * FROM usuarios WHERE id_usuarios = ?', [id_usuarios]);
 
         if (rows.length <= 0) return res.status(404).json({
@@ -31,8 +31,8 @@ export const getUsuario = async (req, res) => {
 };
 
 export const createUsuario = async (req, res) => {
+    const { id_usuarios, id_operario, id_admin } = req.body;
     try {
-        const { id_usuarios, id_operario, id_admin } = req.body;
         const [rows] = await pool.query(
             'INSERT INTO usuarios (id_usuarios, id_operario, id_admin) VALUES (?, ?, ?)',
             [id_usuarios, id_operario, id_admin]
@@ -47,10 +47,9 @@ export const createUsuario = async (req, res) => {
 };
 
 export const editUsuario = async (req, res) => {
+    const { id_usuarios } = req.params;
+    const { id_operario, id_admin } = req.body;
     try {
-        const { id_usuarios } = req.params;
-        const { id_operario, id_admin } = req.body;
-
         const [result] = await pool.query(
             'UPDATE usuarios SET id_operario = IFNULL(?, id_operario), id_admin = IFNULL(?, id_admin) WHERE id_usuarios = ?',
             [id_operario, id_admin, id_usuarios]
@@ -72,8 +71,8 @@ export const editUsuario = async (req, res) => {
 };
 
 export const deleteUsuario = async (req, res) => {
+    const { id_usuarios } = req.params;
     try {
-        const { id_usuarios } = req.params;
         const [rows] = await pool.query('DELETE FROM usuarios WHERE id_usuarios = ?', [id_usuarios]);
 
         if (rows.affectedRows <= 0) return res.status(404).json({

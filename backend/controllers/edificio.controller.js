@@ -13,9 +13,8 @@ export const getEdificios = async (req, res) => {
 };
 
 export const getEdificio = async (req, res)=> {
+    const {id_edificio} = req.params;
     try {
-        const {id_edificio} = req.params;
-        console.log(req.params.id_edificio)
         const [rows] = await pool.query('SELECT * FROM edificio WHERE id_edificio = ?',
         [req.params.id_edificio])
         
@@ -33,8 +32,8 @@ export const getEdificio = async (req, res)=> {
 };
 
 export const createEdificio = async (req, res)=> {
+    const {id_edificio, nombre, calle, id_existencia} = req.body
     try {
-        const {id_edificio, nombre, calle, id_existencia} = req.body
     const [rows] = await pool.query('INSERT INTO edificio (id_edificio, nombre, calle, id_existencia) VALUES (?, ?, ?, ?)',
         [id_edificio, nombre, calle, id_existencia])
     res.send({rows})
@@ -47,10 +46,9 @@ export const createEdificio = async (req, res)=> {
 };
 
 export const editEdificio = async (req, res)=> {
+    const {id_edificio} = req.params
+    const {nombre, calle, id_existencia} = req.body
     try {
-        const {id_edificio} = req.params
-        const {nombre, calle, id_existencia} = req.body
-    
         const [result] = await pool.query('UPDATE edificio SET nombre = IFNULL(?, nombre), calle = IFNULL(?, calle), id_existencia = IFNULL(?, id_existencia) WHERE id_edificio = ?',
             [nombre, calle, id_existencia, id_edificio])
     
@@ -72,8 +70,8 @@ export const editEdificio = async (req, res)=> {
 };
 
 export const deleteEdificio = async (req, res)=> {
+    const {id_edificio} = req.params;
     try {
-        const {id_edificio} = req.params;
         const [rows] = await pool.query('DELETE FROM edificio WHERE id_edificio = ?',
         [req.params.id_edificio])
     

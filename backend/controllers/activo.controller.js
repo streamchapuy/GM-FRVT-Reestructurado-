@@ -13,8 +13,8 @@ export const getActivos = async (req, res) => {
 };
 
 export const getActivo = async (req, res)=> {
+    const {id_activo} = req.params;
     try {
-        const {id_activo} = req.params;
         console.log(req.params.id_activo)
         const [rows] = await pool.query('SELECT * FROM activo WHERE id_activo = ?',
         [req.params.id_activo])
@@ -33,8 +33,8 @@ export const getActivo = async (req, res)=> {
 };
 
 export const createActivo = async (req, res)=> {
+    const {id_activo, nombre, abreviacion, id_existencia} = req.body
     try {
-        const {id_activo, nombre, abreviacion, id_existencia} = req.body
     const [rows] = await pool.query('INSERT INTO activo (id_activo, nombre, abreviacion, id_existencia) VALUES (?, ?, ?, ?)',
         [id_activo, nombre, abreviacion, id_existencia])
     res.send({rows})
@@ -47,10 +47,9 @@ export const createActivo = async (req, res)=> {
 };
 
 export const editActivo = async (req, res)=> {
+    const {id_activo} = req.params
+    const {nombre, abreviacion, id_existencia} = req.body
     try {
-        const {id_activo} = req.params
-        const {nombre, abreviacion, id_existencia} = req.body
-    
         const [result] = await pool.query('UPDATE activo SET nombre = IFNULL(?, nombre), abreviacion = IFNULL(?, abreviacion), id_existencia = IFNULL(?, id_existencia) WHERE id_activo = ?',
             [nombre, abreviacion, id_existencia, id_activo])
     
@@ -72,8 +71,8 @@ export const editActivo = async (req, res)=> {
 };
 
 export const deleteActivo = async (req, res)=> {
+    const {id_activo} = req.params;
     try {
-        const {id_activo} = req.params;
         const [rows] = await pool.query('DELETE FROM activo WHERE id_activo = ?',
         [req.params.id_activo])
     

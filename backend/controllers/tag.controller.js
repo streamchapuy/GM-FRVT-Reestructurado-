@@ -13,8 +13,8 @@ export const getTags = async (req, res) => {
 };
 
 export const getTag = async (req, res) => {
+    const { id_tag } = req.params;
     try {
-        const { id_tag } = req.params;
         const [rows] = await pool.query('SELECT * FROM tag WHERE id_tag = ?', [id_tag]);
 
         if (rows.length <= 0) return res.status(404).json({
@@ -31,11 +31,11 @@ export const getTag = async (req, res) => {
 };
 
 export const createTag = async (req, res) => {
+    const { id_tag, id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad } = req.body;
     try {
-        const { id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad } = req.body;
         const [rows] = await pool.query(
-            'INSERT INTO tag (id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad) VALUES (?, ?, ?, ?, ?, ?, ?)',
-            [id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad]
+            'INSERT INTO tag (id_tag, id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [id_tag, id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad]
         );
         res.send({ rows });
     } catch (error) {
@@ -47,10 +47,9 @@ export const createTag = async (req, res) => {
 };
 
 export const editTag = async (req, res) => {
+    const { id_tag } = req.params;
+    const { id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad } = req.body;
     try {
-        const { id_tag } = req.params;
-        const { id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad } = req.body;
-
         const [result] = await pool.query(
             'UPDATE tag SET id_operario = IFNULL(?, id_operario), id_edificio = IFNULL(?, id_edificio), id_piso = IFNULL(?, id_piso), id_sector = IFNULL(?, id_sector), id_activo = IFNULL(?, id_activo), id_ubicacion = IFNULL(?, id_ubicacion), id_cantidad = IFNULL(?, id_cantidad) WHERE id_tag = ?',
             [id_operario, id_edificio, id_piso, id_sector, id_activo, id_ubicacion, id_cantidad, id_tag]
@@ -72,8 +71,8 @@ export const editTag = async (req, res) => {
 };
 
 export const deleteTag = async (req, res) => {
+    const { id_tag } = req.params;
     try {
-        const { id_tag } = req.params;
         const [rows] = await pool.query('DELETE FROM tag WHERE id_tag = ?', [id_tag]);
 
         if (rows.affectedRows <= 0) return res.status(404).json({

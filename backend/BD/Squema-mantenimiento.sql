@@ -123,6 +123,7 @@ CREATE TABLE tag (
 
 -- Tabla: Orden de Trabajo
 CREATE TABLE orden_trabajo(
+    id_ot INT PRIMARY KEY,
     id_tag INT,
     id_usuarios INT,
     FOREIGN KEY (id_tag) REFERENCES tag(id_tag),

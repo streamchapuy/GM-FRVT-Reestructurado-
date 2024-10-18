@@ -13,8 +13,8 @@ export const getTareasXActivos = async (req, res) => {
 };
 
 export const getTareaXActivo = async (req, res) => {
+    const { id_tareaxactico } = req.params;
     try {
-        const { id_tareaxactico } = req.params;
         const [rows] = await pool.query('SELECT * FROM tareaxactivo WHERE id_tareaxactico = ?', [id_tareaxactico]);
 
         if (rows.length <= 0) return res.status(404).json({
@@ -31,8 +31,8 @@ export const getTareaXActivo = async (req, res) => {
 };
 
 export const createTareaXActivo = async (req, res) => {
+    const { id_tareaxactico, descripcion } = req.body;
     try {
-        const { id_tareaxactico, descripcion } = req.body;
         const [rows] = await pool.query(
             'INSERT INTO tareaxactivo (id_tareaxactico, descripcion) VALUES (?, ?)',
             [id_tareaxactico, descripcion]
@@ -47,10 +47,9 @@ export const createTareaXActivo = async (req, res) => {
 };
 
 export const editTareaXActivo = async (req, res) => {
+    const { id_tareaxactico } = req.params;
+    const { descripcion } = req.body;
     try {
-        const { id_tareaxactico } = req.params;
-        const { descripcion } = req.body;
-
         const [result] = await pool.query(
             'UPDATE tareaxactivo SET descripcion = IFNULL(?, descripcion) WHERE id_tareaxactico = ?',
             [descripcion, id_tareaxactico]
@@ -72,8 +71,8 @@ export const editTareaXActivo = async (req, res) => {
 };
 
 export const deleteTareaXActivo = async (req, res) => {
+    const { id_tareaxactico } = req.params;
     try {
-        const { id_tareaxactico } = req.params;
         const [rows] = await pool.query('DELETE FROM tareaxactivo WHERE id_tareaxactico = ?', [id_tareaxactico]);
 
         if (rows.affectedRows <= 0) return res.status(404).json({

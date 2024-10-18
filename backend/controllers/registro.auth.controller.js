@@ -5,9 +5,9 @@ import {pool} from '../db.js';
 export const registerUser = async (req, res) => {
     const { username, password } = req.body;
 
-    try {       
-  
-        const hashedPassword = await bcrypt.hash(password, 10);       
+    try {
+
+        const hashedPassword = await bcrypt.hash(password, 10);
         
         const query = 'INSERT INTO operario (username, password) VALUES (?, ?)';
         base_conexion.query(query, [username, hashedPassword], (error, result) => {

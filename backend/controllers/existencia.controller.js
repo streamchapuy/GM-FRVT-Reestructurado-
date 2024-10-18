@@ -13,8 +13,8 @@ export const getExistencias = async (req, res) => {
 };
 
 export const getExistencia = async (req, res) => {
+    const { id_existencia } = req.params;
     try {
-        const { id_existencia } = req.params;
         const [rows] = await pool.query('SELECT * FROM existencia WHERE id_existencia = ?', [id_existencia]);
 
         if (rows.length <= 0) return res.status(404).json({
@@ -31,8 +31,8 @@ export const getExistencia = async (req, res) => {
 };
 
 export const createExistencia = async (req, res) => {
+    const { id_existencia, disponible } = req.body;
     try {
-        const { id_existencia, disponible } = req.body;
         const [rows] = await pool.query(
             'INSERT INTO existencia (id_existencia, disponible) VALUES (?, ?)', 
             [id_existencia, disponible]
@@ -47,10 +47,9 @@ export const createExistencia = async (req, res) => {
 };
 
 export const editExistencia = async (req, res) => {
+    const { id_existencia } = req.params;
+    const { disponible } = req.body;
     try {
-        const { id_existencia } = req.params;
-        const { disponible } = req.body;
-
         const [result] = await pool.query(
             'UPDATE existencia SET disponible = IFNULL(?, disponible) WHERE id_existencia = ?', 
             [disponible, id_existencia]
@@ -72,8 +71,8 @@ export const editExistencia = async (req, res) => {
 };
 
 export const deleteExistencia = async (req, res) => {
+    const { id_existencia } = req.params;
     try {
-        const { id_existencia } = req.params;
         const [rows] = await pool.query('DELETE FROM existencia WHERE id_existencia = ?', [id_existencia]);
 
         if (rows.affectedRows <= 0) return res.status(404).json({

@@ -13,8 +13,8 @@ export const getUbicaciones = async (req, res) => {
 };
 
 export const getUbicacion = async (req, res) => {
+    const { id_ubicacion } = req.params;
     try {
-        const { id_ubicacion } = req.params;
         const [rows] = await pool.query('SELECT * FROM ubicacion WHERE id_ubicacion = ?', [id_ubicacion]);
 
         if (rows.length <= 0) return res.status(404).json({
@@ -31,8 +31,8 @@ export const getUbicacion = async (req, res) => {
 };
 
 export const createUbicacion = async (req, res) => {
+    const { id_ubicacion, nombre, id_existencia } = req.body;
     try {
-        const { id_ubicacion, nombre, id_existencia } = req.body;
         const [rows] = await pool.query(
             'INSERT INTO ubicacion (id_ubicacion, nombre, id_existencia) VALUES (?, ?, ?)',
             [id_ubicacion, nombre, id_existencia]
@@ -47,10 +47,9 @@ export const createUbicacion = async (req, res) => {
 };
 
 export const editUbicacion = async (req, res) => {
+    const { id_ubicacion } = req.params;
+    const { nombre, id_existencia } = req.body;
     try {
-        const { id_ubicacion } = req.params;
-        const { nombre, id_existencia } = req.body;
-
         const [result] = await pool.query(
             'UPDATE ubicacion SET nombre = IFNULL(?, nombre), id_existencia = IFNULL(?, id_existencia) WHERE id_ubicacion = ?',
             [nombre, id_existencia, id_ubicacion]
@@ -72,8 +71,8 @@ export const editUbicacion = async (req, res) => {
 };
 
 export const deleteUbicacion = async (req, res) => {
-    try {
         const { id_ubicacion } = req.params;
+    try {
         const [rows] = await pool.query('DELETE FROM ubicacion WHERE id_ubicacion = ?', [id_ubicacion]);
 
         if (rows.affectedRows <= 0) return res.status(404).json({

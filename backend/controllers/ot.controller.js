@@ -13,8 +13,8 @@ export const getOTs = async (req, res) => {
 };
 
 export const getOT = async (req, res) => {
+    const { id_ot } = req.params;
     try {
-        const { id_ot } = req.params;
         const [rows] = await pool.query('SELECT * FROM orden_trabajo WHERE id_ot = ?', [id_ot]);
 
         if (rows.length <= 0) return res.status(404).json({
@@ -31,10 +31,10 @@ export const getOT = async (req, res) => {
 };
 
 export const createOT = async (req, res) => {
+    const { id_tag, id_usuarios } = req.body;
     try {
-        const { id_tag, id_usuarios } = req.body;
         const [rows] = await pool.query(
-            'INSERT INTO orden_trabajo (id_tag, id_usuarios) VALUES (?, ?)',
+            'INSERT INTO orden_trabajo (id_ot, id_tag, id_usuarios) VALUES (?, ?, ?)',
             [id_tag, id_usuarios]
         );
         res.send({ rows });
@@ -47,10 +47,9 @@ export const createOT = async (req, res) => {
 };
 
 export const editOT = async (req, res) => {
+    const { id_ot } = req.params;
+    const { id_tag, id_usuarios } = req.body;
     try {
-        const { id_ot } = req.params;
-        const { id_tag, id_usuarios } = req.body;
-
         const [result] = await pool.query(
             'UPDATE orden_trabajo SET id_tag = IFNULL(?, id_tag), id_usuarios = IFNULL(?, id_usuarios) WHERE id_ot = ?',
             [id_tag, id_usuarios, id_ot]
@@ -72,8 +71,8 @@ export const editOT = async (req, res) => {
 };
 
 export const deleteOT = async (req, res) => {
+    const { id_ot } = req.params;
     try {
-        const { id_ot } = req.params;
         const [rows] = await pool.query('DELETE FROM orden_trabajo WHERE id_ot = ?', [id_ot]);
 
         if (rows.affectedRows <= 0) return res.status(404).json({

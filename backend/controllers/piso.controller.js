@@ -13,8 +13,8 @@ export const getPisos = async (req, res) => {
 };
 
 export const getPiso = async (req, res) => {
+    const { id_piso } = req.params;
     try {
-        const { id_piso } = req.params;
         const [rows] = await pool.query('SELECT * FROM piso WHERE id_piso = ?', [id_piso]);
 
         if (rows.length <= 0) return res.status(404).json({
@@ -31,8 +31,8 @@ export const getPiso = async (req, res) => {
 };
 
 export const createPiso = async (req, res) => {
+    const { id_piso, nombre, id_existencia } = req.body;
     try {
-        const { id_piso, nombre, id_existencia } = req.body;
         const [rows] = await pool.query(
             'INSERT INTO piso (id_piso, nombre, id_existencia) VALUES (?, ?, ?)',
             [id_piso, nombre, id_existencia]
@@ -47,10 +47,9 @@ export const createPiso = async (req, res) => {
 };
 
 export const editPiso = async (req, res) => {
+    const { id_piso } = req.params;
+    const { nombre, id_existencia } = req.body;
     try {
-        const { id_piso } = req.params;
-        const { nombre, id_existencia } = req.body;
-
         const [result] = await pool.query(
             'UPDATE piso SET nombre = IFNULL(?, nombre), id_existencia = IFNULL(?, id_existencia) WHERE id_piso = ?',
             [nombre, id_existencia, id_piso]
@@ -72,8 +71,8 @@ export const editPiso = async (req, res) => {
 };
 
 export const deletePiso = async (req, res) => {
+    const { id_piso } = req.params;
     try {
-        const { id_piso } = req.params;
         const [rows] = await pool.query('DELETE FROM piso WHERE id_piso = ?', [id_piso]);
 
         if (rows.affectedRows <= 0) return res.status(404).json({
