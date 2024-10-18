@@ -79,7 +79,7 @@ export const deleteUsuario = async (req, res) => {
             message: 'Usuario no encontrado'
         });
 
-        res.send('Ubicación eliminada');
+        res.send('Usuario eliminado');
     } catch (error) {
         return res.status(500).json({
             message: 'Error al eliminar el usuario',
