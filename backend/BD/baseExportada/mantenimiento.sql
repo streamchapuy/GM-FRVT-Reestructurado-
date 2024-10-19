@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `mantenimiento` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `mantenimiento`;
 -- MySQL dump 10.13  Distrib 8.0.38, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: mantenimiento
@@ -210,8 +208,10 @@ DROP TABLE IF EXISTS `orden_trabajo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orden_trabajo` (
+  `id_ot` int NOT NULL,
   `id_tag` int DEFAULT NULL,
   `id_usuarios` int DEFAULT NULL,
+  PRIMARY KEY (`id_ot`),
   KEY `id_tag` (`id_tag`),
   KEY `id_usuarios` (`id_usuarios`),
   CONSTRAINT `orden_trabajo_ibfk_1` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`),
@@ -441,4 +441,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-18  0:07:17
+-- Dump completed on 2024-10-18 21:09:52
