@@ -7,6 +7,7 @@ dotenv.config();
 export const registerUser = async (req, res) => {
     const { username, password } = req.body;
 
+
     try {
         
         const [existingUser] = await pool.query('SELECT * FROM usuarios WHERE username = ?', [username]);
@@ -17,13 +18,14 @@ export const registerUser = async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         
         const query = 'INSERT INTO usuarios (username, password) VALUES (?, ?)';
-        const [result] = await pool.query(query, [username, hashedPassword]);
 
+        const [result] = await pool.query(query, [username, hashedPassword]);
         const newUser = {
             id_usuario: result.insertId,
             username: username,
             password: password,
             token: hashedPassword
+
         };
 
         res.status(201).json({ message: 'Usuario registrado exitosamente', user: newUser });

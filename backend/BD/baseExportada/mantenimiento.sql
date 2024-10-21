@@ -39,7 +39,7 @@ CREATE TABLE `activo` (
 
 LOCK TABLES `activo` WRITE;
 /*!40000 ALTER TABLE `activo` DISABLE KEYS */;
-INSERT INTO `activo` VALUES (1,'Iluminacion','ILUM - ',1),(2,'Aire Acondicionado','AACO - ',1),(3,'Radiador Calefaccion','RCAL - ',1),(4,'Puerta','PRTA - ',1),(5,'Ventanas & Cortinas','VENT - ',1),(6,'Luces de Emergencia','LEME - ',1),(7,'Matafuego','MTFG - ',1),(8,'Barandas y Escaleras','BESC - ',1),(9,'Tablero Electrico','TABE - ',1),(10,'Inodoro & Mochila','INOD - ',1),(11,'Mesada','MESA - ',1),(12,'Ventilador','VENT - ',1),(13,'Puerta Emergencia','PTAE - ',1),(14,'Ascensor','ASCN - ',1),(15,'Cortina Enrollar Motor','CORT - ',1),(16,'Termotanque','TMTQ - ',1),(17,'Calefactor','CALE - ',1),(18,'Caldera','CALD - ',1),(19,'Techos y Canaletas','TCHO - ',1),(20,'Balcones','BALCO - ',1),(21,'Paneles Solares e Inversor','PSOL - ',1),(22,'Portones','PORT -',1),(23,'Generador Electrico','GNDR - ',1),(24,'Bombas de Agua','BMBA - ',1),(25,'Tanques de Agua','TNQE - ',1),(26,'Rejillas & Desagues','DESA - ',1),(27,'Emergencia Alarma','EMER - ',1),(28,'Espacio Fðisico','ESFI - ',1),(29,'Ducha','DCHA - ',1),(30,'Cocheras','CHRA - ',1),(31,'Escalera','ESLR - ',1),(32,'Camara Desague','CDES -',1),(33,'Camara Septicas','CSEP - ',1),(34,'NA','NA',1);
+INSERT INTO `activo` VALUES (1,'Iluminacion','ILUM - ',1),(2,'Aire Acondicionado','AACO - ',1),(3,'Radiador Calefaccion','RCAL - ',1),(4,'Puerta','PRTA - ',1),(5,'Ventanas & Cortinas','VENT - ',1),(6,'Luces de Emergencia','LEME - ',1),(7,'Matafuego','MTFG - ',1),(8,'Barandas y Escaleras','BESC - ',1),(9,'Tablero Electrico','TABE - ',1),(10,'Inodoro & Mochila','INOD - ',1),(11,'Mesada','MESA - ',1),(12,'Ventilador','VENT - ',1),(13,'Puerta Emergencia','PTAE - ',1),(14,'Ascensor','ASCN - ',1),(15,'Cortina Enrollar Motor','CORT - ',1),(16,'Termotanque','TMTQ - ',1),(17,'Calefactor','CALE - ',1),(18,'Caldera','CALD - ',1),(19,'Techos y Canaletas','TCHO - ',1),(20,'Balcones','BALCO - ',1),(21,'Paneles Solares e Inversor','PSOL - ',1),(22,'Portones','PORT -',1),(23,'Generador Electrico','GNDR - ',1),(24,'Bombas de Agua','BMBA - ',1),(25,'Tanques de Agua','TNQE - ',1),(26,'Rejillas & Desagues','DESA - ',1),(27,'Emergencia Alarma','EMER - ',1),(28,'Espacio Fï¿½isico','ESFI - ',1),(29,'Ducha','DCHA - ',1),(30,'Cocheras','CHRA - ',1),(31,'Escalera','ESLR - ',1),(32,'Camara Desague','CDES -',1),(33,'Camara Septicas','CSEP - ',1),(34,'NA','NA',1);
 /*!40000 ALTER TABLE `activo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,6 +211,9 @@ CREATE TABLE `orden_trabajo` (
   `id_ot` int NOT NULL,
   `id_tag` int DEFAULT NULL,
   `id_usuarios` int DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `fecha_creacion` datetime DEFAULT CURRENT_TIMESTAMP,
+  `fecha_finalizacion` datetime DEFAULT NULL,
   PRIMARY KEY (`id_ot`),
   KEY `id_tag` (`id_tag`),
   KEY `id_usuarios` (`id_usuarios`),
@@ -441,4 +444,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-18 21:09:52
+-- Dump completed on 2024-10-21 19:39:39
