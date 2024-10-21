@@ -97,6 +97,7 @@ CREATE TABLE admin (
 
 -- tabla usuarios 
 CREATE TABLE usuarios (
+    id_usuarios INT PRIMARY KEY,
     id_operario  INT,
     id_admin INT,
     FOREIGN KEY(id_operario) REFERENCES operario(id_operario),
@@ -104,7 +105,8 @@ CREATE TABLE usuarios (
 );
 
 -- Tabla: Orden de Trabajo
-CREATE TABLE orden_trabajo (
+CREATE TABLE tag (
+    id_tag INT PRIMARY KEY,
     id_edificio INT,
     id_piso INT,
     id_sector INT,
@@ -119,6 +121,14 @@ CREATE TABLE orden_trabajo (
     FOREIGN KEY (id_cantidad) REFERENCES cantidad(id_cantidad)
 );
 
+-- Tabla: Orden de Trabajo
+CREATE TABLE orden_trabajo(
+    id_ot INT PRIMARY KEY,
+    id_tag INT,
+    id_usuarios INT,
+    FOREIGN KEY (id_tag) REFERENCES tag(id_tag),
+    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id_usuarios)
+);
 
 
 

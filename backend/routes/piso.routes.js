@@ -1,10 +1,12 @@
 import { Router } from "express"
-import { createPiso, editPiso, getPiso } from "../controllers/piso.controller.js"
+import { createPiso, deletePiso, editPiso, getPiso, getPisos } from "../controllers/piso.controller.js"
 
 const router = Router()
 
-router.get('API/piso', getPiso)
-router.post('API/piso', createPiso)
-router.put('API/piso', editPiso)
+router.get('/pisos', getPisos)
+router.get('/piso/:id_piso', getPiso)
+router.post('/piso', createPiso)
+router.patch('/piso/:id_piso', editPiso)
+router.delete('/piso/:id_piso', deletePiso)
 
 export default router
