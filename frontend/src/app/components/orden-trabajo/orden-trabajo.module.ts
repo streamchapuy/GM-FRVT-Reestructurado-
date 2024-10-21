@@ -24,7 +24,13 @@ import { OtInfoFechaComponent } from './ot-banner-fecha/ot-info-fecha/ot-info-fe
 import { OtComentariosComponent } from './ot-comentarios/ot-comentarios.component';
 import { OtComentariosQrComponent } from './ot-comentarios/ot-comentarios-qr/ot-comentarios-qr.component';
 
+// control de elementos de Santi:
 
+// control de elementos de Fede:
+
+// control de elementos de John:
+
+// control de elementos de Cifu:
 
 @NgModule({
   declarations: [
