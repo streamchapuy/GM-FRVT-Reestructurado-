@@ -412,7 +412,7 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
-  `id_usuarios` int NOT NULL,
+  `id_usuarios` int PRIMARY KEY,
   `id_operario` int DEFAULT NULL,
   `id_admin` int DEFAULT NULL,
   PRIMARY KEY (`id_usuarios`),
