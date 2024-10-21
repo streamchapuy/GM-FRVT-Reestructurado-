@@ -95,7 +95,7 @@ CREATE TABLE admin (
 
 );
 
--- tabla usuarios 
+-- tabla usuarios
 CREATE TABLE usuarios (
     id_usuarios INT PRIMARY KEY,
     id_operario  INT,
