@@ -11,6 +11,9 @@ import { NavegacionComponent } from './components/header/navegacion/navegacion.c
 import { HomeComponent } from './pages/home/home.component';
 import { LogoComponent } from './components/header/logo/logo.component';
 
+import {OrdenTrabajoModule} from './components/orden-trabajo/orden-trabajo.module'
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,12 +22,14 @@ import { LogoComponent } from './components/header/logo/logo.component';
     MenuComponent,
     NavegacionComponent,
     HomeComponent,
-    LogoComponent
+    LogoComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    OrdenTrabajoModule
   ],
   providers: [],
   bootstrap: [AppComponent]
