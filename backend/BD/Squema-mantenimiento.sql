@@ -80,7 +80,9 @@ CREATE TABLE cantidad (
 -- Tabla: Operario
 CREATE TABLE operario (
     id_operario INT PRIMARY KEY,
-    nombre VARCHAR(100),
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    contraseña_hash VARCHAR(255) NOT NULL,
     id_existencia INT,
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
 );
@@ -89,13 +91,15 @@ CREATE TABLE operario (
 CREATE TABLE admin (
     id_admin INT PRIMARY KEY,
     nombre VARCHAR(100),
+    email VARCHAR(100) NOT NULL UNIQUE,
+    contraseña_hash VARCHAR(255) NOT NULL,
     id_existencia INT,
     FOREIGN KEY(id_existencia) REFERENCES existencia(id_existencia)
     
 
 );
 
--- tabla usuarios
+-- tabla usuarios 
 CREATE TABLE usuarios (
     id_usuarios INT PRIMARY KEY,
     id_operario  INT,
@@ -104,7 +108,7 @@ CREATE TABLE usuarios (
     FOREIGN KEY(id_admin) REFERENCES admin(id_admin)
 );
 
--- Tabla: Orden de Trabajo
+-- Tabla: tag
 CREATE TABLE tag (
     id_tag INT PRIMARY KEY,
     id_edificio INT,
@@ -122,14 +126,16 @@ CREATE TABLE tag (
 );
 
 -- Tabla: Orden de Trabajo
-CREATE TABLE orden_trabajo(
+CREATE TABLE orden_trabajo (
     id_ot INT PRIMARY KEY,
     id_tag INT,
     id_usuarios INT,
+    descripcion VARCHAR(255),
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    fecha_finalizacion DATETIME,
     FOREIGN KEY (id_tag) REFERENCES tag(id_tag),
     FOREIGN KEY (id_usuarios) REFERENCES usuarios(id_usuarios)
 );
-
 
 
 

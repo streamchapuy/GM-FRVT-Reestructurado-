@@ -82,8 +82,11 @@ DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `id_admin` int NOT NULL,
   `nombre` varchar(100) DEFAULT NULL,
+  `email` varchar(100) NOT NULL,
+  `contraseña_hash` varchar(255) NOT NULL,
   `id_existencia` int DEFAULT NULL,
   PRIMARY KEY (`id_admin`),
+  UNIQUE KEY `email` (`email`),
   KEY `id_existencia` (`id_existencia`),
   CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -183,9 +186,12 @@ DROP TABLE IF EXISTS `operario`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `operario` (
   `id_operario` int NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contraseña_hash` varchar(255) NOT NULL,
   `id_existencia` int DEFAULT NULL,
   PRIMARY KEY (`id_operario`),
+  UNIQUE KEY `email` (`email`),
   KEY `id_existencia` (`id_existencia`),
   CONSTRAINT `operario_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -444,4 +450,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-21 19:39:39
+-- Dump completed on 2024-10-21 22:12:02

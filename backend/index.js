@@ -1,7 +1,7 @@
 import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
-
+import authenticateToken from './middleware/authmiddleware.js'
 import loginRoutes from './routes/login_auth.routes.js';
 import registroRoutes from './routes/registro.auth.routes.js';
 
