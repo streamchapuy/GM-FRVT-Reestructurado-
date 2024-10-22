@@ -81,12 +81,9 @@ DROP TABLE IF EXISTS `admin`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `admin` (
   `id_admin` int NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `email` varchar(100) NOT NULL,
-  `contraseña_hash` varchar(255) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
   `id_existencia` int DEFAULT NULL,
   PRIMARY KEY (`id_admin`),
-  UNIQUE KEY `email` (`email`),
   KEY `id_existencia` (`id_existencia`),
   CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -187,11 +184,8 @@ DROP TABLE IF EXISTS `operario`;
 CREATE TABLE `operario` (
   `id_operario` int NOT NULL,
   `nombre` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `contraseña_hash` varchar(255) NOT NULL,
   `id_existencia` int DEFAULT NULL,
   PRIMARY KEY (`id_operario`),
-  UNIQUE KEY `email` (`email`),
   KEY `id_existencia` (`id_existencia`),
   CONSTRAINT `operario_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -422,13 +416,18 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `id_usuarios` int NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contraseña_hash` varchar(255) NOT NULL,
   `id_operario` int DEFAULT NULL,
   `id_admin` int DEFAULT NULL,
+  `tipo_usuario` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_usuarios`),
+  UNIQUE KEY `email` (`email`),
   KEY `id_operario` (`id_operario`),
   KEY `id_admin` (`id_admin`),
   CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_operario`) REFERENCES `operario` (`id_operario`),
-  CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`)
+  CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`),
+  CONSTRAINT `usuarios_chk_1` CHECK ((`tipo_usuario` in (_utf8mb4'operario',_utf8mb4'admin')))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -450,4 +449,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-21 22:12:02
+-- Dump completed on 2024-10-21 22:53:39
