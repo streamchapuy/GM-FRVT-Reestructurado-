@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OtComponent } from './ot/ot.component';
+
+import { otComponent } from './ot/ot.component';
 import { OtBannerComponent } from './ot-banner/ot-banner.component';
 import { OtTituloBannerComponent } from './ot-titulo-banner/ot-titulo-banner.component';
 import { OtLogoBannerComponent } from './ot-logo-banner/ot-logo-banner.component';
@@ -34,7 +35,7 @@ import { OtComentariosQrComponent } from './ot-comentarios/ot-comentarios-qr/ot-
 
 @NgModule({
   declarations: [
-    OtComponent,
+    otComponent,
     OtBannerComponent,
     OtTituloBannerComponent,
     OtLogoBannerComponent,
@@ -60,6 +61,9 @@ import { OtComentariosQrComponent } from './ot-comentarios/ot-comentarios-qr/ot-
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    otComponent
   ]
 })
 export class OrdenTrabajoModule { }
