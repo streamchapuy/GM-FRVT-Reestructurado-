@@ -13,6 +13,6 @@ export class MantenimientoService {
   constructor(private http: HttpClient) { }
 
   obtenerOt(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/ot`);
+    return this.http.get(`${this.apiUrl}/ordenestrabajo`);
   }
 }
