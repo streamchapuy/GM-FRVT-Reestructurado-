@@ -23,6 +23,7 @@ import { OtBanerFechachicaComponent } from './ot-banner-fecha/ot-baner-fechachic
 import { OtInfoFechaComponent } from './ot-banner-fecha/ot-info-fecha/ot-info-fecha.component';
 import { OtComentariosComponent } from './ot-comentarios/ot-comentarios.component';
 import { OtComentariosQrComponent } from './ot-comentarios/ot-comentarios-qr/ot-comentarios-qr.component';
+import { OtBannerChicoComponent } from './ot-banner-chico/ot-banner-chico.component';
 
 // control de elementos de Santi:
 
@@ -56,7 +57,8 @@ import { OtComentariosQrComponent } from './ot-comentarios/ot-comentarios-qr/ot-
     OtBanerFechachicaComponent,
     OtInfoFechaComponent,
     OtComentariosComponent,
-    OtComentariosQrComponent
+    OtComentariosQrComponent,
+    OtBannerChicoComponent
   ],
   imports: [
     CommonModule

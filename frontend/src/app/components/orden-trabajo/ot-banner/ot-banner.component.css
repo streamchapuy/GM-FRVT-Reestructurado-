@@ -1,0 +1,12 @@
+.banner {
+    margin: 20px 0;
+    padding: 20px 0;
+    width: 100%;
+    max-width: 1320px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    color: aqua;
+}
