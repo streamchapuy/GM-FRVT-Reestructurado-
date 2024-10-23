@@ -31,11 +31,11 @@ export const getUsuario = async (req, res) => {
 };
 
 export const createUsuario = async (req, res) => {
-    const { id_usuarios, id_operario, id_admin } = req.body;
+    const { id_usuarios, email, contraseña_hash, id_operario, id_admin, tipo_usuario } = req.body;
     try {
         const [rows] = await pool.query(
-            'INSERT INTO usuarios (id_usuarios, id_operario, id_admin) VALUES (?, ?, ?)',
-            [id_usuarios, id_operario, id_admin]
+            'INSERT INTO usuarios (id_usuarios, email, contraseña_hash, id_operario, id_admin, tipo_usuario) VALUES (?, ?, ?, ?, ?, ?)',
+            [id_usuarios, email, contraseña_hash, id_operario, id_admin, tipo_usuario]
         );
         res.send({ rows });
     } catch (error) {
@@ -48,11 +48,11 @@ export const createUsuario = async (req, res) => {
 
 export const editUsuario = async (req, res) => {
     const { id_usuarios } = req.params;
-    const { id_operario, id_admin } = req.body;
+    const {email, contraseña_hash, id_operario, id_admin, tipo_usuario } = req.body;
     try {
         const [result] = await pool.query(
-            'UPDATE usuarios SET id_operario = IFNULL(?, id_operario), id_admin = IFNULL(?, id_admin) WHERE id_usuarios = ?',
-            [id_operario, id_admin, id_usuarios]
+            'UPDATE usuarios SET email = IFNULL(?, email), contraseña_hash = IFNULL(?, contraseña_hash), id_operario = IFNULL(?, id_operario), id_admin = IFNULL(?, id_admin), tipo_usuario = IFNULL(?, tipo_usuario) WHERE id_usuarios = ?',
+            [email, contraseña_hash, id_operario, id_admin, tipo_usuario, id_usuarios]
         );
 
         if (result.affectedRows === 0) return res.status(404).json({
