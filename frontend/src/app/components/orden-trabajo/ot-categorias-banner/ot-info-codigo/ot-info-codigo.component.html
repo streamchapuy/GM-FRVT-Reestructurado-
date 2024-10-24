@@ -1,1 +1,10 @@
-<p>ot-info-codigo works!</p>
+<div class="container">
+   <div class="izqueirda">
+    <p>OT N°</p>
+   </div>
+   <div class="derecha">
+    <select name="num" id="selector" [(ngModel)]="selectorOT">
+        <option *ngFor="let ot of ots" [value]="ot"> {{ ot.id_tag }} - {{ot.edificio}} - {{ ot.piso }} </option>
+    </select>
+   </div>
+</div>
