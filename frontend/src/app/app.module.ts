@@ -11,7 +11,8 @@ import { NavegacionComponent } from './components/header/navegacion/navegacion.c
 import { HomeComponent } from './pages/home/home.component';
 import { LogoComponent } from './components/header/logo/logo.component';
 
-import {OrdenTrabajoModule} from './components/orden-trabajo/orden-trabajo.module'
+import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.module';
+
 
 
 @NgModule({

@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-ot',
   templateUrl: './ot.component.html',
-  styleUrl: './ot.component.css'
+  styleUrls: ['./ot.component.css']
 })
-export class OtComponent {
+export class otComponent {
 
 }
