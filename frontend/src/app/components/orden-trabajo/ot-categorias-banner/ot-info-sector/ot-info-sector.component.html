@@ -3,6 +3,8 @@
         <p>Sector:</p>
     </div>
     <div class="derecha">
-        <select name="sector" id="selector"></select>
+        <select name="sector" id="selector"> [(ngModel)]="selectorSector">
+            <option *ngFor="let sector of sectores" [value]="sector"> {{ sector.nombre }} </option>
+        </select>
     </div>
 </div>

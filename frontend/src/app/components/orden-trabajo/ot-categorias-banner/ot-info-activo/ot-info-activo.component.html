@@ -3,6 +3,8 @@
         <p>Tipo de Activo:</p>
     </div>
     <div class="derecha">
-        <select name="activo" id="selector"></select>
+        <select name="activo" id="selector" [(ngModel)]="selectorActivo">
+            <option *ngFor="let activo of activos" [value]="activo"> {{ activo.nombre }} </option>
+        </select>
     </div>
 </div>
