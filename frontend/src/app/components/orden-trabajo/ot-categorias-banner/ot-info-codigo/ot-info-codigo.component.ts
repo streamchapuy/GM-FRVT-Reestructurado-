@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NumeroOTService } from '../../../../../services/numero-ot.service';
 import { NumeroOT } from '../../../../interfaces/numero-ot';
-import { OnInit } from '@angular/core';
 
 
 @Component({
@@ -24,7 +23,7 @@ export class OtInfoCodigoComponent implements OnInit {
         console.log(this.ots);
       },
       error: (err) => {
-        console.error('Error al cargar los OT:', err); 
+        console.error('Error al cargar los OT:', err);
       }
     });
   }
