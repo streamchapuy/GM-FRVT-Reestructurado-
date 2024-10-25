@@ -14,6 +14,6 @@ export class NumeroOTService {
   constructor(private http: HttpClient) { }
 
   obtenerNumeroOT(): Observable<NumeroOT[]> {
-    return this.http.get<NumeroOT[]>(`${this.apiUrl}/tags`);
+    return this.http.get<NumeroOT[]>(`${this.apiUrl}/ordenestrabajo`);
   }
 }

@@ -70,7 +70,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     otComponent,
-    OtLogoBannerComponent
+    OtLogoBannerComponent,
   ]
 })
 export class OrdenTrabajoModule { }
