@@ -72,7 +72,7 @@ import { OtComentariosContenedorQrComponent } from './ot-comentarios/ot-comentar
   ],
   exports: [
     otComponent,
-    OtLogoBannerComponent
+    OtLogoBannerComponent,
   ]
 })
 export class OrdenTrabajoModule { }

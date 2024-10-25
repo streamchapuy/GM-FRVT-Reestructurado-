@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OtActivoService } from '../../../../../services/ot-activo.service';
+import { ActivoService } from '../../../../../services/activo.service';
 import { Activo } from '../../../../interfaces/activo';
 
 @Component({
@@ -10,7 +10,7 @@ import { Activo } from '../../../../interfaces/activo';
 export class OtInfoActivoComponent implements OnInit{
   activos: Activo[] = [];
   selectorActivo: number | null = null;
-  constructor(private activoService: OtActivoService) { }
+  constructor(private activoService: ActivoService) { }
 
   ngOnInit(): void {
     this.loadActivos();
