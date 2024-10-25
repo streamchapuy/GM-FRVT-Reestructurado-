@@ -1,11 +1,10 @@
 <div class="container">
-    <div class="izqueirda">
-        <p>OT N°</p>
+    <div class="izquierda">
+        <p>Código Único de Identificación Activo:</p>
     </div>
     <div class="derecha">
         <select name="num" id="selector" [(ngModel)]="selectorOT">
-            <option *ngFor="let ot of ots" [value]="ot"> {{ ot.id_tag }} - {{ot.id_tag}} - {{ ot.fecha_creacion}}
-            </option>
+            <option *ngFor="let ot of ots" [value]="ot"> {{ ot.id_tag }} </option>
         </select>
     </div>
 </div>
