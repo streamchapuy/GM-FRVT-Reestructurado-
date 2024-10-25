@@ -1,9 +1,6 @@
 export interface NumeroOT {
+    id_ot: number;    
     id_tag: number;
-    edificio: number;
-    piso: string;
-    activo: string;
-    ubicacion: string;
-    cantidad: number
-
+    fecha_creacion: string;
+    fecha_final: string;    
 }

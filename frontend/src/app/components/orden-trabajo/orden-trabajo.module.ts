@@ -4,8 +4,6 @@ import { FormsModule } from '@angular/forms';
 
 
 import { OtCategoriasBannerComponent } from './ot-categorias-banner/ot-categorias-banner.component';
-import { OtBannerLaborComponent } from './ot-banner-labor/ot-banner-labor.component';
-import { OtInstruccionesBannerComponent } from './ot-instrucciones-banner/ot-instrucciones-banner.component';
 import { OtBannerFechaComponent } from './ot-banner-fecha/ot-banner-fecha.component';
 
 import { OtLogoComponent } from './ot-logo-banner/ot-logo/ot-logo.component';
@@ -15,9 +13,6 @@ import { OtInfoActivoComponent } from './ot-categorias-banner/ot-info-activo/ot-
 import { OtInfoEdificioComponent } from './ot-categorias-banner/ot-info-edificio/ot-info-edificio.component';
 import { OtInfoPisoComponent } from './ot-categorias-banner/ot-info-piso/ot-info-piso.component';
 import { OtInfoSectorComponent } from './ot-categorias-banner/ot-info-sector/ot-info-sector.component';
-import { OtLaborComponent } from './ot-banner-labor/ot-labor/ot-labor.component';
-import { OtInstruccionesTituloComponent } from './ot-instrucciones-banner/ot-instrucciones-titulo/ot-instrucciones-titulo.component';
-import { OtTareasListaComponent } from './ot-instrucciones-banner/ot-tareas-lista/ot-tareas-lista.component';
 import { OtBanerFechachicaComponent } from './ot-banner-fecha/ot-baner-fechachica/ot-baner-fechachica.component';
 import { OtInfoFechaComponent } from './ot-banner-fecha/ot-info-fecha/ot-info-fecha.component';
 import { OtComentariosComponent } from './ot-comentarios/ot-comentarios.component';
@@ -34,6 +29,12 @@ import { OtTituloBannerComponent } from './ot-titulo-banner/ot-titulo-banner.com
 import { OtLogoBannerComponent } from './ot-logo-banner/ot-logo-banner.component';
 import { HttpClientModule } from '@angular/common/http';
 // control de elementos de John:
+import { OtBannerLaborComponent } from './ot-banner-labor/ot-banner-labor.component';
+import { OtLaborComponent } from './ot-banner-labor/ot-labor/ot-labor.component';
+import { OtInstruccionesBannerComponent } from './ot-instrucciones-banner/ot-instrucciones-banner.component';
+import { OtInstruccionesTituloComponent } from './ot-instrucciones-banner/ot-instrucciones-titulo/ot-instrucciones-titulo.component';
+import { OtTareasListaComponent } from './ot-instrucciones-banner/ot-tareas-lista/ot-tareas-lista.component';
+import { OtComentariosContenedorQrComponent } from './ot-comentarios/ot-comentarios-contenedor-qr/ot-comentarios-contenedor-qr.component';
 
 // control de elementos de Cifu:
 
@@ -61,7 +62,8 @@ import { HttpClientModule } from '@angular/common/http';
     OtInfoFechaComponent,
     OtComentariosComponent,
     OtComentariosQrComponent,
-    OtBannerChicoComponent
+    OtBannerChicoComponent,
+    OtComentariosContenedorQrComponent
   ],
   imports: [
     CommonModule,
@@ -70,7 +72,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   exports: [
     otComponent,
-    OtLogoBannerComponent
+    OtLogoBannerComponent,
   ]
 })
 export class OrdenTrabajoModule { }
