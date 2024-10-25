@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OtPisoService } from '../../../../../services/ot-piso.service';
+import { PisoService } from '../../../../../services/piso.service';
 import { Piso } from '../../../../interfaces/piso';
 
 @Component({
@@ -10,7 +10,7 @@ import { Piso } from '../../../../interfaces/piso';
 export class OtInfoPisoComponent implements OnInit{
   pisos: Piso[] = [];
   selectorPiso: number | null = null;
-  constructor(private pisoService: OtPisoService) { }
+  constructor(private pisoService: PisoService) { }
 
   ngOnInit(): void {
     this.loadPisos();

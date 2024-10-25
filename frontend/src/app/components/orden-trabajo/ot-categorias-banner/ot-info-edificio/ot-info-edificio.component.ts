@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OtEdificioService } from '../../../../../services/ot-edificio.service';
+import { EdificioService } from '../../../../../services/edificio.service';
 import { Edificio } from '../../../../interfaces/edificio';
 
 @Component({
@@ -10,7 +10,7 @@ import { Edificio } from '../../../../interfaces/edificio';
 export class OtInfoEdificioComponent implements OnInit{
   edificios: Edificio[] = [];
   selectorEdificio: number | null = null;
-  constructor(private edificioService: OtEdificioService) { }
+  constructor(private edificioService: EdificioService) { }
 
   ngOnInit(): void {
     this.loadEdificios();
