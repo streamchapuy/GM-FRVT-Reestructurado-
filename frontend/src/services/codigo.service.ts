@@ -6,7 +6,7 @@ import { CodigoActivo } from '../app/interfaces/codigo-activo';
 @Injectable({
   providedIn: 'root'
 })
-export class OtCodigoService {
+export class CodigoService {
   private apiUrl = 'http://127.0.0.1:3307/API';
 
 

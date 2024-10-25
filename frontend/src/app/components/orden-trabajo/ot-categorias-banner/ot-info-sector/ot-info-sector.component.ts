@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OtSectorService } from '../../../../../services/ot-sector.service';
+import { SectorService } from '../../../../../services/sector.service';
 import { Sector } from '../../../../interfaces/sector';
 
 @Component({
@@ -10,7 +10,7 @@ import { Sector } from '../../../../interfaces/sector';
 export class OtInfoSectorComponent implements OnInit{
   sectores: Sector[] = [];
   selectorSector: number | null = null;
-  constructor(private sectorService: OtSectorService) { }
+  constructor(private sectorService: SectorService) { }
 
   ngOnInit(): void {
     this.loadSectores();
