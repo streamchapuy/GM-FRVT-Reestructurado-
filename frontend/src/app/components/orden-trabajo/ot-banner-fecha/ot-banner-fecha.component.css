@@ -14,6 +14,8 @@
 .izquierda {
     width: 50%;
     height: 100%;
+    display: flex; 
+    gap: 30px;
     border: 1.3px solid black;
     padding-left: 5px;
 }
@@ -21,7 +23,7 @@
 .derecha-flex {
     width: 50%;
     height: 100%;
-    display: flex;  
+    display: flex; 
     gap: 30px;
     border: 1.3px solid black;
     padding-left: 5px;
@@ -30,5 +32,4 @@
 
 .fecha {
     height: 100%;
-      
 }
