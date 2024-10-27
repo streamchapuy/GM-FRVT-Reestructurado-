@@ -1,35 +1,107 @@
 .form-activo-container {
-    max-width: 500px;
-    margin: auto;
-    padding: 1rem;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 15px;
 }
 
 label {
     display: block;
+    margin-bottom: 5px;
     font-weight: bold;
 }
 
-input,
+input[type="number"],
+input[type="text"],
 select {
     width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.3rem;
-    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
 }
 
 .form-actions {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1.5rem;
+    text-align: center;
+    margin-top: 20px;
 }
 
 button {
-    padding: 0.5rem 1rem;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 4px;
+    color: white;
     cursor: pointer;
+    background-color: #007bff;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.lista-activos-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+@media (max-width: 600px) {
+
+    th,
+    td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
 }
