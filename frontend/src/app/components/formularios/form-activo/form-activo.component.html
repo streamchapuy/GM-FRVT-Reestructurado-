@@ -1,0 +1,36 @@
+<div class="form-activo-container">
+  <h2>Formulario de Activo</h2>
+
+  <form>
+
+    <div class="form-group">
+      <label for="id_activo">ID Activo</label>
+      <input type="number" id="id_activo" [(ngModel)]="activo.id_activo" name="id_activo" />
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" [(ngModel)]="activo.nombre" name="nombre" maxlength="100" />
+    </div>
+
+    <div class="form-group">
+      <label for="abreviacion">Abreviación</label>
+      <input type="text" id="abreviacion" [(ngModel)]="activo.abreviacion" name="abreviacion" maxlength="10" />
+    </div>
+
+    <div class="form-group">
+      <label for="id_existencia">ID Existencia</label>
+      <select id="id_existencia" [(ngModel)]="activo.id_existencia" name="id_existencia">
+        <option *ngFor="let existencia of existencias" [value]="existencia.id">
+          {{ existencia.nombre }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-actions">
+      <button type="button" (click)="insertar()">Insertar</button>
+      <button type="button" (click)="editar()">Editar</button>
+      <button type="button" (click)="eliminar()">Eliminar</button>
+    </div>
+  </form>
+</div>
