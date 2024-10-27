@@ -16,7 +16,7 @@ export class OtInfoActivoComponent implements OnInit{
     this.loadActivos();
   }
   loadActivos() {
-    this.activoService.obtenerActivo().subscribe({
+    this.activoService.obtenerActivos().subscribe({
       next: (data: Activo[]) => {
         this.activos = data;
         console.log(this.activos);
