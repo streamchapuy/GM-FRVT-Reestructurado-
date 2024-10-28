@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogoComponent } from './components/header/logo/logo.component';
@@ -14,7 +16,8 @@ import { RegisterComponent } from './pages/register/register.component';
 
 import { FormulariosModule } from './components/formularios/formularios.module';
 import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.module';
-import { AddEditEdificioComponent } from './components/add-edit-edificio/add-edit-edificio.component';
+
+
 
 
 
@@ -26,16 +29,19 @@ import { AddEditEdificioComponent } from './components/add-edit-edificio/add-edi
     MenuComponent,
     NavegacionComponent,
     HomeComponent,
-    LogoComponent,
-    AddEditEdificioComponent,
+    LogoComponent,  
+
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    OrdenTrabajoModule
-  ],
+    OrdenTrabajoModule,
+    FormulariosModule,
+
+   
+],
   providers: [],
   bootstrap: [AppComponent]
 })

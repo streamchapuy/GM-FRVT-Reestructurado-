@@ -19,7 +19,7 @@ export class EdificioService {
     return this.http.get<Edificio>(`${this.apiUrl}/edificios/${id}`);
   }
 
-  actualizarEdificio(id: number, edificio: Edificio): Observable<Edificio> {
+  editarEdificio(id: number, edificio: Edificio): Observable<Edificio> {
     return this.http.put<Edificio>(`${this.apiUrl}/edificios/${id}`, edificio);
   }
 
@@ -28,8 +28,12 @@ export class EdificioService {
   }
 
   
-  guardarEdificio(id_edificio: number, edificio: Edificio): Observable<Edificio> {
-    return this.http.post<Edificio>(`${this.apiUrl}`, edificio)
+  guardarEdificio(edificio: Edificio): Observable<Edificio> {
+    return this.http.post<Edificio>(`${this.apiUrl}/edificios`, edificio)
   }
+
+
+
+  
 
 }
