@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivoService } from '../../../../../services/activo.service';
 import { Activo } from '../../../../interfaces/activo';
+import { SelectionService } from '../../../../../services/selection.service';
 
 @Component({
   selector: 'app-ot-info-activo',
@@ -10,13 +11,16 @@ import { Activo } from '../../../../interfaces/activo';
 export class OtInfoActivoComponent implements OnInit{
   activos: Activo[] = [];
   selectorActivo: number | null = null;
-  constructor(private activoService: ActivoService) { }
-
+  constructor(private activoService: ActivoService, private selectionService: SelectionService) { }
+  
+  onActivoSelected(id: number) {
+    this.selectionService.setActivo(id);
+  }
   ngOnInit(): void {
     this.loadActivos();
   }
   loadActivos() {
-    this.activoService.obtenerActivo().subscribe({
+    this.activoService.obtenerActivos().subscribe({
       next: (data: Activo[]) => {
         this.activos = data;
         console.log(this.activos);

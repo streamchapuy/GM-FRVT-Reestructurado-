@@ -1,7 +1,13 @@
 <div class="container">
     <div class="izqueirda">
-     <p>Inspección = 10 // Mant. Prev. Planif. = 20  // Planif. NO Period. = 30 // NO Planificado = 40</p>
+     <p>Inspección = 1 // Mant. Prev. Planif. = 2  // Planif. NO Period. = 3 // NO Planificado = 4</p>
     </div>
     <div class="derecha">
+        <select name="tareaxactivo" id="selector" [(ngModel)]="selectortareaxactivo">
+            <option *ngFor="let tareaxaxtivos of tareaxaxtivos" [value]="tareaxaxtivos.descripcion">
+                {{ tareaxaxtivos.id_tareaxactivo }}
+              </option>
+          </select>
+          
     </div>
  </div>

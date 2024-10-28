@@ -9,10 +9,21 @@ import { Sector } from '../app/interfaces/sector';
 export class SectorService {
   private apiUrl = 'http://127.0.0.1:3307/API';
 
-
   constructor(private http: HttpClient) { }
 
-  obtenerSector(): Observable<Sector[]> {
+  obtenerSectores(): Observable<Sector[]> {
     return this.http.get<Sector[]>(`${this.apiUrl}/sectores`);
+  }
+
+  crearSector(sector: Sector): Observable<Sector> {
+    return this.http.post<Sector>(`${this.apiUrl}/sectores`, sector);
+  }
+
+  editarSector(id: number, sector: Sector): Observable<Sector> {
+    return this.http.put<Sector>(`${this.apiUrl}/sectores/${id}`, sector);
+  }
+
+  eliminarSector(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/sectores/${id}`);
   }
 }

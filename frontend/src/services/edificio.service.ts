@@ -9,8 +9,7 @@ import { Edificio } from '../app/interfaces/edificio';
 export class EdificioService {
   private apiUrl = 'http://127.0.0.1:3307/API';
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   obtenerEdificio(): Observable<Edificio[]> {
     return this.http.get<Edificio[]>(`${this.apiUrl}/edificios`);

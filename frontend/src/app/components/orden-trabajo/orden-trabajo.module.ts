@@ -33,7 +33,8 @@ import { OtBannerLaborComponent } from './ot-banner-labor/ot-banner-labor.compon
 import { OtLaborComponent } from './ot-banner-labor/ot-labor/ot-labor.component';
 import { OtInstruccionesBannerComponent } from './ot-instrucciones-banner/ot-instrucciones-banner.component';
 import { OtInstruccionesTituloComponent } from './ot-instrucciones-banner/ot-instrucciones-titulo/ot-instrucciones-titulo.component';
-import { OtTareasListaComponent } from './ot-instrucciones-banner/ot-tareas-lista/ot-tareas-lista.component';
+import { OtTareaListaComponent } from './ot-instrucciones-banner/ot-tareas-lista/ot-tareas-lista.component';
+import { OtComentariosContenedorQrComponent } from './ot-comentarios/ot-comentarios-contenedor-qr/ot-comentarios-contenedor-qr.component';
 
 // control de elementos de Cifu:
 
@@ -56,12 +57,13 @@ import { OtTareasListaComponent } from './ot-instrucciones-banner/ot-tareas-list
     OtInfoSectorComponent,
     OtLaborComponent,
     OtInstruccionesTituloComponent,
-    OtTareasListaComponent,
+    OtTareaListaComponent,
     OtBanerFechachicaComponent,
     OtInfoFechaComponent,
     OtComentariosComponent,
     OtComentariosQrComponent,
-    OtBannerChicoComponent
+    OtBannerChicoComponent,
+    OtComentariosContenedorQrComponent
   ],
   imports: [
     CommonModule,

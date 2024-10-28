@@ -9,10 +9,25 @@ import { Activo } from '../app/interfaces/activo';
 export class ActivoService {
   private apiUrl = 'http://127.0.0.1:3307/API';
 
-
   constructor(private http: HttpClient) { }
 
-  obtenerActivo(): Observable<Activo[]> {
+  obtenerActivos(): Observable<Activo[]> {
     return this.http.get<Activo[]>(`${this.apiUrl}/activos`);
+  }
+
+  crearActivo(activo: Activo): Observable<Activo> {
+    return this.http.post<Activo>(`${this.apiUrl}/activos`, activo);
+  }
+
+  editarActivo(activo: Activo): Observable<Activo> {
+    return this.http.put<Activo>(`${this.apiUrl}/activos/${activo.id_activo}`, activo);
+  }
+
+  eliminarActivo(id_activo: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/activos/${id_activo}`);
+  }
+
+  obtenerActivoPorId(id_activo: number): Observable<Activo> {
+    return this.http.get<Activo>(`${this.apiUrl}/activos/${id_activo}`);
   }
 }

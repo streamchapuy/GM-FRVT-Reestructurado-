@@ -1,5 +1,4 @@
 export interface TareaxActivo {
-    id_tareaxactivo: number;
-    descripcion: string;    
-  }
-  
+  id_tareaxactivo: number;
+  descripcion: string;
+}

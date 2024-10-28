@@ -12,7 +12,7 @@ export class TareaxactivoService {
   constructor(private http: HttpClient) {}
 
   obtenertareaxactivo(): Observable<TareaxActivo[]> {
-    return this.http.get<TareaxActivo[]>(this.apiUrl);
+    return this.http.get<TareaxActivo[]>(`${this.apiUrl}/tareaxactivos`);
   }
 
 }
