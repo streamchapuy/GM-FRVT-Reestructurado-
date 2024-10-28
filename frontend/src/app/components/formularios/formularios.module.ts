@@ -2,12 +2,20 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormActivoComponent } from './form-activo/form-activo.component';
+import { FormEdificioComponent } from './form-edificio/form-edificio.component';
+import { FormPisoComponent } from './form-piso/form-piso.component';
+import { FormSectorComponent } from './form-sector/form-sector.component';
+import { FormUbicacionComponent } from './form-ubicacion/form-ubicacion.component';
 import { FormulariosComponent } from './formularios.component';
 
 @NgModule({
   declarations: [
     FormulariosComponent,
-    FormActivoComponent
+    FormActivoComponent,
+    FormEdificioComponent,
+    FormPisoComponent,
+    FormSectorComponent,
+    FormUbicacionComponent,
   ],
   imports: [
     CommonModule,
@@ -15,7 +23,11 @@ import { FormulariosComponent } from './formularios.component';
   ],
   exports: [
     FormulariosComponent,
-    FormActivoComponent
+    FormActivoComponent,
+    FormEdificioComponent,
+    FormPisoComponent,
+    FormSectorComponent,
+    FormUbicacionComponent
   ]
 })
 export class FormulariosModule { }
