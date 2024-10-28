@@ -1,16 +1,47 @@
 import { pool } from '../db.js';
 
 export const getActivoTareas = async (req, res) => {
+    const { id_activo, id_tareaxactivo } = req.params; // Asumiendo que estos valores vienen de los parámetros de la ruta
     try {
-        const [rows] = await pool.query('SELECT * FROM activo_tarea');
+        console.log("Ejecutando consulta SQL...");
+        const [rows] = await pool.query(`
+            SELECT 
+                a.nombre AS nombre_activo,
+                t.descripcion AS descripcion_tarea
+            FROM 
+                activo a
+            JOIN 
+                activo_tarea at ON a.id_activo = at.id_activo
+            JOIN 
+                tarea t ON at.id_tarea = t.id_tarea
+            WHERE 
+                a.id_activo = ? 
+                AND t.id_tareaxactivo = ?;
+        `, [id_activo, id_tareaxactivo]); // Pasando los parámetros a la consulta
+
+        console.log("Consulta ejecutada correctamente", rows);
         res.json(rows);
     } catch (error) {
+        console.error("Error en el servidor:", error);
         return res.status(500).json({
-            message: 'Error al obtener activos con tarea',
-            error: error.message
+            message: "Error al obtener las tareas del activo",
+            error: error.message,
         });
     }
 };
+
+
+// export const getActivoTareas = async (req, res) => {
+//     try {
+//         const [rows] = await pool.query('SELECT * FROM activo_tarea');
+//         res.json(rows);
+//     } catch (error) {
+//         return res.status(500).json({
+//             message: 'Error al obtener activos con tarea',
+//             error: error.message
+//         });
+//     }
+// };
 
 export const getActivoTarea = async (req, res) => {
     const { id_activo_tarea } = req.params;
