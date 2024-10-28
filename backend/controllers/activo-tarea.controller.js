@@ -1,23 +1,23 @@
 import { pool } from '../db.js';
 
 export const getActivoTareas = async (req, res) => {
-    const { id_activo, id_tareaxactivo } = req.query;
+    const { id_activo, id_tareaxactivo } = req.params;
     try {
         console.log("Ejecutando consulta SQL...");
         const [rows] = await pool.query(`
-            SELECT 
-                a.nombre AS nombre_activo,
-                t.descripcion AS descripcion_tarea
-            FROM 
-                activo a
-            JOIN 
-                activo_tarea at ON a.id_activo = at.id_activo
-            JOIN 
-                tarea t ON at.id_tarea = t.id_tarea
-            WHERE 
-                a.id_activo = ? 
-                AND t.id_tareaxactivo = ?;
-        `, [id_activo, id_tareaxactivo]);
+       SELECT 
+    at.id_activo_tarea,
+    a.nombre AS nombre_activo,
+    t.descripcion AS descripcion_tarea
+FROM 
+    activo_tarea at
+JOIN 
+    activo a ON at.id_activo = a.id_activo
+JOIN 
+    tarea t ON at.id_tarea = t.id_tarea;
+
+
+        `, [req.params. id_activo, id_tareaxactivo]);
 
         console.log("Consulta ejecutada correctamente", rows);
         res.json(rows);
@@ -33,7 +33,7 @@ export const getActivoTareas = async (req, res) => {
 
 // export const getActivoTareas = async (req, res) => {
 //     try {
-//         const [rows] = await pool.query('SELECT * FROM activo_tarea');
+//         const [rows] = await pool.query('SELECT at.id_activo_tarea, a.nombre AS nombre_activo, t.descripcion AS descripcion_tarea FROM  activo_tarea at JOIN  activo a ON at.id_activo = a.id_activo JOIN  tarea t ON at.id_tarea = t.id_tarea;');
 //         res.json(rows);
 //     } catch (error) {
 //         return res.status(500).json({
