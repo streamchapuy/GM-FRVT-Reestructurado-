@@ -22,7 +22,7 @@ export class FormActivoComponent implements OnInit {
 
   activos: Activo[] = [];
 
-  constructor(private activoService: ActivoService) {}
+  constructor(private activoService: ActivoService) { }
 
   ngOnInit() {
     this.obtenerActivos();
@@ -38,15 +38,44 @@ export class FormActivoComponent implements OnInit {
     this.activo = { ...activo };
   }
 
-  insertar() {
-
+  crear() {
+    this.activoService.crearActivo(this.activo).subscribe({
+      next: (nuevoActivo) => {
+        this.activos.push(nuevoActivo);
+        this.limpiarFormulario();
+      },
+      error: (err) => console.error('Error al crear activo:', err)
+    });
   }
 
   editar() {
-
+    this.activoService.editarActivo(this.activo).subscribe({
+      next: () => {
+        this.obtenerActivos();
+        this.limpiarFormulario();
+      },
+      error: (err) => console.error('Error al editar activo:', err)
+    });
   }
 
   eliminar() {
+    if (this.activo.id_activo) {
+      this.activoService.eliminarActivo(this.activo.id_activo).subscribe({
+        next: () => {
+          this.obtenerActivos();
+          this.limpiarFormulario();
+        },
+        error: (err) => console.error('Error al eliminar activo:', err)
+      });
+    }
+  }
 
+  limpiarFormulario() {
+    this.activo = {
+      id_activo: 0,
+      nombre: '',
+      abreviacion: '',
+      id_existencia: 0
+    };
   }
 }
