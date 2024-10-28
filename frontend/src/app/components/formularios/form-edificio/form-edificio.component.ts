@@ -26,7 +26,7 @@ export class FormEdificioComponent implements OnInit {
 
   ngOnInit() {
     this.obtenerEdificios();
-    
+
 
   }
 
@@ -41,12 +41,12 @@ export class FormEdificioComponent implements OnInit {
   }
 
   crear() {
-    console.log('Objeto edificio:', this.edificio);
+console.log('Objeto edificio:', this.edificio);
     this.edificioService.guardarEdificio(this.edificio).subscribe({
       next: (nuevoEdificio: Edificio) => {
         this.edificios.push(nuevoEdificio);
         // this.limpiarFormulario();
-        console.log('Edificio creado:', nuevoEdificio);
+console.log('Edificio creado:', nuevoEdificio);
       },
       error: (err) => console.error('Error al crear edificio:', err)
     });

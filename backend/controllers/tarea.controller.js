@@ -3,7 +3,13 @@ import { pool } from '../db.js';
 export const getTareas = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM tarea');
-        res.json(rows);
+        if(rows.length === 0) {
+            return res.status(404).json({
+                message: 'No hay tareas'
+            });
+        } else {
+            res.json(rows);
+        }
     } catch (error) {
         return res.status(500).json({
             message: 'Error al obtener las tareas',
