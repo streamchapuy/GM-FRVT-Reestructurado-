@@ -16,7 +16,7 @@ export class OtInfoPisoComponent implements OnInit{
     this.loadPisos();
   }
   loadPisos() {
-    this.pisoService.obtenerPiso().subscribe({
+    this.pisoService.obtenerPisos().subscribe({
       next: (data: Piso[]) => {
         this.pisos = data;
         console.log(this.pisos);

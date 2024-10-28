@@ -1,10 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ActivoTarea } from '../app/interfaces/activo-tarea';
-import { Tarea } from '../app/interfaces/tarea';
-import { Activo } from '../app/interfaces/activo';
+import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { ActivoTarea } from '../app/interfaces/activo-tarea';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +16,7 @@ export class ActivoTareaService {
     return this.http.get<ActivoTarea[]>(`${this.apiUrl}/activos/:id_activo/tareas/:id_tareaxactivo`).pipe(
       catchError(error => {
         console.error('Error al obtener activos y tareas:', error);
-        return throwError(error); // O puedes devolver un Observable vacío
+        return throwError(error);
       })
     );
   }

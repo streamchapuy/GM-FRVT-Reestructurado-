@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivoTareaService } from '../../../../../services/activo-tarea.service';
-import { ActivoTarea } from '../../../../interfaces/activo-tarea';
-import { Tarea } from '../../../../interfaces/tarea';
 import { TareaService } from '../../../../../services/tareas.service';
-import { Activo } from '../../../../interfaces/activo';
-import { ActivoService } from '../../../../../services/activo.service';
+import { ActivoTarea } from '../../../../interfaces/activo-tarea';
 
 @Component({
   selector: 'app-ot-tareas-lista',
@@ -13,16 +10,15 @@ import { ActivoService } from '../../../../../services/activo.service';
 })
 export class OtTareasListaComponent implements OnInit {
   activoTareas: ActivoTarea[] = [];
-  selectedActivoId: number | null = null; // Almacena el ID del activo seleccionado
-  activos: any[] = []; // Asegúrate de tener una lista de activos
+  selectedActivoId: number | null = null;
+  activos: any[] = [];
 
   constructor(
     private activoTareaService: ActivoTareaService,
-    private tareaService: TareaService // Inyecta el servicio de tareas si es necesario
+    private tareaService: TareaService
   ) {}
 
   ngOnInit(): void {
-    // Cargar todos los activos aquí
     this.activoTareaService.obteneractivo_tarea().subscribe(
       (data: any[]) => {
         this.activos = data;
@@ -33,7 +29,6 @@ export class OtTareasListaComponent implements OnInit {
     );
   }
 
-  // Método para obtener tareas por el activo seleccionado
   obtenerTareasPorActivo(activoId: number): void {
     this.activoTareaService.obtenerTareasPorActivo(activoId).subscribe(
       (data: ActivoTarea[]) => {
@@ -45,12 +40,11 @@ export class OtTareasListaComponent implements OnInit {
     );
   }
 
-  // Método que se llama cuando seleccionas un activo
   onActivoSeleccionado(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement; // Casting explícito
-    const activoId = Number(selectElement.value); // Obtener el valor como número
-    this.selectedActivoId = activoId; // Establece el activo seleccionado
-    this.obtenerTareasPorActivo(activoId); // Obtiene las tareas para el activo seleccionado
+    const selectElement = event.target as HTMLSelectElement;
+    const activoId = Number(selectElement.value);
+    this.selectedActivoId = activoId;
+    this.obtenerTareasPorActivo(activoId)
   }
 }
 

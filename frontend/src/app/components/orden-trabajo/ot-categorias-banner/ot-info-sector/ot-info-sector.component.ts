@@ -24,7 +24,7 @@ throw new Error('Method not implemented.');
   }
 
   loadSectores() {
-    this.sectorService.obtenerSector().subscribe({
+    this.sectorService.obtenerSectores().subscribe({
       next: (data: Sector[]) => {
         this.sectores = data;
         this.filteredSectores = data;

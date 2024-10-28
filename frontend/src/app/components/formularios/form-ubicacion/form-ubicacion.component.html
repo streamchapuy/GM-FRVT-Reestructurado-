@@ -1,0 +1,41 @@
+<div class="form-ubicacion-container">
+  <h2>Formulario de Ubicación</h2>
+
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" [(ngModel)]="ubicacion.nombre">
+  </div>
+
+  <div class="form-group">
+    <label for="id_existencia">ID Existencia:</label>
+    <input type="number" id="id_existencia" [(ngModel)]="ubicacion.id_existencia">
+  </div>
+
+  <div class="form-actions">
+    <button (click)="crear()">Crear</button>
+    <button (click)="editar()">Editar</button>
+    <button (click)="eliminar()">Eliminar</button>
+  </div>
+
+  <div class="lista-ubicaciones-container">
+    <h3>Lista de Ubicaciones</h3>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID Ubicación</th>
+            <th>Nombre</th>
+            <th>ID Existencia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ubicacion of ubicaciones" (click)="seleccionarUbicacion(ubicacion)">
+            <td>{{ ubicacion.id_ubicacion }}</td>
+            <td>{{ ubicacion.nombre }}</td>
+            <td>{{ ubicacion.id_existencia }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
