@@ -3,7 +3,7 @@
 
   <form>
     <div class="form-group">
-      <label for="id_activo">ID Activo</label>
+      <label for="id_activo">ID</label>
       <input type="number" id="id_activo" [(ngModel)]="activo.id_activo" name="id_activo" />
     </div>
 
@@ -18,7 +18,7 @@
     </div>
 
     <div class="form-group">
-      <label for="id_existencia">ID Existencia</label>
+      <label for="id_existencia">Existencia</label>
       <select id="id_existencia" [(ngModel)]="activo.id_existencia" name="id_existencia">
         <option *ngFor="let existencia of existencias" [value]="existencia.id">
           {{ existencia.nombre }}
@@ -27,9 +27,10 @@
     </div>
 
     <div class="form-actions">
-      <button type="button" (click)="insertar()">Insertar</button>
+      <button type="button" (click)="crear()">Crear</button>
       <button type="button" (click)="editar()">Editar</button>
       <button type="button" (click)="eliminar()">Eliminar</button>
+      <button type="button" (click)="limpiarFormulario()">Limpiar</button>
     </div>
   </form>
 
@@ -46,7 +47,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let activo of activos">
+          <tr *ngFor="let activo of activos" (click)="seleccionarActivo(activo)">
             <td>{{ activo.id_activo }}</td>
             <td>{{ activo.nombre }}</td>
             <td>{{ activo.abreviacion }}</td>
@@ -56,3 +57,4 @@
       </table>
     </div>
   </div>
+</div>
