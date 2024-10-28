@@ -17,11 +17,12 @@ export class FormUbicacionComponent implements OnInit {
     this.cargarUbicaciones();
   }
 
-  cargarUbicaciones(): void {
-    this.ubicacionService.obtenerUbicacion().subscribe(ubicaciones => {
-      this.ubicaciones = ubicaciones;
-    });
-  }
+ cargarUbicaciones(): void {
+  this.ubicacionService.obtenerUbicacion().subscribe((data: Ubicacion[]) => {
+    this.ubicaciones = data;
+  });
+}
+
 
   crear(): void {
     this.ubicacionService.crearUbicacion(this.ubicacion).subscribe(() => {

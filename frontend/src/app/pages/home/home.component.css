@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-image: url('/assets/your-background-image.jpg');
+    background: rgb(4,46,149);
+    background: radial-gradient(circle, rgba(4,46,149,1) 0%, rgba(148,215,233,1) 100%);
     background-size: cover;
     background-position: center;
     color: #333;
@@ -13,7 +14,7 @@
 
 .home-container h1 {
     font-size: 2rem;
-    color: #0056b3;
+    color:  rgba(255, 255, 255, 0.9);
     margin-bottom: 20px;
     text-align: center;
 }

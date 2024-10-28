@@ -3,8 +3,8 @@ import { createUbicacion, deleteUbicacion, editUbicacion, getUbicacion, getUbica
 
 const router = Router()
 
-router.get('/ubicaciones', getUbicacion)
-router.get('/ubicacion/:id_ubicacion', getUbicaciones)
+router.get('/ubicaciones', getUbicaciones)
+router.get('/ubicacion/:id_ubicacion', getUbicacion)
 router.post('/ubicacion', createUbicacion)
 router.patch('/ubicacion/:id_ubicacion', editUbicacion)
 router.delete('/ubicacion/:id_ubicacion', deleteUbicacion)
