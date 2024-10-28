@@ -1,51 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivoTareaService } from '../../../../../services/activo-tarea.service';
-import { TareaService } from '../../../../../services/tareas.service';
-import { ActivoTarea } from '../../../../interfaces/activo-tarea';
+import { SelectionService } from '../../../../../services/selection.service';
+import { ActivoTareaService } from '../../../../../services/activo-tarea.service'; // Asegúrate de tener el servicio para obtener activo-tarea
 
 @Component({
   selector: 'app-ot-tareas-lista',
   templateUrl: './ot-tareas-lista.component.html',
   styleUrls: ['./ot-tareas-lista.component.css']
 })
-export class OtTareasListaComponent implements OnInit {
-  activoTareas: ActivoTarea[] = [];
-  selectedActivoId: number | null = null;
-  activos: any[] = [];
 
-  constructor(
-    private activoTareaService: ActivoTareaService,
-    private tareaService: TareaService
-  ) {}
+export class OtTareaListaComponent implements OnInit {
+  activoTareas: any[] = [];
+  obtenerActivoTareas: any;
 
-  ngOnInit(): void {
-    this.activoTareaService.obteneractivo_tarea().subscribe(
-      (data: any[]) => {
-        this.activos = data;
-      },
-      error => {
-        console.error('Error al obtener activos:', error);
-      }
-    );
+  constructor(private selectionService: SelectionService, private activoTareaService: ActivoTareaService) {}
+
+  ngOnInit() {
+    this.selectionService.activo$.subscribe(id_activo => {
+      this.selectionService.tareaxactivo$.subscribe(id_tareaxactivo => {
+        if (id_activo && id_tareaxactivo) {
+          this.obtenerActivoTareas(id_activo, id_tareaxactivo);
+        }
+      });
+    });
   }
 
-  obtenerTareasPorActivo(activoId: number): void {
-    this.activoTareaService.obtenerTareasPorActivo(activoId).subscribe(
-      (data: ActivoTarea[]) => {
-        this.activoTareas = data;
-      },
-      error => {
-        console.error('Error al obtener las tareas de activo:', error);
-      }
-    );
-  }
-
-  onActivoSeleccionado(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    const activoId = Number(selectElement.value);
-    this.selectedActivoId = activoId;
-    this.obtenerTareasPorActivo(activoId)
-  }
+  // obtenerActivoTareas(id_activo: number, id_tareaxactivo: number) {
+  //   this.activoTareaService.getActivoTareas(id_activo, id_tareaxactivo).subscribe(
+  //     (data) => {
+  //       this.activoTareas = data; // Asigna los datos a la variable para mostrarlos en la vista
+  //     },
+  //     (error) => {
+  //       console.error("Error al obtener las tareas del activo:", error);
+  //     }
+  //   );
+  // }
 }
-
 

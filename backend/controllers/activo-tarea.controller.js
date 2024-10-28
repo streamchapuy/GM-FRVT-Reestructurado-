@@ -1,7 +1,7 @@
 import { pool } from '../db.js';
 
 export const getActivoTareas = async (req, res) => {
-    const { id_activo, id_tareaxactivo } = req.params; // Asumiendo que estos valores vienen de los parámetros de la ruta
+    const { id_activo, id_tareaxactivo } = req.query;
     try {
         console.log("Ejecutando consulta SQL...");
         const [rows] = await pool.query(`
@@ -17,7 +17,7 @@ export const getActivoTareas = async (req, res) => {
             WHERE 
                 a.id_activo = ? 
                 AND t.id_tareaxactivo = ?;
-        `, [id_activo, id_tareaxactivo]); // Pasando los parámetros a la consulta
+        `, [id_activo, id_tareaxactivo]);
 
         console.log("Consulta ejecutada correctamente", rows);
         res.json(rows);
