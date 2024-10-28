@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LogoComponent } from './components/header/logo/logo.component';
 
 import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.module';
+import { AddEditEdificioComponent } from './components/add-edit-edificio/add-edit-edificio.component';
 
 
 
@@ -24,13 +26,15 @@ import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.mod
     NavegacionComponent,
     HomeComponent,
     LogoComponent,
+    AddEditEdificioComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    OrdenTrabajoModule
+    OrdenTrabajoModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
