@@ -2,6 +2,13 @@ import { pool } from '../db.js';
 
 export const getActivoTareas = async (req, res) => {
     const { id_activo, id_tareaxactivo } = req.query;
+
+    if (!id_activo || !id_tareaxactivo) {
+        return res.status(400).json({
+            message: "Parámetros faltantes",
+        });
+    }
+
     try {
         console.log("Ejecutando consulta SQL...");
         const [rows] = await pool.query(`

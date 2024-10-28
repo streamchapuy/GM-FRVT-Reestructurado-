@@ -3,7 +3,7 @@ import { createActivoTarea, deleteActivoTarea, editActivoTarea, getActivoTarea, 
 
 const router = Router();
 
-router.get('/activos/:id_activo/tareas/:id_tareaxactivo', getActivoTareas);
+router.get('/activo-tareas', getActivoTareas);
 router.get('/activo-tarea/:id_activo_tarea', getActivoTarea);
 router.post('/activo-tarea', createActivoTarea);
 router.patch('/activo-tarea/:id_activo_tarea', editActivoTarea);
