@@ -9,13 +9,13 @@
 .izquierda {
     width: 50%;
     height: 100%;
-    background-color: #47a6ff;
+    background-color: #90a6bb;
     display: flex;
     justify-content: end;
     align-items: center;
     padding-right: 20px;
     text-align: center;
-    border: 1px solid #185b99;
+    border: 1px solid #565f68;
     border-radius: 5px 0px 0px 5px;
 }
 
@@ -45,5 +45,5 @@
 option {
     width: 100%;
     height: 300px;
-    background-color: aqua;
+    background-color: rgb(255, 255, 255);
 }
