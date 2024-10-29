@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NumeroOTService } from '../../../../../services/numero-ot.service';
-import { NumeroOT } from '../../../../interfaces/numero-ot';
+import { CodigoService } from '../../../../../services/codigo.service';
+import { CodigoActivo } from '../../../../interfaces/codigo-activo';
 
 
 @Component({
@@ -9,21 +9,21 @@ import { NumeroOT } from '../../../../interfaces/numero-ot';
   styleUrl: './ot-info-codigo.component.css'
 })
 export class OtInfoCodigoComponent implements OnInit {
-  ots: NumeroOT[] = [];
-  selectorOT: number | null = null;
-  constructor(private otService: NumeroOTService) { }
+  CodigoActivo: CodigoActivo [] = [];
+  selectorcodigo: number | null = null;
+  constructor(private CodigoService: CodigoService) { }
 
   ngOnInit(): void {
     this.loadOts();
   }
   loadOts() {
-    this.otService.obtenerNumeroOT().subscribe({
-      next: (data: NumeroOT[]) => {
-        this.ots = data;
-        console.log(this.ots);
+    this.CodigoService.obtenerCodigoActivo().subscribe({
+      next: (data: CodigoActivo[]) => {
+        this.CodigoActivo = data;
+        console.log(this.CodigoActivo);
       },
       error: (err) => {
-        console.error('Error al cargar los OT:', err);
+        console.error('Error al cargar los :', err);
       }
     });
   }
