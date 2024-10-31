@@ -15,8 +15,8 @@ JOIN
 JOIN 
     tarea t ON at.id_tarea = t.id_tarea
 WHERE 
-    a.id_activo = 2 
-    AND t.id_labor = 2;  
+    a.id_activo = ? 
+    AND t.id_labor = ?;  
 
         `, [id_activo, id_labor]);
 
