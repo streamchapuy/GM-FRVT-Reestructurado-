@@ -1,12 +1,16 @@
+CREATE DATABASE mantenimiento;
+
+USE mantenimiento; 
+
 -- Tabla: Existencia
 CREATE TABLE existencia (
-    id_existencia INT PRIMARY KEY,
+    id_existencia INT PRIMARY KEY AUTO_INCREMENT,
     disponible BOOLEAN
 );
 
 -- Tabla: Edificio
 CREATE TABLE edificio (
-    id_edificio INT PRIMARY KEY,
+    id_edificio INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
     calle VARCHAR(255),
     id_existencia INT,
@@ -15,7 +19,7 @@ CREATE TABLE edificio (
 
 -- Tabla: Piso
 CREATE TABLE piso (
-    id_piso INT PRIMARY KEY,
+    id_piso INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
     id_existencia INT,
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
@@ -23,7 +27,7 @@ CREATE TABLE piso (
 
 -- Tabla: Sector
 CREATE TABLE sector (
-    id_sector INT PRIMARY KEY,
+    id_sector INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
     id_existencia INT,
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
@@ -31,7 +35,7 @@ CREATE TABLE sector (
 
 -- Tabla: Ubicación
 CREATE TABLE ubicacion (
-    id_ubicacion INT PRIMARY KEY,
+    id_ubicacion INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
     id_existencia INT,
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
@@ -39,33 +43,33 @@ CREATE TABLE ubicacion (
 
 -- Tabla: Activo
 CREATE TABLE activo (
-    id_activo INT PRIMARY KEY,
+    id_activo INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
     abreviacion VARCHAR(10),
     id_existencia INT,
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
 );
 
--- Tabla: Tarea por Activo
-CREATE TABLE tareaxactivo (
-    id_tareaxactivo INT PRIMARY KEY,
+-- Tabla: Labor
+CREATE TABLE labor (
+    id_labor INT PRIMARY KEY AUTO_INCREMENT,
     descripcion VARCHAR(255)
 );
 
 -- Tabla: Tarea
 CREATE TABLE tarea (
-    id_tarea INT PRIMARY KEY,
+    id_tarea INT PRIMARY KEY AUTO_INCREMENT,
     descripcion VARCHAR(255),
     id_existencia INT,
-    id_tareaxactivo INT,
+    id_labor INT,
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia),
-    FOREIGN KEY(id_tareaxactivo) REFERENCES tareaxactivo(id_tareaxactivo)
-    
+    FOREIGN KEY (id_labor) REFERENCES labor(id_labor)
 );
+
 
 -- Tabla: Activo-Tarea
 CREATE TABLE activo_tarea (
-    id_activo_tarea INT PRIMARY KEY,
+    id_activo_tarea INT PRIMARY KEY AUTO_INCREMENT,
     id_activo INT,
     id_tarea INT,
     FOREIGN KEY (id_activo) REFERENCES activo(id_activo),
@@ -74,12 +78,13 @@ CREATE TABLE activo_tarea (
 
 -- Tabla: Cantidad
 CREATE TABLE cantidad (
-    id_cantidad INT PRIMARY KEY,
+    id_cantidad INT PRIMARY KEY AUTO_INCREMENT,
     cantidad INT
 );
+
 -- Tabla: Operario
 CREATE TABLE operario (
-    id_operario INT PRIMARY KEY,
+    id_operario INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
     id_existencia INT,
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
@@ -87,7 +92,7 @@ CREATE TABLE operario (
 
 -- Tabla: Admin
 CREATE TABLE admin (
-    id_admin INT PRIMARY KEY,
+    id_admin INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100) NOT NULL,
     id_existencia INT,
     FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
@@ -95,7 +100,7 @@ CREATE TABLE admin (
 
 -- Tabla: Usuarios
 CREATE TABLE usuarios (
-    id_usuarios INT PRIMARY KEY,
+    id_usuarios INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(100) NOT NULL UNIQUE,
     contraseña_hash VARCHAR(255) NOT NULL,
     id_operario INT,
@@ -105,10 +110,9 @@ CREATE TABLE usuarios (
     FOREIGN KEY (id_admin) REFERENCES admin(id_admin)
 );
 
-
--- Tabla: tag
+-- Tabla: Tag
 CREATE TABLE tag (
-    id_tag INT PRIMARY KEY,
+    id_tag INT PRIMARY KEY AUTO_INCREMENT,
     id_edificio INT,
     id_piso INT,
     id_sector INT,
@@ -123,14 +127,24 @@ CREATE TABLE tag (
     FOREIGN KEY (id_cantidad) REFERENCES cantidad(id_cantidad)
 );
 
+-- Tabla: Estado
+CREATE TABLE estado (
+    id_estado INT PRIMARY KEY AUTO_INCREMENT,
+    descripcion VARCHAR(100) NOT NULL
+);
+
 -- Tabla: Orden de Trabajo
 CREATE TABLE orden_trabajo (
-    id_ot INT PRIMARY KEY,
+    id_ot INT PRIMARY KEY AUTO_INCREMENT,
     id_tag INT,
     id_usuarios INT,
+    id_estado INT,
     descripcion VARCHAR(255),
-    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    fecha_creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
     fecha_finalizacion DATETIME,
+    tiempo_inicio DATETIME,
+    tiempo_finalizacion DATETIME,
     FOREIGN KEY (id_tag) REFERENCES tag(id_tag),
-    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id_usuarios)
+    FOREIGN KEY (id_usuarios) REFERENCES usuarios(id_usuarios),
+    FOREIGN KEY (id_estado) REFERENCES estado(id_estado)
 );

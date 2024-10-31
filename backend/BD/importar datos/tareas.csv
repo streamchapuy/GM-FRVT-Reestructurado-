@@ -1,13 +1,13 @@
 id;descripcion;id-existencia;id-tareaxactivo
 1;Relevar marca;1;1
 2;Relevar material;1;1
-3;Relevar tama¤o de gabinete;1;1
+3;Relevar tamaño de gabinete;1;1
 4;Relevar Marca de Maquina Primaria y Alternador;1;1
 5;Relevar Tipo de Piso;1;1
 6;Relevar Material de Paredes;1;1
 7;Relevar modelo;1;1
 8;Numero de Hojas;1;1
-9;Relevar Tama¤o;1;1
+9;Relevar Tamaño;1;1
 10;Cerradura Si/No;1;1
 11;Mochila Empotrada/Exterior;1;1
 12;Canaletas Si/No;1;1
@@ -20,7 +20,7 @@ id;descripcion;id-existencia;id-tareaxactivo
 19;Tipo. Caracol/Marinera/Convencional;1;1
 20;Relevar Material de Techo;1;1
 21;Relevar potencia;1;1
-22;Relevar potencia/TamaÏo;1;1
+22;Relevar potencia/Tama¤o;1;1
 23;Con Vidrio/Sin Vidrio/Tipo;1;1
 24;Tipo de Vidrio;1;1
 25;Relevar Tipo;1;1
@@ -54,15 +54,15 @@ id;descripcion;id-existencia;id-tareaxactivo
 53;Marca/Modelo/Tipo de Bisagras;1;1
 54;Relevar cualquier otro dato que considere relevante para el mantenimiento;1;1
 55;Tomar Fotografia;1;1
-56;Al finalizar la actividad deje el ÿarea limpia, ordenada y segura;1;1
-57;Se¤alice el ÿarea de Trabajo. Desconecte la energ­a electrica - Verificar NO exisitencia de tension electrica;1;2
-58;Se¤alice el ÿarea de Trabajo;1;2
+56;Al finalizar la actividad deje el area limpia, ordenada y segura;1;1
+57;Señalice el area de Trabajo. Desconecte la energia electrica - Verificar NO exisitencia de tension electrica;1;2
+58;Señalice el area de Trabajo;1;2
 59;Control de louver;1;2
 60;Verificar correcto estado de cableado electrico, tomacorriente y conexiones electricas;1;2
 61;Verifique correcto funcionamiento de valvulas;1;2
 62;Verificar correcta y firme fijacion a pared o estructura;1;2
 63;Verificar correcta y firme fijacion de baranda a pared o estructura;1;2
-64;Utilice los Elementos de Protecci½n Personal para trabajos en altura;1;2
+64;Utilice los Elementos de Proteccion Personal para trabajos en altura;1;2
 65;Verificar estado general;1;2
 66;ATENCION: ESTA MISMA OT SERA UTILIZADA PARA LAS 4 ACTIVIDADES MENSUALES;1;2
 67;Verificacion de  funcionamiento de la totalidad de las lamparas.;1;2
@@ -80,7 +80,7 @@ id;descripcion;id-existencia;id-tareaxactivo
 79;Verificar correcta sujeccion de coberturas, canaletas, cumbreras, cenefas y otros.;1;2
 80;Verificar correcta y firme fijacion a pared o estructura.;1;2
 81;Verificar NO  existencia de perdidas.;1;2
-82;Realice limpieza, ordenamiento y/o emprolijamiento del ÿarea.;1;2
+82;Realice limpieza, ordenamiento y/o emprolijamiento del area.;1;2
 83;Limpieza de luminaria y lampara.;1;2
 84;Verificar carga de gas y NO  de fugas.;1;2
 85;Realice verificacion de correcto funcionamiento.;1;2
@@ -89,7 +89,7 @@ id;descripcion;id-existencia;id-tareaxactivo
 88;Verificar correcto estado de cableado electrico.;1;2
 89;Verifique limpieza de caneletas. Debe encontrarse libre de obstucciones y apta para la correcta descarga de agua.;1;2
 90;Actividad 1 de 4 Mensual. Indique Fecha:;1;2
-91;Verificar correcto montaje y sujecci½n.;1;2
+91;Verificar correcto montaje y sujeccion.;1;2
 92;Realice limpieza de filtros.;1;2
 93;Realizar limpieza del equipo.;1;2
 94;Verificar correcto funcionamiento de puertas y cerraduras;1;2
@@ -101,12 +101,12 @@ id;descripcion;id-existencia;id-tareaxactivo
 100;Verifique correcto funcionamiento del equipo luego de finalizada la actividad.;1;2
 101;Realice limpieza completa de ambas unidades.;1;2
 102;Realice verificacion de correcto funcionamiento.;1;2
-103;Verificar correcto ajuste de conexiones electricas.Verificar NO  de se¤ales de sobrecalentamiento de los componentes. ;1;2
+103;Verificar correcto ajuste de conexiones electricas.Verificar NO  de señales de sobrecalentamiento de los componentes. ;1;2
 104;Verifique que las descargas de canaletas permitan flujo libre y se encuentren conectadas correctamente en extremos y uniones.;1;2
 105;Actividad 3 de 4 Mensual. Indique Fecha:;1;2
 106;Conecte nuevamente a la red electrica y realice una prueba de correcto funcionamiento.;1;2
 107;Realizar limpieza del equipo. No utilice elementos humedos ni liquidos. Para retirar polvos, utilice un equipo de aspiracion.;1;2
-108;ðððEN CASO DE DETECTAR ANOMALIAS CONTACTAR AL SERVICIO TECNICO AUTORIZADO. SI ESTAS ANOMALIAS SON CRITICAS, DETENGA EL USO DEL EQUIPO!!!;1;2
+108;­­­EN CASO DE DETECTAR ANOMALIAS CONTACTAR AL SERVICIO TECNICO AUTORIZADO. SI ESTAS ANOMALIAS SON CRITICAS, DETENGA EL USO DEL EQUIPO!!!;1;2
 109;Actividad 4 de 4 Mensual. Indique Fecha:;1;2
 110;Complete la documentacion de mantenimiento;1;2
-111;Al finalizar la actividad deje el ÿarea limpia, ordenada y segura;1;2
+111;Al finalizar la actividad deje el area limpia, ordenada y segura;1;2

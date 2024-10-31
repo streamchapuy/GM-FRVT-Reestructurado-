@@ -18,7 +18,7 @@ import pisoRoutes from './routes/piso.routes.js';
 import sectorRoutes from './routes/sector.routes.js';
 import tagRoutes from './routes/tag.routes.js';
 import tareaRoutes from './routes/tarea.routes.js';
-import tareaxactivoRoutes from './routes/tareaxactivo.routes.js';
+import laborRoutes from './routes/labor.routes.js';
 import ubicacionRoutes from './routes/ubicacion.routes.js';
 import usuariosRoutes from './routes/usuarios.routes.js';
 
@@ -50,7 +50,7 @@ app.use('/API', pisoRoutes)
 app.use('/API', activoRoutes)
 app.use('/API', tareaRoutes)
 app.use('/API', activotareaRoutes)
-app.use('/API', tareaxactivoRoutes)
+app.use('/API', laborRoutes)
 app.use('/API', existenciaRoutes)
 app.use('/API', tagRoutes)
 app.use('/API', usuariosRoutes)
