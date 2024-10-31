@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TareaxactivoService } from '../../../../../services/tareaxactivo.service';
-import { TareaxActivo } from '../../../../interfaces/tareaxactivo';
+import { LaborService } from '../../../../../services/tareaxactivo.service';
+import { Labor } from '../../../../interfaces/labor';
 import { SelectionService } from '../../../../../services/selection.service';
 
 @Component({
@@ -9,22 +9,22 @@ import { SelectionService } from '../../../../../services/selection.service';
   styleUrls: ['./ot-labor.component.css']
 })
 export class OtLaborComponent implements OnInit {
-  tareaxaxtivos: TareaxActivo[] = [];  // Arreglo para almacenar las tareas
-  selectortareaxactivo: number | null = null;
-  constructor(private tareaxactivoService: TareaxactivoService, private selectionService: SelectionService) {}
+  labor: Labor[] = [];  // Arreglo para almacenar las tareas
+  selectorlabor: number | null = null;
+  constructor(private LaborService: LaborService, private selectionService: SelectionService) {}
 
-  onTareaxactivoSelected(id: number) {
-    this.selectionService.setTareaxactivo(id);
+  onlavorSelected(id: number) {
+    this.selectionService.setlabor(id);
   }
 
   ngOnInit(): void {
     // Llama al servicio para obtener las tareas y suscribirse a los datos
-    this.tareaxactivoService.obtenertareaxactivo().subscribe(
-      (data: TareaxActivo[]) => {
-        this.tareaxaxtivos = data; 
+    this.LaborService.obtenerlabor().subscribe(
+      (data: Labor[]) => {
+        this.labor = data; 
       },
       error => {
-        console.error('Error al obtener las tareas:', error);
+        console.error('Error al obtener labores:', error);
       }
     );
   }

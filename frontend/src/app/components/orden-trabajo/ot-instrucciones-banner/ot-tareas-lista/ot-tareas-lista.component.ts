@@ -16,9 +16,9 @@ export class OtTareaListaComponent implements OnInit {
 
   ngOnInit() {
     this.selectionService.activo$.subscribe(id_activo => {
-      this.selectionService.tareaxactivo$.subscribe(id_tareaxactivo => {
-        if (id_activo && id_tareaxactivo) {
-          this.obtenerActivoTareas(id_activo, id_tareaxactivo);
+      this.selectionService.labor$.subscribe(id_labor => {
+        if (id_activo && id_labor) {
+          this.obtenerActivoTareas(id_activo, id_labor);
         }
       });
     });

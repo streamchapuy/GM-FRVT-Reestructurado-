@@ -6,16 +6,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SelectionService {
   private activoSource = new BehaviorSubject<number | null>(null);
-  private tareaxactivoSource = new BehaviorSubject<number | null>(null);
+  private laborSource = new BehaviorSubject<number | null>(null);
 
   activo$ = this.activoSource.asObservable();
-  tareaxactivo$ = this.tareaxactivoSource.asObservable();
+  labor$ = this.laborSource.asObservable();
 
   setActivo(id: number) {
     this.activoSource.next(id);
   }
 
-  setTareaxactivo(id: number) {
-    this.tareaxactivoSource.next(id);
+  setlabor(id: number) {
+    this.laborSource.next(id);
   }
 }

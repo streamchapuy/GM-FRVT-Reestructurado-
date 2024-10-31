@@ -3,9 +3,9 @@
      <p>Inspección = 1 // Mant. Prev. Planif. = 2  // Planif. NO Period. = 3 // NO Planificado = 4</p>
     </div>
     <div class="derecha">
-        <select name="tareaxactivo" id="selector" [(ngModel)]="selectortareaxactivo">
-            <option *ngFor="let tareaxaxtivos of tareaxaxtivos" [value]="tareaxaxtivos.descripcion">
-                {{ tareaxaxtivos.id_tareaxactivo }}
+        <select name="labor" id="selector" [(ngModel)]="selectorlabor">
+            <option *ngFor="let labor of labor" [value]="labor.id_labor">
+                {{ labor.descripcion }}
               </option>
           </select>
           
