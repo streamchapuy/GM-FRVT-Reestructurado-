@@ -6,11 +6,11 @@ export const getTags = async (req, res) => {
     const [rows] = await pool.query(`
     SELECT
 	a.abreviacion AS abreviatura_activo,
-    LPAD(ed.id_edificio, 4, '0') AS edificio_id_formateado,
-    LPAD(p.id_piso, 4, '0') AS piso_id_formateado,
-    LPAD(s.id_sector, 4, '0') AS sector_id_formateado,
-    LPAD(a.id_activo, 4, '0') AS activo_id_formateado,
-    LPAD(u.id_ubicacion, 4, '0') AS ubicacion_id_formateado,
+    LPAD(ed.id_edificio, 3, '0') AS edificio_id_formateado,
+    LPAD(p.id_piso, 3, '0') AS piso_id_formateado,
+    LPAD(s.id_sector, 3, '0') AS sector_id_formateado,
+    LPAD(a.id_activo, 3, '0') AS activo_id_formateado,
+    LPAD(u.id_ubicacion, 3, '0') AS ubicacion_id_formateado,
     t.id_cantidad
 FROM
     tag t

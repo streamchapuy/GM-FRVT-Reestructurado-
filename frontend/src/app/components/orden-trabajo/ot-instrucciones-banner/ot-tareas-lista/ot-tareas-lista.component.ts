@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectionService } from '../../../../../services/selection.service';
-import { ActivoTareaService } from '../../../../../services/activo-tarea.service'; // Asegúrate de tener el servicio para obtener activo-tarea
+import { ActivoTareaService } from '../../../../../services/activo-tarea.service';
 
 @Component({
   selector: 'app-ot-tareas-lista',
@@ -23,16 +23,5 @@ export class OtTareaListaComponent implements OnInit {
       });
     });
   }
-
-  // obtenerActivoTareas(id_activo: number, id_tareaxactivo: number) {
-  //   this.activoTareaService.getActivoTareas(id_activo, id_tareaxactivo).subscribe(
-  //     (data) => {
-  //       this.activoTareas = data; // Asigna los datos a la variable para mostrarlos en la vista
-  //     },
-  //     (error) => {
-  //       console.error("Error al obtener las tareas del activo:", error);
-  //     }
-  //   );
-  // }
 }
 
