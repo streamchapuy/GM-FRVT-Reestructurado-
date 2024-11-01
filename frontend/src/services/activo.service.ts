@@ -8,6 +8,7 @@ import { Activo } from '../app/interfaces/activo';
 })
 export class ActivoService {
   private apiUrl = 'http://127.0.0.1:3307/API';
+  private selectedActivoId: number | null = null;
 
   constructor(private http: HttpClient) { }
 
@@ -29,5 +30,13 @@ export class ActivoService {
 
   obtenerActivoPorId(id_activo: number): Observable<Activo> {
     return this.http.get<Activo>(`${this.apiUrl}/activos/${id_activo}`);
+  }
+  
+  setSelectedActivo(id_activo: number) {
+    this.selectedActivoId = id_activo; // Establecer id_activo seleccionado
+  }
+
+  getSelectedActivoId(): number | null {
+    return this.selectedActivoId; // Obtener id_activo seleccionado
   }
 }

@@ -10,15 +10,19 @@ import { SelectionService } from '../../../../../services/selection.service';
 })
 export class OtLaborComponent implements OnInit {
   labor: Labor[] = [];
-  selectorlabor: number | null = null;
-  constructor(private LaborService: LaborService, private selectionService: SelectionService) {}
+  selectorLabor: number | null = null;
 
-  onlavorSelected(id: number) {
-    this.selectionService.setlabor(id);
+  constructor(private laborService: LaborService, private selectionService: SelectionService) {}
+
+  onLaborSelected(event: Event) {
+    const selectElement = event.target as HTMLSelectElement; // Haciendo casting
+    const id = Number(selectElement.value); // Convierte el valor a número
+    this.laborService.setSelectedLabor(id);
+    this.selectionService.setlabor(id); // Opcional
   }
 
   ngOnInit(): void {
-    this.LaborService.obtenerlabor().subscribe(
+    this.laborService.obtenerlabor().subscribe(
       (data: Labor[]) => {
         this.labor = data; 
       },
