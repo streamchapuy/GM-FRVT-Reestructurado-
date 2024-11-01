@@ -15,8 +15,8 @@ export class OtInfoActivoComponent implements OnInit {
   constructor(private activoService: ActivoService, private selectionService: SelectionService) {}
 
   onActivoSelected(event: Event) {
-    const selectElement = event.target as HTMLSelectElement; // Haciendo casting
-    const id = Number(selectElement.value); // Convierte el valor a número
+    const selectElement = event.target as HTMLSelectElement;
+    const id = Number(selectElement.value);
     this.selectionService.setActivo(id);
   }
 
