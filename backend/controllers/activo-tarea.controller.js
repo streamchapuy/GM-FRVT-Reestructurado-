@@ -3,14 +3,15 @@ import { pool } from '../db.js';
 export const getActivoTareas = async (req, res) => {
     const { id_activo, id_tareaxactivo } = req.query;
 
+    // Verificar que los parámetros no sean nulos o indefinidos
     if (!id_activo || !id_tareaxactivo) {
-        return res.status(400).json({
-            message: "Parámetros faltantes",
-        });
+        return res.status(400).json({ message: "Parámetros faltantes" });
     }
 
     try {
         console.log("Ejecutando consulta SQL...");
+        console.log("id_activo:", id_activo, "id_tareaxactivo:", id_tareaxactivo);
+
         const [rows] = await pool.query(`
             SELECT 
                 a.nombre AS nombre_activo,
@@ -27,7 +28,7 @@ export const getActivoTareas = async (req, res) => {
         `, [id_activo, id_tareaxactivo]);
 
         console.log("Consulta ejecutada correctamente", rows);
-        res.json(rows);
+        res.json(rows.length > 0 ? rows : { message: "No se encontraron tareas." });
     } catch (error) {
         console.error("Error en el servidor:", error);
         return res.status(500).json({
@@ -36,6 +37,7 @@ export const getActivoTareas = async (req, res) => {
         });
     }
 };
+
 
 
 // export const getActivoTareas = async (req, res) => {
