@@ -17,6 +17,7 @@ export class LaborService {
   }
 
   setSelectedLabor(id_labor: number) {
+    console.log("Labor: ", id_labor);
     this.selectedLaborId = id_labor; // Establecer id_labor seleccionado
   }
 
