@@ -15,24 +15,25 @@ export class OtInfoActivoComponent implements OnInit {
   constructor(private activoService: ActivoService, private selectionService: SelectionService) {}
 
   onActivoSelected(event: Event) {
-    const selectElement = event.target as HTMLSelectElement;
-    const id = Number(selectElement.value);
+    const selectElement = event.target as HTMLSelectElement; // Haciendo casting
+    const id = Number(selectElement.value); 
+    this.activoService.setSelectedActivo(id);
     this.selectionService.setActivo(id);
   }
 
   ngOnInit(): void {
-    this.loadActivos();
+    this.activoService.obtenerActivos().subscribe(
+      (data: Activo[]) => {
+        this.activos = data; 
+      },
+      error => {
+        console.error('Error al obtener activos:', error);
+      }
+    );
   }
 
-  loadActivos() {
-    this.activoService.obtenerActivos().subscribe({
-      next: (data: Activo[]) => {
-        this.activos = data;
-        console.log(this.activos);
-      },
-      error: (err) => {
-        console.error('Error al cargar los activos:', err);
-      }
-    });
+  
+  setActivo($event: any) {
+    this.activoService.setSelectedActivo($event.target.value);
   }
 }

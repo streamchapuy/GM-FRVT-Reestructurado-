@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Activo } from '../app/interfaces/activo';
 
 @Injectable({
@@ -8,12 +8,17 @@ import { Activo } from '../app/interfaces/activo';
 })
 export class ActivoService {
   private apiUrl = 'http://127.0.0.1:3307/API';
-  private selectedActivoId: number | null = null;
+  private selectedActivoId = new BehaviorSubject <number | null >(null);
+  selectedActivoId$ = this.selectedActivoId.asObservable();
 
   constructor(private http: HttpClient) { }
-
+  
   obtenerActivos(): Observable<Activo[]> {
     return this.http.get<Activo[]>(`${this.apiUrl}/activos`);
+  }
+  
+  setSelectedActivo(id_activo: number) {
+    this.selectedActivoId.next(id_activo); // Establecer id_activo seleccionado
   }
 
   crearActivo(activo: Activo): Observable<Activo> {
@@ -32,11 +37,9 @@ export class ActivoService {
     return this.http.get<Activo>(`${this.apiUrl}/activos/${id_activo}`);
   }
   
-  setSelectedActivo(id_activo: number) {
-    this.selectedActivoId = id_activo; // Establecer id_activo seleccionado
-  }
+  
 
-  getSelectedActivoId(): number | null {
-    return this.selectedActivoId; // Obtener id_activo seleccionado
-  }
+  // getSelectedActivoId(): number | null {
+  //   return this.selectedActivoId; // Obtener id_activo seleccionado
+  // }
 }

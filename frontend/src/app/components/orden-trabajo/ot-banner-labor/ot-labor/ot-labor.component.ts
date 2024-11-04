@@ -31,4 +31,7 @@ export class OtLaborComponent implements OnInit {
       }
     );
   }
+  setLabor($event: any) {
+    this.laborService.setSelectedLabor($event.target.value);
+  }
 }

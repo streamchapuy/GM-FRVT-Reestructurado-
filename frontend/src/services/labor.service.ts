@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Labor } from '../app/interfaces/labor';
 
 @Injectable({
@@ -8,7 +8,8 @@ import { Labor } from '../app/interfaces/labor';
 })
 export class LaborService {
   private apiUrl = 'http://127.0.0.1:3307/API';
-  private selectedLaborId: number | null = null; // Variable para almacenar id_labor seleccionado
+  private selectedLaborId = new BehaviorSubject<number | null>(null); // Variable para almacenar id_labor seleccionado
+  selectedLaborId$ = this.selectedLaborId.asObservable();
 
   constructor(private http: HttpClient) {}
 
@@ -17,12 +18,11 @@ export class LaborService {
   }
 
   setSelectedLabor(id_labor: number) {
-    console.log("Labor: ", id_labor);
-    this.selectedLaborId = id_labor; // Establecer id_labor seleccionado
+    this.selectedLaborId.next(id_labor); // Establecer id_labor seleccionado
   }
 
-  getSelectedLaborId(): number | null {
-    return this.selectedLaborId; // Obtener id_labor seleccionado
-  }
+  // getSelectedLaborId(): number | null {
+  //   return this.selectedLaborId; // Obtener id_labor seleccionado
+  // }
 }
 
