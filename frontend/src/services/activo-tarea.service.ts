@@ -12,9 +12,9 @@ export class ActivoTareaService {
 
   constructor(private http: HttpClient) { }
 
-  getActivoTareas(id_Activo: number, id_labor: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/activo-tareas?id_Activo=${id_Activo}&id_labor=${id_labor}`);
-}
+  getActivoTareas(consulta: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/activo-tareas`, consulta);
+  }
 
 }
 

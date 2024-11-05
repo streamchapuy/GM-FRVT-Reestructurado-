@@ -3,10 +3,10 @@ import { createActivoTarea, deleteActivoTarea, editActivoTarea, getActivoTarea, 
 
 const router = Router();
 
-router.get('/activo-tareas', getActivoTareas);
+router.post('/activo-tareas', getActivoTareas);
 router.get('/activo-tarea/:id_activo_tarea', getActivoTarea);
 router.post('/activo-tarea', createActivoTarea);
 router.patch('/activo-tarea/:id_activo_tarea', editActivoTarea);
-router.delete('/activo-tarea/:id_activo_tarea', deleteActivoTarea); 
+router.delete('/activo-tarea/:id_activo_tarea', deleteActivoTarea);
 
 export default router;
