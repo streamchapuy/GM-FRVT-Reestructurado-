@@ -12,6 +12,45 @@ export const getUbicaciones = async (req, res) => {
     }
 };
 
+export const filtrosubicacion = async (req, res) => {
+    const { id_ubicacion } = req.body;
+    console.log(id_ubicacion);
+    try {
+        console.log("Ejecutando consulta SQL...");
+        const [rows] = await pool.query(`
+                                SELECT 
+    tag.id_tag,
+    activo.nombre AS nombre_activo,
+    edificio.nombre AS nombre_edificio,
+    sector.nombre AS nombre_sector,
+     piso.nombre AS nombre_piso
+FROM 
+    tag
+JOIN 
+    activo ON tag.id_activo = activo.id_activo
+JOIN 
+    edificio ON tag.id_edificio = edificio.id_edificio
+ JOIN 
+    sector ON tag.id_sector = sector.id_sector
+JOIN 
+    piso ON tag.id_piso = piso.id_piso
+WHERE 
+    tag.id_ubicacion = ?;
+
+        `, [id_ubicacion]);
+  
+        console.log("Consulta ejecutada correctamente", rows);
+        res.json(rows);
+    } catch (error) {
+        console.error("Error en el servidor:", error);
+        return res.status(500).json({
+            message: "Error al obtener filtro",
+            error: error.message,
+        });
+    }
+  };
+
+
 export const getUbicacion = async (req, res) => {
     const { id_ubicacion } = req.params;
     try {

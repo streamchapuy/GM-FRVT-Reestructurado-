@@ -12,6 +12,45 @@ export const getEdificios = async (req, res) => {
     }
 };
 
+export const filtrosedificio = async (req, res) => {
+    const { id_edificio } = req.body;
+    console.log(id_edificio);
+    try {
+        console.log("Ejecutando consulta SQL...");
+        const [rows] = await pool.query(`
+                                SELECT 
+                tag.id_tag,
+                activo.nombre AS nombre_activo,
+                piso.nombre AS nombre_piso,
+                sector.nombre AS nombre_sector,
+                ubicacion.nombre AS nombre_ubicacion
+            FROM 
+                tag
+            JOIN 
+                activo ON tag.id_activo = activo.id_activo
+            JOIN 
+                piso ON tag.id_piso = piso.id_piso
+            JOIN 
+                sector ON tag.id_sector = sector.id_sector
+            JOIN 
+                ubicacion ON tag.id_ubicacion = ubicacion.id_ubicacion
+            WHERE 
+                tag.id_edificio = ?;
+
+  
+        `, [id_edificio]);
+  
+        console.log("Consulta ejecutada correctamente", rows);
+        res.json(rows);
+    } catch (error) {
+        console.error("Error en el servidor:", error);
+        return res.status(500).json({
+            message: "Error al obtener filtro",
+            error: error.message,
+        });
+    }
+  };
+
 export const getEdificio = async (req, res)=> {
     const {id_edificio} = req.params;
     try {
