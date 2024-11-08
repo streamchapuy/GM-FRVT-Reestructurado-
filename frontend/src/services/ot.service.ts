@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class MantenimientoService {
+export class OtService {
   private apiUrl = 'http://127.0.0.1:3307/API';
 
 
