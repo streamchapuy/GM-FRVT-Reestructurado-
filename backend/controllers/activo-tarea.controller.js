@@ -2,7 +2,7 @@ import { pool } from '../db.js';
 
 export const getActivoTareas = async (req, res) => {
     const { id_activo, id_labor } = req.body;
-    console.log("id_activo", id_activo);
+    console.log("id_activo", id_activo, "id_labor", id_labor);
     try {
         console.log("Ejecutando consulta SQL...");
         const [rows] = await pool.query(`
