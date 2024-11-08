@@ -5,17 +5,25 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SelectionService {
-  private activoSource = new BehaviorSubject<number | null>(null);
-  private tareaxactivoSource = new BehaviorSubject<number | null>(null);
+  private activoSubject = new BehaviorSubject<number | null>(null);
+  private laborSubject = new BehaviorSubject<number | null>(null);
 
-  activo$ = this.activoSource.asObservable();
-  tareaxactivo$ = this.tareaxactivoSource.asObservable();
+  activo$ = this.activoSubject.asObservable();
+  labor$ = this.laborSubject.asObservable();
 
   setActivo(id: number) {
-    this.activoSource.next(id);
+    this.activoSubject.next(id);
   }
 
-  setTareaxactivo(id: number) {
-    this.tareaxactivoSource.next(id);
+  getActivo(): number | null {
+    return this.activoSubject.value;
+  }
+
+  setlabor(id: number) {
+    this.laborSubject.next(id);
+  }
+
+  getLabor(): number | null {
+    return this.laborSubject.value;
   }
 }

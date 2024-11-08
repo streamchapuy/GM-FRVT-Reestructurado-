@@ -7,13 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class ActivoTareaService {
 
-  private baseUrl = 'http://127.0.0.1:3307/API';
-  apiUrl: any;
+  private apiUrl = 'http://127.0.0.1:3307/API';
+  ApiUrl: any;
 
   constructor(private http: HttpClient) { }
 
-  getActivoTareas(idActivo: number, idTareaXActivo: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/activos/${idActivo}/tareas/${idTareaXActivo}`);
+  getActivoTareas(id_Activo: number, id_labor: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/activos/${id_Activo}/tareas/${id_labor}`);
   }
 }
 

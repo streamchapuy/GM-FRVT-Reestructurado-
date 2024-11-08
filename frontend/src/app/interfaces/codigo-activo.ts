@@ -1,9 +1,9 @@
 export interface CodigoActivo {
-        id_tag: number;
-        id_edificio: number;
-        id_piso: number;
-        id_sector: number;
-        id_activo: number;
-        id_ubicacion: number;
-        id_cantidad: number;
+        abreviatura_activo: string,
+        edificio_id_formateado:number ,
+        piso_id_formateado: number,
+        sector_id_formateado: number,
+        activo_id_formateado: number,
+        ubicacion_id_formateado: number,
+        id_cantidad: number
 }

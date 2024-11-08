@@ -26,7 +26,7 @@ id_activo;nombre;abreviacion;id_existencia
 25;Tanques de Agua;TNQE - ;1
 26;Rejillas & Desagues;DESA - ;1
 27;Emergencia Alarma;EMER - ;1
-28;Espacio F�isico;ESFI - ;1
+28;Espacio Fisico ;ESFI - ;1
 29;Ducha;DCHA - ;1
 30;Cocheras;CHRA - ;1
 31;Escalera;ESLR - ;1

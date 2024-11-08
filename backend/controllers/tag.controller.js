@@ -4,28 +4,21 @@ export const getTags = async (req, res) => {
   try {
     console.log("Ejecutando consulta SQL...");
     const [rows] = await pool.query(`
-           SELECT 
-    t.id_tag,
-    e.nombre AS edificio_nombre,
-    p.nombre AS piso_nombre,
-    s.nombre AS sector_nombre,
-    a.abreviacion AS activo_abreviacion,
-    u.nombre AS ubicacion_nombre,
-    c.cantidad AS cantidad_cantidad
-FROM 
+    SELECT
+	a.abreviacion AS abreviatura_activo,
+    LPAD(ed.id_edificio, 3, '0') AS edificio_id_formateado,
+    LPAD(p.id_piso, 3, '0') AS piso_id_formateado,
+    LPAD(s.id_sector, 3, '0') AS sector_id_formateado,
+    LPAD(a.id_activo, 3, '0') AS activo_id_formateado,
+    LPAD(u.id_ubicacion, 3, '0') AS ubicacion_id_formateado,
+    t.id_cantidad
+FROM
     tag t
- JOIN 
-    edificio e ON t.id_edificio = e.id_edificio
- JOIN 
-    piso p ON t.id_piso = p.id_piso
- JOIN 
-    sector s ON t.id_sector = s.id_sector
- JOIN 
-    activo a ON t.id_activo = a.id_activo
- JOIN 
-    ubicacion u ON t.id_ubicacion = u.id_ubicacion
-JOIN 
-    cantidad c ON t.id_cantidad = c.id_cantidad;
+JOIN edificio ed ON t.id_edificio = ed.id_edificio
+JOIN piso p ON t.id_piso = p.id_piso
+JOIN sector s ON t.id_sector = s.id_sector
+JOIN activo a ON t.id_activo = a.id_activo
+JOIN ubicacion u ON t.id_ubicacion = u.id_ubicacion;
 
         `);
     console.log("Consulta ejecutada correctamente", rows);

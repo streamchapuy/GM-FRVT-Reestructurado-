@@ -3,9 +3,10 @@ import { pool } from '../db.js';
 export const getActivoTareas = async (req, res) => {
     const { id_activo, id_tareaxactivo } = req.query;
 
-    // Verificar que los parámetros no sean nulos o indefinidos
     if (!id_activo || !id_tareaxactivo) {
-        return res.status(400).json({ message: "Parámetros faltantes" });
+        return res.status(400).json({
+            message: "Parámetros faltantes",
+        });
     }
 
     try {
@@ -13,26 +14,27 @@ export const getActivoTareas = async (req, res) => {
         console.log("id_activo:", id_activo, "id_tareaxactivo:", id_tareaxactivo);
 
         const [rows] = await pool.query(`
-            SELECT 
-                a.nombre AS nombre_activo,
-                t.descripcion AS descripcion_tarea
-            FROM 
-                activo a
-            JOIN 
-                activo_tarea at ON a.id_activo = at.id_activo
-            JOIN 
-                tarea t ON at.id_tarea = t.id_tarea
-            WHERE 
-                a.id_activo = ? 
-                AND t.id_tareaxactivo = ?;
-        `, [id_activo, id_tareaxactivo]);
+    SELECT 
+    a.nombre AS nombre_activo,
+    t.descripcion AS descripcion_tarea
+FROM 
+    activo a
+JOIN 
+    activo_tarea at ON a.id_activo = at.id_activo
+JOIN 
+    tarea t ON at.id_tarea = t.id_tarea
+WHERE 
+    a.id_activo = ? 
+    AND t.id_labor = ?;  
+
+        `, [id_activo, id_labor]);
 
         console.log("Consulta ejecutada correctamente", rows);
         res.json(rows.length > 0 ? rows : { message: "No se encontraron tareas." });
     } catch (error) {
         console.error("Error en el servidor:", error);
         return res.status(500).json({
-            message: "Error al obtener las tareas del activo",
+            message: "Error al obtener las tareas",
             error: error.message,
         });
     }
@@ -40,17 +42,6 @@ export const getActivoTareas = async (req, res) => {
 
 
 
-// export const getActivoTareas = async (req, res) => {
-//     try {
-//         const [rows] = await pool.query('SELECT * FROM activo_tarea');
-//         res.json(rows);
-//     } catch (error) {
-//         return res.status(500).json({
-//             message: 'Error al obtener activos con tarea',
-//             error: error.message
-//         });
-//     }
-// };
 
 export const getActivoTarea = async (req, res) => {
     const { id_activo_tarea } = req.params;

@@ -6,19 +6,24 @@ import { SelectionService } from '../../../../../services/selection.service';
 @Component({
   selector: 'app-ot-info-activo',
   templateUrl: './ot-info-activo.component.html',
-  styleUrl: './ot-info-activo.component.css'
+  styleUrls: ['./ot-info-activo.component.css']
 })
-export class OtInfoActivoComponent implements OnInit{
+export class OtInfoActivoComponent implements OnInit {
   activos: Activo[] = [];
   selectorActivo: number | null = null;
-  constructor(private activoService: ActivoService, private selectionService: SelectionService) { }
-  
-  onActivoSelected(id: number) {
+
+  constructor(private activoService: ActivoService, private selectionService: SelectionService) {}
+
+  onActivoSelected(event: Event) {
+    const selectElement = event.target as HTMLSelectElement; // Haciendo casting
+    const id = Number(selectElement.value); // Convierte el valor a número
     this.selectionService.setActivo(id);
   }
+
   ngOnInit(): void {
     this.loadActivos();
   }
+
   loadActivos() {
     this.activoService.obtenerActivos().subscribe({
       next: (data: Activo[]) => {
