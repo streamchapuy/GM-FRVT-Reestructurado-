@@ -18,27 +18,27 @@ export const filtrosubicacion = async (req, res) => {
     try {
         console.log("Ejecutando consulta SQL...");
         const [rows] = await pool.query(`
-                                SELECT 
+                                SELECT
     tag.id_tag,
     activo.nombre AS nombre_activo,
     edificio.nombre AS nombre_edificio,
     sector.nombre AS nombre_sector,
-     piso.nombre AS nombre_piso
-FROM 
+    piso.nombre AS nombre_piso
+FROM
     tag
-JOIN 
+JOIN
     activo ON tag.id_activo = activo.id_activo
-JOIN 
+JOIN
     edificio ON tag.id_edificio = edificio.id_edificio
- JOIN 
+JOIN
     sector ON tag.id_sector = sector.id_sector
-JOIN 
+JOIN
     piso ON tag.id_piso = piso.id_piso
-WHERE 
+WHERE
     tag.id_ubicacion = ?;
 
         `, [id_ubicacion]);
-  
+
         console.log("Consulta ejecutada correctamente", rows);
         res.json(rows);
     } catch (error) {
@@ -48,7 +48,7 @@ WHERE
             error: error.message,
         });
     }
-  };
+};
 
 
 export const getUbicacion = async (req, res) => {
@@ -110,7 +110,7 @@ export const editUbicacion = async (req, res) => {
 };
 
 export const deleteUbicacion = async (req, res) => {
-        const { id_ubicacion } = req.params;
+    const { id_ubicacion } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM ubicacion WHERE id_ubicacion = ?', [id_ubicacion]);
 
