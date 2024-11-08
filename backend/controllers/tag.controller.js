@@ -5,13 +5,13 @@ export const getTags = async (req, res) => {
     console.log("Ejecutando consulta SQL...");
     const [rows] = await pool.query(`
     SELECT
-	a.abreviacion AS abreviatura_activo,
+    a.abreviacion AS abreviatura_activo,
     LPAD(ed.id_edificio, 3, '0') AS edificio_id_formateado,
     LPAD(p.id_piso, 3, '0') AS piso_id_formateado,
     LPAD(s.id_sector, 3, '0') AS sector_id_formateado,
     LPAD(a.id_activo, 3, '0') AS activo_id_formateado,
     LPAD(u.id_ubicacion, 3, '0') AS ubicacion_id_formateado,
-    t.id_cantidad
+    CONCAT(' - ', t.id_cantidad) AS cantidad_formateada
 FROM
     tag t
 JOIN edificio ed ON t.id_edificio = ed.id_edificio
@@ -19,6 +19,7 @@ JOIN piso p ON t.id_piso = p.id_piso
 JOIN sector s ON t.id_sector = s.id_sector
 JOIN activo a ON t.id_activo = a.id_activo
 JOIN ubicacion u ON t.id_ubicacion = u.id_ubicacion;
+
 
         `);
     console.log("Consulta ejecutada correctamente", rows);
@@ -43,7 +44,8 @@ export const filtroTags = async (req, res) => {
               activo.nombre AS nombre_activo,
               edificio.nombre AS nombre_edificio,
               piso.nombre AS nombre_piso,
-              sector.nombre AS nombre_sector
+              sector.nombre AS nombre_sector,
+              ubicacion.nombre AS nombre_ubicacion
           FROM 
               tag
           JOIN 
@@ -54,6 +56,8 @@ export const filtroTags = async (req, res) => {
               piso ON tag.id_piso = piso.id_piso
           JOIN 
               sector ON tag.id_sector = sector.id_sector
+          JOIN 
+                ubicacion ON tag.id_ubicacion = ubicacion.id_ubicacion
           WHERE 
               tag.id_tag = ?;
 
