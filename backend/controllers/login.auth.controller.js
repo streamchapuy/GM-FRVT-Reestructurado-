@@ -8,10 +8,10 @@ dotenv.config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
 export const logeoUser = async (req, res) => {
-    const { username, password } = req.body;
+    const { email, contraseña_hash } = req.body;
 
     try {
-        const [results] = await pool.query('SELECT * FROM usuarios WHERE username = ?', [username]);
+        const [results] = await pool.query('SELECT * FROM usuarios WHERE email = ?', [email]);
 
         if (results.length === 0) {
             return res.status(401).json({ message: 'Credenciales inválidas' });
@@ -23,11 +23,11 @@ export const logeoUser = async (req, res) => {
             return res.status(401).json({ message: 'Credenciales inválidas' });
         }
 
-        const token = jwt.sign({ userId: user.id }, SECRET_KEY, { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.email }, SECRET_KEY, { expiresIn: '1h' });
         return res.json({ message: 'Inicio de sesión exitoso', token });
 
     } catch (error) {
-        console.error('Error en el proceso de login: ' + error);
+        console.error('Error en el proceso de login:', error);
         res.status(500).json({ message: 'Error en el proceso de login' });
     }
-}
+};

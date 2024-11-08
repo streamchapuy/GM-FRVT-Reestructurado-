@@ -6,6 +6,6 @@ import authenticateToken from '../middleware/authmiddleware.js';
 const router = express.Router();
 
 
-router.post('/register', authenticateToken, registerUser)
+router.post('/register', registerUser)
 
 export default router;
