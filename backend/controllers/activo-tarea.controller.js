@@ -32,8 +32,6 @@ WHERE
     }
 };
 
-
-
 export const getActivoTarea = async (req, res) => {
     const { id_activo_tarea } = req.params;
     try {
