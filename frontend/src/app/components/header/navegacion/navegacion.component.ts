@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrl: './navegacion.component.css'
 })
 export class NavegacionComponent {
-
+  handleSearch(term: string): void {
+    console.log('Search term:', term);
+  }
 }

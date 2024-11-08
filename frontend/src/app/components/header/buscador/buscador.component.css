@@ -1,0 +1,27 @@
+.buscador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.buscador-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 25px;
+    border: 2px solid #ffffff;
+    background-color: #ffffff;
+    color: #333333;
+    transition: all 0.3s ease;
+}
+
+.buscador-input:focus {
+    outline: none;
+    border-color: #1c4258;
+}
+
+.buscador-input::placeholder {
+    color: #333333;
+}
