@@ -11,7 +11,7 @@ import activoRoutes from './routes/activo.routes.js';
 import adminRoutes from './routes/admin.routes.js';
 import edificioRoutes from './routes/edificio.routes.js';
 import existenciaRoutes from './routes/existencia.routes.js';
-import indexRoutes from './routes/index.routes.js';
+
 import operarioRoutes from './routes/operario.routes.js';
 import otRoutes from './routes/ot.routes.js';
 import pisoRoutes from './routes/piso.routes.js';
@@ -20,7 +20,8 @@ import tagRoutes from './routes/tag.routes.js';
 import tareaRoutes from './routes/tarea.routes.js';
 import laborRoutes from './routes/labor.routes.js';
 import ubicacionRoutes from './routes/ubicacion.routes.js';
-import usuariosRoutes from './routes/usuarios.routes.js';
+
+
 
 
 
@@ -39,23 +40,23 @@ app.use(cors(corsOptions));
 app.use(express.json())
 
 app.use(loginRoutes)
-app.use(registroRoutes)
+app.use('/API',registroRoutes)
 
-app.use('/API', indexRoutes)
-app.use('/API', otRoutes)
-app.use('/API', edificioRoutes)
-app.use('/API', sectorRoutes)
-app.use('/API', ubicacionRoutes)
-app.use('/API', pisoRoutes)
-app.use('/API', activoRoutes)
-app.use('/API', tareaRoutes)
-app.use('/API', activotareaRoutes)
-app.use('/API', laborRoutes)
-app.use('/API', existenciaRoutes)
-app.use('/API', tagRoutes)
-app.use('/API', usuariosRoutes)
-app.use('/API', operarioRoutes)
-app.use('/API', adminRoutes)
+
+app.use('/API', authenticateToken ,otRoutes)
+app.use('/API', authenticateToken, edificioRoutes)
+app.use('/API',authenticateToken, sectorRoutes)
+app.use('/API',authenticateToken, ubicacionRoutes)
+app.use('/API',authenticateToken, pisoRoutes)
+app.use('/API',authenticateToken, activoRoutes)
+app.use('/API',authenticateToken, tareaRoutes)
+app.use('/API',authenticateToken, activotareaRoutes)
+app.use('/API',authenticateToken, laborRoutes)
+app.use('/API',authenticateToken, existenciaRoutes)
+app.use('/API',authenticateToken, tagRoutes)
+app.use('/API',authenticateToken, operarioRoutes)
+app.use('/API',authenticateToken, adminRoutes)
+
 app.use((req, res, next) => {
     res.status(404).json({
         message: 'Ruta no encontrada'

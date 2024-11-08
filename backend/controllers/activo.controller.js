@@ -1,5 +1,43 @@
 import { pool } from '../db.js';
 
+
+export const getActivofiltro = async (req, res) => {
+    const { id_activo } = req.body;
+    console.log(id_activo);
+    try {
+        console.log("Ejecutando consulta SQL...");
+        const [rows] = await pool.query(`
+            SELECT 
+                tag.id_tag,
+                edificio.nombre AS nombre_edificio,
+                piso.nombre AS nombre_piso,
+                sector.nombre AS nombre_sector,
+                ubicacion.nombre AS nombre_ubicacion
+            FROM 
+                tag
+            JOIN 
+                edificio ON tag.id_edificio = edificio.id_edificio
+            JOIN 
+                piso ON tag.id_piso = piso.id_piso
+            JOIN 
+                sector ON tag.id_sector = sector.id_sector
+            JOIN 
+                ubicacion ON tag.id_ubicacion = ubicacion.id_ubicacion
+            WHERE 
+                tag.id_activo = ?;
+        `, [id_activo]);
+
+        console.log("Consulta ejecutada correctamente", rows);
+        res.json(rows);
+    } catch (error) {
+        console.error("Error en el servidor:", error);
+        return res.status(500).json({
+            message: "Error al obtener filtro",
+            error: error.message,
+        });
+    }
+};
+
 export const getActivos = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM activo');

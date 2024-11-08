@@ -1,21 +1,33 @@
-import jwt from "jsonwebtoken";
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
 
-const secretKey = process.env.SECRET_KEY || "default_key";
+dotenv.config();
+
+
+const secretKey = process.env.SECRET_KEY || 'default_key';
+
 
 const authenticateToken = (req, res, next) => {
-  console.log('Ruta:', req.path);
-  const authHeader = req.headers["authorization"];
-  console.log('authHeader', authHeader)  
-  const token = authHeader && authHeader.split(" ")[1];
-  if (token == null) return res.status(401).json({error: 'Token no proporcionado'});
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1];
 
-  jwt.verify(token, secretKey, (err, user) => {
-    if (err) return res.status(403).json({error: 'Token inválido'});    
-    req.user = user;
-    req.token = token;
-    req.userId = user.userId;
-    console.log('req.user', req.user)
-    next();
-  });
+    if (token == null) {
+        return res.status(401).json({ error: 'Token no proporcionado' });
+    }
+
+    jwt.verify(token, secretKey, (err, user) => {
+        if (err) {
+            console.error('Error de verificación del JWT:', err);
+            return res.status(403).json({ error: 'Token inválido' });
+        }
+
+        req.user = user;
+        req.token = token;
+        req.userId = user.userId;
+
+        console.log('Usuario autenticado:', req.user);
+        next();
+    });
 };
+
 export default authenticateToken;
