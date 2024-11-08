@@ -15,10 +15,10 @@ export class OtLaborComponent implements OnInit {
   constructor(private laborService: LaborService, private selectionService: SelectionService) {}
 
   onLaborSelected(event: Event) {
-    const selectElement = event.target as HTMLSelectElement; // Haciendo casting
-    const id = Number(selectElement.value); // Convierte el valor a número
+    const selectElement = event.target as HTMLSelectElement;
+    const id = Number(selectElement.value);
     this.laborService.setSelectedLabor(id);
-    this.selectionService.setlabor(id); // Opcional
+    this.selectionService.setlabor(id); 
   }
 
   ngOnInit(): void {
@@ -30,5 +30,8 @@ export class OtLaborComponent implements OnInit {
         console.error('Error al obtener labores:', error);
       }
     );
+  }
+  setLabor($event: any) {
+    this.laborService.setSelectedLabor($event.target.value);
   }
 }

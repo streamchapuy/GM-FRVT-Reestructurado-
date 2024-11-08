@@ -5,26 +5,8 @@
     padding: 0;
     display: flex;
 }
-
-.izqueirda {
-    width: 6%;
-    height: 100%;
-    background-color: rgb(194, 202, 209);   
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding-right: 20px;
-    text-align: center;
-    border: 1.5px solid rgb(5, 5, 5);
-}
-.izqueirda p {
-    font-size: 14.3px;
-    color: black;
-    text-align: center;
-    margin-top: 15px;
-}
 .tareaderecha{
-    width: 95%;
+    width: 100%;
     height: 100%;
     background-color:  rgb(194, 202, 209); 
     border: 1.5px solid black;  
