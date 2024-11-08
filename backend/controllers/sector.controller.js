@@ -12,6 +12,46 @@ export const getSectores = async (req, res) => {
     }
 };
 
+export const filtrossector = async (req, res) => {
+    const { id_sector } = req.body;
+    console.log(id_sector);
+    try {
+        console.log("Ejecutando consulta SQL...");
+        const [rows] = await pool.query(`
+                                SELECT 
+    tag.id_tag,
+    activo.nombre AS nombre_activo,
+    edificio.nombre AS nombre_edificio,
+    piso.nombre AS nombre_piso,
+    ubicacion.nombre AS nombre_ubicacion
+FROM 
+    tag
+JOIN 
+    activo ON tag.id_activo = activo.id_activo
+JOIN 
+    edificio ON tag.id_edificio = edificio.id_edificio
+JOIN 
+    piso ON tag.id_piso = piso.id_piso
+JOIN 
+    ubicacion ON tag.id_ubicacion = ubicacion.id_ubicacion
+WHERE 
+    tag.id_sector = ?;
+
+
+  
+        `, [id_sector]);
+  
+        console.log("Consulta ejecutada correctamente", rows);
+        res.json(rows);
+    } catch (error) {
+        console.error("Error en el servidor:", error);
+        return res.status(500).json({
+            message: "Error al obtener filtro",
+            error: error.message,
+        });
+    }
+  };
+
 export const getSector = async (req, res) => {
     const { id_sector } = req.params;
     try {
