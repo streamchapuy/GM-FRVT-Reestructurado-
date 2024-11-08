@@ -82,32 +82,13 @@ CREATE TABLE cantidad (
     cantidad INT
 );
 
--- Tabla: Operario
-CREATE TABLE operario (
-    id_operario INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    id_existencia INT,
-    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
-);
-
--- Tabla: Admin
-CREATE TABLE admin (
-    id_admin INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    id_existencia INT,
-    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
-);
-
 -- Tabla: Usuarios
 CREATE TABLE usuarios (
     id_usuarios INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     contraseña_hash VARCHAR(255) NOT NULL,
-    id_operario INT,
-    id_admin INT,
-    tipo_usuario VARCHAR(50) CHECK (tipo_usuario IN ('operario', 'admin')),
-    FOREIGN KEY (id_operario) REFERENCES operario(id_operario),
-    FOREIGN KEY (id_admin) REFERENCES admin(id_admin)
+    tipo_usuario VARCHAR(50) CHECK (tipo_usuario IN ('operario', 'admin'))
 );
 
 -- Tabla: Tag
