@@ -1,58 +1,36 @@
+// src/app/components/register/register.component.ts
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-import { response } from 'express';
-import { CookieService } from 'ngx-cookie-service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  user = {
-    email: '',
-    password: '',
-    confirmPassword: ''
-  }
+  email: string = '';
+  password: string = '';
+  confirmPassword: string = '';
+  errorMessage: string = '';
 
-  constructor(private router: Router, 
-    private authService: AuthService,
-  private cookieService: CookieService) { }
+  constructor(private authService: AuthService, private router: Router) {}
 
   register() {
-    
-    if (this.user.password !== this.user.confirmPassword) {
-      alert('Las contraseñas no coinciden');
-      return;
-    }
+    const user = {
+      email: this.email,
+      contraseña_hash: this.password // Enviar el campo `contraseña_hash` como espera el backend
+    };
 
-    const token = this.cookieService.get('token');
-    
-    if(token){
-      console.log('token encontrado: ', token)
-      this.router.navigate(['/home']);
-    } else {
-      console.log('token no encontrado')
-    }
-
-    this.authService.register(this.user).subscribe(
-      response => {
-        if (response && response.token){
-          this.cookieService.set('token', response.token, 1, '/');
-          alert('Registro Exitoso')
-        }
-        this.goToLogin();
+    this.authService.register(user).subscribe({
+      next: (response) => {
+        console.log('Registro exitoso', response);
+        this.router.navigate(['/login']); // Redirige después del registro
       },
-      Error => {
-        console.error(Error);
-        alert('Error en el registro')
+      error: (error) => {
+        console.error('Error en el registro', error);
+        this.errorMessage = 'Ocurrió un problema durante el registro';
       }
-    )
-  }
-
-  goToLogin() {
-    this.router.navigate(['/login']);
+    });
   }
 }
