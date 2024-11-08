@@ -10,16 +10,36 @@
         <h4>Ingresar</h4>
         <form (submit)="register()">
             <div class="mb-3">
-                <input matInput type="email" id="email" class="form-control" name="email" placeholder="Email"
-                    [(ngModel)]="email" required />
+                <input matInput 
+                type="email" 
+                id="email" 
+                class="form-control" 
+                name="email"
+                 placeholder="Email"
+                    [(ngModel)]="user.email" 
+                    required
+                     />
             </div>
             <div class="mb-3">
-                <input matInput type="password" id="password" class="form-control" name="password"
-                    placeholder="Password" [(ngModel)]="password" required />
+                <input matInput
+                 type="password"
+                  id="password"
+                   class="form-control" 
+                   name="password"
+                    placeholder="Password" 
+                    [(ngModel)]="user.password" 
+                    required
+                     />
             </div>
             <div class="mb-3">
-                <input matInput type="password" id="password" class="form-control" name="password"
-                    placeholder="Confirmar password" [(ngModel)]="password" required />
+                <input matInput
+                 type="password" 
+                 id="password"
+                  class="form-control" 
+                  name="cnfirmPassword"
+                    placeholder="Confirmar password" 
+                    [(ngModel)]="user.confirmPassword" 
+                    required />
             </div>
             <div class="remember-me mb-4">
                 <div class="remember-me-container">
