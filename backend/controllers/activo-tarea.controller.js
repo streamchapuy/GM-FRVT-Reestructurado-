@@ -5,6 +5,7 @@ export const getActivoTareas = async (req, res) => {
     console.log("id_activo", id_activo, "id_labor", id_labor);
     try {
         console.log("Ejecutando consulta SQL...");
+
         const [rows] = await pool.query(`
     SELECT 
     a.nombre AS nombre_activo,
@@ -22,7 +23,7 @@ WHERE
         `, [id_activo, id_labor]);
 
         console.log("Consulta ejecutada correctamente", rows);
-        res.json(rows);
+        res.json(rows.length > 0 ? rows : { message: "No se encontraron tareas." });
     } catch (error) {
         console.error("Error en el servidor:", error);
         return res.status(500).json({
@@ -31,7 +32,6 @@ WHERE
         });
     }
 };
-
 export const getActivoTarea = async (req, res) => {
     const { id_activo_tarea } = req.params;
     try {
