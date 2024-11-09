@@ -13,7 +13,11 @@
 
   <div class="form-group">
     <label for="id_existencia">Existencia:</label>
-    <input type="number" id="id_existencia" [(ngModel)]="sector.id_existencia" name="id_existencia" required>
+    <select id="id_existencia" [(ngModel)]="sector.id_existencia" name="id_existencia">
+      <option *ngFor="let existencia of existencias" [value]="existencia.nombre">
+        {{ existencia.nombre }}
+      </option>
+    </select>
   </div>
 
   <div class="form-actions">
@@ -25,14 +29,14 @@
   
 
   <div class="lista-sectores-container">
-    <h3>Lista de Sectores</h3>
+    <h2>Lista de Sectores</h2>
     <div class="table-container">
       <table>
         <thead>
           <tr>
-            <th>ID Sector</th>
+            <th>Sector</th>
             <th>Nombre</th>
-            <th>ID Existencia</th>
+            <th>¿Existe?</th>
           </tr>
         </thead>
         <tbody>

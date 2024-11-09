@@ -15,15 +15,15 @@ export class UbicacionService {
     return this.http.get<Ubicacion[]>(`${this.apiUrl}/ubicaciones`);
   }
 
-  crearUbicacion(ubicacion: Ubicacion): Observable<Ubicacion> {
-    return this.http.post<Ubicacion>(`${this.apiUrl}/ubicaciones`, ubicacion);
+  crearUbicacion(ubicacion: Ubicacion): Observable<Ubicacion[]> {
+    return this.http.post<Ubicacion[]>(`${this.apiUrl}/ubicacion`, ubicacion);
   }
 
-  editarUbicacion(id: number, ubicacion: Ubicacion): Observable<Ubicacion> {
-    return this.http.put<Ubicacion>(`${this.apiUrl}/ubicaciones/${id}`, ubicacion);
+  editarUbicacion(id: number, ubicacion: Ubicacion): Observable<Ubicacion[]> {
+    return this.http.put<Ubicacion[]>(`${this.apiUrl}/ubicaciones/${id}`, ubicacion);
   }
 
-  eliminarUbicacion(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/ubicaciones/${id}`);
+  eliminarUbicacion(id: number): Observable<Ubicacion[]> {
+    return this.http.delete<Ubicacion[]>(`${this.apiUrl}/ubicacion/${id}`);
   }
 }

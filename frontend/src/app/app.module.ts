@@ -10,12 +10,12 @@ import { FormulariosModule } from './components/formularios/formularios.module';
 import { HeaderModule } from './components/header/header.module';
 import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.module';
 
+import { CookieService } from 'ngx-cookie-service';
+import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CookieService } from 'ngx-cookie-service';
-import { ToastrModule } from 'ngx-toastr';
-import { ɵBrowserAnimationBuilder } from '@angular/animations';
 
 
 @NgModule({
@@ -24,18 +24,16 @@ import { ɵBrowserAnimationBuilder } from '@angular/animations';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-
+    HomeLoggedComponent
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     OrdenTrabajoModule,
     FormulariosModule,
     HeaderModule,
     FooterModule,
-    ToastrModule.forRoot()
 ],
   providers: [CookieService],
   bootstrap: [AppComponent]
