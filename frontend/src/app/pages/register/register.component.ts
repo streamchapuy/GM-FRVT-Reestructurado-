@@ -1,55 +1,72 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-import { response } from 'express';
 import { CookieService } from 'ngx-cookie-service';
-
+import { IRegister } from '../../interfaces/iregister';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
-  user = {
+export class RegisterComponent implements OnInit {
+test() {
+  this.toastr.success('Hello world!', 'Toastr fun!');
+console.log('test');
+}
+  user: IRegister = {
+    nombre: '',
     email: '',
-    password: '',
-    confirmPassword: ''
+    contrasena: '',
+    confirmPassword: '',
+  };
+
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private cookieService: CookieService,
+    private toastr: ToastrService
+  ) {}
+
+  ngOnInit() {
+    // Mostrar un toast de prueba cuando se inicialice el componente
+    this.toastr.success('Bienvenido al registro', 'Información');
   }
 
-  constructor(private router: Router, 
-    private authService: AuthService,
-  private cookieService: CookieService) { }
-
   register() {
-    
-    if (this.user.password !== this.user.confirmPassword) {
+    // Validación básica en el frontend
+    if (!this.user.email || !this.user.contrasena || !this.user.confirmPassword || !this.user.nombre) {
+      alert('Todos los campos son obligatorios');
+      return;
+    }
+
+    if (this.user.contrasena !== this.user.confirmPassword) {
       alert('Las contraseñas no coinciden');
       return;
     }
 
-    const token = this.cookieService.get('token');
-    
-    if(token){
-      console.log('token encontrado: ', token)
-      this.router.navigate(['/home']);
-    } else {
-      console.log('token no encontrado')
-    }
+    // Verificar los datos que se enviarán
+    console.log('Datos de usuario que se enviarán:', this.user);
 
+    // Llamada al servicio de registro
     this.authService.register(this.user).subscribe(
-      response => {
-        if (response && response.token){
-          this.cookieService.set('token', response.token, 1, '/');
-          alert('Registro Exitoso')
-        }
-        this.goToLogin();
+      (response: IRegister) => {
+        console.log('Respuesta del servidor:', response);  // Verifica la respuesta del servidor
+        
+          this.toastr.success('Usuario registrado correctamente', 'Éxito');
+          this.goToLogin();
+        
       },
-      Error => {
-        console.error(Error);
-        alert('Error en el registro')
+      (error: any) => {
+        console.error('Error en el registro:', error);
+        if (error.status === 400 && error.error.message) {
+          alert(`Error en el registro: ${error.error.message}`);
+        } else {
+          alert('Error en el registro');
+        }
       }
-    )
+    );
   }
 
   goToLogin() {

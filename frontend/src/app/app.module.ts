@@ -16,6 +16,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,13 +31,15 @@ import { RegisterComponent } from './pages/register/register.component';
     HomeLoggedComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,   
     AppRoutingModule,
     FormsModule,
     OrdenTrabajoModule,
     FormulariosModule,
     HeaderModule,
     FooterModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
 ],
   providers: [CookieService],
   bootstrap: [AppComponent]
