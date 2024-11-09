@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    min-height: 100vh;
+    min-height: 52vh;
     background: rgb(4,46,149);
     background: radial-gradient(circle, rgb(167, 175, 196) 0%, rgba(148,215,233,1) 100%);
     background-size: cover;
@@ -11,6 +11,7 @@
     color: #333;
     padding: 20px;
     gap: 30px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .home-container h1 {
