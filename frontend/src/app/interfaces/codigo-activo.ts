@@ -5,5 +5,5 @@ export interface CodigoActivo {
         sector_id_formateado: number,
         activo_id_formateado: number,
         ubicacion_id_formateado: number,
-        id_cantidad: number
+        cantidad_formateada: number
 }

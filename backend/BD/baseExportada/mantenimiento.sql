@@ -73,32 +73,6 @@ INSERT INTO `activo_tarea` VALUES (1,1,1),(2,1,7),(3,1,21),(4,1,36),(5,1,54),(6,
 UNLOCK TABLES;
 
 --
--- Table structure for table `admin`
---
-
-DROP TABLE IF EXISTS `admin`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `admin` (
-  `id_admin` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  `id_existencia` int DEFAULT NULL,
-  PRIMARY KEY (`id_admin`),
-  KEY `id_existencia` (`id_existencia`),
-  CONSTRAINT `admin_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `admin`
---
-
-LOCK TABLES `admin` WRITE;
-/*!40000 ALTER TABLE `admin` DISABLE KEYS */;
-/*!40000 ALTER TABLE `admin` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `cantidad`
 --
 
@@ -223,32 +197,6 @@ INSERT INTO `labor` VALUES (1,'Inspeccion'),(2,'Mant. Prev. Planif.');
 UNLOCK TABLES;
 
 --
--- Table structure for table `operario`
---
-
-DROP TABLE IF EXISTS `operario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `operario` (
-  `id_operario` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) NOT NULL,
-  `id_existencia` int DEFAULT NULL,
-  PRIMARY KEY (`id_operario`),
-  KEY `id_existencia` (`id_existencia`),
-  CONSTRAINT `operario_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `operario`
---
-
-LOCK TABLES `operario` WRITE;
-/*!40000 ALTER TABLE `operario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `operario` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `orden_trabajo`
 --
 
@@ -260,7 +208,7 @@ CREATE TABLE `orden_trabajo` (
   `id_tag` int DEFAULT NULL,
   `id_usuarios` int DEFAULT NULL,
   `id_estado` int DEFAULT NULL,
-  `descripcion` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `fecha_creacion` datetime DEFAULT CURRENT_TIMESTAMP,
   `fecha_finalizacion` datetime DEFAULT NULL,
   `tiempo_inicio` datetime DEFAULT NULL,
@@ -272,7 +220,7 @@ CREATE TABLE `orden_trabajo` (
   CONSTRAINT `orden_trabajo_ibfk_1` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`),
   CONSTRAINT `orden_trabajo_ibfk_2` FOREIGN KEY (`id_usuarios`) REFERENCES `usuarios` (`id_usuarios`),
   CONSTRAINT `orden_trabajo_ibfk_3` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -445,19 +393,14 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `id_usuarios` int NOT NULL AUTO_INCREMENT,
-  `email` varchar(100) NOT NULL,
-  `contraseña_hash` varchar(255) NOT NULL,
-  `id_operario` int DEFAULT NULL,
-  `id_admin` int DEFAULT NULL,
-  `tipo_usuario` varchar(50) DEFAULT NULL,
+  `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contraseña_hash` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tipo_usuario` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_usuarios`),
   UNIQUE KEY `email` (`email`),
-  KEY `id_operario` (`id_operario`),
-  KEY `id_admin` (`id_admin`),
-  CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`id_operario`) REFERENCES `operario` (`id_operario`),
-  CONSTRAINT `usuarios_ibfk_2` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`),
   CONSTRAINT `usuarios_chk_1` CHECK ((`tipo_usuario` in (_utf8mb4'operario',_utf8mb4'admin')))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -478,4 +421,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-31  3:03:50
+-- Dump completed on 2024-11-08 15:35:02

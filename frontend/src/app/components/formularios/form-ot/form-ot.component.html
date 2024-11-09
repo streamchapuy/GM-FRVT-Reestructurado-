@@ -1,0 +1,27 @@
+<div class="form-orden-trabajo-container">
+  <h2>Órdenes de Trabajo</h2>
+
+  <div class="lista-ordenes-trabajo-container">
+    <h2>Lista de Órdenes de Trabajo</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>ID Orden</th>
+            <th>Descripción</th>
+            <th>Fecha de Creación</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let orden of ordenesTrabajo">
+            <td>{{ orden.id_orden_trabajo }}</td>
+            <td>{{ orden.descripcion }}</td>
+            <td>{{ orden.fecha_creacion }}</td>
+            <td>{{ orden.estado }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,11 @@ import { Ubicacion } from '../../../interfaces/ubicacion';
   styleUrls: ['./form-ubicacion.component.css']
 })
 export class FormUbicacionComponent implements OnInit {
-  ubicacion: Ubicacion = { id_ubicacion: 0, nombre: '', id_existencia: 0 };
+  ubicacion: Ubicacion = { id_ubicacion: 0, nombre: '', id_existencia: "" };
+  existencias = [
+    { id:1, nombre: 'Si' },
+    {id: 0, nombre: 'No' }
+  ];
   ubicaciones: Ubicacion[] = [];
 
   constructor(private ubicacionService: UbicacionService) {}
@@ -26,8 +30,8 @@ export class FormUbicacionComponent implements OnInit {
 
   crear(): void {
     this.ubicacionService.crearUbicacion(this.ubicacion).subscribe(() => {
-      this.limpiarFormulario();
       this.cargarUbicaciones();
+      this.limpiarFormulario();
     });
   }
 
@@ -50,7 +54,7 @@ export class FormUbicacionComponent implements OnInit {
   }
 
   limpiarFormulario(): void {
-    this.ubicacion = { id_ubicacion: 0, nombre: '', id_existencia: 0 };
+    this.ubicacion = { id_ubicacion: 0, nombre: '', id_existencia: "" };
   }
 }
 
