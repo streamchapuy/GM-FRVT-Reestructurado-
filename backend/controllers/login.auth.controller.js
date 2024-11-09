@@ -18,12 +18,14 @@ export const logeoUser = async (req, res) => {
         }
         const user = results[0];
 
-        const isMatch = await bcrypt.compare(password, user.password);
+        // Aquí cambiamos password a contraseña_hash
+        const isMatch = await bcrypt.compare(contraseña_hash, user.contraseña_hash);
         if (!isMatch) {
             return res.status(401).json({ message: 'Credenciales inválidas' });
         }
 
-        const token = jwt.sign({ userId: user.email }, SECRET_KEY, { expiresIn: '1h' });
+        // Utilizamos el id_usuario como identificador en el JWT
+        const token = jwt.sign({ userId: user.id_usuario }, SECRET_KEY, { expiresIn: '1h' });
         return res.json({ message: 'Inicio de sesión exitoso', token });
 
     } catch (error) {
