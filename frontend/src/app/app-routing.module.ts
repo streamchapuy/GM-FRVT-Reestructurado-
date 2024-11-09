@@ -5,6 +5,7 @@ import { FormEdificioComponent } from './components/formularios/form-edificio/fo
 import { FormOtComponent } from './components/formularios/form-ot/form-ot.component';
 import { FormPisoComponent } from './components/formularios/form-piso/form-piso.component';
 import { FormSectorComponent } from './components/formularios/form-sector/form-sector.component';
+import { FormTareasComponent } from './components/formularios/form-tareas/form-tareas.component';
 import { FormUbicacionComponent } from './components/formularios/form-ubicacion/form-ubicacion.component';
 import { FormUsuariosComponent } from './components/formularios/form-usuarios/form-usuarios.component';
 import { otComponent } from './components/orden-trabajo/ot/ot.component';
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'formSector', component: FormSectorComponent },
   { path: 'formUbicacion', component: FormUbicacionComponent },
   { path: 'formUsuarios', component: FormUsuariosComponent},
+  { path: 'formTareas', component: FormTareasComponent},
   
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   // { path: '**', redirectTo: '/login' }

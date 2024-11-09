@@ -5,6 +5,7 @@ import { FormActivoComponent } from './form-activo/form-activo.component';
 import { FormEdificioComponent } from './form-edificio/form-edificio.component';
 import { FormPisoComponent } from './form-piso/form-piso.component';
 import { FormSectorComponent } from './form-sector/form-sector.component';
+import { FormTareasComponent } from './form-tareas/form-tareas.component';
 import { FormUbicacionComponent } from './form-ubicacion/form-ubicacion.component';
 import { FormulariosComponent } from './formularios.component';
 
@@ -16,6 +17,7 @@ import { FormulariosComponent } from './formularios.component';
     FormPisoComponent,
     FormSectorComponent,
     FormUbicacionComponent,
+    FormTareasComponent,
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { FormulariosComponent } from './formularios.component';
     FormEdificioComponent,
     FormPisoComponent,
     FormSectorComponent,
-    FormUbicacionComponent
+    FormUbicacionComponent,
+    FormTareasComponent,
   ]
 })
 export class FormulariosModule { }
