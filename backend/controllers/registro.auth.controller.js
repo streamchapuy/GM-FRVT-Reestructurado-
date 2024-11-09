@@ -27,6 +27,7 @@ export const registerUser = async (req, res) => {
 
         const token = jwt.sign({ userId: result.insertId }, SECRET_KEY, { expiresIn: '1h' });
 
+        // Crear objeto de respuesta
         const newUser = {
             id_usuario: result.insertId,            
             nombre: nombre,
@@ -34,6 +35,7 @@ export const registerUser = async (req, res) => {
             token: token
         };
 
+        // Responder con éxito
         res.status(201).json({ message: 'Usuario registrado exitosamente', user: newUser });
     } catch (error) {
         console.error('Error en el proceso de registro: ', error);

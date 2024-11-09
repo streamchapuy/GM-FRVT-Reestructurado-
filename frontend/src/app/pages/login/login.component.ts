@@ -1,17 +1,21 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { AuthService } from '../../../services/auth.service';
-import { response } from 'express';
+import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   email: string | undefined;
   password: string | undefined;
+  errorMessage: string | undefined;
 
   constructor(private router: Router,
     private authService: AuthService
@@ -40,5 +44,3 @@ export class LoginComponent {
     this.router.navigate(['/register']);
   }
 }
-
-

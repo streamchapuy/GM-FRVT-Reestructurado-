@@ -1,20 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
-import { IRegister } from '../../interfaces/iregister';
-import { ToastrService } from 'ngx-toastr';
+import { IRegister } from '../../interfaces/iregister'; 
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent implements OnInit {
-test() {
-  this.toastr.success('Hello world!', 'Toastr fun!');
-console.log('test');
-}
+export class RegisterComponent {
   user: IRegister = {
     nombre: '',
     email: '',
@@ -23,16 +18,10 @@ console.log('test');
   };
 
   constructor(
-    private router: Router,
+    private router: Router, 
     private authService: AuthService,
-    private cookieService: CookieService,
-    private toastr: ToastrService
+    private cookieService: CookieService
   ) {}
-
-  ngOnInit() {
-    // Mostrar un toast de prueba cuando se inicialice el componente
-    this.toastr.success('Bienvenido al registro', 'Información');
-  }
 
   register() {
     // Validación básica en el frontend
@@ -46,20 +35,19 @@ console.log('test');
       return;
     }
 
-    // Verificar los datos que se enviarán
+    // Verificar los datos que se envían
     console.log('Datos de usuario que se enviarán:', this.user);
 
     // Llamada al servicio de registro
     this.authService.register(this.user).subscribe(
-      (response: IRegister) => {
-        console.log('Respuesta del servidor:', response);  // Verifica la respuesta del servidor
-        
-          this.toastr.success('Usuario registrado correctamente', 'Éxito');
+      (response: any) => {        
+          alert('Registro Exitoso');
           this.goToLogin();
-        
+       
       },
       (error: any) => {
         console.error('Error en el registro:', error);
+        // Mostrar el mensaje de error proporcionado por el servidor
         if (error.status === 400 && error.error.message) {
           alert(`Error en el registro: ${error.error.message}`);
         } else {

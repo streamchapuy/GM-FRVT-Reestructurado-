@@ -8,7 +8,7 @@ dotenv.config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
 export const logeoUser = async (req, res) => {
-    const { email, contraseña_hash } = req.body;
+    const { email, password } = req.body;
 
     try {
         const [results] = await pool.query('SELECT * FROM usuarios WHERE email = ?', [email]);
