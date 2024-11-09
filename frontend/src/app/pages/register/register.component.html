@@ -27,7 +27,7 @@
                 class="form-control" 
                 name="email"
                  placeholder="Email"
-                    [(ngModel)]="email" 
+                    [(ngModel)]="user.email" 
                     required
                      />
             </div>
@@ -38,7 +38,7 @@
                    class="form-control" 
                    name="password"
                     placeholder="Password" 
-                    [(ngModel)]="contrasena" 
+                    [(ngModel)]="user.contrasena" 
                     required
                      />
             </div>
@@ -49,7 +49,7 @@
                   class="form-control" 
                   name="confirmPassword"
                     placeholder="Confirmar password" 
-                    [(ngModel)]="confirmPassword" 
+                    [(ngModel)]="user.confirmPassword" 
                     required />
             </div>
             <div class="remember-me mb-4">
@@ -63,6 +63,6 @@
         <div class="signup-link mt-2">
             <!-- <a href="#" (click)="goToLogin(); $event.preventDefault();">¿Ya tienes cuenta? <b>Logueate</b></a> -->
         </div>
-        <button (click)="test()">Probar</button>
+      
     </div>
 </section>

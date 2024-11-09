@@ -15,7 +15,8 @@ import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { CookieService } from 'ngx-cookie-service';
+import { ToastrModule } from 'ngx-toastr';
+
 
 
 @NgModule({
@@ -34,6 +35,8 @@ import { CookieService } from 'ngx-cookie-service';
     FormulariosModule,
     HeaderModule,
     FooterModule,
+    BrowserAnimationsModule,
+    ToastrModule
 ],
   providers: [CookieService],
   bootstrap: [AppComponent]
