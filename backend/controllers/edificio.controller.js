@@ -2,7 +2,15 @@ import { pool } from '../db.js';
 
 export const getEdificios = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM edificio');
+        const [rows] = await pool.query(`SELECT 
+    id_edificio,
+    nombre,
+    calle,
+    CASE 
+        WHEN id_existencia IS NOT NULL THEN 'Sí'
+        ELSE 'No'
+    END AS id_existencia
+FROM edificio;`);
         res.json(rows);
     } catch (error) {
         return res.status(500).json({

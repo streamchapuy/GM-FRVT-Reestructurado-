@@ -12,12 +12,12 @@ export class FormActivoComponent implements OnInit {
     id_activo: 0,
     nombre: '',
     abreviacion: '',
-    id_existencia: 0
+    id_existencia: ""
   };
 
   existencias = [
-    { id: 1, nombre: 'Si' },
-    { id: 2, nombre: 'No' }
+    {  nombre: 'Si' },
+    {  nombre: 'No' }
   ];
 
   activos: Activo[] = [];
@@ -75,7 +75,7 @@ export class FormActivoComponent implements OnInit {
       id_activo: 0,
       nombre: '',
       abreviacion: '',
-      id_existencia: 0
+      id_existencia: ""
     };
   }
 }

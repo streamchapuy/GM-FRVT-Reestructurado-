@@ -36,10 +36,4 @@ export class ActivoService {
   obtenerActivoPorId(id_activo: number): Observable<Activo> {
     return this.http.get<Activo>(`${this.apiUrl}/activos/${id_activo}`);
   }
-  
-  
-
-  // getSelectedActivoId(): number | null {
-  //   return this.selectedActivoId; // Obtener id_activo seleccionado
-  // }
 }

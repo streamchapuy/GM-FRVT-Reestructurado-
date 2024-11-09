@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectionService } from '../../../../../services/selection.service';
 import { ActivoTareaService } from '../../../../../services/activo-tarea.service';
-import { LaborService } from '../../../../../services/labor.service';
 import { ActivoService } from '../../../../../services/activo.service';
+import { LaborService } from '../../../../../services/labor.service';
+import { SelectionService } from '../../../../../services/selection.service';
 import { TareaService } from '../../../../../services/tareas.service';
 import { Tarea } from '../../../../interfaces/tarea';
 
@@ -24,7 +24,7 @@ export class OtTareaListaComponent implements OnInit {
       this.id_activo = activo;
       console.log('Activo:', this.id_activo, '- Labor:', this.id_labor);
       if (this.id_activo && this.id_labor) {
-        this.obtenerActivoTareas(this.id_activo, this.id_labor); // Pasar los argumentos aquí
+        this.obtenerActivoTareas(this.id_activo, this.id_labor);
       }
     })
 
@@ -32,7 +32,7 @@ export class OtTareaListaComponent implements OnInit {
       this.id_labor = labor;
       console.log('Activo:', this.id_activo, ' - Labor:', this.id_labor);
       if (this.id_activo && this.id_labor) {
-        this.obtenerActivoTareas(this.id_activo, this.id_labor); // Pasar los argumentos aquí
+        this.obtenerActivoTareas(this.id_activo, this.id_labor);
       }
     })
   }
@@ -42,7 +42,7 @@ export class OtTareaListaComponent implements OnInit {
       "id_activo": id_activo,
       "id_labor": id_labor
     };
-    this.activoTareaService.getActivoTareas(consulta).subscribe( // Pasar los parámetros correctamente
+    this.activoTareaService.getActivoTareas(consulta).subscribe(
       (data: any[]) => {
         this.activoTareas = data;
         console.log(this.activoTareas);

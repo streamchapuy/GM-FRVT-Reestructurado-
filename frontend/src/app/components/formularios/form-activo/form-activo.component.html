@@ -20,7 +20,7 @@
     <div class="form-group">
       <label for="id_existencia">Existencia</label>
       <select id="id_existencia" [(ngModel)]="activo.id_existencia" name="id_existencia">
-        <option *ngFor="let existencia of existencias" [value]="existencia.id">
+        <option *ngFor="let existencia of existencias" [value]="existencia.nombre">
           {{ existencia.nombre }}
         </option>
       </select>
@@ -40,10 +40,10 @@
       <table>
         <thead>
           <tr>
-            <th>ID Activo</th>
+            <th>Activo</th>
             <th>Nombre</th>
             <th>Abreviación</th>
-            <th>ID Existencia</th>
+            <th>¿Existe?</th>
           </tr>
         </thead>
         <tbody>
