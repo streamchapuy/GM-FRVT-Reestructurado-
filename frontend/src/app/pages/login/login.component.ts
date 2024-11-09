@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../services/auth.service';
+import { response } from 'express';
+
 
 @Component({
   selector: 'app-login',
@@ -10,12 +13,29 @@ export class LoginComponent {
   email: string | undefined;
   password: string | undefined;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private authService: AuthService
+  ) { }
 
   login() {
-    throw new Error('Method not implemented.');
+    if (!this.email || !this.password) {  // Verifica que ambos campos sean no nulos
+      alert('Por favor ingresa los campos de email y contraseña');
+      return;
+    }
+  
+    this.authService.login(this.email, this.password).subscribe(
+      (response) => {
+        console.log('Login exitoso:', response);
+        // Redirige a otra página si el login es exitoso
+        this.router.navigate(['/home-logged']);
+      },
+      (error) => {
+        console.error('Error en el login:', error);
+        alert('Error al iniciar sesión');
+      }
+    );
   }
-
+  
   goToRegister() {
     this.router.navigate(['/register']);
   }
