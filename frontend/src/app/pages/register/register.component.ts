@@ -15,7 +15,11 @@ export class RegisterComponent {
     email: '',
     contrasena: '',
     confirmPassword: '',
+    tipo_usuario: ''
   };
+
+  roles: string[] = ['admin', 'operario'];
+  imageUrl: string | ArrayBuffer | null = null;
 
   constructor(
     private router: Router, 
@@ -28,6 +32,10 @@ export class RegisterComponent {
     if (!this.user.email || !this.user.contrasena || !this.user.confirmPassword || !this.user.nombre) {
       alert('Todos los campos son obligatorios');
       return;
+    }
+
+    if(this.user.tipo_usuario === ''){
+      
     }
 
     if (this.user.contrasena !== this.user.confirmPassword) {
@@ -60,4 +68,17 @@ export class RegisterComponent {
   goToLogin() {
     this.router.navigate(['/login']);
   }
-}
+
+  onImageSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageUrl = reader.result;
+        this.user.imagenperfil = this.imageUrl as string;
+      };
+      reader.readAsDataURL(file);
+  }    
+      
+  }
+  }

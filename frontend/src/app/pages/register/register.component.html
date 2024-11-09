@@ -3,11 +3,20 @@
         <div class="container-logo">
             <div class="flex">
                 <div class="barra"></div>
-                <div class="circulo"></div>
+                <div class="circulo">
+                    <input 
+                    #fileInput 
+                    type="file" 
+                    (change)="onImageSelected($event)" 
+                    accept="image/*" 
+                    >
+                  <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen de Perfil" class="img-circular" />
+                  <span *ngIf="!imageUrl"></span> <!-- Muestra el '+' si no se ha cargado ninguna imagen -->
+                </div>
                 <div class="barra"></div>
             </div>
         </div>
-        <h4>Ingresar</h4>
+        <h4>Registrarse</h4>
         <form (submit)="register()">
             <div class="mb-3">
                 <input matInput 
@@ -15,10 +24,9 @@
                 id="nombre" 
                 class="form-control" 
                 name="nombre"
-                 placeholder="Nombre"
+                placeholder="Nombre"
                     [(ngModel)]="user.nombre" 
-                    required
-                     />
+                    required/>
             </div>
             <div class="mb-3">
                 <input matInput 
@@ -26,31 +34,41 @@
                 id="email" 
                 class="form-control" 
                 name="email"
-                 placeholder="Email"
+                placeholder="Email"
                     [(ngModel)]="user.email" 
-                    required
-                     />
+                    required/>
             </div>
             <div class="mb-3">
                 <input matInput
-                 type="password"
-                  id="password"
-                   class="form-control" 
-                   name="password"
+                type="password"
+                id="password"
+                class="form-control" 
+                name="password"
                     placeholder="Password" 
                     [(ngModel)]="user.contrasena" 
-                    required
-                     />
+                    required />
             </div>
             <div class="mb-3">
                 <input matInput
-                 type="password" 
-                 id="confirmPassword"
-                  class="form-control" 
-                  name="confirmPassword"
+                type="password" 
+                id="confirmPassword"
+                class="form-control" 
+                name="confirmPassword"
                     placeholder="Confirmar password" 
                     [(ngModel)]="user.confirmPassword" 
                     required />
+            </div>
+            <div class="mb-3">
+                <label for="tipo_Usuario">Rol:
+                    <select                   
+                    [(ngModel)]="user.tipo_usuario"
+                    name="tipo_Usuario" 
+                    id="tipo_Usuario">
+                    <option *ngFor="let role of roles" [value]="role">
+                        {{ role | uppercase }}
+                    </option>
+                </select>
+                </label>
             </div>
             <div class="remember-me mb-4">
                 <div class="remember-me-container">

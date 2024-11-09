@@ -54,6 +54,12 @@
             background-size: cover;
         }
 
+        .circulo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .barra {
             width: 100%;
             height: 2px;
@@ -151,9 +157,6 @@
             }
         }
     }
-}
-ngb-toast {
-    z-index: 9999;
 }
 
 
