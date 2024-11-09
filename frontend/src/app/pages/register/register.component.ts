@@ -40,11 +40,10 @@ export class RegisterComponent {
 
     // Llamada al servicio de registro
     this.authService.register(this.user).subscribe(
-      (response: any) => {
-        if (response && response.email) {
+      (response: any) => {        
           alert('Registro Exitoso');
           this.goToLogin();
-        }
+       
       },
       (error: any) => {
         console.error('Error en el registro:', error);
