@@ -11,6 +11,17 @@
         <form (submit)="register()">
             <div class="mb-3">
                 <input matInput 
+                type="text" 
+                id="nombre" 
+                class="form-control" 
+                name="nombre"
+                 placeholder="Nombre"
+                    [(ngModel)]="user.nombre" 
+                    required
+                     />
+            </div>
+            <div class="mb-3">
+                <input matInput 
                 type="email" 
                 id="email" 
                 class="form-control" 
@@ -27,16 +38,16 @@
                    class="form-control" 
                    name="password"
                     placeholder="Password" 
-                    [(ngModel)]="user.password" 
+                    [(ngModel)]="user.contrasena" 
                     required
                      />
             </div>
             <div class="mb-3">
                 <input matInput
                  type="password" 
-                 id="password"
+                 id="confirmPassword"
                   class="form-control" 
-                  name="cnfirmPassword"
+                  name="confirmPassword"
                     placeholder="Confirmar password" 
                     [(ngModel)]="user.confirmPassword" 
                     required />
@@ -52,5 +63,6 @@
         <div class="signup-link mt-2">
             <a href="#" (click)="goToLogin(); $event.preventDefault();">¿Ya tienes cuenta? <b>Logueate</b></a>
         </div>
+        <button (click)="test()">Probar</button>
     </div>
 </section>

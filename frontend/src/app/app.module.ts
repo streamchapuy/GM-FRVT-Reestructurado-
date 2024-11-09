@@ -15,6 +15,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CookieService } from 'ngx-cookie-service';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -28,12 +31,14 @@ import { CookieService } from 'ngx-cookie-service';
     LogoComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,   
     AppRoutingModule,
     FormsModule,
     OrdenTrabajoModule,
     FormulariosModule,
     FooterModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
 ],
   providers: [CookieService],
   bootstrap: [AppComponent]
