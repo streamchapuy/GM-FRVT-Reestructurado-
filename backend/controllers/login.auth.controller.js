@@ -25,7 +25,7 @@ export const logeoUser = async (req, res) => {
         }
 
         // Utilizamos el id_usuario como identificador en el JWT
-        const token = jwt.sign({ userId: user.id_usuario }, SECRET_KEY, { expiresIn: '1h' });
+        const token = jwt.sign({ userId: user.id_usuario, tipo_usuario: user.tipo_usuario }, SECRET_KEY, { expiresIn: '1h' });
         return res.json({ message: 'Inicio de sesión exitoso', token });
 
     } catch (error) {

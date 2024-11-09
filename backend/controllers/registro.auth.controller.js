@@ -8,10 +8,10 @@ dotenv.config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
 export const registerUser = async (req, res) => {
-    const { nombre, email, contrasena } = req.body;
+    const { nombre, email, contrasena, tipo_usario = 'operario' } = req.body;
 
     // Validar si los campos requeridos están presentes
-    if (!nombre || !email || !contrasena) {
+    if (!nombre || !email || !contrasena || (tipo_usario !== 'admin' && tipo_usario !== 'operario')) {
         return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
     }
 
@@ -22,8 +22,8 @@ export const registerUser = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(contrasena, 10);
-        const query = 'INSERT INTO usuarios (nombre, email, contraseña_hash) VALUES (?, ?, ?)';
-        const [result] = await pool.query(query, [nombre, email, hashedPassword]);
+        const query = 'INSERT INTO usuarios (nombre, email, contraseña_hash, tipo_usuario) VALUES (?, ?, ?, ?)';
+        const [result] = await pool.query(query, [nombre, email, hashedPassword, tipo_usario]);
 
         const token = jwt.sign({ userId: result.insertId }, SECRET_KEY, { expiresIn: '1h' });
 
@@ -32,6 +32,7 @@ export const registerUser = async (req, res) => {
             id_usuario: result.insertId,            
             nombre: nombre,
             email: email,
+            tipo_usuario: tipo_usario,
             token: token
         };
 
