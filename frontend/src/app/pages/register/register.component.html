@@ -1,5 +1,9 @@
-<section class="register">
-    <div class="container">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/quartz/bootstrap.rtl.min.css" integrity="sha512-88caQ78wiD4mLF+1uAeSsImidT6oTwsmRlIATI4kI04D0KGjN2i/mQazWnP6e12LdjzRI2gzplRJf2K7TTKqeA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<section class="register list-group">
+    <div class="container list-group ">
         <div class="container-logo">
             <div class="flex">
                 <div class="barra"></div>
@@ -9,7 +13,7 @@
                     type="file" 
                     (change)="onImageSelected($event)" 
                     accept="image/*" 
-                    >
+                    style="display: none"/>
                   <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen de Perfil" class="img-circular" />
                   <span *ngIf="!imageUrl"></span> <!-- Muestra el '+' si no se ha cargado ninguna imagen -->
                 </div>
@@ -22,7 +26,7 @@
                 <input matInput 
                 type="text" 
                 id="nombre" 
-                class="form-control" 
+                class="form-control-plaintext" 
                 name="nombre"
                 placeholder="Nombre"
                     [(ngModel)]="user.nombre" 
@@ -32,7 +36,7 @@
                 <input matInput 
                 type="email" 
                 id="email" 
-                class="form-control" 
+                class="form-control-plaintext" 
                 name="email"
                 placeholder="Email"
                     [(ngModel)]="user.email" 
@@ -42,7 +46,7 @@
                 <input matInput
                 type="password"
                 id="password"
-                class="form-control" 
+                class="form-control-plaintext" 
                 name="password"
                     placeholder="Password" 
                     [(ngModel)]="user.contrasena" 
@@ -52,7 +56,7 @@
                 <input matInput
                 type="password" 
                 id="confirmPassword"
-                class="form-control" 
+                class="form-control-plaintext" 
                 name="confirmPassword"
                     placeholder="Confirmar password" 
                     [(ngModel)]="user.confirmPassword" 
@@ -79,7 +83,7 @@
             <input type="submit" value="Ingresar" class="btn btn-primary btn-ingresar" />
         </form>
         <div class="signup-link mt-2">
-            <!-- <a href="#" (click)="goToLogin(); $event.preventDefault();">¿Ya tienes cuenta? <b>Logueate</b></a> -->
+            <a href="#" (click)="goToLogin(); $event.preventDefault();">¿Ya tienes cuenta? <b>Logueate</b></a>
         </div>
       
     </div>

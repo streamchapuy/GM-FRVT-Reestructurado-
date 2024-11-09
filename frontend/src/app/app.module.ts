@@ -35,8 +35,7 @@ import { ToastrModule } from 'ngx-toastr';
     FormulariosModule,
     HeaderModule,
     FooterModule,
-    BrowserAnimationsModule,
-    
+    BrowserAnimationsModule,    
     ToastrModule
 ],
   providers: [CookieService],
