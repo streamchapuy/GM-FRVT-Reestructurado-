@@ -11,9 +11,13 @@ export class FormSectorComponent implements OnInit {
   sector: Sector = {
     id_sector: 0,
     nombre: '',
-    id_existencia: 0,
+    id_existencia: "",
   };
-
+  existencias = [
+    { nombre: 'Si' },
+    { nombre: 'No' }
+  ];
+  
   sectores: Sector[] = [];
 
   constructor(private sectorService: SectorService) { }
@@ -80,7 +84,7 @@ export class FormSectorComponent implements OnInit {
     this.sector = {
       id_sector: 0,
       nombre: '',
-      id_existencia: 0,
+      id_existencia: "",
     };
   }
 }

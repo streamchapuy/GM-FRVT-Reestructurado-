@@ -2,7 +2,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 
-import authenticateToken from './middleware/authmiddleware.js';
+// import from './middleware/authmiddleware.js';
 import loginRoutes from './routes/login_auth.routes.js';
 import registroRoutes from './routes/registro.auth.routes.js';
 
@@ -43,19 +43,19 @@ app.use(loginRoutes)
 app.use('/API',registroRoutes)
 
 
-app.use('/API', authenticateToken ,otRoutes)
-app.use('/API', authenticateToken, edificioRoutes)
-app.use('/API',authenticateToken, sectorRoutes)
-app.use('/API',authenticateToken, ubicacionRoutes)
-app.use('/API',authenticateToken, pisoRoutes)
-app.use('/API',authenticateToken, activoRoutes)
-app.use('/API',authenticateToken, tareaRoutes)
-app.use('/API',authenticateToken, activotareaRoutes)
-app.use('/API',authenticateToken, laborRoutes)
-app.use('/API',authenticateToken, existenciaRoutes)
-app.use('/API',authenticateToken, tagRoutes)
-app.use('/API',authenticateToken, operarioRoutes)
-app.use('/API',authenticateToken, adminRoutes)
+app.use('/API',otRoutes)
+app.use('/API', edificioRoutes)
+app.use('/API', sectorRoutes)
+app.use('/API', ubicacionRoutes)
+app.use('/API', pisoRoutes)
+app.use('/API', activoRoutes)
+app.use('/API', tareaRoutes)
+app.use('/API', activotareaRoutes)
+app.use('/API', laborRoutes)
+app.use('/API', existenciaRoutes)
+app.use('/API', tagRoutes)
+app.use('/API', operarioRoutes)
+app.use('/API', adminRoutes)
 
 app.use((req, res, next) => {
     res.status(404).json({

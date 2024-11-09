@@ -8,13 +8,17 @@ import { Piso } from '../../../interfaces/piso';
   styleUrls: ['./form-piso.component.css']
 })
 export class FormPisoComponent implements OnInit {
-  pisos: Piso[] = [];
   piso: Piso = {
     id_piso: 0,
     nombre: '',
-    id_existencia: 0
+    id_existencia: ""
   };
-  existencias: any[] = [];
+  existencias = [
+    {  nombre: 'Si' },
+    {  nombre: 'No' }
+  ];
+  
+  pisos: Piso[] = [];
 
   constructor(private pisoService: PisoService) { }
 
@@ -57,7 +61,7 @@ export class FormPisoComponent implements OnInit {
     this.piso = {
       id_piso: 0,
       nombre: '',
-      id_existencia: 0
+      id_existencia: ""
     };
   }
 }
