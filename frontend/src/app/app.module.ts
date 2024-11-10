@@ -36,7 +36,6 @@ import { RegisterComponent } from './pages/register/register.component';
     FormulariosModule,
     HeaderModule,
     HeaderLoggedModule,
-    HeaderLoggedModule,
     FooterModule,
     BrowserAnimationsModule,
     ToastrModule

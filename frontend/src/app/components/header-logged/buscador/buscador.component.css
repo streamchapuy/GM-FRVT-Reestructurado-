@@ -25,3 +25,15 @@
 .buscador-input::placeholder {
     color: #333333;
 }
+
+.buscador-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.buscador-btn i {
+    font-size: 1.2rem;
+    color: #333333;
+}

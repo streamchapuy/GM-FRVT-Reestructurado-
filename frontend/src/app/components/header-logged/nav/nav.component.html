@@ -3,9 +3,7 @@
         <app-logo-nav class="navbar-logo"></app-logo-nav>
 
         <div class="navbar-links">
-            <a class="nav-link" href="#">Tareas</a>
-            <a class="nav-link" href="#">Operarios</a>
-            <button class="logout-button" (click)="logout()">Logout</button>
+            <button class="logout-button" (click)="logout()">Cerrar Sesión</button>
         </div>
 
         <div class="search-input-container">
@@ -19,9 +17,7 @@
         </button>
 
         <div class="navbar-popup" *ngIf="isPopupOpen && isMobile">
-            <a class="nav-link" href="#">Tareas</a>
-            <a class="nav-link" href="#">Operarios</a>
-            <button class="logout-button" (click)="logout()">Logout</button>
+            <button class="logout-button" (click)="logout()">Cerrar Sesión</button>
         </div>
     </div>
 </nav>

@@ -1,3 +1,7 @@
 <div class="buscador">
-  <input type="text" placeholder="Buscar..." (input)="onSearch($event)" class="buscador-input" />
+  <input type="text" [(ngModel)]="searchValue" (keydown.enter)="onSearch()" placeholder="Buscar..."
+    class="buscador-input" />
+  <button (click)="onSearch()" class="buscador-btn">
+    <i class="fas fa-search"></i>
+  </button>
 </div>
