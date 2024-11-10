@@ -3,27 +3,30 @@
 .register {
     display: flex;
     width: 100%;
-    height: auto;
+    height: 90%;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     justify-content: center;
-    margin: 50px 0;
+    margin: 15px 0;
     align-items: center;
     background-color: transparent;
     border-radius: 5%;
+   
 
 
     .container {
         width: 520px;
         max-width: 520px;
-        background-color: #b8b7b7;
+        
+        /* background-color: #b8b7b7; */
         border-radius: 8px;
-        padding: 32px;
+        padding: 0%;
         box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
         display: flex;
         flex-direction: column;
         align-items: center;
         border: 1px solid #dcdcdc;
+        
 
 
 
@@ -34,12 +37,14 @@
             margin-bottom: 16px;
             margin-top: 0px;
             width: 472px;
+           
         }
 
         .flex {
             display: flex;
             justify-content: center;
             align-items: center;
+            
 
 
         }
@@ -54,6 +59,12 @@
             background-size: cover;
         }
 
+        .circulo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .barra {
             width: 100%;
             height: 2px;
@@ -63,12 +74,14 @@
 
         form {
             width: 472px;
-            background-color: #b8b7b7;
+            
+            /* background-color: #b8b7b7; */
         }
 
         .form-label {
             font-weight: bold;
             margin-bottom: 8px;
+            
         }
 
         .form-control {
@@ -80,6 +93,7 @@
             margin-bottom: 24px;
             display: flex;
             align-items: center;
+        
 
             input {
                 width: 100%;
@@ -89,6 +103,7 @@
                 border: 1px solid #dcdcdc;
                 transition: border-color 0.3s;
                 background-color: white;
+                color: black;
 
                 &:focus {
                     outline: none;
@@ -124,10 +139,10 @@
             font-size: 14px;
             color: #666666;
 
-            a {
-                color: #666666;
+            a {                
                 text-decoration: none;
                 font-size: 14px;
+                color: black;
 
                 &:hover {
                     text-decoration: none;
@@ -140,6 +155,7 @@
             align-items: center;
             justify-content: space-between;
             margin-bottom: 24px;
+            
 
             .remember-me-container {
                 display: flex;
@@ -151,9 +167,6 @@
             }
         }
     }
-}
-ngb-toast {
-    z-index: 9999;
 }
 
 

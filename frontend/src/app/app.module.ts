@@ -39,6 +39,7 @@ import { RegisterComponent } from './pages/register/register.component';
     FooterModule,
     BrowserAnimationsModule,
     ToastrModule,
+
 ],
   providers: [CookieService],
   bootstrap: [AppComponent]
