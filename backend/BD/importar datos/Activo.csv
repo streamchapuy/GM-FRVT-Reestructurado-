@@ -1,35 +1,35 @@
-id_activo;nombre;abreviacion;id_existencia
-1;Iluminacion;ILUM - ;1
-2;Aire Acondicionado;AACO - ;1
-3;Radiador Calefaccion;RCAL - ;1
-4;Puerta;PRTA - ;1
-5;Ventanas & Cortinas;VENT - ;1
-6;Luces de Emergencia;LEME - ;1
-7;Matafuego;MTFG - ;1
-8;Barandas y Escaleras;BESC - ;1
-9;Tablero Electrico;TABE - ;1
-10;Inodoro & Mochila;INOD - ;1
-11;Mesada;MESA - ;1
-12;Ventilador;VENT - ;1
-13;Puerta Emergencia;PTAE - ;1
-14;Ascensor;ASCN - ;1
-15;Cortina Enrollar Motor;CORT - ;1
-16;Termotanque;TMTQ - ;1
-17;Calefactor;CALE - ;1
-18;Caldera;CALD - ;1
-19;Techos y Canaletas;TCHO - ;1
-20;Balcones;BALCO - ;1
-21;Paneles Solares e Inversor;PSOL - ;1
-22;Portones;PORT -;1
-23;Generador Electrico;GNDR - ;1
-24;Bombas de Agua;BMBA - ;1
-25;Tanques de Agua;TNQE - ;1
-26;Rejillas & Desagues;DESA - ;1
-27;Emergencia Alarma;EMER - ;1
-28;Espacio Fisico ;ESFI - ;1
-29;Ducha;DCHA - ;1
-30;Cocheras;CHRA - ;1
-31;Escalera;ESLR - ;1
-32;Camara Desague;CDES -;1
-33;Camara Septicas;CSEP - ;1
-34;NA;NA;1
+id_activo;nombre;abreviacion;existencia
+1;Iluminacion;ILUM - ;Si
+2;Aire Acondicionado;AACO - ;Si
+3;Radiador Calefaccion;RCAL - ;Si
+4;Puerta;PRTA - ;Si
+5;Ventanas & Cortinas;VENT - ;Si
+6;Luces de Emergencia;LEME - ;Si
+7;Matafuego;MTFG - ;Si
+8;Barandas y Escaleras;BESC - ;Si
+9;Tablero Electrico;TABE - ;Si
+10;Inodoro & Mochila;INOD - ;Si
+11;Mesada;MESA - ;Si
+12;Ventilador;VENT - ;Si
+13;Puerta Emergencia;PTAE - ;Si
+14;Ascensor;ASCN - ;Si
+15;Cortina Enrollar Motor;CORT - ;Si
+16;Termotanque;TMTQ - ;Si
+17;Calefactor;CALE - ;Si
+18;Caldera;CALD - ;Si
+19;Techos y Canaletas;TCHO - ;Si
+20;Balcones;BALCO - ;Si
+21;Paneles Solares e Inversor;PSOL - ;Si
+22;Portones;PORT -;Si
+23;Generador Electrico;GNDR - ;Si
+24;Bombas de Agua;BMBA - ;Si
+25;Tanques de Agua;TNQE - ;Si
+26;Rejillas & Desagues;DESA - ;Si
+27;Emergencia Alarma;EMER - ;Si
+28;Espacio Fisico ;ESFI - ;Si
+29;Ducha;DCHA - ;Si
+30;Cocheras;CHRA - ;Si
+31;Escalera;ESLR - ;Si
+32;Camara Desague;CDES -;Si
+33;Camara Septicas;CSEP - ;Si
+34;NA;NA;Si

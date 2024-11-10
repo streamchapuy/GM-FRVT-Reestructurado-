@@ -1,4 +1,4 @@
-id;nombre;id-existencia
-1;Interior;1
-2;Exterior Bajo Techo;1
-3;Exterior Sin Techo;1
+id;nombre;existencia
+1;Interior;Si
+2;Exterior Bajo Techo;Si
+3;Exterior Sin Techo;Si

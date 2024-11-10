@@ -2,14 +2,7 @@ import { pool } from '../db.js';
 
 export const getPisos = async (req, res) => {
     try {
-        const [rows] = await pool.query(`SELECT 
-    id_piso,
-    nombre,
-    CASE 
-        WHEN id_existencia IS NOT NULL THEN 'Sí'
-        ELSE 'No'
-    END AS id_existencia
-FROM piso;`);
+        const [rows] = await pool.query(`SELECT * FROM mantenimiento.piso;`);
         res.json(rows);
     } catch (error) {
         return res.status(500).json({
@@ -78,11 +71,11 @@ export const getPiso = async (req, res) => {
 };
 
 export const createPiso = async (req, res) => {
-    const { id_piso, nombre, id_existencia } = req.body;
+    const { id_piso, nombre, existencia } = req.body;
     try {
         const [rows] = await pool.query(
-            'INSERT INTO piso (id_piso, nombre, id_existencia) VALUES (?, ?, ?)',
-            [id_piso, nombre, id_existencia]
+            'INSERT INTO piso (id_piso, nombre, existencia) VALUES (?, ?, ?)',
+            [id_piso, nombre, existencia]
         );
         res.send({ rows });
     } catch (error) {
@@ -95,11 +88,11 @@ export const createPiso = async (req, res) => {
 
 export const editPiso = async (req, res) => {
     const { id_piso } = req.params;
-    const { nombre, id_existencia } = req.body;
+    const { nombre, existencia } = req.body;
     try {
         const [result] = await pool.query(
-            'UPDATE piso SET nombre = IFNULL(?, nombre), id_existencia = IFNULL(?, id_existencia) WHERE id_piso = ?',
-            [nombre, id_existencia, id_piso]
+            'UPDATE piso SET nombre = IFNULL(?, nombre), existencia = IFNULL(?, existencia) WHERE id_piso = ?',
+            [nombre, existencia, id_piso]
         );
 
         if (result.affectedRows === 0) return res.status(404).json({

@@ -2,15 +2,7 @@ import { pool } from '../db.js';
 
 export const getEdificios = async (req, res) => {
     try {
-        const [rows] = await pool.query(`SELECT 
-    id_edificio,
-    nombre,
-    calle,
-    CASE 
-        WHEN id_existencia IS NOT NULL THEN 'Sí'
-        ELSE 'No'
-    END AS id_existencia
-FROM edificio;`);
+        const [rows] = await pool.query(`SELECT * FROM mantenimiento.edificio;;`);
         res.json(rows);
     } catch (error) {
         return res.status(500).json({
@@ -79,13 +71,13 @@ export const getEdificio = async (req, res)=> {
 };
 
 export const createEdificio = async (req, res) => {
-    const { nombre, calle, id_existencia } = req.body;
+    const { nombre, calle, existencia } = req.body;
     try {
         const [result] = await pool.query(
-            'INSERT INTO edificio (nombre, calle, id_existencia) VALUES (?, ?, ?)',
-            [nombre, calle, id_existencia]
+            'INSERT INTO edificio (nombre, calle, existencia) VALUES (?, ?, ?)',
+            [nombre, calle, existencia]
         );
-        res.status(201).json({ id_edificio: result.insertId, nombre, calle, id_existencia });
+        res.status(201).json({ id_edificio: result.insertId, nombre, calle, existencia });
     } catch (error) {
         return res.status(500).json({
             message: 'Un error ha sucedido',
@@ -97,10 +89,10 @@ export const createEdificio = async (req, res) => {
 
 export const editEdificio = async (req, res)=> {
     const {id_edificio} = req.params
-    const {nombre, calle, id_existencia} = req.body
+    const {nombre, calle, existencia} = req.body
     try {
-        const [result] = await pool.query('UPDATE edificio SET nombre = IFNULL(?, nombre), calle = IFNULL(?, calle), id_existencia = IFNULL(?, id_existencia) WHERE id_edificio = ?',
-            [nombre, calle, id_existencia, id_edificio])
+        const [result] = await pool.query('UPDATE edificio SET nombre = IFNULL(?, nombre), calle = IFNULL(?, calle), existencia = IFNULL(?, existencia) WHERE id_edificio = ?',
+            [nombre, calle, existencia, id_edificio])
     
         console.log(result)
     

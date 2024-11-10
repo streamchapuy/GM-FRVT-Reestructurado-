@@ -2,14 +2,7 @@ import { pool } from '../db.js';
 
 export const getSectores = async (req, res) => {
     try {
-        const [rows] = await pool.query(`SELECT 
-    id_sector,
-    nombre,
-    CASE 
-        WHEN id_existencia IS NOT NULL THEN 'Sí'
-        ELSE 'No'
-    END AS id_existencia
-FROM sector;`);
+        const [rows] = await pool.query(`SELECT * FROM mantenimiento.sector;`);
         res.json(rows);
     } catch (error) {
         return res.status(500).json({
@@ -78,11 +71,11 @@ export const getSector = async (req, res) => {
 };
 
 export const createSector = async (req, res) => {
-    const { id_sector, nombre, id_existencia } = req.body;
+    const { id_sector, nombre, existencia } = req.body;
     try {
         const [rows] = await pool.query(
-            'INSERT INTO sector (id_sector, nombre, id_existencia) VALUES (?, ?, ?)',
-            [id_sector, nombre, id_existencia]
+            'INSERT INTO sector (id_sector, nombre, existencia) VALUES (?, ?, ?)',
+            [id_sector, nombre, existencia]
         );
         res.send({ rows });
     } catch (error) {
@@ -95,11 +88,11 @@ export const createSector = async (req, res) => {
 
 export const editSector = async (req, res) => {
     const { id_sector } = req.params;
-    const { nombre, id_existencia } = req.body;
+    const { nombre, existencia } = req.body;
     try {
         const [result] = await pool.query(
-            'UPDATE sector SET nombre = IFNULL(?, nombre), id_existencia = IFNULL(?, id_existencia) WHERE id_sector = ?',
-            [nombre, id_existencia, id_sector]
+            'UPDATE sector SET nombre = IFNULL(?, nombre), existencia = IFNULL(?, existencia) WHERE id_sector = ?',
+            [nombre, existencia, id_sector]
         );
 
         if (result.affectedRows === 0) return res.status(404).json({

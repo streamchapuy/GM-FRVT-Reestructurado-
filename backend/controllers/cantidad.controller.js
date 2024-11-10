@@ -31,11 +31,11 @@ export const getCantidad = async (req, res) => {
 };
 
 export const createCantidad = async (req, res) => {
-    const { id_cantidad, id_activo, cantidad, id_existencia } = req.body;
+    const { id_cantidad, cantidad } = req.body;
     try {
         const [rows] = await pool.query(
-            'INSERT INTO cantidad (id_cantidad, id_activo, cantidad, id_existencia) VALUES (?, ?, ?, ?)',
-            [id_cantidad, id_activo, cantidad, id_existencia]
+            'INSERT INTO cantidad (id_cantidad, cantidad ) VALUES (?, ?)',
+            [id_cantidad, cantidad,]
         );
         res.send({ rows });
     } catch (error) {
@@ -48,11 +48,11 @@ export const createCantidad = async (req, res) => {
 
 export const editCantidad = async (req, res) => {
     const { id_cantidad } = req.params;
-    const { id_activo, cantidad, id_existencia } = req.body;
+    const { cantidad } = req.body;
     try {
         const [result] = await pool.query(
-            'UPDATE cantidad SET id_activo = IFNULL(?, id_activo), cantidad = IFNULL(?, cantidad), id_existencia = IFNULL(?, id_existencia) WHERE id_cantidad = ?',
-            [id_activo, cantidad, id_existencia, id_cantidad]
+            'UPDATE cantidad SET cantidad = IFNULL(?, cantidad) WHERE id_cantidad = ?',
+            [ cantidad, id_cantidad]
         );
 
         if (result.affectedRows === 0) return res.status(404).json({
