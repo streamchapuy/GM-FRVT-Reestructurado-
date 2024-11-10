@@ -26,10 +26,8 @@ CREATE TABLE `activo` (
   `id_activo` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `abreviacion` varchar(10) DEFAULT NULL,
-  `id_existencia` int DEFAULT NULL,
-  PRIMARY KEY (`id_activo`),
-  KEY `id_existencia` (`id_existencia`),
-  CONSTRAINT `activo_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
+  `existencia` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_activo`)
 ) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,7 +37,7 @@ CREATE TABLE `activo` (
 
 LOCK TABLES `activo` WRITE;
 /*!40000 ALTER TABLE `activo` DISABLE KEYS */;
-INSERT INTO `activo` VALUES (1,'Iluminacion','ILUM - ',1),(2,'Aire Acondicionado','AACO - ',1),(3,'Radiador Calefaccion','RCAL - ',1),(4,'Puerta','PRTA - ',1),(5,'Ventanas & Cortinas','VENT - ',1),(6,'Luces de Emergencia','LEME - ',1),(7,'Matafuego','MTFG - ',1),(8,'Barandas y Escaleras','BESC - ',1),(9,'Tablero Electrico','TABE - ',1),(10,'Inodoro & Mochila','INOD - ',1),(11,'Mesada','MESA - ',1),(12,'Ventilador','VENT - ',1),(13,'Puerta Emergencia','PTAE - ',1),(14,'Ascensor','ASCN - ',1),(15,'Cortina Enrollar Motor','CORT - ',1),(16,'Termotanque','TMTQ - ',1),(17,'Calefactor','CALE - ',1),(18,'Caldera','CALD - ',1),(19,'Techos y Canaletas','TCHO - ',1),(20,'Balcones','BALCO - ',1),(21,'Paneles Solares e Inversor','PSOL - ',1),(22,'Portones','PORT -',1),(23,'Generador Electrico','GNDR - ',1),(24,'Bombas de Agua','BMBA - ',1),(25,'Tanques de Agua','TNQE - ',1),(26,'Rejillas & Desagues','DESA - ',1),(27,'Emergencia Alarma','EMER - ',1),(28,'Espacio Fisico ','ESFI - ',1),(29,'Ducha','DCHA - ',1),(30,'Cocheras','CHRA - ',1),(31,'Escalera','ESLR - ',1),(32,'Camara Desague','CDES -',1),(33,'Camara Septicas','CSEP - ',1),(34,'NA','NA',1);
+INSERT INTO `activo` VALUES (1,'Iluminacion','ILUM - ','Si'),(2,'Aire Acondicionado','AACO - ','Si'),(3,'Radiador Calefaccion','RCAL - ','Si'),(4,'Puerta','PRTA - ','Si'),(5,'Ventanas & Cortinas','VENT - ','Si'),(6,'Luces de Emergencia','LEME - ','Si'),(7,'Matafuego','MTFG - ','Si'),(8,'Barandas y Escaleras','BESC - ','Si'),(9,'Tablero Electrico','TABE - ','Si'),(10,'Inodoro & Mochila','INOD - ','Si'),(11,'Mesada','MESA - ','Si'),(12,'Ventilador','VENT - ','Si'),(13,'Puerta Emergencia','PTAE - ','Si'),(14,'Ascensor','ASCN - ','Si'),(15,'Cortina Enrollar Motor','CORT - ','Si'),(16,'Termotanque','TMTQ - ','Si'),(17,'Calefactor','CALE - ','Si'),(18,'Caldera','CALD - ','Si'),(19,'Techos y Canaletas','TCHO - ','Si'),(20,'Balcones','BALCO - ','Si'),(21,'Paneles Solares e Inversor','PSOL - ','Si'),(22,'Portones','PORT -','Si'),(23,'Generador Electrico','GNDR - ','Si'),(24,'Bombas de Agua','BMBA - ','Si'),(25,'Tanques de Agua','TNQE - ','Si'),(26,'Rejillas & Desagues','DESA - ','Si'),(27,'Emergencia Alarma','EMER - ','Si'),(28,'Espacio Fisico ','ESFI - ','Si'),(29,'Ducha','DCHA - ','Si'),(30,'Cocheras','CHRA - ','Si'),(31,'Escalera','ESLR - ','Si'),(32,'Camara Desague','CDES -','Si'),(33,'Camara Septicas','CSEP - ','Si'),(34,'NA','NA','Si');
 /*!40000 ALTER TABLE `activo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +57,7 @@ CREATE TABLE `activo_tarea` (
   KEY `id_tarea` (`id_tarea`),
   CONSTRAINT `activo_tarea_ibfk_1` FOREIGN KEY (`id_activo`) REFERENCES `activo` (`id_activo`),
   CONSTRAINT `activo_tarea_ibfk_2` FOREIGN KEY (`id_tarea`) REFERENCES `tarea` (`id_tarea`)
-) ENGINE=InnoDB AUTO_INCREMENT=494 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=494 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -107,10 +105,8 @@ CREATE TABLE `edificio` (
   `id_edificio` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
   `calle` varchar(255) DEFAULT NULL,
-  `id_existencia` int DEFAULT NULL,
-  PRIMARY KEY (`id_edificio`),
-  KEY `id_existencia` (`id_existencia`),
-  CONSTRAINT `edificio_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
+  `existencia` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_edificio`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -120,7 +116,7 @@ CREATE TABLE `edificio` (
 
 LOCK TABLES `edificio` WRITE;
 /*!40000 ALTER TABLE `edificio` DISABLE KEYS */;
-INSERT INTO `edificio` VALUES (1,'UTN FRVT','Laprida 651 ',1),(2,'FAGDUT VT','Laprida 648 ',1),(3,'ATEVEN','Laprida 652 ',1),(4,'UTN // UCES','Castelli 501 ',1);
+INSERT INTO `edificio` VALUES (1,'UTN FRVT','Laprida 651 ','Si'),(2,'FAGDUT VT','Laprida 648 ','Si'),(3,'ATEVEN','Laprida 652 ','Si'),(4,'UTN // UCES','Castelli 501 ','Si');
 /*!40000 ALTER TABLE `edificio` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -135,7 +131,7 @@ CREATE TABLE `estado` (
   `id_estado` int NOT NULL AUTO_INCREMENT,
   `descripcion` varchar(100) NOT NULL,
   PRIMARY KEY (`id_estado`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -144,32 +140,7 @@ CREATE TABLE `estado` (
 
 LOCK TABLES `estado` WRITE;
 /*!40000 ALTER TABLE `estado` DISABLE KEYS */;
-INSERT INTO `estado` VALUES (1,'Inicializado'),(2,'Terminado'),(3,'Cancelado');
 /*!40000 ALTER TABLE `estado` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `existencia`
---
-
-DROP TABLE IF EXISTS `existencia`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `existencia` (
-  `id_existencia` int NOT NULL AUTO_INCREMENT,
-  `disponible` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id_existencia`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `existencia`
---
-
-LOCK TABLES `existencia` WRITE;
-/*!40000 ALTER TABLE `existencia` DISABLE KEYS */;
-INSERT INTO `existencia` VALUES (1,1),(2,0);
-/*!40000 ALTER TABLE `existencia` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -208,7 +179,7 @@ CREATE TABLE `orden_trabajo` (
   `id_tag` int DEFAULT NULL,
   `id_usuarios` int DEFAULT NULL,
   `id_estado` int DEFAULT NULL,
-  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
   `fecha_creacion` datetime DEFAULT CURRENT_TIMESTAMP,
   `fecha_finalizacion` datetime DEFAULT NULL,
   `tiempo_inicio` datetime DEFAULT NULL,
@@ -220,7 +191,7 @@ CREATE TABLE `orden_trabajo` (
   CONSTRAINT `orden_trabajo_ibfk_1` FOREIGN KEY (`id_tag`) REFERENCES `tag` (`id_tag`),
   CONSTRAINT `orden_trabajo_ibfk_2` FOREIGN KEY (`id_usuarios`) REFERENCES `usuarios` (`id_usuarios`),
   CONSTRAINT `orden_trabajo_ibfk_3` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -242,10 +213,8 @@ DROP TABLE IF EXISTS `piso`;
 CREATE TABLE `piso` (
   `id_piso` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
-  `id_existencia` int DEFAULT NULL,
-  PRIMARY KEY (`id_piso`),
-  KEY `id_existencia` (`id_existencia`),
-  CONSTRAINT `piso_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
+  `existencia` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_piso`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -255,7 +224,7 @@ CREATE TABLE `piso` (
 
 LOCK TABLES `piso` WRITE;
 /*!40000 ALTER TABLE `piso` DISABLE KEYS */;
-INSERT INTO `piso` VALUES (1,'Planta Baja',1),(2,'1er. Piso',1),(3,'2do. Piso',1),(4,'3er. Piso',1),(5,'4to. Piso',1),(6,'5to. Piso',1),(7,'Nivel 0',1),(8,'Nivel Bajo 0',1),(9,'Techo',1),(10,'Entrepiso',1);
+INSERT INTO `piso` VALUES (1,'Planta Baja','Si'),(2,'1er. Piso','Si'),(3,'2do. Piso','Si'),(4,'3er. Piso','Si'),(5,'4to. Piso','Si'),(6,'5to. Piso','Si'),(7,'Nivel 0','Si'),(8,'Nivel Bajo 0','Si'),(9,'Techo','Si'),(10,'Entrepiso','Si');
 /*!40000 ALTER TABLE `piso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,10 +238,8 @@ DROP TABLE IF EXISTS `sector`;
 CREATE TABLE `sector` (
   `id_sector` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
-  `id_existencia` int DEFAULT NULL,
-  PRIMARY KEY (`id_sector`),
-  KEY `id_existencia` (`id_existencia`),
-  CONSTRAINT `sector_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
+  `existencia` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_sector`)
 ) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -282,7 +249,7 @@ CREATE TABLE `sector` (
 
 LOCK TABLES `sector` WRITE;
 /*!40000 ALTER TABLE `sector` DISABLE KEYS */;
-INSERT INTO `sector` VALUES (1,'Aula 20',1),(2,'Aula Video Conferencia',1),(3,'Aula 19 - Lab. Informatica',1),(4,'Centro de Comunicaciones',1),(5,'Pasillo C',1),(6,'Pasillo D',1),(7,'Lab. Arquitectura',1),(8,'Escalera 4',1),(9,'Baños Mixtos',1),(10,'Baño Lab. Arquitectura',1),(11,'Aula 21',1),(12,'Aula 22',1),(13,'Aula 27',1),(14,'Aula 23',1),(15,'Aula 26',1),(16,'SUM',1),(17,'Aula 25',1),(18,'Pasillo E',1),(19,'Escalera 5',1),(20,'Escalera 3',1),(21,'Pasillo A',1),(22,'Escalera 1',1),(23,'Pasillo B',1),(24,'Escalera 2',1),(25,'Alumnado',1),(26,'Administración',1),(27,'Gabinete Ps.',1),(28,'Sec. Académica',1),(29,'Of. de Personal',1),(30,'Baño Hombre Pasillo B',1),(31,'Baño Dama Pasillo B',1),(32,'Baño Discapacitado Pasillo B',1),(33,'Cantina',1),(34,'Biblioteca',1),(35,'Sala de Lectura',1),(36,'Sec. Asuntos Estudiantiles',1),(37,'Dasuten',1),(38,'Aula 1',1),(39,'Baño Dama Pasillo E',1),(40,'Baño Hombre Pasillo D',1),(41,'Laboratorio de Suelos',1),(42,'Baño Discapacitado Pasillo C',1),(43,'Baño Hombre Pasillo C',1),(44,'Laboratorio de Materiales',1),(45,'Nave Laboratorios Civil',1),(46,'Pasillo A Nave Electromecánica ',1),(47,'Pasillo B Nave Electromecánica ',1),(48,'Laboratorio de Mecánica',1),(49,'Mantenimiento',1),(50,'GDE',1),(51,'Laboratorio de Ensayo de Motores',1),(52,'Metrología',1),(53,'Baño Hombre Nave Electro',1),(54,'Baño Dama Nave Electro',1),(55,'SUM ll',1),(56,'Acceso Calle La Heras',1),(57,'Hall Ingreso Calle Laprida',1),(58,'Sala de Consejo',1),(59,'Unidad Vinculación Tecnológica',1),(60,'Secretaría Extensión Universitaria',1),(61,'Área de Convenios',1),(62,'Secretaría Administrativa',1),(63,'Cursos de Capacitación',1),(64,'Decanato',1),(65,'Vice-Decanato',1),(66,'Secretaría de Decanato',1),(67,'Cocina Pasillo B',1),(68,'Depto. Ing. Electromecánica',1),(69,'Depto. Ing. Civil',1),(70,'Depto. Básicas',1),(71,'Laboratorio Química',1),(72,'Aula 11',1),(73,'Lab. Información Geográfica',1),(74,'Aula 10',1),(75,'Aula 14D',1),(76,'Aula 14C',1),(77,'Aula 14B',1),(78,'Aula 14A',1),(79,'Aula 15',1),(80,'Aula 16',1),(81,'Aula 17',1),(82,'Aula 13',1),(83,'Aula 13Bis',1),(84,'Escalera 6',1),(85,'Escalera 7',1),(86,'Escalera 8',1),(87,'Laboratorio Metalografía',1),(88,'Laboratorio  Energías Renovables',1),(89,'Laboratorio Electricidad',1),(90,'Área Usos Multiples',1),(91,'Aula 28',1),(92,'Aula 29',1),(93,'Aula 31',1),(94,'Pasillo SUM',1),(95,'Escalera 7',1),(96,'Calles Las Heras',1),(97,'Patio Interno',1),(98,'Pasillo Calle Las Heras',1),(99,'Estacionamiento ',1),(100,'Patio Estacionamiento',1),(101,'Calle Laprida',1),(102,'Patio Cantina',1),(103,'Medición CEVT Laprida',1),(104,'Sala de Bombas',1);
+INSERT INTO `sector` VALUES (1,'Aula 20','Si'),(2,'Aula Video Conferencia','Si'),(3,'Aula 19 - Lab. Informatica','Si'),(4,'Centro de Comunicaciones','Si'),(5,'Pasillo C','Si'),(6,'Pasillo D','Si'),(7,'Lab. Arquitectura','Si'),(8,'Escalera 4','Si'),(9,'Baños Mixtos','Si'),(10,'Baño Lab. Arquitectura','Si'),(11,'Aula 21','Si'),(12,'Aula 22','Si'),(13,'Aula 27','Si'),(14,'Aula 23','Si'),(15,'Aula 26','Si'),(16,'SUM','Si'),(17,'Aula 25','Si'),(18,'Pasillo E','Si'),(19,'Escalera 5','Si'),(20,'Escalera 3','Si'),(21,'Pasillo A','Si'),(22,'Escalera 1','Si'),(23,'Pasillo B','Si'),(24,'Escalera 2','Si'),(25,'Alumnado','Si'),(26,'Administración','Si'),(27,'Gabinete Ps.','Si'),(28,'Sec. Académica','Si'),(29,'Of. de Personal','Si'),(30,'Baño Hombre Pasillo B','Si'),(31,'Baño Dama Pasillo B','Si'),(32,'Baño Discapacitado Pasillo B','Si'),(33,'Cantina','Si'),(34,'Biblioteca','Si'),(35,'Sala de Lectura','Si'),(36,'Sec. Asuntos Estudiantiles','Si'),(37,'Dasuten','Si'),(38,'Aula 1','Si'),(39,'Baño Dama Pasillo E','Si'),(40,'Baño Hombre Pasillo D','Si'),(41,'Laboratorio de Suelos','Si'),(42,'Baño Discapacitado Pasillo C','Si'),(43,'Baño Hombre Pasillo C','Si'),(44,'Laboratorio de Materiales','Si'),(45,'Nave Laboratorios Civil','Si'),(46,'Pasillo A Nave Electromecánica ','Si'),(47,'Pasillo B Nave Electromecánica ','Si'),(48,'Laboratorio de Mecánica','Si'),(49,'Mantenimiento','Si'),(50,'GDE','Si'),(51,'Laboratorio de Ensayo de Motores','Si'),(52,'Metrología','Si'),(53,'Baño Hombre Nave Electro','Si'),(54,'Baño Dama Nave Electro','Si'),(55,'SUM ll','Si'),(56,'Acceso Calle La Heras','Si'),(57,'Hall Ingreso Calle Laprida','Si'),(58,'Sala de Consejo','Si'),(59,'Unidad Vinculación Tecnológica','Si'),(60,'Secretaría Extensión Universitaria','Si'),(61,'Área de Convenios','Si'),(62,'Secretaría Administrativa','Si'),(63,'Cursos de Capacitación','Si'),(64,'Decanato','Si'),(65,'Vice-Decanato','Si'),(66,'Secretaría de Decanato','Si'),(67,'Cocina Pasillo B','Si'),(68,'Depto. Ing. Electromecánica','Si'),(69,'Depto. Ing. Civil','Si'),(70,'Depto. Básicas','Si'),(71,'Laboratorio Química','Si'),(72,'Aula 11','Si'),(73,'Lab. Información Geográfica','Si'),(74,'Aula 10','Si'),(75,'Aula 14D','Si'),(76,'Aula 14C','Si'),(77,'Aula 14B','Si'),(78,'Aula 14A','Si'),(79,'Aula 15','Si'),(80,'Aula 16','Si'),(81,'Aula 17','Si'),(82,'Aula 13','Si'),(83,'Aula 13Bis','Si'),(84,'Escalera 6','Si'),(85,'Escalera 7','Si'),(86,'Escalera 8','Si'),(87,'Laboratorio Metalografía','Si'),(88,'Laboratorio  Energías Renovables','Si'),(89,'Laboratorio Electricidad','Si'),(90,'Área Usos Multiples','Si'),(91,'Aula 28','Si'),(92,'Aula 29','Si'),(93,'Aula 31','Si'),(94,'Pasillo SUM','Si'),(95,'Escalera 7','Si'),(96,'Calles Las Heras','Si'),(97,'Patio Interno','Si'),(98,'Pasillo Calle Las Heras','Si'),(99,'Estacionamiento ','Si'),(100,'Patio Estacionamiento','Si'),(101,'Calle Laprida','Si'),(102,'Patio Cantina','Si'),(103,'Medición CEVT Laprida','Si'),(104,'Sala de Bombas','Si');
 /*!40000 ALTER TABLE `sector` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -336,15 +303,13 @@ DROP TABLE IF EXISTS `tarea`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tarea` (
   `id_tarea` int NOT NULL AUTO_INCREMENT,
-  `descripcion` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `id_existencia` int DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `existencia` varchar(30) DEFAULT NULL,
   `id_labor` int DEFAULT NULL,
   PRIMARY KEY (`id_tarea`),
-  KEY `id_existencia` (`id_existencia`),
   KEY `id_labor` (`id_labor`),
-  CONSTRAINT `tarea_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`),
-  CONSTRAINT `tarea_ibfk_2` FOREIGN KEY (`id_labor`) REFERENCES `labor` (`id_labor`)
-) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `tarea_ibfk_1` FOREIGN KEY (`id_labor`) REFERENCES `labor` (`id_labor`)
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,7 +318,7 @@ CREATE TABLE `tarea` (
 
 LOCK TABLES `tarea` WRITE;
 /*!40000 ALTER TABLE `tarea` DISABLE KEYS */;
-INSERT INTO `tarea` VALUES (1,'Relevar marca',1,1),(2,'Relevar material',1,1),(3,'Relevar tamaño de gabinete',1,1),(4,'Relevar Marca de Maquina Primaria y Alternador',1,1),(5,'Relevar Tipo de Piso',1,1),(6,'Relevar Material de Paredes',1,1),(7,'Relevar modelo',1,1),(8,'Numero de Hojas',1,1),(9,'Relevar Tamaño',1,1),(10,'Cerradura Si/No',1,1),(11,'Mochila Empotrada/Exterior',1,1),(12,'Canaletas Si/No',1,1),(13,'Bajadas Si/No',1,1),(14,'Acceso desde el Interior Si/No',1,1),(15,'Relevar Tipo. Abril/Corredizo/Levadizo/Otro',1,1),(16,'Relevar Dimensiones',1,1),(17,'Relevar Tipo de Techo',1,1),(18,'Relevar Material de Piso',1,1),(19,'Tipo. Caracol/Marinera/Convencional',1,1),(20,'Relevar Material de Techo',1,1),(21,'Relevar potencia',1,1),(22,'Relevar potencia/Tama¤o',1,1),(23,'Con Vidrio/Sin Vidrio/Tipo',1,1),(24,'Tipo de Vidrio',1,1),(25,'Relevar Tipo',1,1),(26,'De columna/Empotrado',1,1),(27,'Montaje: Pared / Techo / Movil',1,1),(28,'Relevar tipo de accionamiento',1,1),(29,'Electrico/Gas - Tipo de Gas',1,1),(30,'Cantidad de Bajadas',1,1),(31,'Relevar Cantidad y Potencia',1,1),(32,'Relevar Potencia y Caracteristicas Electricas Principales',1,1),(33,'Relevar Tipo/Material',1,1),(34,'Tipo de Tapa. Ciega/Rejilla/Otra',1,1),(35,'Abiertas/Cerradas',1,1),(36,'Relevar cantidad de lamparas por equipo',1,1),(37,'Frio - Calor - Frio/Calor',1,1),(38,'Corrediza/De abrir',1,1),(39,'Relevar tipo de canilla',1,1),(40,'Relevar cantidad y material de palas',1,1),(41,'Tipo de Puerta',1,1),(42,'Relevar Tipo de Accionamiento',1,1),(43,'Bajadas Internas/Externas',1,1),(44,'Baranda Si/No',1,1),(45,'Relevar Capacidad',1,1),(46,'Tiene Iluminacion sobre Estructura',1,1),(47,'Marca/Modelo/Tipo de Cerradura',1,1),(48,'Agua Fria/Caliente',1,1),(49,'Relevar tipo y marca de controlador',1,1),(50,'Puerta Manual / Automatica',1,1),(51,'Tiro Balanceado Si/No',1,1),(52,'Material de Bajadas',1,1),(53,'Marca/Modelo/Tipo de Bisagras',1,1),(54,'Relevar cualquier otro dato que considere relevante para el mantenimiento',1,1),(55,'Tomar Fotografia',1,1),(56,'Al finalizar la actividad deje el area limpia, ordenada y segura',1,1),(57,'Señalice el area de Trabajo. Desconecte la energia electrica - Verificar NO exisitencia de tension electrica',1,2),(58,'Señalice el area de Trabajo',1,2),(59,'Control de louver',1,2),(60,'Verificar correcto estado de cableado electrico, tomacorriente y conexiones electricas',1,2),(61,'Verifique correcto funcionamiento de valvulas',1,2),(62,'Verificar correcta y firme fijacion a pared o estructura',1,2),(63,'Verificar correcta y firme fijacion de baranda a pared o estructura',1,2),(64,'Utilice los Elementos de Proteccion Personal para trabajos en altura',1,2),(65,'Verificar estado general',1,2),(66,'ATENCION: ESTA MISMA OT SERA UTILIZADA PARA LAS 4 ACTIVIDADES MENSUALES',1,2),(67,'Verificacion de  funcionamiento de la totalidad de las lamparas.',1,2),(68,'Verificar correcta y firme fijacion a pared o estructura de ambas unidades',1,2),(69,'Verificar NO  de perdidas',1,2),(70,'Verifique y lubrique bisagras y/o correderas',1,2),(71,'Verifique y lubrique bisagras y/o correderas y/o enrolladores',1,2),(72,'Verificar esrado de carga. Lectura de manimetro de presion y fecha de vencimiento',1,2),(73,'Verique el buen estado general',1,2),(74,'Verificacion de estados de zocalos y/o portalamparas',1,2),(75,'Verificar existencia y correcto montaje de protecciones mecanicas',1,2),(76,'Verifique y lubrique cerraduras.',1,2),(77,'Verifique firme montaje de componentes.',1,2),(78,'Verificar correcto estado de cableado electrico, tomacorriente y conexiones electricas.',1,2),(79,'Verificar correcta sujeccion de coberturas, canaletas, cumbreras, cenefas y otros.',1,2),(80,'Verificar correcta y firme fijacion a pared o estructura.',1,2),(81,'Verificar NO  existencia de perdidas.',1,2),(82,'Realice limpieza, ordenamiento y/o emprolijamiento del area.',1,2),(83,'Limpieza de luminaria y lampara.',1,2),(84,'Verificar carga de gas y NO  de fugas.',1,2),(85,'Realice verificacion de correcto funcionamiento.',1,2),(86,'Verifique correcta sujeccion de vidrios.',1,2),(87,'Verificar  y correcto montaje de las proteccion contra choque electrico',1,2),(88,'Verificar correcto estado de cableado electrico.',1,2),(89,'Verifique limpieza de caneletas. Debe encontrarse libre de obstucciones y apta para la correcta descarga de agua.',1,2),(90,'Actividad 1 de 4 Mensual. Indique Fecha:',1,2),(91,'Verificar correcto montaje y sujeccion.',1,2),(92,'Realice limpieza de filtros.',1,2),(93,'Realizar limpieza del equipo.',1,2),(94,'Verificar correcto funcionamiento de puertas y cerraduras',1,2),(95,'Verificar NO  de perdidas de liquidos y/o gas.',1,2),(96,'Realizar limpieza externa del equipo.',1,2),(97,'Verifique sujeccion y estanqueidad de bajadas de descarga de canaletas.',1,2),(98,'Realice limpieza interna y externa de los equipos.',1,2),(99,'Actividad 2 de 4 Mensual. Indique Fecha:',1,2),(100,'Verifique correcto funcionamiento del equipo luego de finalizada la actividad.',1,2),(101,'Realice limpieza completa de ambas unidades.',1,2),(102,'Realice verificacion de correcto funcionamiento.',1,2),(103,'Verificar correcto ajuste de conexiones electricas.Verificar NO  de señales de sobrecalentamiento de los componentes. ',1,2),(104,'Verifique que las descargas de canaletas permitan flujo libre y se encuentren conectadas correctamente en extremos y uniones.',1,2),(105,'Actividad 3 de 4 Mensual. Indique Fecha:',1,2),(106,'Conecte nuevamente a la red electrica y realice una prueba de correcto funcionamiento.',1,2),(107,'Realizar limpieza del equipo. No utilice elementos humedos ni liquidos. Para retirar polvos, utilice un equipo de aspiracion.',1,2),(108,'­­­EN CASO DE DETECTAR ANOMALIAS CONTACTAR AL SERVICIO TECNICO AUTORIZADO. SI ESTAS ANOMALIAS SON CRITICAS, DETENGA EL USO DEL EQUIPO!!!',1,2),(109,'Actividad 4 de 4 Mensual. Indique Fecha:',1,2),(110,'Complete la documentacion de mantenimiento',1,2),(111,'Al finalizar la actividad deje el area limpia, ordenada y segura',1,2);
+INSERT INTO `tarea` VALUES (1,'Relevar marca','Si',1),(2,'Relevar material','Si',1),(3,'Relevar tamaño de gabinete','Si',1),(4,'Relevar Marca de Maquina Primaria y Alternador','Si',1),(5,'Relevar Tipo de Piso','Si',1),(6,'Relevar Material de Paredes','Si',1),(7,'Relevar modelo','Si',1),(8,'Numero de Hojas','Si',1),(9,'Relevar Tamaño','Si',1),(10,'Cerradura Si/No','Si',1),(11,'Mochila Empotrada/Exterior','Si',1),(12,'Canaletas Si/No','Si',1),(13,'Bajadas Si/No','Si',1),(14,'Acceso desde el Interior Si/No','Si',1),(15,'Relevar Tipo. Abril/Corredizo/Levadizo/Otro','Si',1),(16,'Relevar Dimensiones','Si',1),(17,'Relevar Tipo de Techo','Si',1),(18,'Relevar Material de Piso','Si',1),(19,'Tipo. Caracol/Marinera/Convencional','Si',1),(20,'Relevar Material de Techo','Si',1),(21,'Relevar potencia','Si',1),(22,'Relevar potencia/Tama¤o','Si',1),(23,'Con Vidrio/Sin Vidrio/Tipo','Si',1),(24,'Tipo de Vidrio','Si',1),(25,'Relevar Tipo','Si',1),(26,'De columna/Empotrado','Si',1),(27,'Montaje: Pared / Techo / Movil','Si',1),(28,'Relevar tipo de accionamiento','Si',1),(29,'Electrico/Gas - Tipo de Gas','Si',1),(30,'Cantidad de Bajadas','Si',1),(31,'Relevar Cantidad y Potencia','Si',1),(32,'Relevar Potencia y Caracteristicas Electricas Principales','Si',1),(33,'Relevar Tipo/Material','Si',1),(34,'Tipo de Tapa. Ciega/Rejilla/Otra','Si',1),(35,'Abiertas/Cerradas','Si',1),(36,'Relevar cantidad de lamparas por equipo','Si',1),(37,'Frio - Calor - Frio/Calor','Si',1),(38,'Corrediza/De abrir','Si',1),(39,'Relevar tipo de canilla','Si',1),(40,'Relevar cantidad y material de palas','Si',1),(41,'Tipo de Puerta','Si',1),(42,'Relevar Tipo de Accionamiento','Si',1),(43,'Bajadas Internas/Externas','Si',1),(44,'Baranda Si/No','Si',1),(45,'Relevar Capacidad','Si',1),(46,'Tiene Iluminacion sobre Estructura','Si',1),(47,'Marca/Modelo/Tipo de Cerradura','Si',1),(48,'Agua Fria/Caliente','Si',1),(49,'Relevar tipo y marca de controlador','Si',1),(50,'Puerta Manual / Automatica','Si',1),(51,'Tiro Balanceado Si/No','Si',1),(52,'Material de Bajadas','Si',1),(53,'Marca/Modelo/Tipo de Bisagras','Si',1),(54,'Relevar cualquier otro dato que considere relevante para el mantenimiento','Si',1),(55,'Tomar Fotografia','Si',1),(56,'Al finalizar la actividad deje el area limpia, ordenada y segura','Si',1),(57,'Señalice el area de Trabajo. Desconecte la energia electrica - Verificar NO exisitencia de tension electrica','Si',2),(58,'Señalice el area de Trabajo','Si',2),(59,'Control de louver','Si',2),(60,'Verificar correcto estado de cableado electrico, tomacorriente y conexiones electricas','Si',2),(61,'Verifique correcto funcionamiento de valvulas','Si',2),(62,'Verificar correcta y firme fijacion a pared o estructura','Si',2),(63,'Verificar correcta y firme fijacion de baranda a pared o estructura','Si',2),(64,'Utilice los Elementos de Proteccion Personal para trabajos en altura','Si',2),(65,'Verificar estado general','Si',2),(66,'ATENCION: ESTA MISMA OT SERA UTILIZADA PARA LAS 4 ACTIVIDADES MENSUALES','Si',2),(67,'Verificacion de  funcionamiento de la totalidad de las lamparas.','Si',2),(68,'Verificar correcta y firme fijacion a pared o estructura de ambas unidades','Si',2),(69,'Verificar NO  de perdidas','Si',2),(70,'Verifique y lubrique bisagras y/o correderas','Si',2),(71,'Verifique y lubrique bisagras y/o correderas y/o enrolladores','Si',2),(72,'Verificar esrado de carga. Lectura de manimetro de presion y fecha de vencimiento','Si',2),(73,'Verique el buen estado general','Si',2),(74,'Verificacion de estados de zocalos y/o portalamparas','Si',2),(75,'Verificar existencia y correcto montaje de protecciones mecanicas','Si',2),(76,'Verifique y lubrique cerraduras.','Si',2),(77,'Verifique firme montaje de componentes.','Si',2),(78,'Verificar correcto estado de cableado electrico, tomacorriente y conexiones electricas.','Si',2),(79,'Verificar correcta sujeccion de coberturas, canaletas, cumbreras, cenefas y otros.','Si',2),(80,'Verificar correcta y firme fijacion a pared o estructura.','Si',2),(81,'Verificar NO  existencia de perdidas.','Si',2),(82,'Realice limpieza, ordenamiento y/o emprolijamiento del area.','Si',2),(83,'Limpieza de luminaria y lampara.','Si',2),(84,'Verificar carga de gas y NO  de fugas.','Si',2),(85,'Realice verificacion de correcto funcionamiento.','Si',2),(86,'Verifique correcta sujeccion de vidrios.','Si',2),(87,'Verificar  y correcto montaje de las proteccion contra choque electrico','Si',2),(88,'Verificar correcto estado de cableado electrico.','Si',2),(89,'Verifique limpieza de caneletas. Debe encontrarse libre de obstucciones y apta para la correcta descarga de agua.','Si',2),(90,'Actividad 1 de 4 Mensual. Indique Fecha:','Si',2),(91,'Verificar correcto montaje y sujeccion.','Si',2),(92,'Realice limpieza de filtros.','Si',2),(93,'Realizar limpieza del equipo.','Si',2),(94,'Verificar correcto funcionamiento de puertas y cerraduras','Si',2),(95,'Verificar NO  de perdidas de liquidos y/o gas.','Si',2),(96,'Realizar limpieza externa del equipo.','Si',2),(97,'Verifique sujeccion y estanqueidad de bajadas de descarga de canaletas.','Si',2),(98,'Realice limpieza interna y externa de los equipos.','Si',2),(99,'Actividad 2 de 4 Mensual. Indique Fecha:','Si',2),(100,'Verifique correcto funcionamiento del equipo luego de finalizada la actividad.','Si',2),(101,'Realice limpieza completa de ambas unidades.','Si',2),(102,'Realice verificacion de correcto funcionamiento.','Si',2),(103,'Verificar correcto ajuste de conexiones electricas.Verificar NO  de señales de sobrecalentamiento de los componentes. ','Si',2),(104,'Verifique que las descargas de canaletas permitan flujo libre y se encuentren conectadas correctamente en extremos y uniones.','Si',2),(105,'Actividad 3 de 4 Mensual. Indique Fecha:','Si',2),(106,'Conecte nuevamente a la red electrica y realice una prueba de correcto funcionamiento.','Si',2),(107,'Realizar limpieza del equipo. No utilice elementos humedos ni liquidos. Para retirar polvos, utilice un equipo de aspiracion.','Si',2),(108,'­­­EN CASO DE DETECTAR ANOMALIAS CONTACTAR AL SERVICIO TECNICO AUTORIZADO. SI ESTAS ANOMALIAS SON CRITICAS, DETENGA EL USO DEL EQUIPO!!!','Si',2),(109,'Actividad 4 de 4 Mensual. Indique Fecha:','Si',2),(110,'Complete la documentacion de mantenimiento','Si',2),(111,'Al finalizar la actividad deje el area limpia, ordenada y segura','Si',2);
 /*!40000 ALTER TABLE `tarea` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -367,10 +332,8 @@ DROP TABLE IF EXISTS `ubicacion`;
 CREATE TABLE `ubicacion` (
   `id_ubicacion` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) DEFAULT NULL,
-  `id_existencia` int DEFAULT NULL,
-  PRIMARY KEY (`id_ubicacion`),
-  KEY `id_existencia` (`id_existencia`),
-  CONSTRAINT `ubicacion_ibfk_1` FOREIGN KEY (`id_existencia`) REFERENCES `existencia` (`id_existencia`)
+  `existencia` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id_ubicacion`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -380,7 +343,7 @@ CREATE TABLE `ubicacion` (
 
 LOCK TABLES `ubicacion` WRITE;
 /*!40000 ALTER TABLE `ubicacion` DISABLE KEYS */;
-INSERT INTO `ubicacion` VALUES (1,'Interior',1),(2,'Exterior Bajo Techo',1),(3,'Exterior Sin Techo',1);
+INSERT INTO `ubicacion` VALUES (1,'Interior','Si'),(2,'Exterior Bajo Techo','Si'),(3,'Exterior Sin Techo','Si');
 /*!40000 ALTER TABLE `ubicacion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -393,14 +356,14 @@ DROP TABLE IF EXISTS `usuarios`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `usuarios` (
   `id_usuarios` int NOT NULL AUTO_INCREMENT,
-  `nombre` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contraseña_hash` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tipo_usuario` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `contraseña_hash` varchar(255) NOT NULL,
+  `tipo_usuario` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id_usuarios`),
   UNIQUE KEY `email` (`email`),
   CONSTRAINT `usuarios_chk_1` CHECK ((`tipo_usuario` in (_utf8mb4'operario',_utf8mb4'admin')))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -421,4 +384,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-11-08 15:35:02
+-- Dump completed on 2024-11-09 23:51:02

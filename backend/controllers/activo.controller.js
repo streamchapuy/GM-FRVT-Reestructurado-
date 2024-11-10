@@ -40,17 +40,7 @@ export const getActivofiltro = async (req, res) => {
 
 export const getActivos = async (req, res) => {
     try {
-        const [rows] = await pool.query(` 
-    SELECT 
-    id_activo,
-    nombre,
-    abreviacion,
-    CASE 
-        WHEN id_existencia IS NOT NULL THEN 'Sí'
-        ELSE 'No'
-    END AS id_existencia
-FROM activo;`
-        );
+        const [rows] = await pool.query('SELECT * FROM mantenimiento.activo;');
         res.json(rows);
     } catch (error) {
         return res.status(500).json({
@@ -81,10 +71,10 @@ export const getActivo = async (req, res) => {
 };
 
 export const createActivo = async (req, res) => {
-    const { id_activo, nombre, abreviacion, id_existencia } = req.body
+    const { id_activo, nombre, abreviacion, existencia } = req.body
     try {
-        const [rows] = await pool.query('INSERT INTO activo (id_activo, nombre, abreviacion, id_existencia) VALUES (?, ?, ?, ?)',
-            [id_activo, nombre, abreviacion, id_existencia])
+        const [rows] = await pool.query('INSERT INTO activo (id_activo, nombre, abreviacion, existencia) VALUES (?, ?, ?, ?)',
+            [id_activo, nombre, abreviacion, existencia])
         res.send({ rows })
     } catch (error) {
         return res.status(500).json({
@@ -96,10 +86,10 @@ export const createActivo = async (req, res) => {
 
 export const editActivo = async (req, res) => {
     const { id_activo } = req.params
-    const { nombre, abreviacion, id_existencia } = req.body
+    const { nombre, abreviacion, existencia } = req.body
     try {
-        const [result] = await pool.query('UPDATE activo SET nombre = IFNULL(?, nombre), abreviacion = IFNULL(?, abreviacion), id_existencia = IFNULL(?, id_existencia) WHERE id_activo = ?',
-            [nombre, abreviacion, id_existencia, id_activo])
+        const [result] = await pool.query('UPDATE activo SET nombre = IFNULL(?, nombre), abreviacion = IFNULL(?, abreviacion), existencia = IFNULL(?, existencia) WHERE id_activo = ?',
+            [nombre, abreviacion, existencia, id_activo])
 
         console.log(result)
 

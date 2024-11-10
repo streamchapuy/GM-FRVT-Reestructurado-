@@ -1,5 +1,5 @@
-id;nombre;calle;id-existencia
-1;UTN FRVT;Laprida 651 ;1
-2;FAGDUT VT;Laprida 648 ;1
-3;ATEVEN;Laprida 652 ;1
-4;UTN // UCES;Castelli 501 ;1
+id;nombre;calle;existencia
+1;UTN FRVT;Laprida 651 ;Si
+2;FAGDUT VT;Laprida 648 ;Si
+3;ATEVEN;Laprida 652 ;Si
+4;UTN // UCES;Castelli 501 ;Si

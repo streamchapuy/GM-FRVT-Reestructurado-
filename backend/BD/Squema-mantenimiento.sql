@@ -2,43 +2,33 @@ CREATE DATABASE mantenimiento;
 
 USE mantenimiento; 
 
--- Tabla: Existencia
-CREATE TABLE existencia (
-    id_existencia INT PRIMARY KEY AUTO_INCREMENT,
-    disponible BOOLEAN
-);
-
 -- Tabla: Edificio
 CREATE TABLE edificio (
     id_edificio INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
     calle VARCHAR(255),
-    id_existencia INT,
-    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
+    existencia VARCHAR(30)    
 );
 
 -- Tabla: Piso
 CREATE TABLE piso (
     id_piso INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
-    id_existencia INT,
-    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
+    existencia VARCHAR(30) 
 );
 
 -- Tabla: Sector
 CREATE TABLE sector (
     id_sector INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
-    id_existencia INT,
-    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
+	existencia VARCHAR(30) 
 );
 
 -- Tabla: Ubicación
 CREATE TABLE ubicacion (
     id_ubicacion INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
-    id_existencia INT,
-    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
+    existencia VARCHAR(30) 
 );
 
 -- Tabla: Activo
@@ -46,8 +36,7 @@ CREATE TABLE activo (
     id_activo INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(100),
     abreviacion VARCHAR(10),
-    id_existencia INT,
-    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia)
+    existencia VARCHAR(30)
 );
 
 -- Tabla: Labor
@@ -60,9 +49,8 @@ CREATE TABLE labor (
 CREATE TABLE tarea (
     id_tarea INT PRIMARY KEY AUTO_INCREMENT,
     descripcion VARCHAR(255),
-    id_existencia INT,
+	existencia VARCHAR(30),
     id_labor INT,
-    FOREIGN KEY (id_existencia) REFERENCES existencia(id_existencia),
     FOREIGN KEY (id_labor) REFERENCES labor(id_labor)
 );
 

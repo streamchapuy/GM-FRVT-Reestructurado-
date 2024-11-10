@@ -31,11 +31,11 @@ export const getOT = async (req, res) => {
 };
 
 export const createOT = async (req, res) => {
-    const { id_tag, id_usuarios, descripcion, fecha_creacion, fecha_finalizacion } = req.body;
+    const { id_tag, id_usuarios,id_estado, descripcion, fecha_creacion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion } = req.body;
     try {
         const [rows] = await pool.query(
-            'INSERT INTO orden_trabajo (id_ot, id_tag, id_usuarios, descripcion, fecha_creacion, fecha_finalizacion) VALUES (?, ?, ?, ?)',
-            [id_tag, id_usuarios, descripcion, fecha_creacion, fecha_finalizacion]
+            'INSERT INTO orden_trabajo (id_ot, id_tag, id_usuarios,id_estado, descripcion, fecha_creacion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            [id_tag, id_usuarios, id_estado, descripcion, fecha_creacion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion]
         );
         res.send({ rows });
     } catch (error) {
