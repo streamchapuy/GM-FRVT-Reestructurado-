@@ -13,8 +13,8 @@
     </div>
 
     <div class="form-group">
-      <label for="id_existencia">Existencia</label>
-      <select id="id_existencia" [(ngModel)]="piso.id_existencia" name="id_existencia">
+      <label for="existencia">Existencia</label>
+      <select id="existencia" [(ngModel)]="piso.existencia" name="existencia">
         <option *ngFor="let existencia of existencias" [value]="existencia.nombre">
           {{ existencia.nombre }}
         </option>
@@ -44,7 +44,7 @@
           <tr *ngFor="let piso of pisos" (click)="seleccionarPiso(piso)">
             <td>{{ piso.id_piso }}</td>
             <td>{{ piso.nombre }}</td>
-            <td>{{ piso.id_existencia }}</td>
+            <td>{{ piso.existencia }}</td>
           </tr>
         </tbody>
       </table>
