@@ -37,11 +37,11 @@ export const getTarea = async (req, res) => {
 };
 
 export const createTarea = async (req, res) => {
-    const { id_tarea, descripcion, id_existencia, id_tareaxactico } = req.body;
+    const { id_tarea, descripcion, existencia, id_labor } = req.body;
     try {
         const [rows] = await pool.query(
-            'INSERT INTO tarea (id_tarea, descripcion, id_existencia, id_tareaxactico) VALUES (?, ?, ?, ?)',
-            [id_tarea, descripcion, id_existencia, id_tareaxactico]
+            'INSERT INTO tarea (id_tarea, descripcion, existencia, id_labor) VALUES (?, ?, ?, ?)',
+            [id_tarea, descripcion, existencia, id_labor]
         );
         res.send({ rows });
     } catch (error) {
@@ -54,11 +54,11 @@ export const createTarea = async (req, res) => {
 
 export const editTarea = async (req, res) => {
     const { id_tarea } = req.params;
-    const { descripcion, id_existencia, id_tareaxactico } = req.body;
+    const { descripcion, existencia, id_labor } = req.body;
     try {
         const [result] = await pool.query(
-            'UPDATE tarea SET descripcion = IFNULL(?, descripcion), id_existencia = IFNULL(?, id_existencia), id_tareaxactico = IFNULL(?, id_tareaxactico) WHERE id_tarea = ?',
-            [descripcion, id_existencia, id_tareaxactico, id_tarea]
+            'UPDATE tarea SET descripcion = IFNULL(?, descripcion), existencia = IFNULL(?, existencia), id_labor = IFNULL(?, id_labor) WHERE id_tarea = ?',
+            [descripcion, existencia, id_labor, id_tarea]
         );
 
         if (result.affectedRows === 0) return res.status(404).json({
