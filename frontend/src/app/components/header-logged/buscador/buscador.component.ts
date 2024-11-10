@@ -20,6 +20,7 @@ export class BuscadorComponent {
     'edificio': '/formEdificio',
     'edificios': '/formEdificio',
     'ots': '/formOT',
+    'ordenes': '/formOT',
     'ordenes de trabajo': '/formOT',
     'piso': '/formPiso',
     'pisos': '/formPiso',
