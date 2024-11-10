@@ -3,18 +3,25 @@
         <app-logo-nav class="navbar-logo"></app-logo-nav>
 
         <div class="navbar-links">
-            <a class="nav-link active" href="#">Tareas</a>
+            <a class="nav-link" href="#">Tareas</a>
             <a class="nav-link" href="#">Operarios</a>
+            <button class="logout-button" (click)="logout()">Logout</button>
         </div>
 
         <div class="search-input-container">
             <app-buscador (searchTerm)="handleSearch($event)"></app-buscador>
         </div>
 
-        <button class="navbar-toggler" type="button" aria-label="Toggle navigation">
+        <button class="navbar-toggler" (click)="togglePopup()" [class.open]="isPopupOpen" type="button" aria-label="Toggle navigation">
             <span class="navbar-toggler-line"></span>
             <span class="navbar-toggler-line"></span>
             <span class="navbar-toggler-line"></span>
         </button>
+
+        <div class="navbar-popup" *ngIf="isPopupOpen && isMobile">
+            <a class="nav-link" href="#">Tareas</a>
+            <a class="nav-link" href="#">Operarios</a>
+            <button class="logout-button" (click)="logout()">Logout</button>
+        </div>
     </div>
 </nav>
