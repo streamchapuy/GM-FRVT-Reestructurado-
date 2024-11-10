@@ -4,56 +4,70 @@
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
-    background-color: white;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(to top, rgba(148,215,233,1), rgb(170, 200, 204), rgba(148,215,233,1));
     background-size: cover;
     background-position: center;
-    color: #333;
     padding: 20px;
     gap: 30px;
 }
 
-nav ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px;
+.central-content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 20px;
+    justify-content: center;
+    width: 100%;
+    max-width: 600px;
 }
 
-nav ul li {
-    margin: 0px;
-    width: 100px;
-    flex: 1 1 45%;
-    text-align: center;
-}
-
-nav ul li a {
+.central-content button {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100px;
+    padding: 10px;
     font-size: 1.2rem;
     font-weight: bold;
     color: #ffffff;
     background-color: #10608f;
-    border-radius: 15px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
+    border: none;
+    border-radius: 0px 15px 0px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 250px;
+    height: 90px;
     text-align: center;
+    overflow: hidden;
 }
 
-nav ul li a:hover {
-    background-color: #0c486c;
+.central-content button img {
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
 }
 
-@media (max-width: 600px) {
-    .home-container h1 {
-        font-size: 1.5rem;
+.central-content button:hover {
+    background-color: var(--primary-hover);
+    color: #333333;
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
     }
-    nav ul {
+
+    p {
+        font-size: 1rem;
+    }
+
+    .central-content {
         flex-direction: column;
         align-items: center;
+    }
+
+    .central-content button {
+        width: 80%;
+        margin: 5px 0;
     }
 }

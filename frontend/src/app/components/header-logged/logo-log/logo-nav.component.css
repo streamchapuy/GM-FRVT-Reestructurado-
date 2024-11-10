@@ -1,0 +1,17 @@
+.logo-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 60px;
+    height: auto;
+}
+
+.logo {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .logo {
+        max-width: 80%;
+    }
+}
