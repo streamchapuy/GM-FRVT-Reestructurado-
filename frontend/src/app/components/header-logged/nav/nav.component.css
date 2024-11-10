@@ -39,12 +39,11 @@
     max-width: 500px;
 }
 
-/* Estilo para el botón de menú */
 .navbar-toggler {
     background: none;
     border: none;
     cursor: pointer;
-    display: none; /* Oculto por defecto, solo aparece en pantallas pequeñas */
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -84,7 +83,6 @@
     outline: none;
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     .navbar-container {
         flex-direction: column;
@@ -96,7 +94,7 @@
     }
 
     .navbar-links {
-        display: none; /* Oculto por defecto, se muestra al hacer clic en el toggler */
+        display: none;
         flex-direction: column;
         align-items: center;
         gap: 1rem;
@@ -104,10 +102,9 @@
     }
 
     .navbar-toggler {
-        display: flex; /* Muestra el botón de menú en pantallas pequeñas */
+        display: flex;
     }
 
-    /* Mostrar el menú desplegable cuando el toggler está activo */
     .navbar-toggler.open + .navbar-links {
         display: flex;
     }
