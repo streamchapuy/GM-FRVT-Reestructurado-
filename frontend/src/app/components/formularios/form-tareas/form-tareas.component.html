@@ -12,9 +12,9 @@
   </div>
 
   <div class="form-group">
-    <label for="id_existencia">Existencia:</label>
-    <select id="id_existencia" [(ngModel)]="tarea.id_existencia" name="id_existencia" required>
-      <option *ngFor="let existencia of existencias" [value]="existencia.id_existencia">
+    <label for="existencia">Existencia:</label>
+    <select id="existencia" [(ngModel)]="tarea.existencia" name="existencia" required>
+      <option *ngFor="let existencia of existencias" [value]="existencia">
         {{ existencia.nombre }}
       </option>
     </select>
@@ -42,7 +42,7 @@
           <tr *ngFor="let tarea of tareas" (click)="seleccionarTarea(tarea)">
             <td>{{ tarea.id_tarea }}</td>
             <td>{{ tarea.descripcion }}</td>
-            <td>{{ tarea.id_existencia }}</td>
+            <td>{{ tarea.existencia }}</td>
           </tr>
         </tbody>
       </table>

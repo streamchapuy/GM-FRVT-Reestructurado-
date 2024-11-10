@@ -12,7 +12,7 @@ export class FormEdificioComponent implements OnInit {
     id_edificio: 0,
     nombre: '',
     calle: '',
-    id_existencia: ""
+    existencia: ""
   };
 
   existencias = [
@@ -73,7 +73,7 @@ console.log('Edificio creado:', nuevoEdificio);
       id_edificio: 0,
       nombre: '',
       calle: '',
-      id_existencia: ""
+      existencia: ""
     };
   }
 }

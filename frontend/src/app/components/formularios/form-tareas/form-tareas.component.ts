@@ -11,7 +11,7 @@ export class FormTareasComponent implements OnInit {
   tarea: Tarea = {
     id_tarea: 0,
     descripcion: '',
-    id_existencia: 0,
+    existencia: '',
   };
 
   existencias = [
@@ -85,7 +85,7 @@ export class FormTareasComponent implements OnInit {
     this.tarea = {
       id_tarea: 0,
       descripcion: '',
-      id_existencia: 0
+      existencia: ''
     };
   }
 }

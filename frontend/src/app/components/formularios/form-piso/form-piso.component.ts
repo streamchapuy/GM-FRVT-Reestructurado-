@@ -11,7 +11,7 @@ export class FormPisoComponent implements OnInit {
   piso: Piso = {
     id_piso: 0,
     nombre: '',
-    id_existencia: ""
+    existencia: ""
   };
   existencias = [
     {  nombre: 'Si' },
@@ -61,7 +61,7 @@ export class FormPisoComponent implements OnInit {
     this.piso = {
       id_piso: 0,
       nombre: '',
-      id_existencia: ""
+      existencia: ""
     };
   }
 }

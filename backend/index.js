@@ -8,11 +8,8 @@ import registroRoutes from './routes/registro.auth.routes.js';
 
 import activotareaRoutes from './routes/activo-tarea.routes.js';
 import activoRoutes from './routes/activo.routes.js';
-import adminRoutes from './routes/admin.routes.js';
 import edificioRoutes from './routes/edificio.routes.js';
-import existenciaRoutes from './routes/existencia.routes.js';
 
-import operarioRoutes from './routes/operario.routes.js';
 import otRoutes from './routes/ot.routes.js';
 import pisoRoutes from './routes/piso.routes.js';
 import sectorRoutes from './routes/sector.routes.js';
@@ -52,10 +49,7 @@ app.use('/API', activoRoutes)
 app.use('/API', tareaRoutes)
 app.use('/API', activotareaRoutes)
 app.use('/API', laborRoutes)
-app.use('/API', existenciaRoutes)
 app.use('/API', tagRoutes)
-app.use('/API', operarioRoutes)
-app.use('/API', adminRoutes)
 
 app.use((req, res, next) => {
     res.status(404).json({

@@ -7,9 +7,9 @@
   </div>
 
   <div class="form-group">
-    <label for="id_existencia">ID Existencia:</label>
-    <select id="id_existencia" [(ngModel)]="ubicacion.id_existencia" name="id_existencia">
-      <option *ngFor="let existencia of existencias" [value]="existencia.id">
+    <label for="existencia">Existencia:</label>
+    <select id="existencia" [(ngModel)]="ubicacion.existencia" name="existencia">
+      <option *ngFor="let existencia of existencias" [value]="existencia">
         {{ existencia.nombre }}
       </option>
     </select>
@@ -36,7 +36,7 @@
           <tr *ngFor="let ubicacion of ubicaciones" (click)="seleccionarUbicacion(ubicacion)">
             <td>{{ ubicacion.id_ubicacion }}</td>
             <td>{{ ubicacion.nombre }}</td>
-            <td>{{ ubicacion.id_existencia }}</td>
+            <td>{{ ubicacion.existencia }}</td>
           </tr>
         </tbody>
       </table>

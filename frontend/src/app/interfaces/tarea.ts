@@ -1,6 +1,6 @@
 export interface Tarea {
     id_tarea: number;
     descripcion: string;
-    id_existencia?: number;
+    existencia?: string;
     id_labor?: number;
 }

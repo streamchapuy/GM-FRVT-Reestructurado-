@@ -12,7 +12,7 @@ export class FormActivoComponent implements OnInit {
     id_activo: 0,
     nombre: '',
     abreviacion: '',
-    id_existencia: ""
+    existencia: ""
   };
 
   existencias = [
@@ -75,7 +75,7 @@ export class FormActivoComponent implements OnInit {
       id_activo: 0,
       nombre: '',
       abreviacion: '',
-      id_existencia: ""
+      existencia: ""
     };
   }
 }

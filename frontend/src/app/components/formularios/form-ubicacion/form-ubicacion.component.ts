@@ -8,7 +8,7 @@ import { Ubicacion } from '../../../interfaces/ubicacion';
   styleUrls: ['./form-ubicacion.component.css']
 })
 export class FormUbicacionComponent implements OnInit {
-  ubicacion: Ubicacion = { id_ubicacion: 0, nombre: '', id_existencia: "" };
+  ubicacion: Ubicacion = { id_ubicacion: 0, nombre: '', existencia: "" };
   existencias = [
     { id:1, nombre: 'Si' },
     {id: 0, nombre: 'No' }
@@ -54,7 +54,7 @@ export class FormUbicacionComponent implements OnInit {
   }
 
   limpiarFormulario(): void {
-    this.ubicacion = { id_ubicacion: 0, nombre: '', id_existencia: "" };
+    this.ubicacion = { id_ubicacion: 0, nombre: '', existencia: "" };
   }
 }
 
