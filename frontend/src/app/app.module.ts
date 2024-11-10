@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 
 import { FooterModule } from './components/footer/footer.module';
 import { FormulariosModule } from './components/formularios/formularios.module';
+import { HeaderLoggedModule } from './components/header-logged/header-logged.module';
 import { HeaderModule } from './components/header/header.module';
 import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.module';
 
@@ -34,6 +35,7 @@ import { RegisterComponent } from './pages/register/register.component';
     OrdenTrabajoModule,
     FormulariosModule,
     HeaderModule,
+    HeaderLoggedModule,
     FooterModule,
     BrowserAnimationsModule,
     ToastrModule,
