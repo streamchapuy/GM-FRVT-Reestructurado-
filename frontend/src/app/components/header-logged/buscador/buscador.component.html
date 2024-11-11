@@ -1,3 +1,7 @@
 <div class="buscador">
-  <input type="text" placeholder="Buscar..." (input)="onSearch($event)" class="buscador-input" />
+  <input type="text" [(ngModel)]="searchValue" (keydown.enter)="onSearch()" placeholder="Buscar..."
+    class="buscador-input" />
+    <button class="buscador-btn" (click)="onSearch()">
+      <img src="../../../../assets/img/lupa.png" alt="Buscar" class="lupa-icon">
+    </button>
 </div>

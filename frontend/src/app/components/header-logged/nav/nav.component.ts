@@ -1,26 +1,48 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrl: './nav.component.css'
+  styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
+  isPopupOpen = false;
+  isMobile = window.innerWidth <= 768;
+
+  constructor(private router: Router) {}
+
   handleSearch(term: string): void {
     console.log('Search term:', term);
   }
-  constructor(private router: Router){
 
+  togglePopup() {
+    this.isPopupOpen = !this.isPopupOpen;
   }
 
-  register(){
-    this.router.navigate(['/register']);
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/']);
   }
 
-  login(){
-    this.router.navigate(['/login']);
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    this.isMobile = window.innerWidth <= 768;
+    if (!this.isMobile) {
+      this.isPopupOpen = false;
+    }
   }
 
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    const targetElement = event.target as HTMLElement;
+
+    if (
+      this.isPopupOpen &&
+      !targetElement.closest('.navbar-popup') &&
+      !targetElement.closest('.navbar-toggler')
+    ) {
+      this.isPopupOpen = false;
+    }
+  }
 }
-

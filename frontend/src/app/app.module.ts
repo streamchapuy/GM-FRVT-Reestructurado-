@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -26,6 +27,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    NotFoundComponent,
     HomeComponent,
     HomeLoggedComponent
   ],
@@ -36,7 +38,6 @@ import { HttpClientModule } from '@angular/common/http';
     OrdenTrabajoModule,
     FormulariosModule,
     HeaderModule,
-    HeaderLoggedModule,
     HeaderLoggedModule,
     HttpClientModule,
     FooterModule,
