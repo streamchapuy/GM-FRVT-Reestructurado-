@@ -16,6 +16,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 
@@ -25,6 +26,7 @@ import { RegisterComponent } from './pages/register/register.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    NotFoundComponent,
     HomeComponent,
     HomeLoggedComponent
   ],

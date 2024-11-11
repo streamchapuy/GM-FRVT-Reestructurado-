@@ -13,6 +13,7 @@ import { roleGuard } from './guards/role.guard';
 import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'formUbicacion', component: FormUbicacionComponent, canActivate: [roleGuard] },
   { path: 'formUsuarios', component: FormUsuariosComponent, canActivate: [roleGuard] },
   { path: 'formTareas', component: FormTareasComponent, canActivate: [roleGuard] },
+  { path: '404', component: NotFoundComponent },
   
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   // { path: '**', redirectTo: '/login' }
