@@ -19,7 +19,7 @@ export const logeoUser = async (req, res) => {
         const user = results[0];
 
         // Aquí cambiamos password a contraseña_hash
-        const isMatch = await bcrypt.compare(contraseña_hash, user.contraseña_hash);
+        const isMatch = await bcrypt.compare(password, user.contraseña_hash);
         if (!isMatch) {
             return res.status(401).json({ message: 'Credenciales inválidas' });
         }

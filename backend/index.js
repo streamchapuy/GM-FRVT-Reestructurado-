@@ -40,7 +40,7 @@ app.use('/API',loginRoutes)
 app.use('/API',registroRoutes)
 
 
-app.use('/API',otRoutes)
+app.use('/API', otRoutes)
 app.use('/API', edificioRoutes)
 app.use('/API', sectorRoutes)
 app.use('/API', ubicacionRoutes)
