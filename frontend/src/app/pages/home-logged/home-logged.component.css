@@ -50,6 +50,7 @@
     background-color: var(--primary-hover);
     color: #333333;
     transform: translateY(-5px);
+    border: 5px #333333 solid;
 }
 
 @media (max-width: 768px) {

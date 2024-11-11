@@ -9,16 +9,24 @@
           <tr>
             <th>ID Orden</th>
             <th>Descripción</th>
-            <th>Fecha de Creación</th>
+            <th>Operador</th>
             <th>Estado</th>
+            <th>Fecha de Creación</th>
+            <th>Fecha de Realización</th>
+            <th>Tiempo Inicial</th>
+            <th>Tiempo Final</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let orden of ordenesTrabajo">
             <td>{{ orden.id_orden_trabajo }}</td>
             <td>{{ orden.descripcion }}</td>
-            <td>{{ orden.fecha_creacion }}</td>
+            <td>{{ orden.id_usuarios }}</td>
             <td>{{ orden.estado }}</td>
+            <td>{{ orden.fecha_creacion }}</td>
+            <td>{{ orden.fecha_finalizacion }}</td>
+            <td>{{ orden.tiempo_inicio }}</td>
+            <td>{{ orden.tiempo_finalizacion }}</td>
           </tr>
         </tbody>
       </table>
