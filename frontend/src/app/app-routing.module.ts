@@ -9,9 +9,9 @@ import { FormTareasComponent } from './components/formularios/form-tareas/form-t
 import { FormUbicacionComponent } from './components/formularios/form-ubicacion/form-ubicacion.component';
 import { FormUsuariosComponent } from './components/formularios/form-usuarios/form-usuarios.component';
 import { otComponent } from './components/orden-trabajo/ot/ot.component';
-import { PendientesComponent } from './components/pendientes/pendientes.component';
 import { roleGuard } from './guards/role.guard';
 import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
+import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'ordenTrabajo', component: otComponent, canActivate: [roleGuard] },
-  { path: 'formOT', component: FormOtComponent, }, canActivate: [roleGuard]
+  { path: 'formOT', component: FormOtComponent, canActivate: [roleGuard]},
   { path: 'formActivo', component: FormActivoComponent, canActivate: [roleGuard] },
   { path: 'formEdificio', component: FormEdificioComponent, canActivate: [roleGuard] },
   { path: 'formPiso', component: FormPisoComponent, canActivate: [roleGuard] },
@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'formUbicacion', component: FormUbicacionComponent, canActivate: [roleGuard] },
   { path: 'formUsuarios', component: FormUsuariosComponent, canActivate: [roleGuard] },
   { path: 'formTareas', component: FormTareasComponent, canActivate: [roleGuard] },
-  { path: 'ot-pendientes', component: PendientesComponent },
+  { path: 'home-operario', component: HomeOperarioComponent },
   { path: '404', component: NotFoundComponent },
   
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
