@@ -1,5 +1,9 @@
 <app-nav></app-nav>
 <div class="home-container">
-<app-terminadas></app-terminadas>
-<app-pendientes></app-pendientes>
+    <section class="botones">
+        <button class="pendientes" (click)="mostrarComponentePendientes()">Pendientes</button>
+        <button class="terminadas" (click)="mostrarComponenteTerminadas()">Terminadas</button>
+    </section>
+<app-terminadas *ngIf="mostrarPendientes"></app-terminadas>
+<app-pendientes *ngIf="mostrarTerminadas"></app-pendientes>
 </div>
