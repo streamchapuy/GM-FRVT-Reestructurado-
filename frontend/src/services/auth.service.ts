@@ -26,7 +26,7 @@ export class AuthService {
   }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, { email, contraseña_hash: password }).pipe(
+    return this.http.post(`${this.apiUrl}/login`, { email, password: password }).pipe(
       map((response: any)=>{
         const token = response.user?.token;
         const tipo_usuario = response.user?.tipo_usuario;
@@ -34,6 +34,7 @@ export class AuthService {
           this.setToken(token);
           this.setUserRole(tipo_usuario);
         }
+        return response;
       })
     );
   }

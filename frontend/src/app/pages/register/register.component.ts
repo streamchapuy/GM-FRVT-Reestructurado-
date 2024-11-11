@@ -29,7 +29,7 @@ export class RegisterComponent {
 
   register() {
     // Validación básica en el frontend
-    if (!this.user.email || !this.user.contrasena || !this.user.confirmPassword || !this.user.nombre) {
+    if (!this.user.email || !this.user.contrasena || !this.user.confirmPassword || !this.user.nombre || !this.user.tipo_usuario) {
       alert('Todos los campos son obligatorios');
       return;
     }
