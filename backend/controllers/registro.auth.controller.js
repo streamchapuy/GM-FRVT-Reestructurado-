@@ -8,7 +8,7 @@ dotenv.config();
 const SECRET_KEY = process.env.SECRET_KEY;
 
 export const registerUser = async (req, res) => {
-    const { nombre, email, contrasena, tipo_usuario = 'admin' } = req.body;
+    const { nombre, email, contrasena, tipo_usuario = 'admin' && 'operario' } = req.body;
 
     // Validar si los campos requeridos están presentes
     if (!nombre || !email || !contrasena || (tipo_usuario !== 'admin' && tipo_usuario !== 'operario')) {

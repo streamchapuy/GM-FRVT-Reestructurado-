@@ -17,7 +17,7 @@ export class AuthService {
       nombre: user.nombre,
       email: user.email,
       contrasena: user.contrasena,
-     
+      
     };
 
     const token = this.cookieService.get('token');
