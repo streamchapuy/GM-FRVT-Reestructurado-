@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
-import { CookieService } from 'ngx-cookie-service';
+
 import { IRegister } from '../../interfaces/iregister'; 
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-register',
