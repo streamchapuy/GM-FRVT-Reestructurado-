@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'ordenTrabajo', component: otComponent, canActivate: [roleGuard] },
-  { path: 'formOT', component: FormOtComponent, canActivate: [roleGuard]},
+  { path: 'formOT', component: FormOtComponent, canActivate: [roleGuard] },
   { path: 'formActivo', component: FormActivoComponent, canActivate: [roleGuard] },
   { path: 'formEdificio', component: FormEdificioComponent, canActivate: [roleGuard] },
   { path: 'formPiso', component: FormPisoComponent, canActivate: [roleGuard] },
