@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home-operario',
   templateUrl: './home-operario.component.html',
   styleUrls: ['./home-operario.component.css']
 })
-export class HomeOperarioComponent implements OnInit {
+export class HomeOperarioComponent {
+  mostrarPendientes: boolean = false;
+  mostrarTerminadas: boolean = true;
 
-  constructor() { }
-
-  ngOnInit() {
+  mostrarComponentePendientes(): void {
+    this.mostrarPendientes = false;
+    this.mostrarTerminadas = true;
   }
 
+  mostrarComponenteTerminadas(): void {
+    this.mostrarPendientes = true;
+    this.mostrarTerminadas = false;
+  }
 }
