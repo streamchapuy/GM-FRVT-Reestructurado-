@@ -11,15 +11,17 @@ import { HeaderLoggedModule } from './components/header-logged/header-logged.mod
 import { HeaderModule } from './components/header/header.module';
 import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.module';
 
-
+import { CookieService } from 'ngx-cookie-service';
 import { ToastrModule } from 'ngx-toastr';
+import { PendientesComponent } from './components/pendientes/pendientes.component';
+import { TerminadasComponent } from './components/terminadas/terminadas.component';
 import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
+import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CookieService } from 'ngx-cookie-service';
 
 
 
@@ -30,7 +32,10 @@ import { CookieService } from 'ngx-cookie-service';
     RegisterComponent,
     NotFoundComponent,
     HomeComponent,
-    HomeLoggedComponent
+    HomeLoggedComponent,
+    HomeOperarioComponent,
+    PendientesComponent,
+    TerminadasComponent,
   ],
   imports: [
     BrowserModule,

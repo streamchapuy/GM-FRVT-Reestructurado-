@@ -31,20 +31,39 @@ export const getOT = async (req, res) => {
 };
 
 export const createOT = async (req, res) => {
-    const { id_tag, id_usuarios,id_estado, descripcion, fecha_creacion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion } = req.body;
+    const { id_tag, id_usuarios, id_estado, descripcion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion } = req.body;
+
+    // Validar campos obligatorios
+    if (!id_tag || !id_usuarios || !id_estado || !descripcion) {
+        return res.status(400).json({
+            message: 'Campos obligatorios faltantes: id_tag, id_usuarios, id_estado, descripcion'
+        });
+    }
+
+    // Si la fecha de creación no es proporcionada, usar la fecha actual
+    const fecha_creacion = new Date(); // Asignar la fecha de creación como la fecha actual
+
     try {
-        const [rows] = await pool.query(
-            'INSERT INTO orden_trabajo (id_ot, id_tag, id_usuarios,id_estado, descripcion, fecha_creacion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+        // Insertar nueva orden de trabajo en la base de datos
+        const [result] = await pool.query(
+            'INSERT INTO orden_trabajo (id_tag, id_usuarios, id_estado, descripcion, fecha_creacion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
             [id_tag, id_usuarios, id_estado, descripcion, fecha_creacion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion]
         );
-        res.send({ rows });
+
+        // Si se insertó correctamente, devolver el ID de la nueva orden de trabajo
+        res.status(201).json({
+            message: 'Orden de trabajo creada exitosamente',
+            id_ot: result.insertId // El ID auto-generado de la nueva orden
+        });
     } catch (error) {
+        console.error(error);
         return res.status(500).json({
             message: 'Error al crear la orden de trabajo',
             error: error.message
         });
     }
 };
+
 
 export const editOT = async (req, res) => {
     const { id_ot } = req.params;

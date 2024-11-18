@@ -1,0 +1,110 @@
+.central-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin: auto;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 50px 10px 50px 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+}
+
+.cards h1 {
+    font-weight: bold;
+    color: #333333;
+    text-align: center;
+}
+
+.orden-card {
+    background-color: #10608f;
+    border-radius: 0px 50px 0px 50px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin: 5px 0;
+    color: white;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    gap: 15px;
+}
+
+.orden-card:hover {
+    background-color: var(--primary-hover);
+    color: #333333;
+    transform: translateY(-5px);
+    border: 3px solid #333333;
+}
+
+.orden-card strong {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
+}
+
+.orden-card p {
+    padding: 15px;
+    margin: 8px 0;
+}
+
+.boton-seleccionar {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.seleccionar {
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #10608f;
+    border: none;
+    border-radius: 15px 0px 15px 0px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 200px;
+    height: 40px;
+    text-align: center;
+}
+
+.seleccionar:hover {
+    background-color: var(--primary-hover);
+    color: #333333;
+    transform: translateY(-5px);
+    border: 3px solid #333333;
+}
+
+.no-orden {
+    font: bold;
+    font-size: 16px;
+    color: #333333;
+}
+
+@media (max-width: 767px) {
+    .cards {
+        padding: 20px;
+    }
+
+    .orden-card {
+        border-radius: 0px 50px 0px 50px;
+        max-width: 500px;
+        display: block;
+        padding: 20px;
+        margin: 20px auto;
+    }
+}
