@@ -1,0 +1,49 @@
+.contenedor {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 544px;
+    background-color: white;
+    color: black;
+    padding: 50px;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 497px;
+    justify-content: top;
+    align-items: center;
+}
+
+.titulo {
+    font: bold;
+    font-size: 36px;
+    text-decoration: underline;
+    color:black;
+    margin-bottom: 15px;
+    text-align: justify;
+    text-align-last: center;
+}
+
+.linea {
+    width: 588px;
+    height: 2px;
+    background-color: black;
+}
+
+.parrafo {
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    text-align-last: center;
+    color: black;
+    font-size: 32px;
+    padding: 20px;
+}
+
+.imagen {
+    width: 50%;
+    height: 497px;
+}
