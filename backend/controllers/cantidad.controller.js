@@ -1,6 +1,6 @@
 import { pool } from '../db.js';
 
-export const getCantidades = async (req, res) => {
+export const obtener_Cantidades = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM cantidad');
         res.json(rows);
@@ -12,7 +12,7 @@ export const getCantidades = async (req, res) => {
     }
 };
 
-export const getCantidad = async (req, res) => {
+export const obtener_Cantidad_por_id = async (req, res) => {
     const { id_cantidad } = req.params;
     try {
         const [rows] = await pool.query('SELECT * FROM cantidad WHERE id_cantidad = ?', [id_cantidad]);
@@ -30,7 +30,7 @@ export const getCantidad = async (req, res) => {
     }
 };
 
-export const createCantidad = async (req, res) => {
+export const crear_Cantidad = async (req, res) => {
     const { id_cantidad, cantidad } = req.body;
     try {
         const [rows] = await pool.query(
@@ -46,7 +46,7 @@ export const createCantidad = async (req, res) => {
     }
 };
 
-export const editCantidad = async (req, res) => {
+export const editar_Cantidad = async (req, res) => {
     const { id_cantidad } = req.params;
     const { cantidad } = req.body;
     try {
@@ -70,7 +70,7 @@ export const editCantidad = async (req, res) => {
     }
 };
 
-export const deleteCantidad = async (req, res) => {
+export const eliminar_Cantidad = async (req, res) => {
     const { id_cantidad } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM cantidad WHERE id_cantidad = ?', [id_cantidad]);

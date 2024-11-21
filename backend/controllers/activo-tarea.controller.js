@@ -1,6 +1,6 @@
 import { pool } from '../db.js';
 
-export const getActivoTareas = async (req, res) => {
+export const obtener_ActivoTareas = async (req, res) => {
     const { id_activo, id_labor } = req.body;
     console.log("id_activo", id_activo, "id_labor", id_labor);
     try {
@@ -32,7 +32,7 @@ WHERE
         });
     }
 };
-export const getActivoTarea = async (req, res) => {
+export const obtener_ActivoTarea_por_id = async (req, res) => {
     const { id_activo_tarea } = req.params;
     try {
         console.log(req.params.id_activo_tarea);
@@ -51,7 +51,7 @@ export const getActivoTarea = async (req, res) => {
     }
 };
 
-export const createActivoTarea = async (req, res) => {
+export const crear_ActivoTarea = async (req, res) => {
     const { id_activo_tarea, id_activo, id_tarea } = req.body;
     try {
         const [rows] = await pool.query('INSERT INTO activo_tarea (id_activo_tarea, id_activo, id_tarea) VALUES (?, ?, ?)',
@@ -65,7 +65,7 @@ export const createActivoTarea = async (req, res) => {
     }
 };
 
-export const editActivoTarea = async (req, res) => {
+export const editar_ActivoTarea = async (req, res) => {
     const { id_activo_tarea } = req.params;
     const { id_activo, id_tarea } = req.body;
     try {
@@ -89,7 +89,7 @@ export const editActivoTarea = async (req, res) => {
     }
 };
 
-export const deleteActivoTarea = async (req, res) => {
+export const eliminar_ActivoTarea = async (req, res) => {
     const { id_activo_tarea } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM activo_tarea WHERE id_activo_tarea = ?', [id_activo_tarea]);

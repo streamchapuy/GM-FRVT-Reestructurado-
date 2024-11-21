@@ -7,7 +7,7 @@ dotenv.config();
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
-export const logeoUser = async (req, res) => {
+export const acceso_de_Usuario = async (req, res) => {
     const { email, password } = req.body;
 
     try {

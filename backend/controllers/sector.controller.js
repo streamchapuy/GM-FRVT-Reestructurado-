@@ -1,6 +1,6 @@
 import { pool } from '../db.js';
 
-export const getSectores = async (req, res) => {
+export const obtener_Sectores = async (req, res) => {
     try {
         const [rows] = await pool.query(`SELECT * FROM mantenimiento.sector;`);
         res.json(rows);
@@ -12,7 +12,7 @@ export const getSectores = async (req, res) => {
     }
 };
 
-export const filtrossector = async (req, res) => {
+export const obtener_filtros_sector = async (req, res) => {
     const { id_sector } = req.body;
     console.log(id_sector);
     try {
@@ -52,7 +52,7 @@ WHERE
     }
   };
 
-export const getSector = async (req, res) => {
+export const obtener_Sector_por_id = async (req, res) => {
     const { id_sector } = req.params;
     try {
         const [rows] = await pool.query('SELECT * FROM sector WHERE id_sector = ?', [id_sector]);
@@ -70,7 +70,7 @@ export const getSector = async (req, res) => {
     }
 };
 
-export const createSector = async (req, res) => {
+export const crear_Sector = async (req, res) => {
     const { id_sector, nombre, existencia } = req.body;
     try {
         const [rows] = await pool.query(
@@ -86,7 +86,7 @@ export const createSector = async (req, res) => {
     }
 };
 
-export const editSector = async (req, res) => {
+export const editar_Sector = async (req, res) => {
     const { id_sector } = req.params;
     const { nombre, existencia } = req.body;
     try {
@@ -110,7 +110,7 @@ export const editSector = async (req, res) => {
     }
 };
 
-export const deleteSector = async (req, res) => {
+export const eliminar_Sector = async (req, res) => {
     const { id_sector } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM sector WHERE id_sector = ?', [id_sector]);

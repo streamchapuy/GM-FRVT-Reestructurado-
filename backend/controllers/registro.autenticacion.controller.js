@@ -7,7 +7,7 @@ dotenv.config();
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
-export const registerUser = async (req, res) => {
+export const register_de_Usuario = async (req, res) => {
     const { nombre, email, contrasena, tipo_usuario = 'admin' && 'operario' } = req.body;
 
 

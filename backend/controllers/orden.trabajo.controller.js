@@ -1,6 +1,6 @@
 import { pool } from '../db.js';
 
-export const getOTs = async (req, res) => {
+export const obtener_ordenes_de_Trabajo = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM orden_trabajo');
         res.json(rows);
@@ -12,7 +12,7 @@ export const getOTs = async (req, res) => {
     }
 };
 
-export const getOT = async (req, res) => {
+export const obtener_ordene_de_Trabajo_por_id = async (req, res) => {
     const { id_ot } = req.params;
     try {
         const [rows] = await pool.query('SELECT * FROM orden_trabajo WHERE id_ot = ?', [id_ot]);
@@ -30,7 +30,7 @@ export const getOT = async (req, res) => {
     }
 };
 
-export const createOT = async (req, res) => {
+export const crear_ordenes_de_Trabajo = async (req, res) => {
     const { id_tag, id_usuarios, id_estado, descripcion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion } = req.body;
 
     // Validar campos obligatorios
@@ -65,7 +65,7 @@ export const createOT = async (req, res) => {
 };
 
 
-export const editOT = async (req, res) => {
+export const editar_ordenes_de_Trabajo = async (req, res) => {
     const { id_ot } = req.params;
     const { id_tag, id_usuarios } = req.body;
     try {
@@ -89,7 +89,7 @@ export const editOT = async (req, res) => {
     }
 };
 
-export const deleteOT = async (req, res) => {
+export const eliminar_ordenes_de_Trabajo = async (req, res) => {
     const { id_ot } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM orden_trabajo WHERE id_ot = ?', [id_ot]);

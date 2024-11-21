@@ -1,6 +1,6 @@
 import { pool } from '../db.js';
 
-export const getPisos = async (req, res) => {
+export const obtener_Pisos = async (req, res) => {
     try {
         const [rows] = await pool.query(`SELECT * FROM mantenimiento.piso;`);
         res.json(rows);
@@ -12,7 +12,7 @@ export const getPisos = async (req, res) => {
     }
 };
 
-export const filtrospiso = async (req, res) => {
+export const obtener_filtros_piso = async (req, res) => {
     const { id_piso } = req.body;
     console.log(id_piso);
     try {
@@ -52,7 +52,7 @@ WHERE
     }
   };
 
-export const getPiso = async (req, res) => {
+export const obtener_Piso_por_id = async (req, res) => {
     const { id_piso } = req.params;
     try {
         const [rows] = await pool.query('SELECT * FROM piso WHERE id_piso = ?', [id_piso]);
@@ -70,7 +70,7 @@ export const getPiso = async (req, res) => {
     }
 };
 
-export const createPiso = async (req, res) => {
+export const crear_Piso = async (req, res) => {
     const { id_piso, nombre, existencia } = req.body;
     try {
         const [rows] = await pool.query(
@@ -86,7 +86,7 @@ export const createPiso = async (req, res) => {
     }
 };
 
-export const editPiso = async (req, res) => {
+export const editar_Piso = async (req, res) => {
     const { id_piso } = req.params;
     const { nombre, existencia } = req.body;
     try {
@@ -110,7 +110,7 @@ export const editPiso = async (req, res) => {
     }
 };
 
-export const deletePiso = async (req, res) => {
+export const eliminar_Piso = async (req, res) => {
     const { id_piso } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM piso WHERE id_piso = ?', [id_piso]);

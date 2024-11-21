@@ -1,7 +1,7 @@
 import { pool } from '../db.js';
 
 
-export const getActivofiltro = async (req, res) => {
+export const obtener_Activo_filtro = async (req, res) => {
     const { id_activo } = req.body;
     console.log(id_activo);
     try {
@@ -38,7 +38,7 @@ export const getActivofiltro = async (req, res) => {
     }
 };
 
-export const getActivos = async (req, res) => {
+export const obtener_Activos = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM mantenimiento.activo;');
         res.json(rows);
@@ -50,7 +50,7 @@ export const getActivos = async (req, res) => {
     }
 };
 
-export const getActivo = async (req, res) => {
+export const obtener_Activo_por_id = async (req, res) => {
     const { id_activo } = req.params;
     try {
         console.log(req.params.id_activo)
@@ -70,7 +70,7 @@ export const getActivo = async (req, res) => {
     }
 };
 
-export const createActivo = async (req, res) => {
+export const crear_Activo = async (req, res) => {
     const { id_activo, nombre, abreviacion, existencia } = req.body
     try {
         const [rows] = await pool.query('INSERT INTO activo (id_activo, nombre, abreviacion, existencia) VALUES (?, ?, ?, ?)',
@@ -84,7 +84,7 @@ export const createActivo = async (req, res) => {
     }
 };
 
-export const editActivo = async (req, res) => {
+export const editar_Activo = async (req, res) => {
     const { id_activo } = req.params
     const { nombre, abreviacion, existencia } = req.body
     try {
@@ -108,7 +108,7 @@ export const editActivo = async (req, res) => {
     }
 };
 
-export const deleteActivo = async (req, res) => {
+export const eliminar_Activo = async (req, res) => {
     const { id_activo } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM activo WHERE id_activo = ?',

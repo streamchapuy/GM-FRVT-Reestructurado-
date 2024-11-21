@@ -1,6 +1,6 @@
 import { pool } from "../db.js";
 
-export const getTags = async (req, res) => {
+export const obtener_codigos = async (req, res) => {
   try {
     console.log("Ejecutando consulta SQL...");
     const [rows] = await pool.query(`
@@ -33,7 +33,7 @@ JOIN ubicacion u ON t.id_ubicacion = u.id_ubicacion;
   }
 };
 
-export const filtroTags = async (req, res) => {
+export const obtener_filtro_codigo = async (req, res) => {
   const { id_tag } = req.body;
   console.log(id_tag);
   try {
@@ -74,7 +74,7 @@ export const filtroTags = async (req, res) => {
   }
 };
 
-export const getTag = async (req, res) => {
+export const obtener_codigo_por_id = async (req, res) => {
   const { id_tag } = req.params;
   try {
     const [rows] = await pool.query("SELECT * FROM tag WHERE id_tag = ?", [
@@ -95,7 +95,7 @@ export const getTag = async (req, res) => {
   }
 };
 
-export const createTag = async (req, res) => {
+export const crear_codigo = async (req, res) => {
   const {
     id_tag,
     id_operario,
@@ -129,7 +129,7 @@ export const createTag = async (req, res) => {
   }
 };
 
-export const editTag = async (req, res) => {
+export const editar_codigo = async (req, res) => {
   const { id_tag } = req.params;
   const {
     id_operario,
@@ -173,7 +173,7 @@ export const editTag = async (req, res) => {
   }
 };
 
-export const deleteTag = async (req, res) => {
+export const eliminar_codigo = async (req, res) => {
   const { id_tag } = req.params;
   try {
     const [rows] = await pool.query("DELETE FROM tag WHERE id_tag = ?", [
