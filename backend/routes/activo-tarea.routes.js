@@ -1,12 +1,12 @@
 import { Router } from "express";
-import { createActivoTarea, deleteActivoTarea, editActivoTarea, getActivoTarea, getActivoTareas } from "../controllers/activo-tarea.controller.js";
+import { obtener_ActivoTarea_por_id, obtener_ActivoTareas, eliminar_ActivoTarea, editar_ActivoTarea, crear_ActivoTarea } from "../controllers/activo-tarea.controller.js";
 
 const router = Router();
 
-router.post('/activo-tareas', getActivoTareas);
-router.get('/activo-tarea/:id_activo_tarea', getActivoTarea);
-router.post('/activo-tarea', createActivoTarea);
-router.patch('/activo-tarea/:id_activo_tarea', editActivoTarea);
-router.delete('/activo-tarea/:id_activo_tarea', deleteActivoTarea);
+router.post('/obtener_ActivoTareas', obtener_ActivoTareas);
+router.get('/obtener_ActivoTarea/:id_activo_tarea', obtener_ActivoTarea_por_id);
+router.post('/crear_activo-tarea', crear_ActivoTarea);
+router.patch('/editar_activo-tarea/:id_activo_tarea', editar_ActivoTarea);
+router.delete('/eliminar_activo-tarea/:id_activo_tarea', eliminar_ActivoTarea);
 
 export default router;

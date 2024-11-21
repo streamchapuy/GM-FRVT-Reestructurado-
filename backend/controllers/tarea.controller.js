@@ -1,6 +1,6 @@
 import { pool } from '../db.js';
 
-export const getTareas = async (req, res) => {
+export const obtener_Tareas = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM tarea');
         if(rows.length === 0) {
@@ -18,7 +18,7 @@ export const getTareas = async (req, res) => {
     }
 };
 
-export const getTarea = async (req, res) => {
+export const obtener_Tarea_por_id = async (req, res) => {
     const { id_tarea } = req.params;
     try {
         const [rows] = await pool.query('SELECT * FROM tarea WHERE id_tarea = ?', [id_tarea]);
@@ -36,7 +36,7 @@ export const getTarea = async (req, res) => {
     }
 };
 
-export const createTarea = async (req, res) => {
+export const crear_Tarea = async (req, res) => {
     const { id_tarea, descripcion, existencia, id_labor } = req.body;
     try {
         const [rows] = await pool.query(
@@ -52,7 +52,7 @@ export const createTarea = async (req, res) => {
     }
 };
 
-export const editTarea = async (req, res) => {
+export const editar_Tarea = async (req, res) => {
     const { id_tarea } = req.params;
     const { descripcion, existencia, id_labor } = req.body;
     try {
@@ -76,7 +76,7 @@ export const editTarea = async (req, res) => {
     }
 };
 
-export const deleteTarea = async (req, res) => {
+export const eliminar_Tarea = async (req, res) => {
     const { id_tarea } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM tarea WHERE id_tarea = ?', [id_tarea]);

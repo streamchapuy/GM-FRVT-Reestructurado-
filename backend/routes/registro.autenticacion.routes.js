@@ -1,11 +1,11 @@
 import express from 'express';
-import { registerUser } from '../controllers/registro.auth.controller.js';
+import { register_de_Usuario } from '../controllers/registro.autenticacion.controller.js';
 import authenticateToken from '../middleware/authmiddleware.js';
  
 
 const router = express.Router();
 
 
-router.post('/register', registerUser)
+router.post('/register', register_de_Usuario)
 
 export default router;

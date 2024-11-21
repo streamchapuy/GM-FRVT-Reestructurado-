@@ -1,6 +1,6 @@
 import { pool } from '../db.js';
 
-export const getLabores = async (req, res) => {
+export const obtener_Labores = async (req, res) => {
     try {
         const [rows] = await pool.query('SELECT * FROM labor');
         res.json(rows);
@@ -12,7 +12,7 @@ export const getLabores = async (req, res) => {
     }
 };
 
-export const getLabor = async (req, res) => {
+export const obtener_Labor_por_id = async (req, res) => {
     const { id_labor } = req.params;
     try {
         const [rows] = await pool.query('SELECT * FROM labor WHERE id_labor = ?', [id_labor]);
@@ -30,7 +30,7 @@ export const getLabor = async (req, res) => {
     }
 };
 
-export const createLabor = async (req, res) => {
+export const crear_Labor = async (req, res) => {
     const { id_labor, descripcion } = req.body;
     try {
         const [rows] = await pool.query(
@@ -46,7 +46,7 @@ export const createLabor = async (req, res) => {
     }
 };
 
-export const editLabor = async (req, res) => {
+export const editar_Labor = async (req, res) => {
     const { id_labor } = req.params;
     const { descripcion } = req.body;
     try {
@@ -70,7 +70,7 @@ export const editLabor = async (req, res) => {
     }
 };
 
-export const deleteLabor = async (req, res) => {
+export const eliminar_Labor = async (req, res) => {
     const { id_labor } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM labor WHERE id_labor = ?', [id_labor]);

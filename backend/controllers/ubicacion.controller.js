@@ -1,6 +1,6 @@
 import { pool } from '../db.js';
 
-export const getUbicaciones = async (req, res) => {
+export const obtener_Ubicaciones = async (req, res) => {
     try {
         const [rows] = await pool.query(`SELECT * FROM ubicacion`);
         res.json(rows);
@@ -12,7 +12,7 @@ export const getUbicaciones = async (req, res) => {
     }
 };
 
-export const filtrosubicacion = async (req, res) => {
+export const obtener_filtros_ubicacion = async (req, res) => {
     const { id_ubicacion } = req.body;
     console.log(id_ubicacion);
     try {
@@ -51,7 +51,7 @@ WHERE
 };
 
 
-export const getUbicacion = async (req, res) => {
+export const obtener_Ubicacion_por_id = async (req, res) => {
     const { id_ubicacion } = req.params;
     try {
         const [rows] = await pool.query('SELECT * FROM ubicacion WHERE id_ubicacion = ?', [id_ubicacion]);
@@ -69,7 +69,7 @@ export const getUbicacion = async (req, res) => {
     }
 };
 
-export const createUbicacion = async (req, res) => {
+export const crear_Ubicacion = async (req, res) => {
     const { id_ubicacion, nombre, existencia } = req.body;
     try {
         const [rows] = await pool.query(
@@ -85,7 +85,7 @@ export const createUbicacion = async (req, res) => {
     }
 };
 
-export const editUbicacion = async (req, res) => {
+export const editar_Ubicacion = async (req, res) => {
     const { id_ubicacion } = req.params;
     const { nombre, existencia } = req.body;
     try {
@@ -109,7 +109,7 @@ export const editUbicacion = async (req, res) => {
     }
 };
 
-export const deleteUbicacion = async (req, res) => {
+export const eliminar_Ubicacion = async (req, res) => {
     const { id_ubicacion } = req.params;
     try {
         const [rows] = await pool.query('DELETE FROM ubicacion WHERE id_ubicacion = ?', [id_ubicacion]);
