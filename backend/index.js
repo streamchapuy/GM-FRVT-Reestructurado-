@@ -3,21 +3,21 @@ import dotenv from 'dotenv';
 import express from 'express';
 
 // import from './middleware/authmiddleware.js';
-import accesoRoutes from './routes/acceso.autenticacion.routes.js';
-import registroRoutes from './routes/registro.autenticacion.routes.js';
+import accesoRoutes from './src/routes/acceso.autenticacion.routes.js';
+import registroRoutes from './src/routes/registro.autenticacion.routes.js';
 
-import activotareaRoutes from './routes/activo-tarea.routes.js';
-import activoRoutes from './routes/activo.routes.js';
-import edificioRoutes from './routes/edificio.routes.js';
+import activotareaRoutes from './src/routes/activo-tarea.routes.js';
+import activoRoutes from './src/routes/activo.routes.js';
+import edificioRoutes from './src/routes/edificio.routes.js';
 
-import ordenTrabajoRoutes from './routes/orden.trabajo.routes.js';
-import pisoRoutes from './routes/piso.routes.js';
-import sectorRoutes from './routes/sector.routes.js';
-import codigoRoutes from './routes/codigo.routes.js';
-import tareaRoutes from './routes/tarea.routes.js';
-import laborRoutes from './routes/labor.routes.js';
-import ubicacionRoutes from './routes/ubicacion.routes.js';
-import usuarioRutes from './routes/usuarios.routes.js'
+import ordenTrabajoRoutes from './src/routes/orden.trabajo.routes.js';
+import pisoRoutes from './src/routes/piso.routes.js';
+import sectorRoutes from './src/routes/sector.routes.js';
+import codigoRoutes from './src/routes/codigo.routes.js';
+import tareaRoutes from './src/routes/tarea.routes.js';
+import laborRoutes from './src/routes/labor.routes.js';
+import ubicacionRoutes from './src/routes/ubicacion.routes.js';
+import usuarioRutes from './src/routes/usuarios.routes.js'
 
 
 
