@@ -1,36 +1,12 @@
 <app-nav></app-nav>
-<div class="home-container">
-  <div class="central-content">
-    <button routerLink="/ordenTrabajo">
-      <img src="../../../assets/img/img-home/crear_ot.png" alt="GenerarOt">Orden de Trabajo</button>
-    <button routerLink="/formOT">
-      <img src="../../../assets/img/img-home/ot.png" alt="Órdenes de Trabajo">Órdenes de Trabajo
+<div class="contenedor_botones">
+  <div class="botones_visibles" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)">
+    <button *ngFor="let item of visibleButtons" [routerLink]="item.link">
+      <img [src]="item.imgSrc" [alt]="item.altText">{{ item.label }}
     </button>
-    <button routerLink="/formActivo">
-      <img src="../../../assets/img/img-home/activo.png" alt="Activos">Activos
-    </button>
-    <button routerLink="/formEdificio">
-      <img src="../../../assets/img/img-home/edificio.png" alt="Edificios">Edificios
-    </button>
-    <button routerLink="/formPiso">
-      <img src="../../../assets/img/img-home/piso.png" alt="Pisos">Pisos
-    </button>
-    <button routerLink="/formSector">
-      <img src="../../../assets/img/img-home/sector.png" alt="Sector">Sectores
-    </button>
-    <button routerLink="/formUbicacion">
-      <img src="../../../assets/img/img-home/ubicacion.png" alt="Ubicacion">Ubicación
-    </button>
-    <button routerLink="/formUsuarios">
-      <img src="../../../assets/img/img-home/usuario.png" alt="Usuarios">Usuarios
-    </button>
-    <button routerLink="/formTareas">
-      <img src="../../../assets/img/img-home/tarea.png" alt="Tareas">Tareas
-    </button>
-    <button routerLink="/formActivoTareas">
-      <img src="../../../assets/img/img-home/activo-tarea.png" alt="Activo-Tarea">Activos con Tareas
-    </button>
-    <button routerLink="/formLabor">
-      <img src="../../../assets/img/img-home/labor.png" alt="Labor">Labores</button>
   </div>
+  <div class="contenedor_navegacion">
+  <button class="boton_navegacion" (click)="prev()" [disabled]="currentIndex === 0">Anterior</button>
+  <button class="boton_navegacion" (click)="next()" [disabled]="currentIndex + maxVisible >= buttons.length">Siguiente</button>
+</div>
 </div>

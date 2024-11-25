@@ -1,172 +1,193 @@
-
-
 .register {
     display: flex;
+    position: relative;
     width: 100%;
     height: 90%;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
     justify-content: center;
-    margin: 15px 0;
+    padding: 10px;
     align-items: center;
     background-color: transparent;
     border-radius: 5%;
-   
+}
 
+.register .container {
+    width: 520px;
+    max-width: 520px;
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #dcdcdc;
+    background-color: transparent;
+}
 
-    .container {
-        width: 520px;
-        max-width: 520px;
-        
-        /* background-color: #b8b7b7; */
-        border-radius: 8px;
-        padding: 0%;
-        box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 1px solid #dcdcdc;
-        
+.register .container h4 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 0px;
+    width: 100%;
+}
 
+.register .container .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.register .container .circulo {
+    width: 300px;
+    height: 100px;
+    border-radius: 50%;
+    background-image: url(../../../assets/img/login-img/person-circle.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
-        h4 {
-            text-align: center;
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 16px;
-            margin-top: 0px;
-            width: 472px;
-           
-        }
+.register .container .circulo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        .flex {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            
+.register .container .barra {
+    width: 100%;
+    height: 6px;
+    background-color: black;
+}
 
+.register .container form {
+    width: 100%;
+}
 
-        }
+.register .container .form-label {
+    font-weight: bold;
+    margin-bottom: 0px;
+}
 
-        .circulo {
-            width: 30rem;
-            height: 10rem;
-            border-radius: 50%;
-            background-image: url(../../../assets/img/login-img/person-circle.svg);
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-        }
+.register .container .form-control {
+    width: 100%;
+}
 
-        .circulo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.register .container .mb-3 {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
 
-        .barra {
-            width: 100%;
-            height: 2px;
-            background-color: black;
+.register .container .mb-3 input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    transition: border-color 0.3s;
+    background-color: white;
+    color: black;
+}
 
-        }
+.register .container .mb-3 input:focus {
+    outline: none;
+    border-color: #079dfb;
+}
 
-        form {
-            width: 472px;
-            
-            /* background-color: #b8b7b7; */
-        }
+.register .container .btn-primary {
+    background-color: #47a6ff;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
 
-        .form-label {
-            font-weight: bold;
-            margin-bottom: 8px;
-            
-        }
+.register .container .btn-primary:hover {
+    background-color: #009dff;
+}
 
-        .form-control {
-            width: -webkit-fill-available;
-            max-width: -webkit-fill-available;
-        }
+.register .container .btn-ingresar {
+    margin-bottom: 24px;
+    width: 100%;
+}
 
-        .mb-3 {
-            margin-bottom: 24px;
-            display: flex;
-            align-items: center;
-        
+.register .container .forgot-password,
+.register .container .signup-link {
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    color: #666666;
+}
 
-            input {
-                width: 100%;
-                padding: 12px;
-                font-size: 16px;
-                border-radius: 6px;
-                border: 1px solid #dcdcdc;
-                transition: border-color 0.3s;
-                background-color: white;
-                color: black;
+.register .container .remember-me {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
 
-                &:focus {
-                    outline: none;
-                    border-color: #079dfb;
-                }
-            }
-        }
+.remember-me label {
+    padding-left: 5px;
+    position: relative;
+    bottom: 1.5px;
+}
 
-        .btn-primary {
-            background-color: #47a6ff;
-            border: none;
-            padding: 12px;
-            font-size: 14px;
-            border-radius: 6px;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s;
+@media (max-width: 768px) {
+    .register .container {
+        width: 90%;
+        padding: 16px;
+    }
 
-            &:hover {
-                background-color: #009dff;
-            }
-        }
+    .register .container h4 {
+        font-size: 24px;
+    }
 
-        .btn-ingresar {
-            margin-bottom: 24px;
-            width: 100%;
-        }
+    .register .container .circulo {
+        width: 300px;
+        height: 100px;
+    }
 
-        .forgot-password,
-        .signup-link {
-            display: flex;
-            justify-content: center;
-            font-size: 14px;
-            color: #666666;
-
-            a {                
-                text-decoration: none;
-                font-size: 14px;
-                color: black;
-
-                &:hover {
-                    text-decoration: none;
-                }
-            }
-        }
-
-        .remember-me {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-            
-
-            .remember-me-container {
-                display: flex;
-            }
-
-            input[type='checkbox'] {
-                transform: scale(1.5);
-                margin-right: 8px;
-            }
-        }
+    .register .container form {
+        width: 100%;
     }
 }
 
+@media (max-width: 480px) {
+    .register {
+        margin: 20px 0;
+    }
 
+    .register .container {
+        padding: 12px;
+    }
+
+    .register .container h4 {
+        font-size: 18px;
+    }
+
+    .register .container .circulo {
+        width: 100px;
+        height: 100px;
+    }
+
+    .barra {
+        display: none;
+    }
+
+    .register .container .mb-3 input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .register .container .btn-primary {
+        padding: 10px;
+        font-size: 12px;
+    }
+}
