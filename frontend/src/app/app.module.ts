@@ -25,6 +25,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LandingInfo2Component } from './components/landing-informacion/landing-info-2/landing-info-2.component';
 import { LandingInfo3Component } from './components/landing-informacion/landing-info-3/landing-info-3.component';
+import { LandingInfo4Component } from './components/landing-informacion/landing-info-4/landing-info-4.component';
 
 
 
@@ -42,6 +43,7 @@ import { LandingInfo3Component } from './components/landing-informacion/landing-
     LandingInfo1Component,
     LandingInfo2Component,
     LandingInfo3Component,
+    LandingInfo4Component,
   ],
   imports: [
     BrowserModule,
