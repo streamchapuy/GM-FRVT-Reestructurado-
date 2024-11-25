@@ -39,7 +39,7 @@
     font: bold;
     font-size: 36px;
     text-decoration: underline;
-    color:black;
+    color: black;
     margin-bottom: 15px;
     text-align: justify;
     text-align-last: center;
@@ -61,3 +61,56 @@
     padding: 20px;
 }
 
+@media (max-width: 768px) {
+    .separador {
+        height: 3px;
+    }
+
+    .contenedor {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .texto {
+        width: 100%;
+        height: 250px;
+        order: 1;
+        padding: 15px;
+    }
+
+    .imagen {
+        width: 100%;
+        order: 2;
+    }
+
+    .imagen-2 {
+        width: 100%;
+        height: auto;
+    }
+
+    .linea {
+        width: 80%;
+    }
+
+    .titulo {
+        font-size: 28px;
+    }
+
+    .parrafo {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .titulo {
+        font-size: 24px;
+    }
+
+    .linea {
+        width: 60%;
+    }
+
+    .parrafo {
+        font-size: 16px;
+    }
+}
