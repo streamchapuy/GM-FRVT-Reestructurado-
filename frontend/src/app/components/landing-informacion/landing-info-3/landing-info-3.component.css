@@ -37,7 +37,7 @@
 .linea {
     width: 588px;
     height: 2px;
-    background-color: black;
+    border: 1px solid black;
 }
 
 .parrafo {
