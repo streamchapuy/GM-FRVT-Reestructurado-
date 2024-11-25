@@ -23,6 +23,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { LandingInfo2Component } from './components/landing-informacion/landing-info-2/landing-info-2.component';
 
 
 
@@ -38,6 +39,7 @@ import { RegisterComponent } from './pages/register/register.component';
     PendientesComponent,
     TerminadasComponent,
     LandingInfo1Component,
+    LandingInfo2Component,
   ],
   imports: [
     BrowserModule,
