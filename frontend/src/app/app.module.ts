@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,6 +14,7 @@ import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.mod
 
 import { CookieService } from 'ngx-cookie-service';
 import { ToastrModule } from 'ngx-toastr';
+import { LandingInfo1Component } from './components/landing-informacion/landing-info-1/landing-info-1.component';
 import { PendientesComponent } from './components/pendientes/pendientes.component';
 import { TerminadasComponent } from './components/terminadas/terminadas.component';
 import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
@@ -21,7 +23,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -36,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeOperarioComponent,
     PendientesComponent,
     TerminadasComponent,
+    LandingInfo1Component,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     OrdenTrabajoModule,
     FormulariosModule,
-    HeaderModule,
+    HeaderModule, 
     HeaderLoggedModule,
     HttpClientModule,
     FooterModule,
