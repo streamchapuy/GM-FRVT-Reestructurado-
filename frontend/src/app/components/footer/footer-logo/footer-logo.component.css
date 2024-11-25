@@ -36,3 +36,11 @@
         width: 240px;
     }
 }
+
+@media (max-width: 480px) {
+    .logo-container {
+        display: none;
+        width: 50%;
+        height: 50%;
+    }
+}

@@ -1,32 +1,26 @@
-.home-container {
+.contenedor_botones {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(to top, rgba(148,215,233,1), #f0f0f0,  rgba(148,215,233,1) 100%);
-    background-size: cover;
-    background-position: center;
-    padding: 30px;
-    gap: 30px;
-}
-
-.central-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
     justify-content: center;
     width: 100%;
-    max-width: 600px;
+    min-height: 61.9dvh;
+    background: linear-gradient(to top, rgba(148, 215, 233, 1), #f0f0f0, rgba(148, 215, 233, 1) 100%);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
 
-.central-content button {
+.botones_visibles button {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 600px;
+    margin: 25px;
     padding: 10px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     color: #ffffff;
     background-color: #10608f;
@@ -34,41 +28,102 @@
     border-radius: 0px 15px 0px 15px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    width: 250px;
     height: 90px;
     text-align: center;
     overflow: hidden;
 }
 
-.central-content button img {
-    width: 32px;
-    height: 32px;
-    margin-right: 10px;
+.botones_visibles button img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 5px;
 }
 
-.central-content button:hover {
+.botones_visibles button:hover {
     background-color: var(--primary-hover);
     color: #333333;
     transform: translateY(-5px);
     border: 5px #333333 solid;
 }
 
+.contenedor_navegacion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.boton_navegacion {
+    background-color: #10608f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 100px;
+    font-weight: bold;
+}
+
+.boton_navegacion:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+
+    .contenedor_botones {
+        min-height: 68.8dvh;
+    }
+
+    .botones_visibles button {
+        width: 450px;
+        height: 80px;
+        font-size: 0.9rem;
+    }
+
+    .botones_visibles button img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
+
+    .contenedor_botones {
+        min-height: 58.6dvh;
+      } 
+
+    .botones_visibles button {
+        width: 320px;
+        height: 75px;
+        font-size: 0.8rem;
     }
 
-    p {
-        font-size: 1rem;
+    .botones_visibles button img {
+        width: 25px;
+        height: 25px;
     }
 
-    .central-content {
-        flex-direction: column;
-        align-items: center;
+    .boton_navegacion {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .contenedor_botones {
+        min-height: 53.3dvh;
     }
 
-    .central-content button {
-        width: 80%;
-        margin: 5px 0;
+    .botones_visibles button {
+        width: 200px;
+        height: 60px;
+        font-size: 0.75rem;
+    }
+
+    .botones_visibles button img {
+        width: 20px;
+        height: 20px;
     }
 }
