@@ -14,7 +14,7 @@ import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.mod
 
 import { CookieService } from 'ngx-cookie-service';
 import { ToastrModule } from 'ngx-toastr';
-import { LandingInformacionComponent } from './components/landing-informacion/landing-informacion.component';
+import { LandingInfo1Component } from './components/landing-informacion/landing-info-1/landing-info-1.component';
 import { PendientesComponent } from './components/pendientes/pendientes.component';
 import { TerminadasComponent } from './components/terminadas/terminadas.component';
 import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
@@ -37,7 +37,7 @@ import { RegisterComponent } from './pages/register/register.component';
     HomeOperarioComponent,
     PendientesComponent,
     TerminadasComponent,
-    LandingInformacionComponent,
+    LandingInfo1Component,
   ],
   imports: [
     BrowserModule,
