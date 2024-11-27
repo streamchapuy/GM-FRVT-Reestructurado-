@@ -22,7 +22,7 @@ import { PendientesComponent } from './components/pendientes/pendientes.componen
 import { TerminadasComponent } from './components/terminadas/terminadas.component';
 import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
 import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
-import { LandingPageComponent } from './pages/home/landing-page.component';
+import { LandingPageComponent } from './pages/landing/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
