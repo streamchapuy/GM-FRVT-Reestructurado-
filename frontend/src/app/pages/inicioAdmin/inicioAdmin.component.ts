@@ -1,11 +1,11 @@
 import { Component} from '@angular/core';
 
 @Component({
-  selector: 'app-home-logged',
-  templateUrl: './home-logged.component.html',
-  styleUrls: ['./home-logged.component.css']
+  selector: 'app-inicioAdmin',
+  templateUrl: './inicioAdmin.component.html',
+  styleUrls: ['./inicioAdmin.component.css']
 })
-export class HomeLoggedComponent  {
+export class inicioAdminComponent  {
 
   constructor() { }
 
@@ -52,12 +52,12 @@ export class HomeLoggedComponent  {
   onTouchMove(event: TouchEvent) {
     this.touchEndY = event.touches[0].clientY;
 
-    // Deslizar hacia la derecha
+    
     if (this.touchStartY - this.touchEndY > 50) {
       this.next();
     }
 
-    // Deslizar hacia la izquierda
+    
     if (this.touchEndY - this.touchStartY > 50) {
       this.prev();
     }

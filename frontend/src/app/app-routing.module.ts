@@ -9,7 +9,8 @@ import { FormTareasComponent } from './components/formularios/form-tareas/form-t
 import { FormUbicacionComponent } from './components/formularios/form-ubicacion/form-ubicacion.component';
 import { FormUsuariosComponent } from './components/formularios/form-usuarios/form-usuarios.component';
 import { otComponent } from './components/orden-trabajo/ot/ot.component';
-import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
+import { roleGuard } from './guards/role.guard';
+import { inicioAdminComponent } from './pages/inicioAdmin/inicioAdmin.component';
 import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
 import { LandingPageComponent } from './pages/landing/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -17,9 +18,12 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
+  
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'inicioAdmin', component: inicioAdminComponent},
   { path: '', component: LandingPageComponent },
   { path: 'home', component: LandingPageComponent },
-  { path: 'home-logged', component: HomeLoggedComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'ordenTrabajo', component: otComponent,  },

@@ -20,7 +20,7 @@ import { LandingInfo3Component } from './components/landing-informacion/landing-
 import { LandingInfo4Component } from './components/landing-informacion/landing-info-4/landing-info-4.component';
 import { PendientesComponent } from './components/pendientes/pendientes.component';
 import { TerminadasComponent } from './components/terminadas/terminadas.component';
-import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
+import { inicioAdminComponent } from './pages/inicioAdmin/inicioAdmin.component';
 import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
 import { LandingPageComponent } from './pages/landing/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -35,8 +35,9 @@ import { RegisterComponent } from './pages/register/register.component';
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
+    HomeComponent,
+    inicioAdminComponent,
     LandingPageComponent,
-    HomeLoggedComponent,
     HomeOperarioComponent,
     PendientesComponent,
     TerminadasComponent,
