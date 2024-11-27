@@ -31,7 +31,7 @@ export class LoginComponent {
       (response) => {
         console.log('Login exitoso:', response);
         // Redirige a otra página si el login es exitoso
-        this.router.navigate(['/home-logged']);
+        this.router.navigate(['/inicioAdmin']);
       },
       (error) => {
         console.error('Error en el login:', error);

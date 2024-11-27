@@ -10,7 +10,7 @@ import { FormUbicacionComponent } from './components/formularios/form-ubicacion/
 import { FormUsuariosComponent } from './components/formularios/form-usuarios/form-usuarios.component';
 import { otComponent } from './components/orden-trabajo/ot/ot.component';
 import { roleGuard } from './guards/role.guard';
-import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
+import { inicioAdminComponent } from './pages/inicioAdmin/inicioAdmin.component';
 import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -20,7 +20,7 @@ import { RegisterComponent } from './pages/register/register.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'home-logged', component: HomeLoggedComponent},
+  { path: 'inicioAdmin', component: inicioAdminComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'ordenTrabajo', component: otComponent,  },

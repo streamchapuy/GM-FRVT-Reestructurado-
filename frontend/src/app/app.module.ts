@@ -17,7 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { LandingInfo1Component } from './components/landing-informacion/landing-info-1/landing-info-1.component';
 import { PendientesComponent } from './components/pendientes/pendientes.component';
 import { TerminadasComponent } from './components/terminadas/terminadas.component';
-import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
+import { inicioAdminComponent } from './pages/inicioAdmin/inicioAdmin.component';
 import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -36,7 +36,7 @@ import { LandingInfo4Component } from './components/landing-informacion/landing-
     RegisterComponent,
     NotFoundComponent,
     HomeComponent,
-    HomeLoggedComponent,
+    inicioAdminComponent,
     HomeOperarioComponent,
     PendientesComponent,
     TerminadasComponent,
