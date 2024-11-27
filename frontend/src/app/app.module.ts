@@ -15,17 +15,17 @@ import { OrdenTrabajoModule } from './components/orden-trabajo/orden-trabajo.mod
 import { CookieService } from 'ngx-cookie-service';
 import { ToastrModule } from 'ngx-toastr';
 import { LandingInfo1Component } from './components/landing-informacion/landing-info-1/landing-info-1.component';
+import { LandingInfo2Component } from './components/landing-informacion/landing-info-2/landing-info-2.component';
+import { LandingInfo3Component } from './components/landing-informacion/landing-info-3/landing-info-3.component';
+import { LandingInfo4Component } from './components/landing-informacion/landing-info-4/landing-info-4.component';
 import { PendientesComponent } from './components/pendientes/pendientes.component';
 import { TerminadasComponent } from './components/terminadas/terminadas.component';
 import { inicioAdminComponent } from './pages/inicioAdmin/inicioAdmin.component';
 import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
-import { HomeComponent } from './pages/home/home.component';
+import { LandingPageComponent } from './pages/landing/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { LandingInfo2Component } from './components/landing-informacion/landing-info-2/landing-info-2.component';
-import { LandingInfo3Component } from './components/landing-informacion/landing-info-3/landing-info-3.component';
-import { LandingInfo4Component } from './components/landing-informacion/landing-info-4/landing-info-4.component';
 
 
 
@@ -37,6 +37,7 @@ import { LandingInfo4Component } from './components/landing-informacion/landing-
     NotFoundComponent,
     HomeComponent,
     inicioAdminComponent,
+    LandingPageComponent,
     HomeOperarioComponent,
     PendientesComponent,
     TerminadasComponent,
@@ -51,7 +52,7 @@ import { LandingInfo4Component } from './components/landing-informacion/landing-
     FormsModule,
     OrdenTrabajoModule,
     FormulariosModule,
-    HeaderModule, 
+    HeaderModule,
     HeaderLoggedModule,
     HttpClientModule,
     FooterModule,
