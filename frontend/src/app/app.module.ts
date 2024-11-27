@@ -35,7 +35,6 @@ import { RegisterComponent } from './pages/register/register.component';
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
-    HomeComponent,
     inicioAdminComponent,
     LandingPageComponent,
     HomeOperarioComponent,
