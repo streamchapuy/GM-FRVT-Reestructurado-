@@ -1,0 +1,47 @@
+.boton-container {
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.comenzar {
+    width: 508px;
+    height: 100px;
+    color: white;
+    background-color: black;
+    border-radius: 25px 0px 25px 0px;
+    font: bold;
+    font-size: 34px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.comenzar:hover {
+    border: solid black 5px;
+    color: black;
+    background-color: var(--primary-hover);
+    transform: translateY(-5px);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .comenzar {
+        width: 70%;
+        height: 70px;
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .comenzar {
+        width: 60%;
+        height: 70px;
+        font-size: 24px;
+        border-radius: 15px 0px 15px 0px;
+    }
+}
