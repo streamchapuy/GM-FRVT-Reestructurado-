@@ -1,5 +1,5 @@
 export interface Sector {
     id_sector: number;
-    nombre: String;
+    nombre: string;
     existencia: string;
 }

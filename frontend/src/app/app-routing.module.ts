@@ -8,7 +8,7 @@ import { FormSectorComponent } from './components/formularios/form-sector/form-s
 import { FormTareasComponent } from './components/formularios/form-tareas/form-tareas.component';
 import { FormUbicacionComponent } from './components/formularios/form-ubicacion/form-ubicacion.component';
 import { FormUsuariosComponent } from './components/formularios/form-usuarios/form-usuarios.component';
-import { otComponent } from './components/orden-trabajo/ot/ot.component';
+
 import { roleGuard } from './guards/role.guard';
 import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
 import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
@@ -16,6 +16,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,7 +24,7 @@ const routes: Routes = [
   { path: 'home-logged', component: HomeLoggedComponent},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'ordenTrabajo', component: otComponent,  },
+  { path: 'ordenTrabajo', component: CuerpoComponent,  },
   { path: 'formOT', component: FormOtComponent, },
   { path: 'formActivo', component: FormActivoComponent,  },
   { path: 'formEdificio', component: FormEdificioComponent,  },

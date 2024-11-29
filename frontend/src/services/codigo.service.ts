@@ -13,6 +13,6 @@ export class CodigoService {
   constructor(private http: HttpClient) { }
 
   obtenerCodigoActivo(): Observable<CodigoActivo[]> {
-    return this.http.get<CodigoActivo[]>(`${this.apiUrl}/tags`);
+    return this.http.get<CodigoActivo[]>(`${this.apiUrl}/obtener_codigos`);
   }
 }

@@ -15,6 +15,10 @@ export class SectorService {
     return this.http.get<Sector[]>(`${this.apiUrl}/sectores`);
   }
 
+  obtenerSectorPorId(id: number): Observable<Sector> {
+    return this.http.get<Sector>(`${this.apiUrl}/obtener_sector/${id}`);
+  }
+
   crearSector(sector: Sector): Observable<Sector> {
     return this.http.post<Sector>(`${this.apiUrl}/sectores`, sector);
   }

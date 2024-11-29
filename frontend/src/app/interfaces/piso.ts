@@ -1,5 +1,5 @@
 export interface Piso {
     id_piso: number;
-    nombre: String;
+    nombre: string;
     existencia: string;
 }
