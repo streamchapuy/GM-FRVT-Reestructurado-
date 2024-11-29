@@ -1,0 +1,12 @@
+<app-nav></app-nav>
+<div class="contenedor_botones">
+  <div class="botones_visibles" (touchstart)="onTouchStart($event)" (touchmove)="onTouchMove($event)">
+    <button *ngFor="let item of visibleButtons" [routerLink]="item.link">
+      <img [src]="item.imgSrc" [alt]="item.altText">{{ item.label }}
+    </button>
+  </div>
+  <div class="contenedor_navegacion">
+  <button class="boton_navegacion" (click)="prev()" [disabled]="currentIndex === 0">Anterior</button>
+  <button class="boton_navegacion" (click)="next()" [disabled]="currentIndex + maxVisible >= buttons.length">Siguiente</button>
+</div>
+</div>

@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,17 +14,19 @@ import { HeaderModule } from './components/header/header.module';
 
 import { CookieService } from 'ngx-cookie-service';
 import { ToastrModule } from 'ngx-toastr';
-import { PendientesComponent } from './components/pendientes/pendientes.component';
-import { TerminadasComponent } from './components/terminadas/terminadas.component';
-import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
+import { LandingInfo1Component } from './components/landing-informacion/landing-info-1/landing-info-1.component';
+import { LandingInfo2Component } from './components/landing-informacion/landing-info-2/landing-info-2.component';
+import { LandingInfo3Component } from './components/landing-informacion/landing-info-3/landing-info-3.component';
+import { LandingInfo4Component } from './components/landing-informacion/landing-info-4/landing-info-4.component';
+import { inicioAdminComponent } from './pages/inicioAdmin/inicioAdmin.component';
 import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
-import { HomeComponent } from './pages/home/home.component';
+import { LandingPageComponent } from './pages/landing/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { HttpClientModule } from '@angular/common/http';
 import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.component';
 import { SelectoresComponent } from './components/orden-trabajo/selectores/selectores.component';
+
 
 
 
@@ -33,13 +36,16 @@ import { SelectoresComponent } from './components/orden-trabajo/selectores/selec
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
-    HomeComponent,
-    HomeLoggedComponent,
-    HomeOperarioComponent,
-    PendientesComponent,
-    TerminadasComponent,
+    inicioAdminComponent,
+    LandingPageComponent,
+    HomeOperarioComponent,   
     CuerpoComponent,
     SelectoresComponent,
+    LandingInfo1Component,
+    LandingInfo2Component,
+    LandingInfo3Component,
+    LandingInfo4Component,
+
   ],
   imports: [
     BrowserModule,

@@ -46,6 +46,30 @@
     border: 5px #333333 solid;
 }
 
+.contenedor_navegacion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 30%;
+}
+
+.boton_navegacion {
+    background-color: #10608f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 100px;
+    font-weight: bold;
+}
+
+.boton_navegacion:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 @media (max-width: 1024px) {
 
     .contenedor_botones {
@@ -81,6 +105,9 @@
         height: 25px;
     }
 
+    .boton_navegacion {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
