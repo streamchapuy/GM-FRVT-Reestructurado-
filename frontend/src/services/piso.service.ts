@@ -14,6 +14,10 @@ export class PisoService {
   obtenerPisos(): Observable<Piso[]> {
     return this.http.get<Piso[]>(`${this.apiUrl}/pisos`);
   }
+  
+  obtenerPisoPorId(id: number): Observable<Piso> {
+    return this.http.get<Piso>(`${this.apiUrl}/obtener_piso/${id}`);
+  }
 
   crearPiso(piso: Piso): Observable<Piso> {
     return this.http.post<Piso>(`${this.apiUrl}/pisos`, piso);

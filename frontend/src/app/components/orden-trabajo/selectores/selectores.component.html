@@ -1,0 +1,74 @@
+<div class="container">
+    <form>
+
+        <div class="Codigo-Container">
+            <div class="izquierda">
+                <p>Código Único</p>
+            </div>
+            <div class="derecha">
+                <select name="códigoUnico" id="códigoÚnico" [(ngModel)]="selectorcodigo" (change)="ActualizarCampos()">
+                    <option *ngFor="let orden of CodigoActivo" [value]="orden.activo_id_formateado">
+                        {{ orden.abreviatura_activo + ' ' + orden.edificio_id_formateado + ' ' +
+                        orden.piso_id_formateado + ' ' + orden.sector_id_formateado + ' ' + orden.activo_id_formateado +
+                        ' ' + orden.ubicacion_id_formateado + ' ' + orden.cantidad_formateada }}
+                    </option>
+                </select>
+            </div>
+        </div>
+
+        <div class="activo-container">
+            <div class="izquierda">
+                <p>Activo:</p>
+            </div>
+            <div class="derecha">
+                <select name="activo" id="activo" [(ngModel)]="selectorActivo" (change)="CambiarActivo()">
+                    <option *ngFor="let activo of activos" [value]="activo">{{activo}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="edificio-container">
+            <div class="izquierda">
+                <p>Edificio</p>
+            </div>
+            <div class="derecha">
+                <select name="edificio" id="edificio" [(ngModel)]="orden.edificio">
+                    <option *ngFor="let edificio of edificios" [value]="edificios">{{edificio}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="sector-container">
+            <div class="izquierda">
+                <p>Sector</p>
+            </div>
+            <div class="derecha">
+                <select name="sector" id="sector" [(ngModel)]="orden.sector">
+                    <option *ngFor="let sector of sectores" [value]="sectores">{{sector}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="piso-container">
+            <div class="izquierda">
+                <p>Piso</p>
+            </div>
+            <div class="derecha">
+                <select name="piso" id="piso" [(ngModel)]="orden.piso">
+                    <option *ngFor="let piso of pisos" [value]="pisos"> {{piso}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="ubicacion-container">
+            <div class="izquierda">
+                <p class="margin">Ubicacion</p>
+            </div>
+            <div class="derecha">
+                <select name="ubicacion" id="ubicacion" [(ngModel)]="orden.ubicacion">
+                    <option *ngFor="let ubicacion of ubicaciones" [value]="ubicaciones">{{ubicacion}}</option>
+                </select>
+            </div>            
+        </div>       
+    </form>
+</div>

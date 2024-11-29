@@ -1,6 +1,6 @@
 export interface Edificio {
     id_edificio: number;
-    nombre: String;
-    calle: String;
+    nombre: string;
+    calle: string;
     existencia: string;
 }

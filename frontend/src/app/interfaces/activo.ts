@@ -1,7 +1,7 @@
 export interface Activo {
     id_activo: number;
-    nombre: String;
-    abreviacion: String;
+    nombre: string;
+    abreviacion: string;
     existencia: string;
 
 }

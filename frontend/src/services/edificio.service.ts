@@ -16,7 +16,7 @@ export class EdificioService {
   }
 
   obtenerEdificioPorId(id: number): Observable<Edificio> {
-    return this.http.get<Edificio>(`${this.apiUrl}/edificios/${id}`);
+    return this.http.get<Edificio>(`${this.apiUrl}/obtener_edificio/${id}`);
   }
 
   editarEdificio(id: number, edificio: Edificio): Observable<Edificio> {
