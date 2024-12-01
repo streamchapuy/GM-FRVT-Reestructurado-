@@ -1,0 +1,68 @@
+.container {
+    width: 100%;
+    height: 200px;  
+    margin-top: 10px;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #4d4d4d;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    align-items: center;  
+    border-radius: 10px;      
+}
+
+.Codigo-Container, .activo-container,
+.edificio-container, .sector-container,
+.piso-container, .ubicacion-container {
+    width: 370px;
+    height: 50px;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    
+}
+
+.izquierda {
+    width: 50%;
+    height: 100%;
+    background-color: #90a6bb;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    text-align: center;
+    border: 1px solid #565f68;
+    border-radius: 5px 0px 0px 5px;
+    
+}
+.izquierda p {
+    font-size: 20px;
+    color: black;
+    text-align: center;       
+}
+
+.derecha {
+    width: 600px;
+    height: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #c5bebe;
+    border-radius: 0px 5px 5px 0px;
+}
+
+#códigoÚnico{
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    border: 1px solid #c5bebe;
+    border-radius: 0px 5px 5px 0px;
+    padding-left: 5px;
+}
+
+#activo, #edificio, #sector, #piso, #ubicacion{
+    width: 100%;
+    height: 100%;       
+}
