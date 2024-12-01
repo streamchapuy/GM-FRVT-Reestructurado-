@@ -19,8 +19,6 @@ import { RegisterComponent } from './pages/register/register.component';
 
 const routes: Routes = [
   
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
   { path: 'inicioAdmin', component: inicioAdminComponent},
   { path: '', component: LandingPageComponent },
   { path: 'home', component: LandingPageComponent },
