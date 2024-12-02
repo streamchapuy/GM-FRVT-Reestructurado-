@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import {NumeroOT} from '../app/interfaces/numero-ot'
 
 
 @Injectable({
@@ -12,7 +13,7 @@ export class OtService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerOt(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/ordenestrabajo`);
+  obtenerOt(): Observable<NumeroOT[]> {
+    return this.http.get<NumeroOT[]>(`${this.apiUrl}/obtener_ordenestrabajo`);
   }
 }
