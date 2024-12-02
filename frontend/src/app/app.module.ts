@@ -26,6 +26,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.component';
 import { SelectoresComponent } from './components/orden-trabajo/selectores/selectores.component';
+import { TareasOrdenTrabajoComponent } from './components/orden-trabajo/tareas-orden-trabajo/tareas-orden-trabajo.component';
 
 
 
@@ -45,6 +46,7 @@ import { SelectoresComponent } from './components/orden-trabajo/selectores/selec
     LandingInfo2Component,
     LandingInfo3Component,
     LandingInfo4Component,
+    TareasOrdenTrabajoComponent,
 
   ],
   imports: [
