@@ -8,18 +8,20 @@
         <thead>
           <tr>
             <th>ID Orden</th>
+            <th>Código</th>
             <th>Descripción</th>
             <th>Operador</th>
             <th>Estado</th>
             <th>Fecha de Creación</th>
-            <th>Fecha de Realización</th>
+            <th>Fecha de Finalización</th>
             <th>Tiempo Inicial</th>
-            <th>Tiempo Final</th>
+            <th>Tiempo Finalización</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let orden of ordenesTrabajo">
+          <tr *ngFor="let orden of numeroOT">
             <td>{{ orden.id_ot }}</td>
+            <td>{{ orden.abreviatura + orden.id_piso + orden.id_sector + orden.id_activo + orden.id_ubicacion + orden.id_cantidad }}</td>
             <td>{{ orden.descripcion }}</td>
             <td>{{ orden.nombre_usuario }}</td>
             <td>{{ orden.descripcion_estado }}</td>

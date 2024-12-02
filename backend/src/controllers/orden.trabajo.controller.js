@@ -2,7 +2,40 @@ import { pool } from '../db.js';
 
 export const obtener_ordenes_de_Trabajo = async (req, res) => {
     try {
-        const [rows] = await pool.query('SELECT * FROM orden_trabajo');
+        const [rows] = await pool.query(`SELECT
+            ot.id_ot,
+
+            a.abreviacion AS abreviatura,
+            LPAD(ed.id_edificio, 3, '0') AS id_edificio,
+            LPAD(p.id_piso, 3, '0') AS id_piso,
+            LPAD(s.id_sector, 3, '0') AS id_sector,
+            LPAD(a.id_activo, 3, '0') AS id_activo,
+            LPAD(u.id_ubicacion, 3, '0') AS id_ubicacion,
+            CONCAT(' - ', t.id_cantidad) AS id_cantidad,
+    
+            us.nombre AS nombre_usuario,
+           
+            e.descripcion AS descripcion_estado,
+           
+            ot.descripcion,
+            ot.fecha_creacion,
+            ot.fecha_finalizacion,
+            ot.tiempo_inicio,
+            ot.tiempo_finalizacion
+        FROM
+            orden_trabajo ot
+       
+        JOIN tag t ON ot.id_tag = t.id_tag
+        JOIN edificio ed ON t.id_edificio = ed.id_edificio
+        JOIN piso p ON t.id_piso = p.id_piso
+        JOIN sector s ON t.id_sector = s.id_sector
+        JOIN activo a ON t.id_activo = a.id_activo
+        JOIN ubicacion u ON t.id_ubicacion = u.id_ubicacion
+        JOIN cantidad c ON t.id_cantidad = c.id_cantidad
+    
+        JOIN usuarios us ON ot.id_usuarios = us.id_usuarios
+     
+        JOIN estado e ON ot.id_estado = e.id_estado;`);
         res.json(rows);
     } catch (error) {
         return res.status(500).json({
