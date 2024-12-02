@@ -7,7 +7,7 @@ import { OtService } from '../../../../services/ot.service';
   styleUrls: ['./form-ot.component.css']
 })
 export class FormOtComponent implements OnInit {
-  ordenesTrabajo: any = [];
+  NumeroOT: any = [];
 
   constructor(private otService: OtService) {}
 
@@ -18,7 +18,7 @@ export class FormOtComponent implements OnInit {
   obtenerOt(): void {
     this.otService.obtenerOt().subscribe(
       (data) => {
-        this.ordenesTrabajo = data;
+        this.NumeroOT = data;
       },
       (error) => {
         console.error('Error al obtener las órdenes de trabajo', error);
