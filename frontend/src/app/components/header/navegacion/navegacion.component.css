@@ -3,7 +3,7 @@
     width: 100%;
     height: 90px;
     padding: 0.5rem 1rem;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     padding-right: 4rem;
     padding-left: 4rem;
 }
@@ -75,7 +75,7 @@
         margin-right: -50px;
     }
     .botones{
-        font-size: 10px;
+        font-size: 14px;
     }
     .navbar-logo {
         margin-left: -60px;
