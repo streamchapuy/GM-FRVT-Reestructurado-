@@ -12,6 +12,7 @@
     background-color: white;
     color: black;
     padding: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .imagen {
@@ -54,7 +55,7 @@
 .parrafo {
     justify-content: center;
     align-items: center;
-    text-align: justify;
+    text-align: center;
     text-align-last: center;
     color: black;
     font-size: 32px;
@@ -103,14 +104,20 @@
 
 @media (max-width: 480px) {
     .titulo {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     .linea {
-        width: 60%;
+        width: 80%;
+    }
+
+    .titulo {
+        text-align: center;
     }
 
     .parrafo {
-        font-size: 16px;
+        font-size: 14px;
+        height: fit-content;
+        margin: 0%;
     }
 }

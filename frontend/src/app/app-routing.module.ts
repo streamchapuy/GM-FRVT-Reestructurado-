@@ -9,7 +9,6 @@ import { FormTareasComponent } from './components/formularios/form-tareas/form-t
 import { FormUbicacionComponent } from './components/formularios/form-ubicacion/form-ubicacion.component';
 import { FormUsuariosComponent } from './components/formularios/form-usuarios/form-usuarios.component';
 import { roleGuard } from './guards/role.guard';
-import { HomeLoggedComponent } from './pages/home-logged/home-logged.component';
 import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
 import { inicioAdminComponent } from './pages/inicioAdmin/inicioAdmin.component';
 import { LandingPageComponent } from './pages/landing/landing-page.component';
@@ -19,9 +18,9 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.component';
 
 const routes: Routes = [
-  { path: 'inicioAdmin', component: inicioAdminComponent },
   { path: '', component: LandingPageComponent },
   { path: 'home', component: LandingPageComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'ordenTrabajo', component: CuerpoComponent,  }, 
   { path: 'formOT', component: FormOtComponent, },
@@ -33,6 +32,7 @@ const routes: Routes = [
   { path: 'formUsuarios', component: FormUsuariosComponent, },
   { path: 'formTareas', component: FormTareasComponent, },
   { path: 'home-operario', component: HomeOperarioComponent },
+  { path: 'inicioAdmin', component: inicioAdminComponent },
   { path: '404', component: NotFoundComponent },
 
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
