@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OtService } from '../../../../services/ot.service';
+import { NumeroOT } from '../../../interfaces/numero-ot';
 
 @Component({
   selector: 'app-form-ot',
@@ -7,7 +8,8 @@ import { OtService } from '../../../../services/ot.service';
   styleUrls: ['./form-ot.component.css']
 })
 export class FormOtComponent implements OnInit {
-  NumeroOT: any = [];
+  numeroOT: NumeroOT[] = [];
+  
 
   constructor(private otService: OtService) {}
 
@@ -17,8 +19,8 @@ export class FormOtComponent implements OnInit {
 
   obtenerOt(): void {
     this.otService.obtenerOt().subscribe(
-      (data) => {
-        this.NumeroOT = data;
+      (data: NumeroOT[]) => {
+        this.numeroOT = data;
       },
       (error) => {
         console.error('Error al obtener las órdenes de trabajo', error);
