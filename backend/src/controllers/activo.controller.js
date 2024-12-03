@@ -74,7 +74,7 @@ export const crear_Activo = async (req, res) => {
     const { id_activo, nombre, abreviacion, existencia } = req.body
     try {
         const [rows] = await pool.query('INSERT INTO activo (id_activo, nombre, abreviacion, existencia) VALUES (?, ?, ?, ?)',
-            [id_activo, nombre, abreviacion, existencia])
+            [id_activo, nombre, abreviacion, existencia]);
         res.send({ rows })
     } catch (error) {
         return res.status(500).json({
@@ -111,7 +111,7 @@ export const editar_Activo = async (req, res) => {
 export const eliminar_Activo = async (req, res) => {
     const { id_activo } = req.params;
     try {
-        const [rows] = await pool.query('DELETE FROM activo WHERE id_activo = ?',
+        const [rows] = await pool.query('DELETE FROM activo WHERE id_activo = ?',[id_activo],
             [req.params.id_activo])
 
         if (rows.affectedRows <= 0) return res.status(404).json({

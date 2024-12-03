@@ -6,11 +6,14 @@ import { Observable } from 'rxjs';
     providedIn: 'root',
 })
 export class UsuariosService {
+    obtener_Usuarios() {
+      throw new Error('Method not implemented.');
+    }
     private apiUrl = 'http://127.0.0.1:3307/API';
 
     constructor(private http: HttpClient) { }
 
     obtenerUsuarios(): Observable<any[]> {
-        return this.http.get<[]>(`${this.apiUrl}/usuarios`);
+        return this.http.get<[]>(`${this.apiUrl}/obtener_usuarios`);
     }
 }

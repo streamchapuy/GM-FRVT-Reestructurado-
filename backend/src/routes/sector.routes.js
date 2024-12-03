@@ -7,7 +7,7 @@ router.get('/obtener_sectores', obtener_Sectores)
 router.get('/obtener_sector/:id_sector', obtener_Sector_por_id)
 router.post('/filtrossector', obtener_filtros_sector)
 router.post('/crear_sector', crear_Sector)
-router.patch('/editar_sector', editar_Sector)
-router.delete('/eliminar_sector', eliminar_Sector)
+router.patch('/editar_sector/:id_sector', editar_Sector)
+router.delete('/eliminar_sector/:id_sector', eliminar_Sector)
 
 export default router

@@ -12,22 +12,22 @@ export class UbicacionService {
   constructor(private http: HttpClient) { }
 
   obtenerUbicacion(): Observable<Ubicacion[]> {
-    return this.http.get<Ubicacion[]>(`${this.apiUrl}/ubicaciones`);
+    return this.http.get<Ubicacion[]>(`${this.apiUrl}/obtener_ubicaciones`);
   }
 
-  obtenerUbicacionPorId(id:number): Observable<Ubicacion>{
-    return this.http.get<Ubicacion>(`${this.apiUrl}/obtener_ubicacion/${id}`);
+  obtenerUbicacionPorId(id_ubicacion:number): Observable<Ubicacion>{
+    return this.http.get<Ubicacion>(`${this.apiUrl}/obtener_ubicacion/${id_ubicacion}`);
   }
 
   crearUbicacion(ubicacion: Ubicacion): Observable<Ubicacion[]> {
-    return this.http.post<Ubicacion[]>(`${this.apiUrl}/ubicacion`, ubicacion);
+    return this.http.post<Ubicacion[]>(`${this.apiUrl}/crear_ubicacion`, ubicacion);
   }
 
-  editarUbicacion(id: number, ubicacion: Ubicacion): Observable<Ubicacion[]> {
-    return this.http.put<Ubicacion[]>(`${this.apiUrl}/ubicaciones/${id}`, ubicacion);
+  editarUbicacion(id_ubicacion: number, ubicacion: Ubicacion): Observable<Ubicacion[]> {
+    return this.http.patch<Ubicacion[]>(`${this.apiUrl}/editar_ubicacion/${id_ubicacion}`, ubicacion);
   }
 
-  eliminarUbicacion(id: number): Observable<Ubicacion[]> {
-    return this.http.delete<Ubicacion[]>(`${this.apiUrl}/ubicacion/${id}`);
+  eliminarUbicacion(id_ubicacion: number): Observable<Ubicacion[]> {
+    return this.http.delete<Ubicacion[]>(`${this.apiUrl}/eliminar_ubicacion/${id_ubicacion}`);
   }
 }

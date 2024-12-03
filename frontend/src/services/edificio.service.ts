@@ -12,28 +12,23 @@ export class EdificioService {
   constructor(private http: HttpClient) {}
 
   obtenerEdificio(): Observable<Edificio[]> {
-    return this.http.get<Edificio[]>(`${this.apiUrl}/edificios`);
+    return this.http.get<Edificio[]>(`${this.apiUrl}/obtener_edificios`);
   }
 
-  obtenerEdificioPorId(id: number): Observable<Edificio> {
-    return this.http.get<Edificio>(`${this.apiUrl}/obtener_edificio/${id}`);
+  obtenerEdificioPorId(id_edificio: number): Observable<Edificio> {
+    return this.http.get<Edificio>(`${this.apiUrl}/obtener_edificio/${id_edificio}`);
   }
 
-  editarEdificio(id: number, edificio: Edificio): Observable<Edificio> {
-    return this.http.put<Edificio>(`${this.apiUrl}/edificios/${id}`, edificio);
+  editarEdificio(id_edificio: number, edificio: Edificio): Observable<Edificio> {
+    return this.http.patch<Edificio>(`${this.apiUrl}/editar_edificios/${id_edificio}`, edificio);
   }
-
-  eliminarEdificio(id: number): Observable<Edificio> {
-    return this.http.delete<Edificio>(`${this.apiUrl}/edificios/${id}`);
-  }
-
   
-  guardarEdificio(edificio: Edificio): Observable<Edificio> {
-    return this.http.post<Edificio>(`${this.apiUrl}/edificios`, edificio)
+  crearEdificio(edificio: Edificio): Observable<Edificio> {
+    return this.http.post<Edificio>(`${this.apiUrl}/crear_edificios`, edificio)
   }
 
-
-
+  eliminarEdificio(id_edificio: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/eliminar_edificios/${id_edificio}`);
+  }
   
-
 }

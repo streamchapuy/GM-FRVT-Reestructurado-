@@ -25,7 +25,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.component';
 import { SelectoresComponent } from './components/orden-trabajo/selectores/selectores.component';
-import { TareasOrdenTrabajoComponent } from './components/orden-trabajo/tareas-orden-trabajo/tareas-orden-trabajo.component';
+import { TareasComponent } from './components/orden-trabajo/tareas/tareas.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,7 @@ import { TareasOrdenTrabajoComponent } from './components/orden-trabajo/tareas-o
     LandingInfo2Component,
     LandingInfo3Component,
     LandingInfo4Component,
-    TareasOrdenTrabajoComponent,
+    TareasComponent,
   ],
   imports: [
     BrowserModule,

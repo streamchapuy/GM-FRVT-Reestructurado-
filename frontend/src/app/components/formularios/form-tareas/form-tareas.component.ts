@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TareaService } from '../../../../services/tareas.service';
 import { Tarea } from '../../../interfaces/tarea';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-form-tareas',
@@ -20,11 +22,40 @@ export class FormTareasComponent implements OnInit {
   ];
 
   tareas: Tarea[] = [];
+  currentPage: number = 0;
+  itemsPerPage: number = 6;
+  Math: any = Math;
 
-  constructor(private tareaService: TareaService) { }
+
+  constructor(private tareaService: TareaService, private router: Router) { }
 
   ngOnInit(): void {
     this.obtenerTareas();
+  }
+
+  volver() {
+    this.router.navigate(['/inicioAdmin']);
+  }
+
+  get paginadoSectores() {
+    const start = this.currentPage * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    return this.tareas.slice(start, end);
+  }
+
+  nextPage(): void {
+    if (
+      this.currentPage <
+      Math.ceil(this.tareas.length / this.itemsPerPage) - 1
+    ) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+    }
   }
 
   obtenerTareas(): void {

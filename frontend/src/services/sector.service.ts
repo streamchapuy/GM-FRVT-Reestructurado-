@@ -12,22 +12,22 @@ export class SectorService {
   constructor(private http: HttpClient) { }
 
   obtenerSectores(): Observable<Sector[]> {
-    return this.http.get<Sector[]>(`${this.apiUrl}/sectores`);
+    return this.http.get<Sector[]>(`${this.apiUrl}/obtener_sectores`);
   }
 
-  obtenerSectorPorId(id: number): Observable<Sector> {
-    return this.http.get<Sector>(`${this.apiUrl}/obtener_sector/${id}`);
+  obtenerSectorPorId(id_sector: number): Observable<Sector> {
+    return this.http.get<Sector>(`${this.apiUrl}/obtener_sector/${id_sector}`);
   }
 
   crearSector(sector: Sector): Observable<Sector> {
-    return this.http.post<Sector>(`${this.apiUrl}/sectores`, sector);
+    return this.http.post<Sector>(`${this.apiUrl}/crear_sector`, sector);
   }
 
-  editarSector(id: number, sector: Sector): Observable<Sector> {
-    return this.http.put<Sector>(`${this.apiUrl}/sectores/${id}`, sector);
+  editarSector(id_sector: number, sector: Sector): Observable<Sector> {
+    return this.http.patch<Sector>(`${this.apiUrl}/editar_sector/${id_sector}`, sector);
   }
 
-  eliminarSector(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/sectores/${id}`);
+  eliminarSector(id_sector: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/eliminar_sector/${id_sector}`);
   }
 }
