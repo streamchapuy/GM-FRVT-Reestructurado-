@@ -4,33 +4,23 @@ import { CookieService } from 'ngx-cookie-service';
 import { map, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
   private apiUrl = 'http://127.0.0.1:3307/API';
 
-  constructor(private http: HttpClient, private cookieService: CookieService) { }
+  constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   register(user: any): Observable<any> {
-    // Enviar solo email y contrasena (confirmPassword no es necesario aquí)
-    const registrationData = {
-      nombre: user.nombre,
-      email: user.email,
-      contrasena: user.contrasena,
-      
-    };
-
-    const token = this.cookieService.get('token');
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post(`${this.apiUrl}/register`, registrationData, { headers: headers });
+    return this.http.post(`${this.apiUrl}/register`, user);
   }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, { email, password: password }).pipe(
-      map((response: any)=>{
-        const token = response.user?.token;
-        const tipo_usuario = response.user?.tipo_usuario;
-        if(token){
+    return this.http.post(`${this.apiUrl}/login`, { email, password }).pipe(
+      map((response: any) => {
+        const token = response?.token;
+        const tipo_usuario = response?.tipo_usuario;
+        if (token) {
           this.setToken(token);
           this.setUserRole(tipo_usuario);
         }
@@ -39,20 +29,32 @@ export class AuthService {
     );
   }
   setToken(token: string): void {
-    this.cookieService.set('token', token, { path: '/', secure: true, sameSite: 'Strict' });
+    const expiryDate = new Date();
+    expiryDate.setHours(expiryDate.getHours() + 1);
+    this.cookieService.set('token', token, {
+      expires: expiryDate,
+      path: '/',
+      sameSite: 'Lax',
+    });
   }
   getToken(): string {
     return this.cookieService.get('token');
   }
-  
+
   setUserRole(role: string): void {
-    this.cookieService.set('userRole', role, { path: '/', secure: true, sameSite: 'Strict' });
+    const expiryDate = new Date();
+    expiryDate.setHours(expiryDate.getHours() + 1);
+    this.cookieService.set('userRole', role, {
+      expires: expiryDate,
+      path: '/',
+      sameSite: 'Lax',
+    });
   }
-  
+
   getUserRole(): string {
     return this.cookieService.get('userRole');
   }
-  
+
   logout(): void {
     this.cookieService.delete('token', '/');
     this.cookieService.delete('userRole', '/');

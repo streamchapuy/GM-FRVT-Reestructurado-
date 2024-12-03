@@ -1,9 +1,6 @@
 import bcrypt from 'bcrypt';
-import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import { pool } from '../db.js';
-
-dotenv.config();
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
@@ -26,7 +23,7 @@ export const acceso_de_Usuario = async (req, res) => {
 
         // Utilizamos el id_usuario como identificador en el JWT
         const token = jwt.sign({ userId: user.id_usuario, tipo_usuario: user.tipo_usuario }, SECRET_KEY, { expiresIn: '1h' });
-        return res.json({ message: 'Inicio de sesión exitoso', token });
+        return res.json({ message: 'Inicio de sesión exitoso', token, tipo_usuario: user.tipo_usuario });
 
     } catch (error) {
         console.error('Error en el proceso de login:', error);

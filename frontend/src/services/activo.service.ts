@@ -14,7 +14,7 @@ export class ActivoService {
   constructor(private http: HttpClient) { }
   
   obtenerActivos(): Observable<Activo[]> {
-    return this.http.get<Activo[]>(`${this.apiUrl}/activos`);
+    return this.http.get<Activo[]>(`${this.apiUrl}/obtener_activos`);
   }
   
   setSelectedActivo(id_activo: number) {
@@ -22,15 +22,15 @@ export class ActivoService {
   }
 
   crearActivo(activo: Activo): Observable<Activo> {
-    return this.http.post<Activo>(`${this.apiUrl}/activos`, activo);
+    return this.http.post<Activo>(`${this.apiUrl}/crear_activo`, activo);
   }
 
   editarActivo(activo: Activo): Observable<Activo> {
-    return this.http.put<Activo>(`${this.apiUrl}/activos/${activo.id_activo}`, activo);
+    return this.http.patch<Activo>(`${this.apiUrl}/editar_activo/${activo.id_activo}`, activo);
   }
 
   eliminarActivo(id_activo: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/activos/${id_activo}`);
+    return this.http.delete<void>(`${this.apiUrl}/eliminar_activo/${id_activo}`);
   }
 
   obtenerActivoPorId(id_activo: number): Observable<Activo> {

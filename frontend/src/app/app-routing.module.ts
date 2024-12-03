@@ -31,8 +31,8 @@ const routes: Routes = [
   { path: 'formUbicacion', component: FormUbicacionComponent, },
   { path: 'formUsuarios', component: FormUsuariosComponent, },
   { path: 'formTareas', component: FormTareasComponent, },
-  { path: 'home-operario', component: HomeOperarioComponent },
-  { path: 'inicioAdmin', component: inicioAdminComponent },
+  { path: 'home-operario', component: HomeOperarioComponent, canActivate: [roleGuard], data: { roles: ['operario'] }  },
+  { path: 'inicioAdmin', component: inicioAdminComponent, canActivate: [roleGuard], data: { roles: ['admin'] } },
   { path: '404', component: NotFoundComponent },
 
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
