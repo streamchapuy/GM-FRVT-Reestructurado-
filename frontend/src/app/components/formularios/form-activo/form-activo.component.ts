@@ -70,6 +70,7 @@ export class FormActivoComponent implements OnInit {
   crear() {
     this.activoService.crearActivo(this.activo).subscribe({
       next: (nuevoActivo) => {
+        this.obtenerActivos();
         this.activos.push(nuevoActivo);
         this.limpiarFormulario();
       },

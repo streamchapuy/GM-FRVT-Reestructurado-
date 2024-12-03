@@ -113,13 +113,15 @@ export const editar_Sector = async (req, res) => {
 export const eliminar_Sector = async (req, res) => {
     const { id_sector } = req.params;
     try {
-        const [rows] = await pool.query('DELETE FROM sector WHERE id_sector = ?', [id_sector]);
+        const [rows] = await pool.query('DELETE FROM sector WHERE id_sector = ?', [id_sector],
+            [req.params.id_sector])
+
 
         if (rows.affectedRows <= 0) return res.status(404).json({
             message: 'Sector no encontrado'
-        });
+        })
 
-        res.send('Sector eliminado');
+        res.send('402')
     } catch (error) {
         return res.status(500).json({
             message: 'Error al eliminar el sector',

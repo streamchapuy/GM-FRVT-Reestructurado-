@@ -113,13 +113,15 @@ export const editar_Piso = async (req, res) => {
 export const eliminar_Piso = async (req, res) => {
     const { id_piso } = req.params;
     try {
-        const [rows] = await pool.query('DELETE FROM piso WHERE id_piso = ?', [id_piso]);
+        const [rows] = await pool.query('DELETE FROM piso WHERE id_piso = ?', [id_piso],
+            [req.params.id_piso])
+
 
         if (rows.affectedRows <= 0) return res.status(404).json({
             message: 'Piso no encontrado'
         });
 
-        res.send('Piso eliminado');
+        res.send('402');
     } catch (error) {
         return res.status(500).json({
             message: 'Error al eliminar el piso',

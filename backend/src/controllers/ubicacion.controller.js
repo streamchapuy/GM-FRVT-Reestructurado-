@@ -112,13 +112,14 @@ export const editar_Ubicacion = async (req, res) => {
 export const eliminar_Ubicacion = async (req, res) => {
     const { id_ubicacion } = req.params;
     try {
-        const [rows] = await pool.query('DELETE FROM ubicacion WHERE id_ubicacion = ?', [id_ubicacion]);
+        const [rows] = await pool.query('DELETE FROM ubicacion WHERE id_ubicacion = ?', [id_ubicacion],
+            [req.params.id_ubicacion])
 
         if (rows.affectedRows <= 0) return res.status(404).json({
             message: 'Ubicación no encontrada'
         });
 
-        res.send('Ubicación eliminada');
+        res.send('402');
     } catch (error) {
         return res.status(500).json({
             message: 'Error al eliminar la ubicación',

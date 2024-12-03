@@ -24,6 +24,9 @@ export class ActivoService {
   crearActivo(activo: Activo): Observable<Activo> {
     return this.http.post<Activo>(`${this.apiUrl}/crear_activo`, activo);
   }
+  obtenerActivoPorId(id_activo: number): Observable<Activo> {
+    return this.http.get<Activo>(`${this.apiUrl}/obtener_activo/${id_activo}`);
+  }
 
   editarActivo(activo: Activo): Observable<Activo> {
     return this.http.patch<Activo>(`${this.apiUrl}/editar_activo/${activo.id_activo}`, activo);
@@ -33,7 +36,4 @@ export class ActivoService {
     return this.http.delete<void>(`${this.apiUrl}/eliminar_activo/${id_activo}`);
   }
 
-  obtenerActivoPorId(id_activo: number): Observable<Activo> {
-    return this.http.get<Activo>(`${this.apiUrl}/obtener_activo/${id_activo}`);
-  }
 }
