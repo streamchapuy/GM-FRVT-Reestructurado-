@@ -1,15 +1,11 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { pool } from '../db.js';
-import dotenv from 'dotenv';
-
-dotenv.config();
 
 const SECRET_KEY = process.env.SECRET_KEY;
 
 export const register_de_Usuario = async (req, res) => {
-    const { nombre, email, contrasena, tipo_usuario = 'admin' && 'operario' } = req.body;
-
+    const { nombre, email, contrasena, tipo_usuario } = req.body;
 
     // Validar si los campos requeridos están presentes
     if (!nombre || !email || !contrasena || (tipo_usuario !== 'admin' && tipo_usuario !== 'operario')) {

@@ -11,7 +11,6 @@ import { FormulariosModule } from './components/formularios/formularios.module';
 import { HeaderLoggedModule } from './components/header-logged/header-logged.module';
 import { HeaderModule } from './components/header/header.module';
 
-
 import { CookieService } from 'ngx-cookie-service';
 import { ToastrModule } from 'ngx-toastr';
 import { LandingInfo1Component } from './components/landing-informacion/landing-info-1/landing-info-1.component';
@@ -28,9 +27,6 @@ import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.compon
 import { SelectoresComponent } from './components/orden-trabajo/selectores/selectores.component';
 import { TareasOrdenTrabajoComponent } from './components/orden-trabajo/tareas-orden-trabajo/tareas-orden-trabajo.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +35,7 @@ import { TareasOrdenTrabajoComponent } from './components/orden-trabajo/tareas-o
     NotFoundComponent,
     inicioAdminComponent,
     LandingPageComponent,
-    HomeOperarioComponent,   
+    HomeOperarioComponent,
     CuerpoComponent,
     SelectoresComponent,
     LandingInfo1Component,
@@ -47,12 +43,11 @@ import { TareasOrdenTrabajoComponent } from './components/orden-trabajo/tareas-o
     LandingInfo3Component,
     LandingInfo4Component,
     TareasOrdenTrabajoComponent,
-
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,   
+    FormsModule,
     FormulariosModule,
     HeaderModule,
     HeaderLoggedModule,
@@ -62,6 +57,8 @@ import { TareasOrdenTrabajoComponent } from './components/orden-trabajo/tareas-o
     ToastrModule.forRoot(),
   ],
   providers: [CookieService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private cookieService: CookieService) {}
+}
