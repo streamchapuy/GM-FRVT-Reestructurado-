@@ -1,5 +1,5 @@
 <div class="form-orden-trabajo-container">
-  <h2>Órdenes de Trabajo</h2>
+  <h2>Órdenes de Trabajo Creadas</h2>
 
   <div class="lista-ordenes-trabajo-container">
     <h2>Lista de Órdenes de Trabajo</h2>
@@ -25,10 +25,10 @@
             <td>{{ orden.descripcion }}</td>
             <td>{{ orden.nombre_usuario }}</td>
             <td>{{ orden.descripcion_estado }}</td>
-            <td>{{ orden.fecha_creacion }}</td>
-            <td>{{ orden.fecha_finalizacion }}</td>
-            <td>{{ orden.tiempo_inicio }}</td>
-            <td>{{ orden.tiempo_finalizacion }}</td>
+            <td>{{ orden.fecha_creacion | date:'dd/MM/yyyy' }}</td>
+            <td>{{ orden.fecha_finalizacion | date:'dd/MM/yyyy'}}</td>
+            <td>{{ orden.tiempo_inicio | date:'HH:mm'}}</td>
+            <td>{{ orden.tiempo_finalizacion | date:'HH:mm'}}</td>
           </tr>
         </tbody>
       </table>
