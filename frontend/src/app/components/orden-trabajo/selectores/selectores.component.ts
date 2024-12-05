@@ -70,8 +70,8 @@ loadOts() {
   });
 }
 
-loadFilters() {
-  this.filtroService.filtroPorTag({ id_tag: 0 }).subscribe({
+loadFilters(tag = 0) {
+  this.filtroService.filtroPorTag({ id_tag: tag }).subscribe({
     next: (data) => {
       this.CodigoActivo = data;
       this.codigoActivoOriginal = [...data]; 
@@ -90,6 +90,7 @@ ActualizarCampos(){
      
       this.activoService.obtenerActivoPorId(selectedCodigo.activo_id_formateado).subscribe({
         next: (activo) => {
+          this.activoService.setSelectedActivo(activo.id_activo);
           console.log('Activo seleccionado:', activo)
           this.orden.activo = activo.nombre;
           this.activos = [activo.nombre]

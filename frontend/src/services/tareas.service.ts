@@ -27,4 +27,3 @@ export class TareaService {
     return this.http.delete<void>(`${this.apiUrl}/eliminar_tarea/${id_tarea}`);
   }
 }
-

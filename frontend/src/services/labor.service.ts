@@ -14,7 +14,7 @@ export class LaborService {
   constructor(private http: HttpClient) {}
 
   obtenerlabor(): Observable<Labor[]> {
-    return this.http.get<Labor[]>(`${this.apiUrl}/labores`);
+    return this.http.get<Labor[]>(`${this.apiUrl}/obtener_labores`);
   }
 
   setSelectedLabor(id_labor: number) {

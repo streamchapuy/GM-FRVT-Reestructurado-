@@ -126,17 +126,11 @@
     color: #666666;
 }
 
-.register .container .remember-me {
+.register .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 24px;
-}
-
-.remember-me label {
-    padding-left: 5px;
-    position: relative;
-    bottom: 1.5px;
 }
 
 @media (max-width: 768px) {
