@@ -8,7 +8,9 @@ import { NumeroOT } from '../../../interfaces/numero-ot';
   styleUrls: ['./form-ot.component.css']
 })
 export class FormOtComponent implements OnInit {
-  numeroOT: NumeroOT[] = [];
+
+
+  numeroOT: NumeroOT []=[];
   
 
   constructor(private otService: OtService) {}
@@ -18,13 +20,8 @@ export class FormOtComponent implements OnInit {
   }
 
   obtenerOt(): void {
-    this.otService.obtenerOt().subscribe(
-      (data: NumeroOT[]) => {
+    this.otService.obtenerOt().subscribe((data: NumeroOT[]) => {
         this.numeroOT = data;
-      },
-      (error) => {
-        console.error('Error al obtener las órdenes de trabajo', error);
-      }
-    );
+      });  
   }
 }

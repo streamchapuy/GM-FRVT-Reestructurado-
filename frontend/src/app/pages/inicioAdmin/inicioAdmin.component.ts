@@ -10,8 +10,8 @@ export class inicioAdminComponent  {
   constructor() { }
 
   buttons = [
-    { link: '/ordenTrabajo', imgSrc: '../../../assets/img/img-home/crear_ot.png', altText: 'GenerarOt', label: 'Orden de Trabajo' },
-    { link: '/formOT', imgSrc: '../../../assets/img/img-home/ot.png', altText: 'Órdenes de Trabajo', label: 'Órdenes de Trabajo' },
+    { link: '/ordenTrabajo', imgSrc: '../../../assets/img/img-home/crear_ot.png', altText: 'GenerarOt', label: 'Crear Orden de Trabajo' },
+    { link: '/formOT', imgSrc: '../../../assets/img/img-home/ot.png', altText: 'Órdenes de Trabajo', label: 'Órdenes de Trabajo Creadas' },
     { link: '/formActivo', imgSrc: '../../../assets/img/img-home/activo.png', altText: 'Activos', label: 'Activos' },
     { link: '/formEdificio', imgSrc: '../../../assets/img/img-home/edificio.png', altText: 'Edificios', label: 'Edificios' },
     { link: '/formPiso', imgSrc: '../../../assets/img/img-home/piso.png', altText: 'Pisos', label: 'Pisos' },

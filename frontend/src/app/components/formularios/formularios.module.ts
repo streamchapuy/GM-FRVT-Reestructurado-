@@ -8,6 +8,7 @@ import { FormSectorComponent } from './form-sector/form-sector.component';
 import { FormTareasComponent } from './form-tareas/form-tareas.component';
 import { FormUbicacionComponent } from './form-ubicacion/form-ubicacion.component';
 import { FormulariosComponent } from './formularios.component';
+import { FormOtComponent } from './form-ot/form-ot.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormulariosComponent } from './formularios.component';
     FormSectorComponent,
     FormUbicacionComponent,
     FormTareasComponent,
+    FormOtComponent
   ],
   imports: [
     CommonModule,
