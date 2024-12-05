@@ -27,8 +27,8 @@
             <td>{{ orden.descripcion_estado }}</td>
             <td>{{ orden.fecha_creacion | date:'dd/MM/yyyy' }}</td>
             <td>{{ orden.fecha_finalizacion | date:'dd/MM/yyyy'}}</td>
-            <td>{{ orden.tiempo_inicio | date:'HH:mm'}}</td>
-            <td>{{ orden.tiempo_finalizacion | date:'HH:mm'}}</td>
+            <td>{{ orden.tiempo_inicio | date:'shortTime'}}</td>
+            <td>{{ orden.tiempo_finalizacion | date:'shortTime'}}</td>
           </tr>
         </tbody>
       </table>
