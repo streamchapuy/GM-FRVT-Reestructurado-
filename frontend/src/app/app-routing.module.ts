@@ -19,7 +19,6 @@ import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.compon
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
-  { path: 'home', component: LandingPageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'ordenTrabajo', component: CuerpoComponent,  }, 

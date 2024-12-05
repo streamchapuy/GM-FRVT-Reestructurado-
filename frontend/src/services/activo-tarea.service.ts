@@ -13,7 +13,7 @@ export class ActivoTareaService {
   constructor(private http: HttpClient) { }
 
   getActivoTareas(consulta: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/activo-tareas`, consulta);
+    return this.http.post(`${this.apiUrl}/obtener_ActivoTareas`, consulta);
   }
 
 }

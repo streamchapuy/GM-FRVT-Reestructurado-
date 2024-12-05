@@ -14,7 +14,7 @@ export class FiltrosService {
 
   // Filtro por Tag
   filtroPorTag(consulta: { id_tag: number } ): Observable<any> {
-    return this.http.post(`${this.apiUrl}/filtrostag`,consulta);
+    return this.http.post(`${this.apiUrl}/filtroscodigo`,consulta);
   }
 
   // Filtro por Activo
