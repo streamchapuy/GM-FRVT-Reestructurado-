@@ -26,6 +26,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.component';
 import { SelectoresComponent } from './components/orden-trabajo/selectores/selectores.component';
 import { TareasComponent } from './components/orden-trabajo/tareas/tareas.component';
+import { FechasComponent } from './components/orden-trabajo/fechas/fechas.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TareasComponent } from './components/orden-trabajo/tareas/tareas.compon
     LandingInfo3Component,
     LandingInfo4Component,
     TareasComponent,
+    FechasComponent,
   ],
   imports: [
     BrowserModule,
