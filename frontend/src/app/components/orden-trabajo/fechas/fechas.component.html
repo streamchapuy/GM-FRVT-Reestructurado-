@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="fecha-inicial">
+        <div class="inicio">
+            <p>Fecha de inicio</p>
+        </div>
+        <input type="date" class="inicio-selector">
+    </div>
+    <div class="fecha-final">
+        <div class="fin">
+            <p>Fecha de finalización</p>
+        </div>
+        <input type="date" class="final-selector">
+    </div>
+    <div class="operario">
+        <div class="operario-selector">
+            <p>Operario</p>
+        </div>
+        <select name="operarios" id="operarios">
+            <option value="" disabled selected>Seleccione operario</option>
+            <option *ngFor="let usuario of usuarios" [value]="usuario.id_usuario">
+                {{ usuario.nombre }}
+            </option>
+        </select>
+    </div>
+</div>
