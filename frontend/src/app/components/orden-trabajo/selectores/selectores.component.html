@@ -1,6 +1,5 @@
 <div class="container">
     <form>
-
         <div class="Codigo-Container">
             <div class="izquierda">
                 <p>Código Único</p>
@@ -62,13 +61,13 @@
 
         <div class="ubicacion-container">
             <div class="izquierda">
-                <p class="margin">Ubicacion</p>
+                <p>Ubicacion</p>
             </div>
             <div class="derecha">
                 <select name="ubicacion" id="ubicacion" [(ngModel)]="orden.ubicacion">
                     <option *ngFor="let ubicacion of ubicaciones" [value]="ubicaciones">{{ubicacion}}</option>
                 </select>
-            </div>            
-        </div>       
+            </div>
+        </div>
     </form>
 </div>
