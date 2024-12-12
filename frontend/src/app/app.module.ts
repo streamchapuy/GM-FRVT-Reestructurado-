@@ -27,6 +27,7 @@ import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.compon
 import { SelectoresComponent } from './components/orden-trabajo/selectores/selectores.component';
 import { TareasComponent } from './components/orden-trabajo/tareas/tareas.component';
 import { FechasComponent } from './components/orden-trabajo/fechas/fechas.component';
+import { QRComponent } from './components/orden-trabajo/qr/qr.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FechasComponent } from './components/orden-trabajo/fechas/fechas.compon
     LandingInfo4Component,
     TareasComponent,
     FechasComponent,
+    QRComponent,
   ],
   imports: [
     BrowserModule,
