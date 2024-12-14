@@ -40,8 +40,8 @@
 }
 
 .circulo {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     background-image: url(../../../assets/img/login-img/person-circle.svg);
     background-repeat: no-repeat;

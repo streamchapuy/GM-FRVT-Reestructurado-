@@ -37,16 +37,14 @@
     font-size: 14.3px;
     width: 20%;
     height: 100%;
-    background-color: #FFFFFF;
-    border: 1px solid #c5bebe;
-    border-radius: 0px 5px 5px 0px;
+    border: 1px solid #000000;
 }
 
 .derecha #selector {
     width: 100%;
     height: 100%;
     background-color: #FFFFFF;
-    border: 1px solid #c5bebe;
+    border: 3px solid #c5bebe;
     border-radius: 0px 5px 5px 0px;
 }
 
