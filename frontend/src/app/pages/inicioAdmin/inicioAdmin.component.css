@@ -84,6 +84,11 @@
     cursor: not-allowed;
 }
 
+.boton_navegacion_prev:hover,
+.boton_navegacion_sig:hover {
+    background-color: #0c486c;
+}
+
 @media (max-width: 1024px) {
 
     .contenedor_botones {
