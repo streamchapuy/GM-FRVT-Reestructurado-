@@ -51,21 +51,35 @@
     flex-direction: row;
     justify-content: space-around;
     width: 30%;
+    margin-bottom: 15px;
 }
 
-.boton_navegacion {
+.boton_navegacion_prev {
     background-color: #10608f;
     color: white;
     border: none;
     padding: 10px 15px;
     cursor: pointer;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 0px 0px 0px 10px;
     width: 100px;
     font-weight: bold;
 }
 
-.boton_navegacion:disabled {
+.boton_navegacion_sig {
+    background-color: #10608f;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 0px 0px 10px 0px;
+    width: 100px;
+    font-weight: bold;
+}
+
+.boton_navegacion_prev:disabled,
+.boton_navegacion_sig:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
@@ -92,7 +106,7 @@
 
     .contenedor_botones {
         min-height: 58.6dvh;
-      } 
+    }
 
     .botones_visibles button {
         width: 320px;

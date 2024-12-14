@@ -1,11 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../services/auth.service';
-
-
-
 
 @Component({
   selector: 'app-login',
@@ -22,15 +18,14 @@ export class LoginComponent {
   ) { }
 
   login() {
-    if (!this.email || !this.password) {  // Verifica que ambos campos sean no nulos
+    if (!this.email || !this.password) {
       alert('Por favor ingresa los campos de email y contraseña');
       return;
     }
-  
+
     this.authService.login(this.email, this.password).subscribe(
       (response) => {
         console.log('Login exitoso:', response);
-        // Redirige a otra página si el login es exitoso
         this.router.navigate(['/inicioAdmin']);
       },
       (error) => {
@@ -39,7 +34,7 @@ export class LoginComponent {
       }
     );
   }
-  
+
   goToRegister() {
     this.router.navigate(['/register']);
   }

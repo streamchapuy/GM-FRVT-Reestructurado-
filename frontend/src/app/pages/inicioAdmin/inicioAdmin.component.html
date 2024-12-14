@@ -6,7 +6,7 @@
     </button>
   </div>
   <div class="contenedor_navegacion">
-  <button class="boton_navegacion" (click)="prev()" [disabled]="currentIndex === 0">Anterior</button>
-  <button class="boton_navegacion" (click)="next()" [disabled]="currentIndex + maxVisible >= buttons.length">Siguiente</button>
+  <button class="boton_navegacion_prev" (click)="prev()" [disabled]="currentIndex === 0">Anterior</button>
+  <button class="boton_navegacion_sig" (click)="next()" [disabled]="currentIndex + maxVisible >= buttons.length">Siguiente</button>
 </div>
 </div>

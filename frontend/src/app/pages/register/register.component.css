@@ -1,18 +1,14 @@
 .register {
     display: flex;
-    position: relative;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 90%;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    justify-content: center;
     padding: 10px;
-    align-items: center;
-    background-color: transparent;
-    border-radius: 5%;
+    background-color: white;
 }
 
-.register .container {
+.container {
     width: 520px;
     max-width: 520px;
     border-radius: 8px;
@@ -21,167 +17,135 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid #dcdcdc;
-    background-color: transparent;
+    background-color: white;
+    gap: 20px;
+    box-sizing: border-box;
+    border: solid 1px #dcdcdc;
 }
 
-.register .container h4 {
+.register h4 {
     text-align: center;
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 6px;
     margin-top: 0px;
     width: 100%;
+    color: #10608f;
 }
 
-.register .container .flex {
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.register .container .circulo {
-    width: 300px;
-    height: 100px;
+.circulo {
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background-image: url(../../../assets/img/login-img/person-circle.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    aspect-ratio: 1/1;
 }
 
-.register .container .circulo img {
+.circulo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.register .container .barra {
+.barra {
     width: 100%;
     height: 6px;
     background-color: black;
 }
 
-.register .container form {
+.form-container {
     width: 100%;
+    height: auto;
 }
 
-.register .container .form-label {
-    font-weight: bold;
-    margin-bottom: 0px;
-}
-
-.register .container .form-control {
-    width: 100%;
-}
-
-.register .container .mb-3 {
-    margin-bottom: 24px;
+.form {
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
 }
 
-.register .container .mb-3 input {
-    width: 100%;
-    padding: 12px;
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    padding: 10px;
     font-size: 16px;
-    border-radius: 6px;
     border: 1px solid #dcdcdc;
-    transition: border-color 0.3s;
-    background-color: white;
-    color: black;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.register .container .mb-3 input:focus {
+input:focus,
+select:focus {
     outline: none;
     border-color: #079dfb;
 }
 
-.register .container .btn-primary {
-    background-color: #47a6ff;
-    border: none;
-    padding: 12px;
-    font-size: 14px;
-    border-radius: 6px;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.register .container .btn-primary:hover {
-    background-color: #009dff;
-}
-
-.register .container .btn-ingresar {
-    margin-bottom: 24px;
+.bton {
     width: 100%;
-}
-
-.register .container .forgot-password,
-.register .container .signup-link {
-    display: flex;
+    align-items: center;
     justify-content: center;
-    font-size: 14px;
-    color: #666666;
 }
 
-.register .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 24px;
+.btn-ingresar {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #10608f;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 0px 10px 0px 10px;
+    cursor: pointer;
+}
+
+.btn-ingresar:hover {
+    background-color: var(--primary-hover);
+    color: #333333;
+    transform: translateY(-5px);
+    border: 1px #333333 solid;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.signup-link a {
+    color: #079dfb;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
 }
 
 @media (max-width: 768px) {
     .register .container {
-        width: 90%;
         padding: 16px;
     }
 
-    .register .container h4 {
-        font-size: 24px;
+    .register h4 {
+        font-size: 20px;
     }
 
-    .register .container .circulo {
-        width: 300px;
-        height: 100px;
+    .circulo {
+        width: 80px;
+        height: 80px;
     }
 
-    .register .container form {
+    .flex {
         width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .register {
-        margin: 20px 0;
-    }
-
-    .register .container {
-        padding: 12px;
-    }
-
-    .register .container h4 {
-        font-size: 18px;
-    }
-
-    .register .container .circulo {
-        width: 100px;
-        height: 100px;
-    }
-
-    .barra {
-        display: none;
-    }
-
-    .register .container .mb-3 input {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    .register .container .btn-primary {
-        padding: 10px;
-        font-size: 12px;
     }
 }

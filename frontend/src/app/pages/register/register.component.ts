@@ -29,7 +29,6 @@ export class RegisterComponent {
   ) {}
 
   register() {
-    // Validación básica en el frontend
     if (!this.user.email || !this.user.contrasena || !this.user.confirmPassword || !this.user.nombre || !this.user.tipo_usuario) {
       alert('Todos los campos son obligatorios');
       return;
@@ -44,10 +43,8 @@ export class RegisterComponent {
       return;
     }
 
-    // Verificar los datos que se envían
     console.log('Datos de usuario que se enviarán:', this.user);
 
-    // Llamada al servicio de registro
     this.authService.register(this.user).subscribe(
       (response: any) => {        
           alert('Registro Exitoso');
@@ -56,7 +53,6 @@ export class RegisterComponent {
       },
       (error: any) => {
         console.error('Error en el registro:', error);
-        // Mostrar el mensaje de error proporcionado por el servidor
         if (error.status === 400 && error.error.message) {
           alert(`Error en el registro: ${error.error.message}`);
         } else {
@@ -82,4 +78,4 @@ export class RegisterComponent {
   }    
       
   }
-  }
+}

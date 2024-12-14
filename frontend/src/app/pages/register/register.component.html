@@ -1,84 +1,56 @@
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/quartz/bootstrap.rtl.min.css" integrity="sha512-88caQ78wiD4mLF+1uAeSsImidT6oTwsmRlIATI4kI04D0KGjN2i/mQazWnP6e12LdjzRI2gzplRJf2K7TTKqeA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-
-<section class="register list-group">
-    <div class="container list-group ">
+<section class="register">
+    <div class="container">
         <div class="container-logo">
             <div class="flex">
                 <div class="barra"></div>
-                <div class="circulo">
-                    <input 
-                    #fileInput 
-                    type="file" 
-                    (change)="onImageSelected($event)" 
-                    accept="image/*" 
-                    style="display: none"/>
-                  <img *ngIf="imageUrl" [src]="imageUrl" alt="Imagen de Perfil" class="img-circular" />
-                  <span *ngIf="!imageUrl"></span> <!-- Muestra el '+' si no se ha cargado ninguna imagen -->
+                <div class="circulo" (click)="fileInput.click()">
+                    <input #fileInput type="file" (change)="onImageSelected($event)" accept="image/*"
+                        style="display: none;" />
+                    <ng-container *ngIf="imageUrl; else defaultIcon">
+                        <img [src]="imageUrl" alt="Imagen de Perfil" class="img-circular" />
+                    </ng-container>
+                    <ng-template #defaultIcon>
+                        <img src="assets/img/login-img/person-circle.svg" alt="Default Icon" class="img-circular" />
+                    </ng-template>
                 </div>
                 <div class="barra"></div>
             </div>
         </div>
         <h4>Registrarse</h4>
-        <form (submit)="register()">
-            <div class="mb-3">
-                <input matInput 
-                type="text" 
-                id="nombre" 
-                class="form-control-plaintext" 
-                name="nombre"
-                placeholder="Nombre"
-                    [(ngModel)]="user.nombre" 
-                    required/>
-            </div>
-            <div class="mb-3">
-                <input matInput 
-                type="email" 
-                id="email" 
-                class="form-control-plaintext" 
-                name="email"
-                placeholder="Email"
-                    [(ngModel)]="user.email" 
-                    required/>
-            </div>
-            <div class="mb-3">
-                <input matInput
-                type="password"
-                id="password"
-                class="form-control-plaintext" 
-                name="password"
-                    placeholder="Contraseña" 
-                    [(ngModel)]="user.contrasena" 
-                    required />
-            </div>
-            <div class="mb-3">
-                <input matInput
-                type="password" 
-                id="confirmPassword"
-                class="form-control-plaintext" 
-                name="confirmPassword"
-                    placeholder="Confirmar Contraseña" 
-                    [(ngModel)]="user.confirmPassword" 
-                    required />
-            </div>
-            <div class="mb-3">
-                <label for="tipo_Usuario">Rol:
-                    <select                   
-                    [(ngModel)]="user.tipo_usuario"
-                    name="tipo_Usuario" 
-                    id="tipo_Usuario">
-                    <option *ngFor="let role of roles" [value]="role">
-                        {{ role | uppercase }}
-                    </option>
-                </select>
-                </label>
-            </div>
-            <input type="submit" value="Registrarse" class="btn btn-primary btn-ingresar" />
-        </form>
-        <div class="signup-link mt-2">
-            <a href="#" (click)="goToLogin(); $event.preventDefault();">¿Ya tienes cuenta? <b>Ingresa aqui</b></a>
+        <div class="form-container">
+            <form (submit)="register()">
+                <div class="mb-3">
+                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" [(ngModel)]="user.nombre"
+                        required />
+                </div>
+                <div class="mb-3">
+                    <input type="email" id="email" name="email" placeholder="Email" [(ngModel)]="user.email" required />
+                </div>
+                <div class="mb-3">
+                    <input type="password" id="password" name="password" placeholder="Contraseña"
+                        [(ngModel)]="user.contrasena" required />
+                </div>
+                <div class="mb-3">
+                    <input type="password" id="confirmPassword" name="confirmPassword"
+                        placeholder="Confirmar Contraseña" [(ngModel)]="user.confirmPassword" required />
+                </div>
+                <div class="mb-3">
+                    <label for="tipo_Usuario">Rol:
+                        <select [(ngModel)]="user.tipo_usuario" name="tipo_Usuario" id="tipo_Usuario">
+                            <option *ngFor="let role of roles" [value]="role">
+                                {{ role | uppercase }}
+                            </option>
+                        </select>
+                    </label>
+                </div>
+                <div class="bton">
+                    <input type="submit" value="Registrarse" class="btn-ingresar" />
+                </div>
+            </form>
         </div>
-      
+
+        <div class="signup-link">
+            <a href="#" (click)="goToLogin(); $event.preventDefault();">¿Ya tienes cuenta? <b>Ingresa aquí</b></a>
+        </div>
     </div>
 </section>
