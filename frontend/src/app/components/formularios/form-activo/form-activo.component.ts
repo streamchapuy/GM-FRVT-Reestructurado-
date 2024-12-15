@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ActivoService } from '../../../../services/activo.service';
 import { Activo } from '../../../interfaces/activo';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -39,7 +39,7 @@ export class FormActivoComponent implements OnInit {
   }
 
   
-  get paginadoSectores() {
+  get paginadoActivos() {
     const start = this.currentPage * this.itemsPerPage;
     const end = start + this.itemsPerPage;
     return this.activos.slice(start, end);

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UbicacionService } from '../../../../services/ubicacion.service';
 import { Ubicacion } from '../../../interfaces/ubicacion';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-ubicacion',
@@ -32,7 +32,7 @@ export class FormUbicacionComponent implements OnInit {
     this.router.navigate(['/inicioAdmin']);
   }
 
-  get paginadoSectores() {
+  get paginadoUbicaciones() {
     const start = this.currentPage * this.itemsPerPage;
     const end = start + this.itemsPerPage;
     return this.ubicaciones.slice(start, end);

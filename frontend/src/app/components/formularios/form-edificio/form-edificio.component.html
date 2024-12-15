@@ -48,7 +48,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let edificio of paginadoSectores" (click)="seleccionarEdificio(edificio)">
+          <tr *ngFor="let edificio of paginadoEdificios" (click)="seleccionarEdificio(edificio)">
             <td>{{ edificio.id_edificio }}</td>
             <td>{{ edificio.nombre }}</td>
             <td>{{ edificio.calle }}</td>

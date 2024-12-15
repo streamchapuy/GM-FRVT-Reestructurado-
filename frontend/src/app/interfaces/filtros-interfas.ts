@@ -5,4 +5,3 @@ export interface FiltroInterfas {
     id_piso?: number;
     id_sector?: number;
 }
-              

@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuariosService } from '../../../../services/usuarios.service';
 import { Router } from '@angular/router';
-
+import { UsuariosService } from '../../../../services/usuarios.service';
+import { Usuario } from '../../../interfaces/usuario';
 
 @Component({
   selector: 'app-form-usuarios',
   templateUrl: './form-usuarios.component.html',
-  styleUrls: ['./form-usuarios.component.css']
+  styleUrls: ['./form-usuarios.component.css'],
 })
 export class FormUsuariosComponent implements OnInit {
-  usuarios: any = [];
+  usuarios: Usuario[] = [];
   currentPage: number = 0;
   itemsPerPage: number = 6;
-  Math: any = Math;
-  seleccionarUsuario: any;
+  totalPages: number = 0;
 
   constructor(private usuariosService: UsuariosService, private router: Router) {}
 
@@ -21,21 +20,18 @@ export class FormUsuariosComponent implements OnInit {
     this.obtenerUsuarios();
   }
 
-  volver() {
+  volver(): void {
     this.router.navigate(['/inicioAdmin']);
   }
 
-  get paginadoSectores() {
+  get paginadoUsuarios(): Usuario[] {
     const start = this.currentPage * this.itemsPerPage;
     const end = start + this.itemsPerPage;
     return this.usuarios.slice(start, end);
   }
 
   nextPage(): void {
-    if (
-      this.currentPage <
-      Math.ceil(this.usuarios.length / this.itemsPerPage) - 1
-    ) {
+    if (this.currentPage < this.totalPages - 1) {
       this.currentPage++;
     }
   }
@@ -48,12 +44,19 @@ export class FormUsuariosComponent implements OnInit {
 
   obtenerUsuarios(): void {
     this.usuariosService.obtenerUsuarios().subscribe(
-      (data) => {
-        this.usuarios = data;
+      (data: Usuario[]) => {
+        this.usuarios = data || [];
+        this.totalPages = Math.ceil(this.usuarios.length / this.itemsPerPage);
       },
       (error) => {
-        console.error('Error al obtener los usuarios', error);
+        console.error('Error al obtener los usuarios:', error);
+        this.usuarios = [];
+        this.totalPages = 0;
       }
     );
+  }
+
+  seleccionarUsuario(usuario: Usuario): void {
+    console.log('Usuario seleccionado:', usuario);
   }
 }

@@ -78,6 +78,11 @@
     font-weight: bold;
 }
 
+.boton_navegacion_prev:hover,
+.boton_navegacion_sig:hover {
+    background-color: #0c486c;
+}
+
 .boton_navegacion_prev:disabled,
 .boton_navegacion_sig:disabled {
     background-color: #ccc;
@@ -124,7 +129,8 @@
         height: 25px;
     }
 
-    .boton_navegacion {
+    .boton_navegacion_prev,
+    .boton_navegacion_sig {
         display: none;
     }
 }

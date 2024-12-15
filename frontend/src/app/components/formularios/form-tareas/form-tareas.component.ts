@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TareaService } from '../../../../services/tareas.service';
 import { Tarea } from '../../../interfaces/tarea';
-import { Router } from '@angular/router';
 
 
 @Component({
@@ -37,7 +37,7 @@ export class FormTareasComponent implements OnInit {
     this.router.navigate(['/inicioAdmin']);
   }
 
-  get paginadoSectores() {
+  get paginadoTareas() {
     const start = this.currentPage * this.itemsPerPage;
     const end = start + this.itemsPerPage;
     return this.tareas.slice(start, end);

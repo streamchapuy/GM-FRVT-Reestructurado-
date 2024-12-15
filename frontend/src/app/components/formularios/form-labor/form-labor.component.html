@@ -1,3 +1,49 @@
-<p>
-  form-labor works!
-</p>
+<div class="form-labor-container">
+  <h2>Formulario de Labores</h2>
+
+  <form>
+    <div class="form-group">
+      <label for="id_labor">ID</label>
+      <input type="number" id="id_labor" [(ngModel)]="labor.id_labor" name="id_labor" />
+    </div>
+
+    <div class="form-group">
+      <label for="nombre">Descripcion</label>
+      <input type="text" id="nombre" [(ngModel)]="labor.descripcion" name="nombre" maxlength="100" />
+    </div>
+
+    <div class="form-actions">
+      <button type="button" (click)="volver()">Volver</button>
+      <button type="button" (click)="crear()">Crear</button>
+      <button type="button" (click)="editar()">Editar</button>
+      <button type="button" (click)="eliminar()">Eliminar</button>
+      <button type="button" (click)="limpiarFormulario()">Limpiar</button>
+    </div>
+  </form>
+
+  <div class="lista-labores-container">
+    <h2>Lista de Labores</h2>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Labor</th>
+            <th>Descripcion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let labor of paginadoLabores" (click)="seleccionarLabor(labor)">
+            <td>{{ labor.id_labor }}</td>
+            <td>{{ labor.descripcion }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="pagination-controls">
+    <button (click)="prevPage()" [disabled]="currentPage === 0">Anterior</button>
+    <span>Página {{ currentPage + 1 }} de {{ Math.ceil(labores.length / itemsPerPage) }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= (labores.length / itemsPerPage) - 1">Siguiente</button>
+  </div>
+</div>

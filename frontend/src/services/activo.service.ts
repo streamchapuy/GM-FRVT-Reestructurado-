@@ -14,7 +14,7 @@ export class ActivoService {
   constructor(private http: HttpClient) {}
 
   setSelectedActivo(id_activo: number) {
-    this.selectedActivoId.next(id_activo); // Establecer id_activo seleccionado
+    this.selectedActivoId.next(id_activo);
   }
 
   obtenerActivos(): Observable<Activo[]> {

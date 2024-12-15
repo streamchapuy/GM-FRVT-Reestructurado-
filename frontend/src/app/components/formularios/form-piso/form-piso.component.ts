@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PisoService } from '../../../../services/piso.service';
 import { Piso } from '../../../interfaces/piso';
-import { Router } from '@angular/router';
 @Component({
   selector: 'app-form-piso',
   templateUrl: './form-piso.component.html',
@@ -30,7 +30,7 @@ export class FormPisoComponent implements OnInit {
     this.router.navigate(['/inicioAdmin']);
   }
 
-  get paginadoSectores() {
+  get paginadoPisos() {
     const start = this.currentPage * this.itemsPerPage;
     const end = start + this.itemsPerPage;
     return this.pisos.slice(start, end);
