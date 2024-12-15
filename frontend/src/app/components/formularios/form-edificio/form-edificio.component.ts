@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { EdificioService } from '../../../../services/edificio.service';
 import { Edificio } from '../../../interfaces/edificio';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-edificio',
@@ -36,7 +36,7 @@ export class FormEdificioComponent implements OnInit {
     this.router.navigate(['/inicioAdmin']);
   }
 
-  get paginadoSectores() {
+  get paginadoEdificios() {
     const start = this.currentPage * this.itemsPerPage;
     const end = start + this.itemsPerPage;
     return this.edificios.slice(start, end);

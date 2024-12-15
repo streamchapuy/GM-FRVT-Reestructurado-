@@ -1,6 +1,6 @@
 <div class="form-usuarios-container">
   <h2>Usuarios</h2>
-  
+
   <div class="lista-usuarios-container">
     <button class="volver" type="button" (click)="volver()">Volver</button>
     <h2>Lista de Usuarios</h2>
@@ -15,9 +15,9 @@
         </thead>
         <tbody>
           <tr *ngFor="let usuario of paginadoUsuarios" (click)="seleccionarUsuario(usuario)">
-            <td>{{ usuario.nombre }}</td>
-            <td>{{ usuario.email }}</td>
-            <td>{{ usuario.tipo_usuario }}</td>
+            <td>{{ usuario.nombre || 'Sin nombre' }}</td>
+            <td>{{ usuario.email || 'Sin email' }}</td>
+            <td>{{ usuario.tipo_usuario || 'Sin tipo' }}</td>
           </tr>
         </tbody>
       </table>
@@ -26,7 +26,7 @@
 
   <div class="pagination-controls">
     <button (click)="prevPage()" [disabled]="currentPage === 0">Anterior</button>
-    <span>Página {{ currentPage + 1 }} de {{ Math.ceil(usuarios.length / itemsPerPage) }}</span>
-    <button (click)="nextPage()" [disabled]="currentPage >= (usuarios.length / itemsPerPage) - 1">Siguiente</button>
+    <span>Página {{ currentPage + 1 }} de {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage >= totalPages - 1">Siguiente</button>
   </div>
 </div>

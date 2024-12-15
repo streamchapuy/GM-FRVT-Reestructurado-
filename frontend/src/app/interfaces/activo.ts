@@ -3,5 +3,4 @@ export interface Activo {
     nombre: string;
     abreviacion: string;
     existencia: string;
-
 }

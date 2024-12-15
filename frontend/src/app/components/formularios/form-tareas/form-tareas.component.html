@@ -40,7 +40,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let tarea of paginadoSectores" (click)="seleccionarTarea(tarea)">
+          <tr *ngFor="let tarea of paginadoTareas" (click)="seleccionarTarea(tarea)">
             <td>{{ tarea.id_tarea }}</td>
             <td>{{ tarea.descripcion }}</td>
             <td>{{ tarea.existencia }}</td>

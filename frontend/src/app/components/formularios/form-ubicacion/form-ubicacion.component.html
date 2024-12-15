@@ -34,7 +34,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let ubicacion of paginadoSectores" (click)="seleccionarUbicacion(ubicacion)">
+          <tr *ngFor="let ubicacion of paginadoUbicaciones" (click)="seleccionarUbicacion(ubicacion)">
             <td>{{ ubicacion.id_ubicacion }}</td>
             <td>{{ ubicacion.nombre }}</td>
             <td>{{ ubicacion.existencia }}</td>
