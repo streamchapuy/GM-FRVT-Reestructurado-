@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'formUbicacion', component: FormUbicacionComponent, },
   { path: 'formUsuarios', component: FormUsuariosComponent, },
   { path: 'formTareas', component: FormTareasComponent, },
-  { path: 'formLabores', component: FormLaborComponent, },
+  { path: 'formLabor', component: FormLaborComponent, },
   { path: 'home-operario', component: HomeOperarioComponent, canActivate: [roleGuard], data: { roles: ['operario'] }  },
   { path: 'inicioAdmin', component: inicioAdminComponent, canActivate: [roleGuard], data: { roles: ['admin'] } },
   { path: '404', component: NotFoundComponent },

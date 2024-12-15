@@ -1,11 +1,11 @@
-import { Component , OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Labor } from '../../../../app/interfaces/labor';
-import { LaborService } from '../../../../services/labor.service';
-import { SelectionService } from '../../../../services/selection.service';
+import { Tarea } from '../../../../app/interfaces/tarea';
 import { ActivoTareaService } from '../../../../services/activo-tarea.service';
 import { ActivoService } from '../../../../services/activo.service';
+import { LaborService } from '../../../../services/labor.service';
+import { SelectionService } from '../../../../services/selection.service';
 import { TareaService } from '../../../../services/tareas.service';
-import { Tarea } from '../../../../app/interfaces/tarea';
 
 
 @Component({
@@ -31,11 +31,11 @@ export class TareasComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.laborService.obtenerlabor().subscribe(
+    this.laborService.obtenerLabores().subscribe(
       (data: Labor[]) => {
-        this.labor = data; 
+        this.labor = data;
       },
-      error => {
+      (error: any) => {
         console.error('Error al obtener labores:', error);
       }
     );
