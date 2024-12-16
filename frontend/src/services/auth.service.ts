@@ -2,21 +2,22 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { map, Observable } from 'rxjs';
+import { environment } from '../environments/environment.development';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://127.0.0.1:3307/API';
-
+  
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   register(user: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, user);
+    return this.http.post(`${environment.urlBase}/register`, user);
   }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, { email, password }).pipe(
+    return this.http.post(`${environment.urlBase}/login`, { email, password }).pipe(
       map((response: any) => {
         const token = response?.token;
         const tipo_usuario = response?.tipo_usuario;

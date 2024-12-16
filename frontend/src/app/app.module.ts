@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +28,7 @@ import { SelectoresComponent } from './components/orden-trabajo/selectores/selec
 import { TareasComponent } from './components/orden-trabajo/tareas/tareas.component';
 import { FechasComponent } from './components/orden-trabajo/fechas/fechas.component';
 import { QRComponent } from './components/orden-trabajo/qr/qr.component';
+import { manejoErroresInterceptor } from './interceptors/manejoDeErrores.interceptor';
 
 @NgModule({
   declarations: [
@@ -60,9 +61,9 @@ import { QRComponent } from './components/orden-trabajo/qr/qr.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [CookieService],
+  providers: [CookieService, provideHttpClient(withInterceptors([manejoErroresInterceptor]))],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private cookieService: CookieService) {}
+  constructor() {}
 }

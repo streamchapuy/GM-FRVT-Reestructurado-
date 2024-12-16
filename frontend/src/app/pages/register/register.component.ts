@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
 import { IRegister } from '../../interfaces/iregister'; 
-import { CookieService } from 'ngx-cookie-service';
+// import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +25,7 @@ export class RegisterComponent {
   constructor(
     private router: Router, 
     private authService: AuthService,
-    private cookieService: CookieService
+    // private cookieService: CookieService
   ) {}
 
   register() {
@@ -49,6 +49,7 @@ export class RegisterComponent {
       (response: any) => {        
           alert('Registro Exitoso');
           this.goToLogin();
+          return response;
        
       },
       (error: any) => {
