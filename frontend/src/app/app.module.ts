@@ -17,27 +17,27 @@ import { LandingInfo1Component } from './components/landing-informacion/landing-
 import { LandingInfo2Component } from './components/landing-informacion/landing-info-2/landing-info-2.component';
 import { LandingInfo3Component } from './components/landing-informacion/landing-info-3/landing-info-3.component';
 import { LandingInfo4Component } from './components/landing-informacion/landing-info-4/landing-info-4.component';
+import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.component';
+import { FechasComponent } from './components/orden-trabajo/fechas/fechas.component';
+import { QRComponent } from './components/orden-trabajo/qr/qr.component';
+import { SelectoresComponent } from './components/orden-trabajo/selectores/selectores.component';
+import { TareasComponent } from './components/orden-trabajo/tareas/tareas.component';
 import { inicioAdminComponent } from './pages/inicioAdmin/inicioAdmin.component';
-import { HomeOperarioComponent } from './pages/home-operario/home-operario.component';
+import { inicioOperarioComponent } from './pages/inicioOperario/inicioOperario.component';
 import { LandingPageComponent } from './pages/landing/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.component';
-import { SelectoresComponent } from './components/orden-trabajo/selectores/selectores.component';
-import { TareasComponent } from './components/orden-trabajo/tareas/tareas.component';
-import { FechasComponent } from './components/orden-trabajo/fechas/fechas.component';
-import { QRComponent } from './components/orden-trabajo/qr/qr.component';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
+    RegistroComponent,
     NotFoundComponent,
     inicioAdminComponent,
     LandingPageComponent,
-    HomeOperarioComponent,
+    inicioOperarioComponent,
     CuerpoComponent,
     SelectoresComponent,
     LandingInfo1Component,
