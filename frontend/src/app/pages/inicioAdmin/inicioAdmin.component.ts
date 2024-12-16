@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-inicioAdmin',
@@ -19,7 +19,6 @@ export class inicioAdminComponent  {
     { link: '/formUbicacion', imgSrc: '../../../assets/img/img-home/ubicacion.png', altText: 'Ubicacion', label: 'Ubicación' },
     { link: '/formUsuarios', imgSrc: '../../../assets/img/img-home/usuario.png', altText: 'Usuarios', label: 'Usuarios' },
     { link: '/formTareas', imgSrc: '../../../assets/img/img-home/tarea.png', altText: 'Tareas', label: 'Tareas' },
-    { link: '/formActivoTareas', imgSrc: '../../../assets/img/img-home/activo-tarea.png', altText: 'Activo-Tarea', label: 'Activos con Tareas' },
     { link: '/formLabor', imgSrc: '../../../assets/img/img-home/labor.png', altText: 'Labor', label: 'Labores' },
   ];
 
