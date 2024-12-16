@@ -9,7 +9,7 @@ import { QrService } from '../../../../services/qr.service';
 export class QRComponent implements OnInit {
   qrCodeImage: string = '';
 
-  constructor(private qrService: QrService) {}  // Inyecta el servicio
+  constructor(private qrService: QrService) {}
 
   ngOnInit() {
     this.generateQRCode('http://localhost:4200/ordenTrabajo');
@@ -18,7 +18,7 @@ export class QRComponent implements OnInit {
 
   async generateQRCode(data: string) {
     try {
-      this.qrCodeImage = await this.qrService.generateQRCode(data);  // Llama al servicio
+      this.qrCodeImage = await this.qrService.generateQRCode(data);
     } catch (err) {
       console.error('Error al generar QR:', err);
     }

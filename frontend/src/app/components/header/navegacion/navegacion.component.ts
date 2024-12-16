@@ -15,7 +15,7 @@ export class NavegacionComponent {
   }
 
   register(){
-    this.router.navigate(['/register']);
+    this.router.navigate(['/registro']);
   }
 
   login(){

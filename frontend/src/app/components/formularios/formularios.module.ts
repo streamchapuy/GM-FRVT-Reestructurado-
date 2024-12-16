@@ -10,11 +10,9 @@ import { FormSectorComponent } from './form-sector/form-sector.component';
 import { FormTareasComponent } from './form-tareas/form-tareas.component';
 import { FormUbicacionComponent } from './form-ubicacion/form-ubicacion.component';
 import { FormUsuariosComponent } from './form-usuarios/form-usuarios.component';
-import { FormulariosComponent } from './formularios.component';
 
 @NgModule({
   declarations: [
-    FormulariosComponent,
     FormActivoComponent,
     FormEdificioComponent,
     FormPisoComponent,
@@ -30,7 +28,6 @@ import { FormulariosComponent } from './formularios.component';
     FormsModule
   ],
   exports: [
-    FormulariosComponent,
     FormActivoComponent,
     FormEdificioComponent,
     FormPisoComponent,

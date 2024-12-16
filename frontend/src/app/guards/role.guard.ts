@@ -10,7 +10,7 @@ export const roleGuard: CanActivateFn = (route) => {
   if (route.data['roles'].includes(userRole)) {
     return true;
   } else if (userRole === 'operario') {
-    router.navigate(['/home-operario'])
+    router.navigate(['/inicioOperario'])
   }
   return false;
 }
