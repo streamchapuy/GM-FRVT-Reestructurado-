@@ -2,15 +2,15 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
-import { IRegister } from '../../interfaces/iregister'; 
 import { CookieService } from 'ngx-cookie-service';
+import { IRegister } from '../../interfaces/iregister';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
+  styleUrls: ['./registro.component.css']
 })
-export class RegisterComponent {
+export class RegistroComponent {
   user: IRegister = {
     nombre: '',
     email: '',
@@ -23,10 +23,10 @@ export class RegisterComponent {
   imageUrl: string | ArrayBuffer | null = null;
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private authService: AuthService,
     private cookieService: CookieService
-  ) {}
+  ) { }
 
   register() {
     if (!this.user.email || !this.user.contrasena || !this.user.confirmPassword || !this.user.nombre || !this.user.tipo_usuario) {
@@ -34,8 +34,8 @@ export class RegisterComponent {
       return;
     }
 
-    if(this.user.tipo_usuario === ''){
-      
+    if (this.user.tipo_usuario === '') {
+
     }
 
     if (this.user.contrasena !== this.user.confirmPassword) {
@@ -46,10 +46,10 @@ export class RegisterComponent {
     console.log('Datos de usuario que se enviarán:', this.user);
 
     this.authService.register(this.user).subscribe(
-      (response: any) => {        
-          alert('Registro Exitoso');
-          this.goToLogin();
-       
+      (response: any) => {
+        alert('Registro Exitoso');
+        this.goToLogin();
+
       },
       (error: any) => {
         console.error('Error en el registro:', error);
@@ -75,7 +75,7 @@ export class RegisterComponent {
         this.user.imagenperfil = this.imageUrl as string;
       };
       reader.readAsDataURL(file);
-  }    
-      
+    }
+
   }
 }
