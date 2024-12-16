@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "starting": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "dev": "nodemon ./backend/index.js",
+    "start": "node ./backend/index.js",
     "test": "ng test"
   },
   "private": true,
