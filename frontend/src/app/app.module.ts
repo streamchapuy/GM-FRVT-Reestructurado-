@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -27,6 +27,7 @@ import { inicioOperarioComponent } from './pages/inicioOperario/inicioOperario.c
 import { LandingPageComponent } from './pages/landing/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { manejoErroresInterceptor } from './interceptors/manejoDeErrores.interceptor';
 import { RegistroComponent } from './pages/registro/registro.component';
 
 @NgModule({
@@ -60,9 +61,9 @@ import { RegistroComponent } from './pages/registro/registro.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [CookieService],
+  providers: [CookieService, provideHttpClient(withInterceptors([manejoErroresInterceptor]))],
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private cookieService: CookieService) {}
+  constructor() {}
 }

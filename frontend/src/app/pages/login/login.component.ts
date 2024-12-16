@@ -30,7 +30,7 @@ export class LoginComponent {
       },
       (error) => {
         console.error('Error en el login:', error);
-        alert('Error al iniciar sesión');
+        alert('Error al iniciar sesión, intente nuevamente.');
       }
     );
   }

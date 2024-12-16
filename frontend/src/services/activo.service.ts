@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Activo } from '../app/interfaces/activo';
+import { environment } from '../environments/environment.development';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class ActivoService {
-  private apiUrl = 'http://127.0.0.1:3307/API';
   private selectedActivoId = new BehaviorSubject<number | null>(null);
   selectedActivoId$ = this.selectedActivoId.asObservable();
 
@@ -18,27 +19,27 @@ export class ActivoService {
   }
 
   obtenerActivos(): Observable<Activo[]> {
-    return this.http.get<Activo[]>(`${this.apiUrl}/obtener_activos`);
+    return this.http.get<Activo[]>(`${environment.urlBase}/obtener_activos`);
   }
 
   obtenerActivoPorId(id_activo: number): Observable<Activo> {
-    return this.http.get<Activo>(`${this.apiUrl}/obtener_activo/${id_activo}`);
+    return this.http.get<Activo>(`${environment.urlBase}/obtener_activo/${id_activo}`);
   }
 
   crearActivo(activo: Activo): Observable<Activo> {
-    return this.http.post<Activo>(`${this.apiUrl}/crear_activo`, activo);
+    return this.http.post<Activo>(`${environment.urlBase}/crear_activo`, activo);
   }
 
   editarActivo(activo: Activo): Observable<Activo> {
     return this.http.patch<Activo>(
-      `${this.apiUrl}/editar_activo/${activo.id_activo}`,
+      `${environment.urlBase}/editar_activo/${activo.id_activo}`,
       activo
     );
   }
 
   eliminarActivo(id_activo: number): Observable<void> {
     return this.http.delete<void>(
-      `${this.apiUrl}/eliminar_activo/${id_activo}`
+      `${environment.urlBase}/eliminar_activo/${id_activo}`
     );
   }
 
