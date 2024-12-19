@@ -11,6 +11,6 @@ export class LandingPageComponent {
   constructor(private router: Router) {}
 
   redirigirARegistro() {
-    this.router.navigate(['/register']);
+    this.router.navigate(['/registro']);
   }
 }

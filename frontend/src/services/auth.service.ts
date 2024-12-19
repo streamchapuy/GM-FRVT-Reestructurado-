@@ -4,30 +4,35 @@ import { CookieService } from 'ngx-cookie-service';
 import { map, Observable } from 'rxjs';
 import { environment } from '../environments/environment.development';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  
   constructor(private http: HttpClient, private cookieService: CookieService) {}
 
   register(user: any): Observable<any> {
-    return this.http.post(`${environment.urlBase}/register`, user);
+    return this.http.post(`${environment.urlBase}/register`, user, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${this.getToken()}`,
+      }),
+    });
   }
 
   login(email: string, password: string): Observable<any> {
-    return this.http.post(`${environment.urlBase}/login`, { email, password }).pipe(
-      map((response: any) => {
-        const token = response?.token;
-        const tipo_usuario = response?.tipo_usuario;
-        if (token) {
-          this.setToken(token);
-          this.setUserRole(tipo_usuario);
-        }
-        return response;
-      })
-    );
+    return this.http
+      .post(`${environment.urlBase}/login`, { email, password })
+      .pipe(
+        map((response: any) => {
+          const token = response?.token;
+          const tipo_usuario = response?.tipo_usuario;
+          if (token) {
+            this.setToken(token);
+            this.setUserRole(tipo_usuario);
+          }
+          return response;
+        })
+      );
   }
   setToken(token: string): void {
     const expiryDate = new Date();

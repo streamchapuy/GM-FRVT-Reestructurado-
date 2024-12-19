@@ -7,7 +7,6 @@ const SECRET_KEY = process.env.SECRET_KEY;
 export const register_de_Usuario = async (req, res) => {
     const { nombre, email, contrasena, tipo_usuario } = req.body;
 
-    // Validar si los campos requeridos están presentes
     if (!nombre || !email || !contrasena || (tipo_usuario !== 'admin' && tipo_usuario !== 'operario')) {
         return res.status(400).json({ message: 'Todos los campos son obligatorios.' });
     }
@@ -24,7 +23,6 @@ export const register_de_Usuario = async (req, res) => {
 
         const token = jwt.sign({ userId: result.insertId }, SECRET_KEY, { expiresIn: '1h' });
 
-        // Crear objeto de respuesta
         const newUser = {
             id_usuario: result.insertId,
             nombre: nombre,
@@ -33,7 +31,6 @@ export const register_de_Usuario = async (req, res) => {
             token: token
         };
 
-        // Responder con éxito
         res.status(201).json({ message: 'Usuario registrado exitosamente', user: newUser });
     } catch (error) {
         console.error('Error en el proceso de registro: ', error);

@@ -20,7 +20,7 @@
                 <p>Activo:</p>
             </div>
             <div class="derecha">
-                <select name="activo" id="activo" [(ngModel)]="selectorActivo" (change)="CambiarActivo()">
+                <select name="activo" id="activo" [(ngModel)]="selectorActivo" (change)="CambiarActivo()" disabled>
                     <option *ngFor="let activo of activos" [value]="activo">{{activo}}</option>
                 </select>
             </div>
@@ -31,7 +31,7 @@
                 <p>Edificio</p>
             </div>
             <div class="derecha">
-                <select name="edificio" id="edificio" [(ngModel)]="orden.edificio">
+                <select name="edificio" id="edificio" [(ngModel)]="orden.edificio" disabled>
                     <option *ngFor="let edificio of edificios" [value]="edificios">{{edificio}}</option>
                 </select>
             </div>
@@ -42,7 +42,7 @@
                 <p>Sector</p>
             </div>
             <div class="derecha">
-                <select name="sector" id="sector" [(ngModel)]="orden.sector">
+                <select name="sector" id="sector" [(ngModel)]="orden.sector" disabled>
                     <option *ngFor="let sector of sectores" [value]="sectores">{{sector}}</option>
                 </select>
             </div>
@@ -53,7 +53,7 @@
                 <p>Piso</p>
             </div>
             <div class="derecha">
-                <select name="piso" id="piso" [(ngModel)]="orden.piso">
+                <select name="piso" id="piso" [(ngModel)]="orden.piso" disabled>
                     <option *ngFor="let piso of pisos" [value]="pisos"> {{piso}}</option>
                 </select>
             </div>
@@ -64,7 +64,7 @@
                 <p>Ubicacion</p>
             </div>
             <div class="derecha">
-                <select name="ubicacion" id="ubicacion" [(ngModel)]="orden.ubicacion">
+                <select name="ubicacion" id="ubicacion" [(ngModel)]="orden.ubicacion" disabled>
                     <option *ngFor="let ubicacion of ubicaciones" [value]="ubicaciones">{{ubicacion}}</option>
                 </select>
             </div>

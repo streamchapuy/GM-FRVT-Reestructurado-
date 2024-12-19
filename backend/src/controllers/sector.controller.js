@@ -38,9 +38,9 @@ WHERE
     tag.id_sector = ?;
 
 
-  
+
         `, [id_sector]);
-  
+
         console.log("Consulta ejecutada correctamente", rows);
         res.json(rows);
     } catch (error) {
@@ -50,7 +50,7 @@ WHERE
             error: error.message,
         });
     }
-  };
+};
 
 export const obtener_Sector_por_id = async (req, res) => {
     const { id_sector } = req.params;

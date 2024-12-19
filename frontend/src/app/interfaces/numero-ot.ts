@@ -14,5 +14,4 @@ export interface NumeroOT {
     fecha_finalizacion?: Date;
     tiempo_inicio?: Date;
     tiempo_finalizacion?: Date;
-     
 }

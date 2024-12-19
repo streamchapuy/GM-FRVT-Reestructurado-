@@ -1,9 +1,7 @@
 import jwt from 'jsonwebtoken';
+import { SECRET_KEY } from '../config.js';
 
-const secretKey = process.env.SECRET_KEY;
-
-
-const authenticateToken = (req, res, next) => {
+const auth = (req, res, next) => {
     const authHeader = req.headers['authorization'];
     const token = authHeader && authHeader.split(' ')[1];
 
@@ -11,7 +9,7 @@ const authenticateToken = (req, res, next) => {
         return res.status(401).json({ error: 'Token no proporcionado' });
     }
 
-    jwt.verify(token, secretKey, (err, user) => {
+    jwt.verify(token, SECRET_KEY, (err, user) => {
         if (err) {
             console.error('Error de verificación del JWT:', err);
             return res.status(403).json({ error: 'Token inválido' });
@@ -20,10 +18,8 @@ const authenticateToken = (req, res, next) => {
         req.user = user;
         req.token = token;
         req.userId = user.userId;
-
-        console.log('Usuario autenticado:', req.user);
         next();
     });
 };
 
-export default authenticateToken;
+export default auth;

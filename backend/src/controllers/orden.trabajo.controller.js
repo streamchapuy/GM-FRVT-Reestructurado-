@@ -1,6 +1,9 @@
 import { pool } from '../db.js';
 
+const parseDate = date => new Date(date).toISOString().slice(0, 19).replace('T', ' ');
+
 export const obtener_ordenes_de_Trabajo = async (req, res) => {
+    console.log(req.userId)
     try {
         const [rows] = await pool.query(`SELECT
     ot.id_ot,
@@ -36,8 +39,10 @@ JOIN cantidad c ON t.id_cantidad = c.id_cantidad
 JOIN usuarios us ON ot.id_usuarios = us.id_usuarios
 -- JOIN para obtener la descripción del Estado
 JOIN estado e ON ot.id_estado = e.id_estado
+WHERE
+    ot.id_usuarios = ?
 ORDER BY ot.fecha_creacion ASC;
-`);
+`, [req.userId]);
         res.json(rows);
     } catch (error) {
         return res.status(500).json({
@@ -66,29 +71,23 @@ export const obtener_ordene_de_Trabajo_por_id = async (req, res) => {
 };
 
 export const crear_ordenes_de_Trabajo = async (req, res) => {
-    const { id_tag, id_usuarios, id_estado, descripcion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion } = req.body;
+    const { id_tag, id_usuarios, id_estado, descripcion = 'Orden de trabajo', fecha_creacion = new Date(), fecha_finalizacion, tiempo_inicio, tiempo_finalizacion } = req.body;
 
-    // Validar campos obligatorios
     if (!id_tag || !id_usuarios || !id_estado || !descripcion) {
         return res.status(400).json({
             message: 'Campos obligatorios faltantes: id_tag, id_usuarios, id_estado, descripcion'
         });
     }
 
-    // Si la fecha de creación no es proporcionada, usar la fecha actual
-    const fecha_creacion = new Date(); // Asignar la fecha de creación como la fecha actual
-
     try {
-        // Insertar nueva orden de trabajo en la base de datos
         const [result] = await pool.query(
             'INSERT INTO orden_trabajo (id_tag, id_usuarios, id_estado, descripcion, fecha_creacion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
-            [id_tag, id_usuarios, id_estado, descripcion, fecha_creacion, fecha_finalizacion, tiempo_inicio, tiempo_finalizacion]
+            [id_tag, id_usuarios, id_estado, descripcion, parseDate(fecha_creacion), parseDate(fecha_finalizacion), parseDate(tiempo_inicio), parseDate(tiempo_finalizacion)]
         );
 
-        // Si se insertó correctamente, devolver el ID de la nueva orden de trabajo
         res.status(201).json({
             message: 'Orden de trabajo creada exitosamente',
-            id_ot: result.insertId // El ID auto-generado de la nueva orden
+            id_ot: result.insertId
         });
     } catch (error) {
         console.error(error);

@@ -9,7 +9,7 @@
         <p><strong>Descripción:</strong> {{ orden.descripcion }}</p>
         <p><strong>Operador:</strong> {{ orden.nombre_operario }}</p>
         <p><strong>Estado:</strong> {{ orden.estado_orden }}</p>
-        <p><strong>Fecha de Creación:</strong> {{ orden.fecha_creacion | date }}</p>
+        <p><strong>Fecha de Creación:</strong> {{ orden.fecha_creacion }}</p>
 
         <div *ngIf="ordenSeleccionada === orden" class="boton-seleccionar">
           <button class="seleccionar" (click)="redirigirAOrden()">Seleccionar</button>
