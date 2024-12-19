@@ -2,6 +2,7 @@
   <h2>Órdenes de Trabajo Creadas</h2>
 
   <div class="lista-ordenes-trabajo-container">
+    <button type="button" (click)="volver()">Volver</button>
     <h2>Lista de Órdenes de Trabajo</h2>
     <div class="table-container">
       <table>
@@ -32,6 +33,11 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div class="pagination-controls">
+      <button (click)="prevPage()" [disabled]="currentPage === 0">Anterior</button>
+      <span>Página {{ currentPage + 1 }} de {{ Math.ceil(numeroOT.length / itemsPerPage) }}</span>
+      <button (click)="nextPage()" [disabled]="currentPage >= (numeroOT.length / itemsPerPage) - 1">Siguiente</button>
     </div>
   </div>
 </div>

@@ -19,7 +19,6 @@ import { LandingInfo3Component } from './components/landing-informacion/landing-
 import { LandingInfo4Component } from './components/landing-informacion/landing-info-4/landing-info-4.component';
 import { CuerpoComponent } from './components/orden-trabajo/cuerpo/cuerpo.component';
 import { FechasComponent } from './components/orden-trabajo/fechas/fechas.component';
-import { QRComponent } from './components/orden-trabajo/qr/qr.component';
 import { SelectoresComponent } from './components/orden-trabajo/selectores/selectores.component';
 import { TareasComponent } from './components/orden-trabajo/tareas/tareas.component';
 import { inicioAdminComponent } from './pages/inicioAdmin/inicioAdmin.component';
@@ -47,7 +46,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
     LandingInfo4Component,
     TareasComponent,
     FechasComponent,
-    QRComponent,
+  
   ],
   imports: [
     BrowserModule,

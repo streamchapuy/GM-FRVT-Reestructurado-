@@ -1,0 +1,81 @@
+.botonDerecho {
+    position: relative;
+    top: 70%;
+    left: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: #0c486c;
+    border-radius: 25px 25px 25px 25px;
+    font: bold;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.botonIzquierdo {
+    position: relative;
+    top: 70%;
+    left: 30%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 200px;
+    height: 50px;
+    color: white;
+    background-color: #0c486c;
+    border-radius: 25px 25px 25px 25px;
+    font: bold;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .botonDerecho {
+        width: 20%;
+        height: 50px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        position: relative;
+        top: 25%;
+        left: 50%;
+    }
+    .botonIzquierdo {
+        width: 20%;
+        height: 50px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 20px;
+        position: relative;
+        top: 25%;
+        left: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .botonDerecho {
+        width: 100px;
+        height: 50px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 14px;
+        position: relative;
+        top: 25%;
+        left: 40%;
+    }
+    .botonIzquierdo {
+        width: 100px;
+        height: 50px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-size: 14px;
+        position: relative;
+        top: 25%;
+        left: 10%;
+    }
+}

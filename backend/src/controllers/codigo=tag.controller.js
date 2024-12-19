@@ -1,10 +1,11 @@
 import { pool } from "../db.js";
 
-export const obtener_codigos = async (req, res) => {
+export const obtener_codigos = async (_req, res) => {
   try {
     console.log("Ejecutando consulta SQL...");
     const [rows] = await pool.query(`
     SELECT
+    t.id_tag AS id_tag,
     a.abreviacion AS abreviatura_activo,
     LPAD(ed.id_edificio, 3, '0') AS edificio_id_formateado,
     LPAD(p.id_piso, 3, '0') AS piso_id_formateado,
@@ -19,10 +20,8 @@ JOIN piso p ON t.id_piso = p.id_piso
 JOIN sector s ON t.id_sector = s.id_sector
 JOIN activo a ON t.id_activo = a.id_activo
 JOIN ubicacion u ON t.id_ubicacion = u.id_ubicacion;
-
-
         `);
-    console.log("Consulta ejecutada correctamente", rows);
+    console.log("Consulta ejecutada correctamente, sample:", rows[0]);
     res.json(rows);
   } catch (error) {
     console.error("Error en el servidor:", error);

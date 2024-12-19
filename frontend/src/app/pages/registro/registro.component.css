@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    min-height: 71.7vh;
     height: 90%;
     padding: 10px;
     background-color: white;
@@ -107,6 +108,7 @@ select:focus {
     border: none;
     border-radius: 0px 10px 0px 10px;
     cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
 .btn-ingresar:hover {

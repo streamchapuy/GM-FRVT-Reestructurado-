@@ -1,8 +1,6 @@
 import cors from 'cors';
 import express from 'express';
-
-
-// import authenticateToken  from './middleware/authmiddleware.js';
+import auth  from './middleware/auth.js';
 
 // Ruta de logeo
 import accesoRoutes from './routes/acceso.autenticacion.routes.js';
@@ -22,9 +20,7 @@ import laborRoutes from './routes/labor.routes.js';
 import ubicacionRoutes from './routes/ubicacion.routes.js';
 import usuarioRutes from './routes/usuarios.routes.js';
 
-
 const app = express();
-
 const corsOptions = {
     origin: 'http://localhost:4200',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -36,19 +32,19 @@ app.use(cors(corsOptions))
 app.use(express.json())
 
 app.use('/API', accesoRoutes)
-app.use('/API', registroRoutes)
+app.use('/API', auth, registroRoutes)
 
-app.use('/API', ordenTrabajoRoutes)
-app.use('/API', edificioRoutes)
-app.use('/API', sectorRoutes)
-app.use('/API', ubicacionRoutes)
-app.use('/API', pisoRoutes)
-app.use('/API', activoRoutes)
-app.use('/API', tareaRoutes)
-app.use('/API', activotareaRoutes)
-app.use('/API', laborRoutes)
-app.use('/API', codigoRoutes)
-app.use('/API', usuarioRutes)
+app.use('/API', auth, ordenTrabajoRoutes)
+app.use('/API', auth, edificioRoutes)
+app.use('/API', auth, sectorRoutes)
+app.use('/API', auth, ubicacionRoutes)
+app.use('/API', auth, pisoRoutes)
+app.use('/API', auth, activoRoutes)
+app.use('/API', auth, tareaRoutes)
+app.use('/API', auth, activotareaRoutes)
+app.use('/API', auth, laborRoutes)
+app.use('/API', auth, codigoRoutes)
+app.use('/API', auth, usuarioRutes)
 
 app.use((_req, res) => {
     res.status(404).json({

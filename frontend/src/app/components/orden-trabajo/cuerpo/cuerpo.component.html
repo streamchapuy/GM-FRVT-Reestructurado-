@@ -1,4 +1,5 @@
-<app-selectores></app-selectores>
-<app-fechas></app-fechas>
+<app-selectores [orden]="selectorData"></app-selectores>
+<app-fechas [orden]="dateData"></app-fechas>
 <app-tareas></app-tareas>
-<app-qr></app-qr>
+<button class="botonIzquierdo" type="button" (click)="volver()">Volver</button>
+<button class="botonDerecho" (click)="CrearOt()">Cargar Orden</button>

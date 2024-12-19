@@ -3,21 +3,20 @@
         <div class="inicio">
             <p>Fecha de inicio</p>
         </div>
-        <input type="date" class="inicio-selector">
+        <input name="fecha_creacion" id="fecha_creacion" type="datetime-local" class="inicio-selector" [(ngModel)]="fechaCreacion" (change)="updateOrdenDate($event)">
     </div>
     <div class="fecha-final">
         <div class="fin">
             <p>Fecha de finalización</p>
         </div>
-        <input type="date" class="final-selector">
+        <input name="fecha_finalizacion" id="fecha_finalizacion" type="datetime-local" class="final-selector" [(ngModel)]="fechaFinalizacion" (change)="updateOrdenDate($event)">
     </div>
     <div class="operario">
         <div class="operario-selector">
             <p>Operario</p>
         </div>
-        <select name="operarios" id="operarios">
-            <option value="" disabled selected>Seleccione operario</option>
-            <option *ngFor="let usuario of usuarios" [value]="usuario.id_usuario">
+        <select name="operarios" id="operarios" [(ngModel)]="orden.usuario">
+            <option *ngFor="let usuario of usuarios" [value]="usuario.id_usuarios">
                 {{ usuario.nombre }}
             </option>
         </select>

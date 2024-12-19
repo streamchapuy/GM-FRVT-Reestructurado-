@@ -1,4 +1,5 @@
 export interface CodigoActivo {
+        id_tag: number,
         abreviatura_activo: string,
         edificio_id_formateado:number ,
         piso_id_formateado: number,

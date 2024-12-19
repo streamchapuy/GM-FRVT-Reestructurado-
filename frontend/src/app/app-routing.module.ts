@@ -35,9 +35,6 @@ const routes: Routes = [
   { path: 'inicioOperario', component: inicioOperarioComponent, canActivate: [roleGuard], data: { roles: ['operario'] } },
   { path: 'inicioAdmin', component: inicioAdminComponent, canActivate: [roleGuard], data: { roles: ['admin'] } },
   { path: '404', component: NotFoundComponent },
-
-  // { path: '', redirectTo: '/login', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/login' }
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 export interface Usuario {
-    id_usuario: number;
+    id_usuarios: number;
     nombre: string;
     email: string;
     tipo_usuario: 'admin' | 'operario';
